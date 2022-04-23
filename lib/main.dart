@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/login/view/login_screen.dart';
 
 void main() {
@@ -12,6 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      translations: LocaleString(),
+      locale: const Locale('en', 'US'),
       home: LoginScreen(),
     );
   }
