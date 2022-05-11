@@ -8,3 +8,7 @@ const darkGrey = Color(0xff42403D);
 const orange = Color(0xffF26C32);
 const blue = Color(0xff3278F2);
 const lightGrey = Color(0xffC4C4C4);
+const dropdownColor = Color(0xffF5F5F5);
+const lightGrey2 = Color(0xff9B9B9B);
+const blueLight = Color(0xff55A6F0);
+const blueLight2 = Color(0xff0E84F1);
