@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const white = Color(0xffFFFFFF);
-const grey = Color(0xff979797);
+const grey = Color(0xff9B9B9B);
 const black = Color(0xff000000);
 const fbButton = Color(0xff1877F2);
 const darkGrey = Color(0xff42403D);
@@ -12,3 +12,5 @@ const dropdownColor = Color(0xffF5F5F5);
 const lightGrey2 = Color(0xff9B9B9B);
 const blueLight = Color(0xff55A6F0);
 const blueLight2 = Color(0xff0E84F1);
+const lightWhite = Color(0xffF5F5F5);
+const verticalDividerColor = Color(0xffB9B9B9);

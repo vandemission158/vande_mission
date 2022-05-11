@@ -7,16 +7,26 @@ class TextLabel extends StatelessWidget {
   final Color? color;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final TextAlign? textAlign;
   const TextLabel(
-      {Key? key, this.title, this.color, this.fontSize, this.fontWeight})
+      {Key? key,
+      this.title,
+      this.color,
+      this.fontSize,
+      this.fontWeight,
+      this.textAlign})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title!.tr,
+      textAlign: textAlign,
       style: GoogleFonts.poppins(
-          fontSize: fontSize, fontWeight: fontWeight, color: color),
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+      ),
     );
   }
 }

@@ -27,6 +27,19 @@ class LocaleString extends Translations {
         'lets_add':"Let’s add family members",
         'family_number':"Family identity number",
         'this_will_be':"This will be generated once you add a family member",
+          'enter_otp': "Enter OTP",
+          'enter_mobile_number': "Mobile number",
+          'request_otp': "Request OTP",
+          'change_language': "Change Language",
+          'how_signup': "How would you like to Signup?",
+          'new_family': "New Family",
+          'let_add_family_members': "Let’s add family members",
+          'family_identity_number': "Family identity number",
+          'this_will_be': "This will be generated once you add a family member",
+          'start_add': "Start adding family members",
+          'once_you_add':
+              "Once you add family member, family id will be generated",
+          'add_member': "+ Add Member",
         }
       };
 }
