@@ -8,8 +8,8 @@ import '../helper/app_color.dart';
 class CustomButton extends StatelessWidget {
   final String? title;
   final Function? onTap;
-  final Color? color;
-  const CustomButton({Key? key, this.title, this.onTap, this.color})
+  final Color? color,gradientLeft,gradientRight;
+  const CustomButton({Key? key, this.title, this.onTap, this.color, this.gradientLeft, this.gradientRight})
       : super(key: key);
 
   @override
@@ -20,6 +20,11 @@ class CustomButton extends StatelessWidget {
           width: Constants.width(context),
           height: 55,
           decoration: BoxDecoration(
+            
+          gradient:  LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [gradientLeft!, gradientRight!]),
               color: color, borderRadius: BorderRadius.circular(15)),
           child: Center(
             child: Text(

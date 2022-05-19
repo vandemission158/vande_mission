@@ -24,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MainWidget(
+      color: white,
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Column(
@@ -148,6 +150,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               const CustomButton(
+                gradientLeft: orangeLight2,
+                gradientRight: orangeLight1,
                 title: "login",
                 color: orange,
               ),
@@ -163,56 +167,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               CustomButton(
+                gradientLeft: blueLight,
+                gradientRight: blueLight2,
                 title: "register_now",
                 color: blue,
-                onTap: () => controller.onTapRegister,
+                onTap: () => controller.onTapRegister(),
               ),
               const SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "change_language".tr,
-                    style: GoogleFonts.poppins(
-                        fontSize: 16, fontWeight: FontWeight.w400, color: blue),
-                  ),
-                  filled: true,
-                  hintStyle: TextStyle(color: Colors.grey[800]),
-                  hintText: "Type in your text",
-                  fillColor: Colors.white70),
-            ),
-            const CustomButton(
-              title: "login",
-              color: orange,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            const TextLabel(
-                title: "are_new_user",
-                color: lightGrey,
-                fontSize: 16,
-                fontWeight: FontWeight.w500),
-            SizedBox(
-              height: 10,
-            ),
-            CustomButton(
-              onTap: () => Get.to(() => AddFamilyMember()),
-              title: "register_now",
-              color: blue,
-            )
-          ],
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(downBlack)
-                ],
-              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  "change_language".tr,
+                  style: GoogleFonts.poppins(
+                      fontSize: 16, fontWeight: FontWeight.w400, color: blue),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Image.asset(downBlack)
+              ]),
             ],
           ),
         ),
-        color: white);
+      ),
+    );
   }
 }

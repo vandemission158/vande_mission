@@ -14,3 +14,5 @@ const blueLight = Color(0xff55A6F0);
 const blueLight2 = Color(0xff0E84F1);
 const lightWhite = Color(0xffF5F5F5);
 const verticalDividerColor = Color(0xffB9B9B9);
+const orangeLight2 = Color(0xffF0A055);
+const orangeLight1 = Color(0xffF1530E);

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
-      home: AddFamilyMember(),
+      home: LoginScreen(),
     );
   }
 }

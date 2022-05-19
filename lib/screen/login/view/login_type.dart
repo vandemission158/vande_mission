@@ -19,7 +19,7 @@ class LoginType extends StatelessWidget {
     return MainWidget(
       color: white,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Column(
           children: [
             Text(
@@ -56,9 +56,12 @@ class LoginType extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const CustomButton(
+            CustomButton(
+              gradientLeft: blueLight,
+              gradientRight: blueLight2,
               title: "Next",
               color: orange,
+              onTap: () => controller.onTapNext(),
             ),
           ],
         ),
