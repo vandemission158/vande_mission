@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
+import 'package:vande_mission/screen/home/view/homepage.dart';
 import 'package:vande_mission/widgets/main_widget.dart';
 import 'package:vande_mission/widgets/small_button.dart';
 import 'package:vande_mission/widgets/text_label.dart';
@@ -102,10 +104,13 @@ class AddFamilyMember extends StatelessWidget {
                   const SizedBox(
                     height: 25,
                   ),
-                  const SmallButton(
-                    title: "add_member",
-                    color: orange,
-                  )
+                  SmallButton(
+                      title: "add_member",
+                      color: orange,
+                      onTap: () {
+                        print("Hello");
+                        Get.to(HomePage());
+                      })
                 ],
               ),
             ),

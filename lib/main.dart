@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/local_string.dart';
+import 'package:vande_mission/screen/home/view/homepage.dart';
 import 'package:vande_mission/screen/login/view/add_family.dart';
 import 'package:vande_mission/screen/login/view/login_screen.dart';
 import 'package:vande_mission/screen/login/view/login_type.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
-      home: AddFamilyMember(),
+      home: HomePage(),
     );
   }
 }
