@@ -4,6 +4,8 @@ import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
+import 'package:vande_mission/screen/login/view/add_family_member.dart';
+import 'package:vande_mission/screen/login/view/register_family.dart';
 import 'package:vande_mission/screen/login/controller/login_screen_controller.dart';
 import 'package:vande_mission/screen/login/view/login_type.dart';
 import 'package:vande_mission/widgets/custom_button.dart';
@@ -22,6 +24,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MainWidget(
+      color: white,
+      child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Column(
@@ -146,6 +150,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               const CustomButton(
+                gradientLeft: orangeLight2,
+                gradientRight: orangeLight1,
                 title: "login",
                 color: orange,
               ),
@@ -161,30 +167,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               CustomButton(
+                gradientLeft: blueLight,
+                gradientRight: blueLight2,
                 title: "register_now",
                 color: blue,
-                onTap: () => controller.onTapRegister,
+                onTap: () => controller.onTapRegister(),
               ),
               const SizedBox(
                 height: 15,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "change_language".tr,
-                    style: GoogleFonts.poppins(
-                        fontSize: 16, fontWeight: FontWeight.w400, color: blue),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Image.asset(downBlack)
-                ],
-              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  "change_language".tr,
+                  style: GoogleFonts.poppins(
+                      fontSize: 16, fontWeight: FontWeight.w400, color: blue),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Image.asset(downBlack)
+              ]),
             ],
           ),
         ),
-        color: white);
+      ),
+    );
   }
 }
