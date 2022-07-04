@@ -17,6 +17,7 @@ class AddFamily extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainWidget(
+      color: white,
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -122,53 +123,10 @@ class AddFamily extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 100,
-                  ),
-                  Image.asset(chatVector),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  const TextLabel(
-                    title: "start_add",
-                    color: darkGrey,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 16,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const TextLabel(
-                    textAlign: TextAlign.center,
-                    title: "once_you_add",
-                    color: lightGrey,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
-                  SmallButton(
-                      title: "add_member",
-                      color: orange,
-                      onTap: () {
-                        print("Hello");
-                        Get.to(HomePage());
-                      })
-                ],
-              ),
-            ),
-          ],
             ],
           ),
         ),
       ),
-      color: white,
     );
   }
 }
