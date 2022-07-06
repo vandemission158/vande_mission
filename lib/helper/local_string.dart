@@ -60,6 +60,8 @@ class LocaleString extends Translations {
           'front_photo':"Front photo of aadhar card - upload",
           'tap_upload':"Tap to upload",
           'back_photo':"Back photo of aadhar card - upload",
+          'What_do_you_want_to_talk_about?':"What do you want to talk about?",
+          'vote_which_is_better?' : "Vote which is better?"
         }
       };
 }
