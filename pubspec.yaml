@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.1
   google_fonts: ^2.3.1
   dropdown_button2: ^1.4.0
+  linkfy_text: ^1.1.5
 
 dev_dependencies:
   flutter_test:

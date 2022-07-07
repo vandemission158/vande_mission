@@ -57,6 +57,9 @@ const String help = "assets/icons/help.png";
 const String aboutvandeMission = "assets/icons/about_vandeMission.png";
 const String developeroption = "assets/icons/developer_option.png";
 const String userCheck = "assets/icons/user_check.png";
+const String iGroup = "assets/icons/i_group.png";
+const String iconPlace = "assets/icons/place_icon.png";
+const String micIcon = "assets/icons/mic_icon.png";
 
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";

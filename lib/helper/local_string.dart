@@ -61,7 +61,14 @@ class LocaleString extends Translations {
           'tap_upload':"Tap to upload",
           'back_photo':"Back photo of aadhar card - upload",
           'What_do_you_want_to_talk_about?':"What do you want to talk about?",
-          'vote_which_is_better?' : "Vote which is better?"
+          'vote_which_is_better?' : "Vote which is better?",
+          'create_poll' : "Create Poll",
+          'gallery' : "Gallery",
+          'addVideo' : "Add Video",
+          'place' : "Place",
+          'addSome' : "Add Some",
+          'record' : "Record",
+          'post' : "Post"
         }
       };
 }
