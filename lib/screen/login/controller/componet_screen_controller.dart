@@ -39,6 +39,8 @@ class ComponetsScreenController extends GetxController{
     },
   ];
 
+
+///this list is bottom sheet color
  List<Color> bottomColor = [
   green.withOpacity(0.1),
   blue.withOpacity(0.1),
@@ -47,6 +49,7 @@ class ComponetsScreenController extends GetxController{
   green.withOpacity(0.1)
  ];
 
+///this list is bottomsheet text 
  List<String> textBottom = [
   "create_poll",
   "gallery",
@@ -55,6 +58,7 @@ class ComponetsScreenController extends GetxController{
   "add_some"
  ];
 
+///this list is bottom sheet icon
  List<String> icons = [
      iGroup,
      photos,
@@ -62,5 +66,13 @@ class ComponetsScreenController extends GetxController{
      iconPlace,
      iGroup
  ];
+
+///this image define is gridview
+ List<String> pollImages = [
+  pollFirstImage,
+  pollSecondImage
+ ];
+
+ int addIndex = 0;
 
 }

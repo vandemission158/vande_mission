@@ -68,7 +68,13 @@ class LocaleString extends Translations {
           'place' : "Place",
           'addSome' : "Add Some",
           'record' : "Record",
-          'post' : "Post"
+          'post' : "Post",
+          'vote_which_image_is_better?' : "Vote which image is better?",
+          'poll_options' : "Poll Options",
+          'add_option' : "+ Add Option",
+          'business' : "Business",
+          'location' : "Location",
+          'city' : "City"
         }
       };
 }
