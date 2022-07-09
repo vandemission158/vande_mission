@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 import '../../../helper/app_color.dart';
@@ -8,7 +9,9 @@ import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
 class LetsAddFamilyMember extends StatelessWidget {
-  const LetsAddFamilyMember({Key? key}) : super(key: key);
+   LetsAddFamilyMember({Key? key}) : super(key: key);
+
+  final LetsAddFamilyMemberController controller = Get.put(LetsAddFamilyMember());
 
   @override
   Widget build(BuildContext context) {
@@ -346,45 +349,43 @@ class LetsAddFamilyMember extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Image.asset(familyMember),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Image.asset(familyMember),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const [
+                                    TextLabel(
+                                      title: 'Jhon Doe',
+                                      fontSize: 12,
+                                      color: darkGrey,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    Icon(Icons.more_vert)
+                                  ],
+                                ),
+                                TextLabel(
+                                  title: 'Male',
+                                  fontSize: 12,
+                                  color: darkGrey.withOpacity(0.5),
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: const [
-                                      TextLabel(
-                                        title: 'Jhon Doe',
-                                        fontSize: 12,
-                                        color: darkGrey,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                      Icon(Icons.more_vert)
-                                    ],
-                                  ),
-                                  TextLabel(
-                                    title: 'Male',
-                                    fontSize: 12,
-                                    color: darkGrey.withOpacity(0.5),
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       Container(
                         child: Column(
@@ -596,11 +597,11 @@ class LetsAddFamilyMember extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomButton(
+             CustomButton(
               gradientLeft: orangeLight2,
               gradientRight: orangeLight1,
               title: "Next",
-              // onTap: () => controller.onTapNext(),
+               onTap: () => controller.onTapNext,
             ),
             const SizedBox(
               height: 20,
