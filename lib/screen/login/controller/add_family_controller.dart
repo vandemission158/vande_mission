@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/login/view/add_family_member.dart';
-import 'package:vande_mission/screen/login/view/register_family.dart';
+
+import '../view/lets_add_family_member.dart';
 
 class AddFamilyController extends GetxController {
   void onTapAdd() {
-    Get.to(() => AddFamilyMember());
+    Get.to(() => const LetsAddFamilyMember());
   }
 }

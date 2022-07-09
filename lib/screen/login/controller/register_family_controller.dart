@@ -1,16 +1,17 @@
 import 'dart:ffi';
 
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/login/view/add_family.dart';
-import 'package:vande_mission/screen/login/view/add_family_member.dart';
-import 'package:vande_mission/screen/login/view/add_society.dart';
+
+import '../view/lets_add_family.dart';
+import '../view/register_new_society.dart';
+
 
 class RegisterFamilyController extends GetxController {
   void onTapNext() {
-    Get.to(() => AddFamily());
+    Get.to(() => LetsAddFamily());
   }
 
-  void onTapSave() {
-    Get.to(() => AddSociety());
+  void onTapNewSociety() {
+    Get.to(() => RegisterNewSociety());
   }
 }

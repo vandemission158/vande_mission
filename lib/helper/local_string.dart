@@ -60,6 +60,23 @@ class LocaleString extends Translations {
           'front_photo':"Front photo of aadhar card - upload",
           'tap_upload':"Tap to upload",
           'back_photo':"Back photo of aadhar card - upload",
+          'already_registered_family':"Already registered family",
+          'society_registration':"Society Registration",
+          'select_state':"Select state",
+          'search_state':"Search state",
+          'search_country':"Search country",
+          'search_village':"Search village",
+          'select_country':"Select country",
+          'select_district':"Select district",
+          'select_village':"Select village",
+          'add_new_society':"+ Add New Society",
+          'select_society':"Select rociety",
+          'search_society':"Search rociety",
+          'select_religion':"Select religion",
+          'search_religion':"Search religion",
+
+
+
         }
       };
 }

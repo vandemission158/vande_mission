@@ -10,8 +10,8 @@ import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/constant.dart';
 
-class AddFamily extends StatelessWidget {
-  AddFamily({Key? key}) : super(key: key);
+class LetsAddFamily extends StatelessWidget {
+  LetsAddFamily({Key? key}) : super(key: key);
 
   final AddFamilyController controller = Get.put(AddFamilyController());
   @override
