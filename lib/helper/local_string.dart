@@ -78,6 +78,9 @@ class LocaleString extends Translations {
           'enter_your_business_information' : 'Enter your Business Information',
           'type' : 'Type',
           'company' : 'Company',
+          'company_name' : 'Company Name',
+          'business_name' : 'Business Name',
+          'business_address' : 'Business Address',
         }
       };
 }
