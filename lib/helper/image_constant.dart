@@ -60,6 +60,7 @@ const String userCheck = "assets/icons/user_check.png";
 const String iGroup = "assets/icons/i_group.png";
 const String iconPlace = "assets/icons/place_icon.png";
 const String micIcon = "assets/icons/mic_icon.png";
+const String playIcon = "assets/icons/play.png";
 
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";

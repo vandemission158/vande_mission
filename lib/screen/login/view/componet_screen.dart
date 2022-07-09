@@ -346,8 +346,84 @@ class ComponetsScreen extends StatelessWidget {
                 ),
               ),
            ),
-
-            const SizedBox(height: 300,)
+             Padding(
+               padding: const EdgeInsets.only(top:10),
+               child: TextLabel(
+                title: 'what_do_you_want_to_talk_about?',
+                 color: lableColor.withOpacity(0.4),
+                 fontSize: 16,
+                 fontWeight: FontWeight.w400,
+            ),
+             ),
+               const Padding(
+               padding: EdgeInsets.only(top:10),
+               child: TextLabel(
+                title: 'Checkout this video',
+                 color: black,
+                 fontSize: 16,
+                 fontWeight: FontWeight.w400,
+            ),
+             ),
+             Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top:20),
+                  child: Image.asset(videoImage),
+                ),
+                Positioned(
+                  top: 20,
+                  bottom: 20,
+                  left: 20,right: 20,
+                  child: Image.asset(playIcon))                
+                ]),
+          Padding(
+               padding: const EdgeInsets.only(top:15),
+               child: TextLabel(
+                title: 'what_do_you_want_to_talk_about?',
+                 color: lableColor.withOpacity(0.4),
+                 fontSize: 16,
+                 fontWeight: FontWeight.w400,
+            ),
+             ),
+             const Padding(
+               padding: EdgeInsets.only(top:10),
+               child: TextLabel(
+                title: 'My home interior ideas and concepts',
+                 color: black,
+                 fontSize: 16,
+                 fontWeight: FontWeight.w400,
+            ),
+             ),
+             Padding(
+               padding: const EdgeInsets.only(top:10),
+               child: SizedBox(
+                height: 150,
+                 child: ListView.builder(
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: ((context, index) {
+                   return Stack(
+                            children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(right:10),
+                                    child: Image.asset(
+                                    componetsScreenController.pollImages[index],fit: BoxFit.cover,),
+                                  ),
+                                  Positioned(
+                                    top: 15,right: 20,
+                                    child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: white,
+                                      shape: BoxShape.circle),
+                                    child: const Icon(Icons.close,size: 15,),
+                                  ))
+                                ],
+                          );
+                 }),),
+               ),
+             ),
+           SizedBox(height:MediaQuery.of(context).size.height/2.5,)
             ],
           ),
         ),
