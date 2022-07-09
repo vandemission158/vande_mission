@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/login/view/choose_family_member.dart';
+import 'package:vande_mission/screen/login/view/skill_screen.dart';
 
 class ChooseFamilyController extends GetxController{
 
@@ -29,5 +30,9 @@ class ChooseFamilyController extends GetxController{
 ];
 
   String dropdownvalue = "Father";
+
+  skillScreenMove(){
+    Get.to(SkillScreen());
+  }
 
 }

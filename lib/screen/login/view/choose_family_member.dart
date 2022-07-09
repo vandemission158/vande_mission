@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/choose_family_controller.dart';
 
 import '../../../helper/app_color.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
 class ChosseFamilyMember extends StatelessWidget {
@@ -103,6 +104,18 @@ class ChosseFamilyMember extends StatelessWidget {
                     ),
                   );
                 }),
+                 Padding(
+               padding: const EdgeInsets.only(top:20),
+               child: CustomButton(
+                  gradientLeft: blueLight,
+                  gradientRight: blueLight2,
+                  title: "Save & Next",
+                  color: blue,
+                  onTap: () {
+                    chooseFamilyController.skillScreenMove();
+                  },
+                ),
+             ),
             ],
           ),
         ),
