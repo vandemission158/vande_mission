@@ -74,7 +74,10 @@ class LocaleString extends Translations {
           'add_option' : "+ Add Option",
           'business' : "Business",
           'location' : "Location",
-          'city' : "City"
+          'city' : "City",
+          'enter_your_business_information' : 'Enter your Business Information',
+          'type' : 'Type',
+          'company' : 'Company',
         }
       };
 }

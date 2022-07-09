@@ -15,8 +15,18 @@ class ComponetsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right:15),
+            child: Icon(Icons.close,color: black,),
+          )
+        ],
+      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 40, left: 14, right: 14),
+        padding: const EdgeInsets.only(left: 14, right: 14),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,18 +59,19 @@ class ComponetsScreen extends StatelessWidget {
               for (var i = 0; i < componetsScreenController.texts.length; i++)
                 Padding(
                     padding: const EdgeInsets.only(top: 14),
-                    child: LinkifyText(
-                      componetsScreenController.text,
-                      // componetsScreenController.texts[i]['text'],
-                      textAlign: TextAlign.left,
-                      linkTypes: componetsScreenController.texts[i]['types'],
-                      // textStyle: textStyle,
-                      // linkStyle: textStyle.copyWith(
-                      //   color: Colors.blue,
-                      //   fontWeight: FontWeight.bold,
-                      // ),
-                      // onTap: (link) =>
-                      //     showSnackbar("link pressed: ${link.value!}"),
+                    child: Row(
+                      children: [
+                        LinkifyText(
+                          componetsScreenController.text,
+                          // componetsScreenController.texts[i]['text'],
+                          textAlign: TextAlign.left,
+                          linkTypes: componetsScreenController.texts[i]['types'],
+                         // textStyle: const TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w500),
+                          linkStyle: const TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w500),
+                          // onTap: (link) =>
+                          //     showSnackbar("link pressed: ${link.value!}"),
+                        ),
+                      ],
                     )),
               const Padding(
                 padding: EdgeInsets.only(top: 10,bottom: 10),

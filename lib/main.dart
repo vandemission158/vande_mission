@@ -6,6 +6,7 @@ import 'package:vande_mission/screen/login/view/add_family.dart';
 import 'package:vande_mission/screen/login/view/componet_screen.dart';
 import 'package:vande_mission/screen/login/view/login_screen.dart';
 import 'package:vande_mission/screen/login/view/login_type.dart';
+import 'package:vande_mission/screen/login/view/tutorial_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
       // home: AddFamily(),
-      home:  ComponetsScreen(),
+      //home:  ComponetsScreen(),
+     home:  TutorialScreen(),
     );
   }
 }
