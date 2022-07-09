@@ -4,6 +4,6 @@ import '../view/lets_add_family_member.dart';
 
 class LetsAddFamilyController extends GetxController {
   void onTapAdd() {
-    Get.to(() => const LetsAddFamilyMember());
+    Get.to(() =>  LetsAddFamilyMember());
   }
 }
