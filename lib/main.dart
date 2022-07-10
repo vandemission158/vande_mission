@@ -4,6 +4,7 @@ import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/home/view/homepage.dart';
 import 'package:vande_mission/screen/login/view/add_family.dart';
 import 'package:vande_mission/screen/login/view/componet_screen.dart';
+import 'package:vande_mission/screen/login/view/create_book.dart';
 import 'package:vande_mission/screen/login/view/login_screen.dart';
 import 'package:vande_mission/screen/login/view/login_type.dart';
 import 'package:vande_mission/screen/login/view/tutorial_screen.dart';
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       // home: AddFamily(),
       //home:  ComponetsScreen(),
-     home:  TutorialScreen(),
+     //home:  TutorialScreen(),
+     home:  CreateBookScreen(),
     );
   }
 }
