@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/create_book_controller.dart';
 
 import '../../../helper/app_color.dart';
+import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
 class CreateBookScreen extends StatelessWidget {
@@ -379,6 +380,44 @@ class CreateBookScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                         ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top:10),
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                color: lightWhite,
+                borderRadius: BorderRadius.circular(10)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left:12,right: 12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    TextLabel(
+                      title: "Tap to upload",
+                      color: vandeColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    Icon(Icons.file_upload_outlined)
+                  ],
+                ),
+              ),
+              ),
+            ),
+             Padding(
+               padding: const EdgeInsets.only(top:20),
+               child: CustomButton(
+                  gradientLeft: blueLight,
+                  gradientRight: blueLight2,
+                  title: "Create",
+                  color: blue,
+                  onTap: () {
+                    createBookController.addChepterMove();
+                  },
+                ),
+             ),
              const SizedBox(height: 20,)
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:vande_mission/screen/login/view/add_chapeter.dart';
 
 class CreateBookController extends GetxController{
 
@@ -9,5 +10,9 @@ var items = [
 ];
 
   String dropdownvalue = "English";
+
+  addChepterMove(){
+    Get.to(AddChapertScreen());
+  }
 
 }
