@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/login/controller/new_offer_controller.dart';
+import 'package:vande_mission/screen/login/controller/create_bloag_controller.dart';
 
 import '../../../helper/app_color.dart';
-import '../../../helper/image_constant.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
-class NewOfferScreen extends StatelessWidget {
-   NewOfferScreen({Key? key}) : super(key: key);
+class CreateBlogScreen extends StatelessWidget {
+   CreateBlogScreen({Key? key}) : super(key: key);
 
-   final NewOfferController newOfferController = Get.put(NewOfferController());
+  final BloagController bloagController = Get.put(BloagController());
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class NewOfferScreen extends StatelessWidget {
              crossAxisAlignment: CrossAxisAlignment.start,
             children: [
                const TextLabel(
-                    title: 'New Offer',
+                    title: 'Create a New Blog',
                     color: missonColor,
                     fontSize: 24,
                     fontWeight: FontWeight.w700,
@@ -37,7 +36,7 @@ class NewOfferScreen extends StatelessWidget {
                      const Padding(
               padding: EdgeInsets.only(top:10),
               child: TextLabel(
-                title: "Offer Title",
+                title: "Blog Title",
                 color: lightGrey,
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -65,7 +64,7 @@ class NewOfferScreen extends StatelessWidget {
               const Padding(
               padding: EdgeInsets.only(top:10),
               child: TextLabel(
-                title: "Offer Promocode (Optional)",
+                title: "Blog Keywords",
                 color: lightGrey,
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
@@ -83,126 +82,13 @@ class NewOfferScreen extends StatelessWidget {
           child: TextField(
            decoration:InputDecoration(
             border: InputBorder.none,
-            hintText: "A5CKVM",
+            hintText: "Keyword",
             hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
            )
           ),
         ),
           ),
-             ),
-              Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Row(
-                children: [
-                     Expanded(
-                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const TextLabel(
-                            title: "Start Date",
-                            color: lightGrey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: dropdownColor,
-                              borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left:12),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  suffixIcon: Icon(Icons.calendar_month),
-                                  hintText: "24/02/2002",
-                                  hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400) 
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                       ),
-                     ),
-                     const SizedBox(width: 12,),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const TextLabel(
-                            title: "End Date",
-                            color: lightGrey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: dropdownColor,
-                              borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.only(left:12),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  suffixIcon: Icon(Icons.calendar_month),
-                                  border: InputBorder.none,
-                                  hintText: "24/02/2002 ",
-                                  hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400) 
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                       ),
-                     ),
-                ],
-               ),
-             ),
-             const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: TextLabel(
-                          title: "Offer Category",
-                          color: lightGrey2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                        ),
-            ),
-             Padding(
-               padding: const EdgeInsets.only(top:10),
-               child: Container(
-                height: 50,width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: lightWhite
-                ),
-                 child: Padding(
-                   padding: const EdgeInsets.only(left:10,right: 10),
-                   child: DropdownButtonFormField<String>(
-                    decoration: const InputDecoration(
-                      enabledBorder: InputBorder.none, 
-                    ),
-                      // Initial Value
-                      value: newOfferController.dropdownvalue,
-                      // Down Arrow Icon
-                      icon: const Icon(Icons.keyboard_arrow_down), 
-                      borderRadius: BorderRadius.circular(20),  
-                      // Array list of items
-                      items: newOfferController.items.map((String items) {
-                        return DropdownMenuItem(
-                          value: items,
-                          child: Text(items),
-                        );
-                      }).toList(),
-                      // After selecting the desired option,it will
-                      // change button value to selected value
-                      onChanged: (String? newValue) {
-                          newOfferController.dropdownvalue = newValue!;
-                      },
-                    ),
-                 ),
-               ),
-             ),
-
+             ),             
               const Padding(
               padding: EdgeInsets.only(top:10),
               child: TextLabel(
@@ -222,7 +108,7 @@ class NewOfferScreen extends StatelessWidget {
         child: const Padding(
           padding: EdgeInsets.only(left:20),
           child: TextField(
-            maxLines: 5,
+            maxLines: 10,
            decoration:InputDecoration(
             border: InputBorder.none,
             hintText: "Write here",
@@ -310,7 +196,7 @@ class NewOfferScreen extends StatelessWidget {
                   title: "Create",
                   color: blue,
                   onTap: () {
-                    newOfferController.createBlogMove();
+                    bloagController.newBroadCastMove();
                   },
                 ),
              ),
