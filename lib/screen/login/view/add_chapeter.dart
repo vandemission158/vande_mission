@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:vande_mission/screen/login/controller/add_chapeter_controller.dart';
 
 import '../../../helper/app_color.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
 class AddChapertScreen extends StatelessWidget {
-  const AddChapertScreen({Key? key}) : super(key: key);
+ AddChapertScreen({Key? key}) : super(key: key);
+
+  final AddChapterController addChapterController = Get.put(AddChapterController());
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +133,7 @@ class AddChapertScreen extends StatelessWidget {
                   title: "Add",
                   color: blue,
                   onTap: () {
-                    
+                    addChapterController.createNewGroupScreen();
                   },
                 ),
              ),

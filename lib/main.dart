@@ -7,6 +7,7 @@ import 'package:vande_mission/screen/login/view/componet_screen.dart';
 import 'package:vande_mission/screen/login/view/create_book.dart';
 import 'package:vande_mission/screen/login/view/login_screen.dart';
 import 'package:vande_mission/screen/login/view/login_type.dart';
+import 'package:vande_mission/screen/login/view/new_product.dart';
 import 'package:vande_mission/screen/login/view/tutorial_screen.dart';
 
 void main() {
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       // home: AddFamily(),
       //home:  ComponetsScreen(),
      //home:  TutorialScreen(),
-     home:  CreateBookScreen(),
+     //home:  CreateBookScreen(),
+     home:  NewProductScreen(),
     );
   }
 }

@@ -87,3 +87,4 @@ const String mapImage = "assets/images/map1.png";
 const String familyImage1 = "assets/images/family_1.png";
 const String familyImage2 = "assets/images/family_2.png";
 const String familyImage3 = "assets/images/family_3.png";
+const String joinImage = "assets/images/join_profile.png";
