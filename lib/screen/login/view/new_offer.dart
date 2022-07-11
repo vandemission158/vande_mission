@@ -114,7 +114,7 @@ class NewOfferScreen extends StatelessWidget {
                               child: TextField(
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  suffixIcon: Icon(Icons.calendar_month),
+                                  suffixIcon: Icon(Icons.calendar_month,color: orange,),
                                   hintText: "24/02/2002",
                                   hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400) 
                                 ),
@@ -144,7 +144,7 @@ class NewOfferScreen extends StatelessWidget {
                               padding: EdgeInsets.only(left:12),
                               child: TextField(
                                 decoration: InputDecoration(
-                                  suffixIcon: Icon(Icons.calendar_month),
+                                  suffixIcon: Icon(Icons.calendar_month,color: orange,),
                                   border: InputBorder.none,
                                   hintText: "24/02/2002 ",
                                   hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400) 

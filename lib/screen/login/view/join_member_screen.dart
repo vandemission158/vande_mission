@@ -45,121 +45,209 @@ class JoinMemberScreen extends StatelessWidget {
                 ],
              ),
            ),
-           body: Column(
-             children: [
-               Padding(
-                 padding: const EdgeInsets.only(left:16,right: 16,top: 70),
-                 child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        TextLabel(
-                          title:"Group Name" ,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        TextLabel(
-                          title:"Created at 05 March 2022 5:00AM" ,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: black.withOpacity(0.4),
-                          )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top:20),
-                      child: Container(
-                        height: 50,width:MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                           color: dropdownColor,
-                           borderRadius: BorderRadius.circular(15)
-                        ),
-                        child: Row(children: const [
-                          SizedBox(width: 10,),
-                          Icon(Icons.person_pin_circle_outlined,color: orange,),
-                          SizedBox(width: 10,),
-                          SizedBox(
-                            width: 280,
-                            child: TextLabel(
-                              title: "Shivalik 7 building near rambag, Maninagar, Ahmedabad, Gujarat 380008",
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        ]),
+           body: SingleChildScrollView(
+             child: Column(
+               children: [
+                 Padding(
+                   padding: const EdgeInsets.only(left:16,right: 16,top: 70),
+                   child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          TextLabel(
+                            title:"Group Name" ,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            )
+                        ],
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top:20),
-                      child: Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: dropdownColor,
-                          borderRadius: BorderRadius.circular(15)
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Row(
-                              children: const [
-                                Icon(Icons.notifications,color: orange,),
-                                SizedBox(width: 10,),
-                                TextLabel(
-                                  title: "Group’s Bank Information",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                )
-                              ],
-                            ),
-                            const Icon(Icons.arrow_forward_ios,color: blue,)
-                          ],
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          TextLabel(
+                            title:"Created at 05 March 2022 5:00AM" ,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: black.withOpacity(0.4),
+                            )
+                        ],
                       ),
-                    ),
                       Padding(
-                      padding: const EdgeInsets.only(top:20),
-                      child: Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          color: dropdownColor,
-                          borderRadius: BorderRadius.circular(15)
+                        padding: const EdgeInsets.only(top:20),
+                        child: Container(
+                          height: 50,width:MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                             color: dropdownColor,
+                             borderRadius: BorderRadius.circular(15)
+                          ),
+                          child: Row(children: const [
+                            SizedBox(width: 10,),
+                            Icon(Icons.person_pin_circle_outlined,color: orange,),
+                            SizedBox(width: 10,),
+                            SizedBox(
+                              width: 280,
+                              child: TextLabel(
+                                title: "Shivalik 7 building near rambag, Maninagar, Ahmedabad, Gujarat 380008",
+                                fontSize: 11,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            )
+                          ]),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Row(
-                              children: const [
-                                Icon(Icons.notifications,color: orange,),
-                                SizedBox(width: 10,),
-                                TextLabel(
-                                  title: "Group’s Donation Fund",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top:20),
+                        child: Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: dropdownColor,
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                children: const [
+                                  Icon(Icons.notifications,color: orange,),
+                                  SizedBox(width: 10,),
+                                  TextLabel(
+                                    title: "Group’s Bank Information",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  )
+                                ],
+                              ),
+                              const Icon(Icons.arrow_forward_ios,color: blue,)
+                            ],
+                          ),
+                        ),
+                      ),
+                        Padding(
+                        padding: const EdgeInsets.only(top:20),
+                        child: Container(
+                          height: 50,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: dropdownColor,
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                children: const [
+                                  Icon(Icons.notifications,color: orange,),
+                                  SizedBox(width: 10,),
+                                  TextLabel(
+                                    title: "Group’s Donation Fund",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  )
+                                ],
+                              ),
+                              const Icon(Icons.arrow_forward_ios,color: blue,)
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                   ),
+                 ),
+                   const Padding(
+                     padding: EdgeInsets.only(top:10),
+                     child: Divider(color: orange,),
+                   ),
+                   Padding(
+                     padding: const EdgeInsets.only(left:16,right: 16,top: 10),
+                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         Padding(
+                           padding: const EdgeInsets.only(top:10),
+                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: const [
+                               TextLabel(
+                                title: "Group Member",
+                                color: missonColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                               ),
+                               TextLabel(
+                                title: "+ Add Member",
+                                color: orange,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                               )
+                            ],
+                           ),
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.only(top:15),
+                           child: Container(
+                  decoration: BoxDecoration(
+                      color: dropdownColor,
+                      borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: const Padding(
+                      padding: EdgeInsets.only(left:10),
+                      child: TextField(
+                       decoration:InputDecoration(
+                        border: InputBorder.none,
+                        suffixIcon: Icon(Icons.filter_alt),
+                        prefixIcon: Icon(Icons.search),
+                        hintText: "Search",
+                        hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
+                       )
+                      ),
+                  ),
+                      ),
+                         ),
+                         ListView.builder(
+                          itemCount: 4,
+                          shrinkWrap: true,
+                          itemBuilder: (BuildContext context,index){
+                          return Padding(
+                            padding: const EdgeInsets.only(top:10),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  height: 50,width: 50,
+                                  child: Image.asset(familyImage1)),
+                                Padding(
+                                  padding: const EdgeInsets.only(left:16),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: const [
+                                      TextLabel(
+                                        title: "John Doe",
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      TextLabel(
+                                        title: "Male",
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(left:150),
+                                  child: Icon(Icons.close),
                                 )
                               ],
                             ),
-                            const Icon(Icons.arrow_forward_ios,color: blue,)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                 ),
-               ),
-                 const Padding(
-                   padding: EdgeInsets.only(top:10),
-                   child: Divider(color: orange,),
-                 ),
-                  const SizedBox(height: 20,)
-             ],
+                          );
+                         })
+                       ],
+                     ),
+                   ),
+                    const SizedBox(height: 20,)
+               ],
+             ),
            ),
         ),
            Positioned(
