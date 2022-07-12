@@ -4,7 +4,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/screen/login/controller/stepper_controller.dart';
+import 'package:vande_mission/screen/login/view/create_job_second.dart';
 import 'package:vande_mission/widgets/text_label.dart';
+
+import '../../../widgets/custom_button.dart';
 
 class CreateJobFirst extends StatelessWidget {
    CreateJobFirst({Key? key}) : super(key: key);
@@ -298,6 +301,24 @@ class CreateJobFirst extends StatelessWidget {
                               )).toList(),
                             ),
                           ),
+                           Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                             children: [
+                               SizedBox(
+                                width: 100,
+                                height: 50,
+                                 child: CustomButton(
+                  gradientLeft: blueLight,
+                  gradientRight: blueLight2,
+                  title: "Next",
+                  color: blue,
+                  onTap: () {
+                   Get.to(CreateJobSecond());
+                  },
+                ),
+                               ),
+                             ],
+                           ),
                    const SizedBox(height: 20,),
               ],
             ),
@@ -305,5 +326,5 @@ class CreateJobFirst extends StatelessWidget {
         ),
       ),
     );
-  }
+  } 
 }
