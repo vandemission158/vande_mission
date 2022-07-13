@@ -61,7 +61,8 @@ class StepperScreen extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         // Increment activeStep, when the next button is tapped. However, check for upper bound.
-        if (stepperController.activeStep < stepperController.upperBound) {
+        if (stepperController.activeStep < stepperController.upperBound) 
+          {
             stepperController.activeStep++;
           }
       },

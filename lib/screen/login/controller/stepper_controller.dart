@@ -25,6 +25,8 @@ var items = [
       allChips.removeWhere((element) => element.id == id);
   }
 
+  int stepperIndex = 1;
+
 }
 
 /// Data model for a chip

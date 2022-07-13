@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       //home:  ComponetsScreen(),
      //home:  TutorialScreen(),
     // home:  CreateBookScreen(),
-    // home:  NewProductScreen(),
+    //home:  NewProductScreen(),
      home:  CreateJobFirst(),
     );
   }

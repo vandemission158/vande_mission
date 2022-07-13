@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/create_bloag_controller.dart';
+import 'package:vande_mission/screen/login/controller/stepper_controller.dart';
 
 import '../../../helper/app_color.dart';
 import '../../../widgets/custom_button.dart';
@@ -12,6 +13,7 @@ class CreateBlogScreen extends StatelessWidget {
    CreateBlogScreen({Key? key}) : super(key: key);
 
   final BloagController bloagController = Get.put(BloagController());
+  final StepperController stepperController = Get.put(StepperController());
 
   @override
   Widget build(BuildContext context) {
@@ -71,24 +73,76 @@ class CreateBlogScreen extends StatelessWidget {
               ),
             ),
              Padding(
-               padding: const EdgeInsets.only(top:10),
-               child: Container(
-        decoration: BoxDecoration(
-          color: dropdownColor,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.only(left:20),
-          child: TextField(
-           decoration:InputDecoration(
-            border: InputBorder.none,
-            hintText: "Keyword",
-            hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
-           )
-          ),
-        ),
-          ),
-             ),             
+                                   padding: const EdgeInsets.only(top:10),
+                                   child: Container(
+                            decoration: BoxDecoration(
+                              color: dropdownColor,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child:  Padding(
+                              padding: const EdgeInsets.only(left:10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: TextField(
+                                      controller: stepperController.skill,
+                                     decoration:const InputDecoration(
+                                      border: InputBorder.none,
+                                      hintText: "Keyword",
+                                      hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
+                                     )
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:10,right: 10),
+                                    child: Expanded(
+                                      child: InkWell(
+                                        onTap: (){
+                                          stepperController.allChips.add(ChipData(
+                                        id: DateTime.now().toString(),
+                                        name: stepperController.skill.text));
+                                         // reset the TextField
+                                         stepperController.skill.text = '';
+                                        },
+                                        child: const TextLabel(
+                                          title: "Add",
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: orange,
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                              ),
+                                 ),
+                                 const Padding(
+                                   padding: EdgeInsets.only(top:10,bottom: 10),
+                                   child: TextLabel(
+                                    title:"Added",
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                   ),
+                                 ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top:10),
+                                    child: Wrap(
+                                      spacing: 10,
+                                      children: stepperController.allChips
+                                          .map((chip) => Chip(
+                                        key: ValueKey(chip.id),
+                                        label: Text(chip.name,style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w600),),
+                                        padding:
+                                        const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+                                        deleteIconColor: blue,
+                                        onDeleted: () {
+                                          stepperController.deleteChip(chip.id);
+                                        },
+                                      )).toList(),
+                                    ),
+                                  ),           
               const Padding(
               padding: EdgeInsets.only(top:10),
               child: TextLabel(
