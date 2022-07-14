@@ -39,6 +39,8 @@ dependencies:
   dropdown_button2: ^1.4.0
   drop_down_list: ^0.0.2
   dropdown_search: ^5.0.2
+  dio: ^4.0.6
+  encrypt: ^5.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

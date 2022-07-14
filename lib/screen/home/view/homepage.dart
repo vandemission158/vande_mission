@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/app_color.dart';
+import 'package:vande_mission/screen/home/controller/homepage_controller.dart';
 
 import '../../../helper/constant.dart';
 import '../../../helper/image_constant.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -767,52 +769,58 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: Column(
-          children: [
-            annoncementCard(context),
-            advertisementCard(),
-            offerCard(),
-            bookCard(),
-            propertyCard(),
-            productCard(),
-            jobsCard(),
-            videoCard(),
-            photosCard(),
-            bussinessCard(),
-            blogCard(),
-            eventCard(context),
-            whetherCard(),
-            // Expanded(
-            //   child: ListView(
-            //     padding: const EdgeInsets.all(20),
-            //     children: const <Widget>[
-            //       CircleAvatar(
-            //         maxRadius: 50,
-            //         backgroundColor: Colors.black,
-            //         child: Icon(Icons.person, color: Colors.white, size: 50),
-            //       ),
-            //       Center(
-            //         child: Text(
-            //           'Sooraj S Nair',
-            //           style: TextStyle(
-            //             fontSize: 50,
-            //           ),
-            //         ),
-            //       ),
-            //       Text(
-            //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            //         style: TextStyle(
-            //           fontSize: 20,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            feedDetailBottom(context)
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  annoncementCard(context),
+                  advertisementCard(),
+                  offerCard(),
+                  bookCard(),
+                  propertyCard(),
+                  productCard(),
+                  jobsCard(),
+                  videoCard(),
+                  photosCard(),
+                  bussinessCard(),
+                  blogCard(),
+                  eventCard(context),
+                  whetherCard(),
+                  // Expanded(
+                  //   child: ListView(
+                  //     padding: const EdgeInsets.all(20),
+                  //     children: const <Widget>[
+                  //       CircleAvatar(
+                  //         maxRadius: 50,
+                  //         backgroundColor: Colors.black,
+                  //         child: Icon(Icons.person, color: Colors.white, size: 50),
+                  //       ),
+                  //       Center(
+                  //         child: Text(
+                  //           'Sooraj S Nair',
+                  //           style: TextStyle(
+                  //             fontSize: 50,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Text(
+                  //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                  //         style: TextStyle(
+                  //           fontSize: 20,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                ],
+              ),
+            ),
+          ),
+          feedDetailBottom(context)
+        ],
       ),
       backgroundColor: white,
     );
@@ -1952,7 +1960,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-Widget advertisementCard() {
+  Widget advertisementCard() {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: Container(
@@ -1988,7 +1996,7 @@ Widget advertisementCard() {
                             padding: EdgeInsets.only(
                                 right: 10, left: 10, top: 5, bottom: 5),
                             child: TextLabel(
-                              title: 'Offer',
+                              title: 'Advertisement',
                               fontSize: 10,
                               color: white,
                               fontWeight: FontWeight.w500,
@@ -2003,68 +2011,60 @@ Widget advertisementCard() {
                     ),
                   ),
                   Container(
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
+                      height: 250,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
                               image: AssetImage(advertisementImage),
                               fit: BoxFit.cover)),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Padding(
-                             padding: const EdgeInsets.only(top:20),
-                             child: Image.asset(fbImage),
-                           ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: Image.asset(fbImage),
+                          ),
                           const SizedBox(
                             height: 150,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10,bottom: 10,left: 15,right: 15),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                TextLabel(
-                                  title: 'Facebook -  Famous social media',
-                                  fontSize: 16,
-                                  color: white,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                            
-                              ],
+                          const Padding(
+                            padding:
+                                EdgeInsets.only(top: 10, bottom: 5, left: 20),
+                            child: TextLabel(
+                              title: 'Facebook -  Famous social media',
+                              fontSize: 16,
+                              color: white,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
-                          
                         ],
                       )),
-                 
-                  
                 ],
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
-            
-            Container(
-                    height: 55,
-                    width: Constants.width(context),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: vandeColor),
-                    child: const Center(
-                      child: TextLabel(
-                        title: "I am interested",
-                        fontSize: 16,
-                        color: white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Container(
+                height: 55,
+                width: Constants.width(context),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15), color: vandeColor),
+                child: const Center(
+                  child: TextLabel(
+                    title: "I am interested",
+                    fontSize: 16,
+                    color: white,
+                    fontWeight: FontWeight.w500,
                   ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
 
   Widget offerCard() {
     return Padding(
@@ -2125,7 +2125,7 @@ Widget advertisementCard() {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           const Padding(
-                            padding:  EdgeInsets.only(top:80),
+                            padding: EdgeInsets.only(top: 80),
                             child: TextLabel(
                               title: 'Buy 2 Get 1 Free',
                               fontSize: 30,
@@ -2137,7 +2137,8 @@ Widget advertisementCard() {
                             height: 60,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10,bottom: 10,left: 15,right: 15),
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, left: 15, right: 15),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -2148,20 +2149,18 @@ Widget advertisementCard() {
                                   color: white,
                                   fontWeight: FontWeight.w700,
                                 ),
-                                 TextLabel(
-                            title:
-                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text More',
-                            fontSize: 13,
-                            color: white,
-                            fontWeight: FontWeight.w400,
-                          ),
+                                TextLabel(
+                                  title:
+                                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text More',
+                                  fontSize: 13,
+                                  color: white,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ],
                             ),
                           ),
-                          
                         ],
                       )),
-                  
                   const SizedBox(
                     height: 20,
                   ),
@@ -2594,11 +2593,16 @@ Widget advertisementCard() {
                       ],
                     ),
                   ),
-                  Stack(children: [
-                    Image.asset(blogImage),
-                    Positioned(
-                        top: 10, right: 20, child: Image.asset(circleClose))
-                  ]),
+                  ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: controller.images.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          child: Image.asset(controller.images[index]),
+                        );
+                      }),
+                  Image.asset(blogImage),
                   const SizedBox(
                     height: 10,
                   ),
@@ -3122,18 +3126,15 @@ Widget advertisementCard() {
     );
   }
 
-  Widget feedDetailBottom(BuildContext context,) {
+  Widget feedDetailBottom(
+    BuildContext context,
+  ) {
     return Container(
       color: skyColor.withOpacity(0.6),
       child: Column(
         children: [
-          const SizedBox(
-            height: 25,
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -3233,9 +3234,6 @@ Widget advertisementCard() {
               ],
             ),
           ),
-          const SizedBox(
-            height: 25,
-          )
         ],
       ),
     );
