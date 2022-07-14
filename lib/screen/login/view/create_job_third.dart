@@ -27,9 +27,9 @@ class CreateJobThird extends StatelessWidget {
             children: [
               customStepper(),
               Container(
-                color: Colors.blueGrey.withOpacity(0.1),
+               // color: Colors.blueGrey.withOpacity(0.1),
                 // color: Colors.greenAccent.withOpacity(0.15),
-                // color: greenlight,
+                 color: greenlight,
                 child: Padding(
                   padding: const EdgeInsets.only(left:16,right: 16,top: 10),
                   child: Column(
