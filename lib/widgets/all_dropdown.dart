@@ -54,7 +54,7 @@ class AllDropDown extends StatelessWidget {
         showSelectedItems: true,
         disabledItemFn: (String s) => s.startsWith('I'),
       ),
-      items: list!,
+      items:list!,
       onChanged: print,
       selectedItem: selectTitle!.tr,
     );

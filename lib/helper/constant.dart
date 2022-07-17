@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 String authorizationToken = "";
 
 
+const nextPageURL = '';
 
 
 const String baseUrl =

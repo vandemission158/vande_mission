@@ -74,11 +74,173 @@ class _RegisterFamilyState extends State<RegisterNewFamily> {
                         fontWeight: FontWeight.w400,
                         color: grey,
                       ),
-                      const AllDropDown(
-                        selectTitle: "select_country",
-                        searchTitle: "Search country",
-                        list: ["jhdjfh", "hhjhjkh", "kushdh"],
+                      const SizedBox(
+                        height: 15,
                       ),
+                      GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: () {
+                          controller.loadMore();
+                          //controller.getStateDetais(1, "");
+                           controller.bottomSheetDetail(context);},
+                        // showDialog(
+                        //   context: context,
+                        //   builder: (ctx,) => AlertDialog(
+                        //     title: const TextLabel(
+                        //       title: 'new_society',
+                        //       color: black,
+                        //       fontSize: 22,
+                        //       fontWeight: FontWeight.w700,
+                        //     ),
+                        //     shape: RoundedRectangleBorder(
+                        //       borderRadius: BorderRadius.circular(30),
+                        //     ),
+                        //     content: SingleChildScrollView(
+                        //       child: Column(
+                        //         crossAxisAlignment: CrossAxisAlignment.start,
+                        //         children: [
+                        //           const TextLabel(
+                        //             title: "country",
+                        //             fontSize: 16,
+                        //             fontWeight: FontWeight.w400,
+                        //             color: grey,
+                        //           ),
+                        //           ListView.builder(
+                        //   shrinkWrap: true,
+                        //   itemCount: controller.stateModal.value.data!.length,
+                        //   itemBuilder: (context, index) => Text(controller
+                        //       .stateModal.value.data![index].name
+                        //       .toString())),
+                        //           const SizedBox(
+                        //             height: 15,
+                        //           ),
+                        //           Align(
+                        //             alignment: Alignment.center,
+                        //             child: GestureDetector(
+                        //               onTap: () {
+                        //                 print("hello");
+                        //               },
+                        //               child: const TextLabel(
+                        //                 title: 'add_society',
+                        //                 color: orange,
+                        //                 fontSize: 16,
+                        //                 fontWeight: FontWeight.w500,
+                        //               ),
+                        //             ),
+                        //           ),
+                        //           const SizedBox(
+                        //             height: 15,
+                        //           ),
+                        //           CustomButton(
+                        //             gradientLeft: blueLight,
+                        //             gradientRight: blueLight2,
+                        //             title: "save",
+                        //             color: blue,
+                        //             // onTap: () => controller.onTapSave(),
+                        //           ),
+                        //           const SizedBox(
+                        //             height: 15,
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        child: IgnorePointer(
+                          child: TextField(
+                            readOnly: true,
+                            // onTap: () => dropDowndialogBox(context),
+                            decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 20),
+                                focusedBorder: const UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
+                                enabledBorder: const UnderlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
+                                ),
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)),
+                                ),
+                                filled: true,
+                                hintStyle: const TextStyle(color: grey),
+                                hintText: "area".tr,
+                                fillColor: lightWhite),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      // ListView.builder(
+                      //     shrinkWrap: true,
+                      //     itemCount: controller.stateModal.value.data!.length,
+                      //     itemBuilder: (context, index) => Text(controller
+                      //         .stateModal.value.data![index].name
+                      //         .toString())),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      // DropdownSearch<String>(
+                      //   dropdownDecoratorProps: const DropDownDecoratorProps(
+                      //       dropdownSearchDecoration: InputDecoration(
+                      //           contentPadding: EdgeInsets.symmetric(
+                      //               horizontal: 15, vertical: 15),
+                      //           focusedBorder: UnderlineInputBorder(
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent),
+                      //           ),
+                      //           enabledBorder: UnderlineInputBorder(
+                      //             borderRadius:
+                      //                 BorderRadius.all(Radius.circular(15)),
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent),
+                      //           ),
+                      //           border: OutlineInputBorder(
+                      //             borderRadius:
+                      //                 BorderRadius.all(Radius.circular(15)),
+                      //           ),
+                      //           filled: true,
+                      //           fillColor: lightWhite)),
+                      //   dropdownButtonProps:
+                      //       DropdownButtonProps(icon: Image.asset(dropdown)),
+                      //   popupProps: PopupProps.menu(
+                      //     searchFieldProps: const TextFieldProps(
+                      //       decoration: InputDecoration(
+                      //           contentPadding: EdgeInsets.symmetric(
+                      //               horizontal: 15, vertical: 20),
+                      //           focusedBorder: UnderlineInputBorder(
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent),
+                      //           ),
+                      //           enabledBorder: UnderlineInputBorder(
+                      //             borderRadius:
+                      //                 BorderRadius.all(Radius.circular(15)),
+                      //             borderSide:
+                      //                 BorderSide(color: Colors.transparent),
+                      //           ),
+                      //           border: OutlineInputBorder(
+                      //             borderRadius:
+                      //                 BorderRadius.all(Radius.circular(15)),
+                      //           ),
+                      //           filled: true,
+                      //           hintStyle: TextStyle(color: grey),
+                      //           hintText: "searchTitle",
+                      //           fillColor: lightWhite),
+                      //     ),
+                      //     showSearchBox: true,
+                      //     showSelectedItems: true,
+                      //     disabledItemFn: (String s) => s.startsWith('I'),
+                      //   ),
+                      //   items: controller.stateList,
+                      //  // onChanged: print,
+                      //   selectedItem: "selectTitle",
+                      // ),
                       const SizedBox(
                         height: 15,
                       ),
