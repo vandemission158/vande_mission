@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/home/view/homepage.dart';
 import 'package:vande_mission/screen/login/view/add_family.dart';
+import 'package:vande_mission/screen/login/view/collection_screen.dart';
 import 'package:vande_mission/screen/login/view/componet_screen.dart';
 import 'package:vande_mission/screen/login/view/create_ad.dart';
 import 'package:vande_mission/screen/login/view/create_book.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
     // home:  CreateBookScreen(),
     //home:  NewProductScreen(),
      //home:  CreateJobFirst(),
-     home:  CreateAddScreen(),
+    // home:  CreateAddScreen(),
+     home:  CollectionScreen(),
     );
   }
 }

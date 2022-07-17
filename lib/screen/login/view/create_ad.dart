@@ -64,7 +64,6 @@ final CreateAdContrller createAdContrller = Get.put(CreateAdContrller());
                               padding: const EdgeInsets.only(left:20),
                               child: TextFormField(
                                 controller: createAdContrller.famaily,
-                                // validator: createAdContrller.famaily.text.isEmpty ? "Please enter family" : "null",
                                decoration:const InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Family",
