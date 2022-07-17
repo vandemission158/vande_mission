@@ -1,7 +1,5 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
@@ -13,7 +11,7 @@ import '../../../widgets/text_label.dart';
 import '../controller/register_new_family_controller.dart';
 
 class AddNewFamilyMember extends StatefulWidget {
-  AddNewFamilyMember({Key? key}) : super(key: key);
+  const AddNewFamilyMember({Key? key}) : super(key: key);
 
   @override
   State<AddNewFamilyMember> createState() => _AddNewFamilyMemberState();

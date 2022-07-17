@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -18,12 +17,6 @@ class RegisterFamilyController extends GetxController {
   var pageNumber = 1.obs;
   final TextEditingController dropdownSearchText = TextEditingController();
   var nextpage = "".obs;
-  @override
-  void onInit() {
-    // getStateDetais(1,"");
-    // TODO: implement onInit
-    super.onInit();
-  }
 
   void loadMore() {
     scrollController = PageController()
@@ -35,11 +28,11 @@ class RegisterFamilyController extends GetxController {
   }
 
   void onTapNext() {
-    Get.to(() => HomePage());
+    Get.to(() => const HomePage());
   }
 
   void onTapNewSociety() {
-    Get.to(() => RegisterNewSociety());
+    Get.to(() => const RegisterNewSociety());
   }
 
   Future<Object?> bottomSheetDetail(BuildContext context) {

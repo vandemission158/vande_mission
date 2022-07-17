@@ -8,10 +8,10 @@ class SignUpTypeController extends GetxController {
       ["New Family", "Already registered family", "Society Registration"].obs;
 
   void onTapNewFamily() {
-    Get.to(() => RegisterNewFamily());
+    Get.to(() => const RegisterNewFamily());
   }
 
   void onTapSocietyRegistration() {
-    Get.to(() => RegisterNewSociety());
+    Get.to(() => const RegisterNewSociety());
   }
 }

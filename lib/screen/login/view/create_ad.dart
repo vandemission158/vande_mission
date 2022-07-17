@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/componet_screen_controller.dart';
 import 'package:vande_mission/screen/login/controller/create_ad_controller.dart';
 import 'package:vande_mission/screen/login/view/create_ad_second.dart';
-import 'package:vande_mission/screen/login/view/create_job_second.dart';
 
 import '../../../helper/app_color.dart';
 import '../../../widgets/custom_button.dart';

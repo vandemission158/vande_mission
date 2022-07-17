@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_final_fields
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';

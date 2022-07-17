@@ -12,7 +12,7 @@ import '../../setting/profile.dart';
 import '../../setting/setting.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -28,9 +28,9 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: black,
         actions: [
           GestureDetector(
-              onTap: () => Get.to(() => Setting()), child: Image.asset(search)),
+              onTap: () => Get.to(() => const Setting()), child: Image.asset(search)),
           GestureDetector(
-              onTap: () => Get.to(() => Profile()),
+              onTap: () => Get.to(() => const Profile()),
               child: Image.asset(notificationIcon)),
           IconButton(
             onPressed: () {},

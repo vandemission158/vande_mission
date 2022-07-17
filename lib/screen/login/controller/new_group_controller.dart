@@ -12,7 +12,7 @@ var items = [
   String dropdownvalue = "India";
 
   joinMember(){
-    Get.to(JoinMemberScreen());
+    Get.to(const JoinMemberScreen());
   }
 
 }

@@ -134,13 +134,13 @@ class Link {
     bool? active;
 
     factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
+        url: json["url"],
         label: json["label"],
         active: json["active"],
     );
 
     Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
+        "url": url,
         "label": label,
         "active": active,
     };
@@ -153,9 +153,7 @@ class EnumValues<T> {
     EnumValues(this.map);
 
     Map<T, String>? get reverse {
-        if (reverseMap == null) {
-            reverseMap = map!.map((k, v) => new MapEntry(v, k));
-        }
+        reverseMap ??= map!.map((k, v) => MapEntry(v, k));
         return reverseMap;
     }
 }

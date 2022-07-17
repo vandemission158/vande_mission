@@ -1,13 +1,8 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/screen/login/controller/register_new_family_controller.dart';
 import 'package:vande_mission/widgets/all_dropdown.dart';
-import 'package:vande_mission/widgets/main_widget.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/image_constant.dart';

@@ -5,7 +5,7 @@ import 'package:vande_mission/widgets/text_label.dart';
 import '../../helper/image_constant.dart';
 
 class Setting extends StatefulWidget {
-  Setting({Key? key}) : super(key: key);
+  const Setting({Key? key}) : super(key: key);
 
   @override
   _SettingState createState() => _SettingState();
@@ -15,6 +15,7 @@ class _SettingState extends State<Setting> {
   @override
   bool isSwitched = false;
   var textValue = 'Switch is OFF';
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

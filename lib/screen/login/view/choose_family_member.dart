@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/choose_family_controller.dart';
 
@@ -99,7 +97,7 @@ class ChosseFamilyMember extends StatelessWidget {
                             ),
                           ],
                         ),
-                     Divider()
+                     const Divider()
                       ],
                     ),
                   );

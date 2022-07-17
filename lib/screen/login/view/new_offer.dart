@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/screen/login/controller/new_offer_controller.dart';
 
 import '../../../helper/app_color.dart';
-import '../../../helper/image_constant.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 

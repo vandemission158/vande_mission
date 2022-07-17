@@ -160,7 +160,7 @@ class LocaleString extends Translations {
            'broadcast_title' : 'Broadcast Title',
            'broadcast_message' : 'Broadcast Message',
            'broadcast_for_location_wise_member' : 'Broadcast For Location wise Member',
-           'broacast' : 'Broacast'
+           'broacast' : 'Broacast',
           'already_registered_family':"Already registered family",
           'society_registration':"Society Registration",
           'select_state':"Select state",

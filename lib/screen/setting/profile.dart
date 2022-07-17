@@ -5,7 +5,7 @@ import '../../helper/app_color.dart';
 import '../../helper/image_constant.dart';
 
 class Profile extends StatefulWidget {
-  Profile({Key? key}) : super(key: key);
+  const Profile({Key? key}) : super(key: key);
 
   @override
   _ProfileState createState() => _ProfileState();
@@ -41,8 +41,8 @@ class _ProfileState extends State<Profile> {
                   decoration: const BoxDecoration(
                       color: greenlight,
                       borderRadius: BorderRadius.only(
-                          bottomLeft: const Radius.circular(15),
-                          bottomRight: const Radius.circular(15))),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15))),
                 ),
                 Positioned(
                     top: 20,
@@ -52,8 +52,8 @@ class _ProfileState extends State<Profile> {
               ],
             ),
             Column(
-              children: [
-                const SizedBox(
+              children: const [
+                SizedBox(
                   height: 120,
                 ),
               ],

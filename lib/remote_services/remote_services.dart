@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/screen/login/modal/state_modal.dart';
-import 'package:vande_mission/screen/login/modal/state_modal2.dart';
 
 import '../helper/constant.dart';
 
