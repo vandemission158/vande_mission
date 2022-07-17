@@ -15,16 +15,47 @@ class RegisterFamilyController extends GetxController {
   late PageController scrollController;
   var hasNextPage = false.obs;
   var pageNumber = 1.obs;
+  var isLoading = false.obs;
   final TextEditingController dropdownSearchText = TextEditingController();
   var nextpage = "".obs;
+  var loadMoreData = false.obs;
 
-  void loadMore() {
+  void fetchAPiCall() {
+    getStateDetais(1, "");
+    loadMoreApicall();
+  }
+
+  void loadMoreApicall() {
     scrollController = PageController()
       ..addListener(() => {
             if (scrollController.position.maxScrollExtent ==
                 scrollController.offset)
-              {if (hasNextPage.value) getStateDetais(1, "")}
+              {
+                if (stateModal.value.nextPageUrl != "")
+                  {getStateDetais(1, stateModal.value.nextPageUrl.toString())}
+              }
           });
+  }
+
+  @override
+  void onInit() {
+    //  getStateDetais(1, "");
+// TODO: implement onInit
+    super.onInit();
+    // scrollController = PageController()
+    //   ..addListener(() => {
+    //         if (scrollController.position.maxScrollExtent ==
+    //             scrollController.offset)
+    //           {print("hsgdfhghbsdhgfhvnzvjdvbnmzxvnxnzbvb")}
+    //       });
+
+    // loadMore();
+  }
+
+  void fetch() {
+    stateModal.value.nextPageUrl!.isNotEmpty
+        ? getStateDetais(1, stateModal.value.nextPageUrl.toString())
+        : print("Hello demo data");
   }
 
   void onTapNext() {
@@ -77,32 +108,28 @@ class RegisterFamilyController extends GetxController {
                     ),
                     Expanded(
                       child: Obx(
-                        () => ListView.builder(
-                            //controller: scrollController,
-                            itemCount: tempList.length ,
-                            itemBuilder: (context, index) =>
-                                //  index <
-                                //         tempList.length
-                                //     ?
-                                GestureDetector(
-                                    // onTap: () => print(stateModal
-                                    //     .value.data![index].id
-                                    //     .toString()),
-                                    child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 20, right: 20, top: 10, bottom: 10),
-                                  child: TextLabel(
-                                    title: tempList[index].name.toString(),
-                                    color: darkGrey,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ))
-                            // : Padding(
-                            //   padding: const EdgeInsets.symmetric(vertical: 20),
-                            //   child: Center(child: const CircularProgressIndicator()),
-                            // )
-                            ),
+                        () => isLoading.value && tempList.isEmpty
+                            ? const Center(child: CircularProgressIndicator())
+                            : ListView.builder(
+                                controller: scrollController,
+                                itemCount: tempList.length + 1,
+                                itemBuilder: (context, index) => index <
+                                        tempList.length
+                                    ? Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 10),
+                                        child: TextLabel(
+                                          title:
+                                              tempList[index].name.toString(),
+                                          fontSize: 16,
+                                          color: darkGrey,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      )
+                                    : loadMoreData.value
+                                        ? const Center(
+                                            child: CircularProgressIndicator())
+                                        : Container()),
                       ),
                     ),
                     // GestureDetector(
@@ -123,7 +150,9 @@ class RegisterFamilyController extends GetxController {
   List<String> stateList = [];
 
   void getStateDetais(int userId, String nextpage) async {
-    // isLoading.value = true;
+    if (!hasNextPage.value) {
+      isLoading.value = true;
+    }
     var data = {
       "country_id": userId,
       "action": "beforelogin/state",
@@ -135,26 +164,24 @@ class RegisterFamilyController extends GetxController {
       if (res != null) {
         stateModal.value = res;
         tempList.addAll(res.data!);
-        // if(){
-
-        // }
-
-        // nextpage.value = res.nextPageUrl.toString();
-        // print("Next page url:---"+res.nextPageUrl.toString());
-        // print("Hello response" + res.data.toString());
-        print(
-            "Hello statemodal:--" + stateModal.value.data![0].name.toString());
-
-        // for (var i = 0; i < res.data!.length; i++) {
-        //   tempList.add(res.data![i]);
-        //   print("listttttt" + stateList.toList().toString());
-        //   print("temp" + tempList.toList().toString());
+        if (nextpage == "") {
+          hasNextPage(true);
+          loadMoreData(false);
+        } else {
+          hasNextPage(false);
+          loadMoreData(true);
+        }
+        //isLoading.value = false;
+        // if (nextpage != "") {
+        //   hasNextPage(true);
+        // } else {
+        //   hasNextPage(false);
         // }
       } else {
         // Constants.snackBar("login", 'something_went_wrong', true);
       }
     } finally {
-      // isLoading.value = false;
+      isLoading.value = false;
     }
   }
 }

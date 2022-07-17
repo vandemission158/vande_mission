@@ -75,9 +75,11 @@ class _RegisterFamilyState extends State<RegisterNewFamily> {
                       GestureDetector(
                         behavior: HitTestBehavior.translucent,
                         onTap: () {
-                          controller.loadMore();
+                         
+                           controller.fetchAPiCall();
                           //controller.getStateDetais(1, "");
-                           controller.bottomSheetDetail(context);},
+                          controller.bottomSheetDetail(context);
+                        },
                         // showDialog(
                         //   context: context,
                         //   builder: (ctx,) => AlertDialog(
@@ -181,6 +183,19 @@ class _RegisterFamilyState extends State<RegisterNewFamily> {
                       const SizedBox(
                         height: 15,
                       ),
+                      // Obx(
+                      //   () =>controller.isLoading.value? ListView.builder(
+                      //     controller: controller.scrollController,
+                      //       shrinkWrap: true,
+                      //       itemCount: controller.tempList.length,
+                      //       itemBuilder: (context, index) =>
+                      //           controller.isLoading.value
+                      //               ? const Center(
+                      //                   child: CircularProgressIndicator())
+                      //               : Text(controller.tempList[index].name
+                      //                   .toString())):const Center(
+                      //                   child: CircularProgressIndicator()),
+                      // ),
                       // DropdownSearch<String>(
                       //   dropdownDecoratorProps: const DropDownDecoratorProps(
                       //       dropdownSearchDecoration: InputDecoration(
