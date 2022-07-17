@@ -119,7 +119,7 @@ class CollectionScreen extends StatelessWidget {
             shrinkWrap: true,
             itemCount: collectionController.wallapaperImage.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
+          crossAxisCount: 2,
         ), itemBuilder: (context,index){
            return 
            Container(
