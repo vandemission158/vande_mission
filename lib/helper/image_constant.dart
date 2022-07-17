@@ -95,3 +95,7 @@ const String wallapaper3 = "assets/images/wallapaper_3.png";
 const String wallapaper4 = "assets/images/wallapaper_4.png";
 const String wallapaper5 = "assets/images/wallapaper_5.png";
 const String wallapaper6 = "assets/images/wallapaper_6.png";
+const String offerImage = "assets/images/offer_image.png";
+const String fbImage = "assets/images/fb_image.png";
+const String advertisementImage = "assets/images/advertisement_image.png";
+const String familyMember = "assets/images/family_member.png";

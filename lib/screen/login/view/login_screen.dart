@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/login/view/add_family_member.dart';
-import 'package:vande_mission/screen/login/view/register_family.dart';
-import 'package:vande_mission/screen/login/controller/login_screen_controller.dart';
-import 'package:vande_mission/screen/login/view/login_type.dart';
-import 'package:vande_mission/widgets/custom_button.dart';
-import 'package:vande_mission/widgets/main_widget.dart';
-import 'package:vande_mission/widgets/text_label.dart';
+import '../../../helper/app_color.dart';
+import '../../../helper/image_constant.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/main_widget.dart';
+import '../../../widgets/text_label.dart';
+import '../controller/login_screen_controller.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

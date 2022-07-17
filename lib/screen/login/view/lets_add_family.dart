@@ -3,17 +3,17 @@ import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/home/view/homepage.dart';
-import 'package:vande_mission/screen/login/controller/add_family_controller.dart';
+import 'package:vande_mission/screen/login/controller/lets_add_family_controller.dart';
 import 'package:vande_mission/widgets/main_widget.dart';
 import 'package:vande_mission/widgets/small_button.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/constant.dart';
 
-class AddFamily extends StatelessWidget {
-  AddFamily({Key? key}) : super(key: key);
+class LetsAddFamily extends StatelessWidget {
+  LetsAddFamily({Key? key}) : super(key: key);
 
-  final AddFamilyController controller = Get.put(AddFamilyController());
+  final LetsAddFamilyController controller = Get.put(LetsAddFamilyController());
   @override
   Widget build(BuildContext context) {
     return MainWidget(
