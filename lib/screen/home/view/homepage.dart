@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/app_color.dart';
+import 'package:vande_mission/screen/home/controller/homepage_controller.dart';
 
 import '../../../helper/constant.dart';
 import '../../../helper/image_constant.dart';
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final HomePageController controller = Get.put(HomePageController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -767,50 +769,58 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        physics: const AlwaysScrollableScrollPhysics(),
-        child: Column(
-          children: [
-            annoncementCard(context),
-            bookCard(),
-            propertyCard(),
-            productCard(),
-            jobsCard(),
-            videoCard(),
-            photosCard(),
-            bussinessCard(),
-            blogCard(),
-            eventCard(context),
-            whetherCard(),
-            // Expanded(
-            //   child: ListView(
-            //     padding: const EdgeInsets.all(20),
-            //     children: const <Widget>[
-            //       CircleAvatar(
-            //         maxRadius: 50,
-            //         backgroundColor: Colors.black,
-            //         child: Icon(Icons.person, color: Colors.white, size: 50),
-            //       ),
-            //       Center(
-            //         child: Text(
-            //           'Sooraj S Nair',
-            //           style: TextStyle(
-            //             fontSize: 50,
-            //           ),
-            //         ),
-            //       ),
-            //       Text(
-            //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            //         style: TextStyle(
-            //           fontSize: 20,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            feedDetailBottom(context)
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  annoncementCard(context),
+                  advertisementCard(),
+                  offerCard(),
+                  bookCard(),
+                  propertyCard(),
+                  productCard(),
+                  jobsCard(),
+                  videoCard(),
+                  photosCard(),
+                  bussinessCard(),
+                  blogCard(),
+                  eventCard(context),
+                  whetherCard(),
+                  // Expanded(
+                  //   child: ListView(
+                  //     padding: const EdgeInsets.all(20),
+                  //     children: const <Widget>[
+                  //       CircleAvatar(
+                  //         maxRadius: 50,
+                  //         backgroundColor: Colors.black,
+                  //         child: Icon(Icons.person, color: Colors.white, size: 50),
+                  //       ),
+                  //       Center(
+                  //         child: Text(
+                  //           'Sooraj S Nair',
+                  //           style: TextStyle(
+                  //             fontSize: 50,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       Text(
+                  //         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+                  //         style: TextStyle(
+                  //           fontSize: 20,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                ],
+              ),
+            ),
+          ),
+          feedDetailBottom(context)
+        ],
       ),
       backgroundColor: white,
     );
@@ -1950,6 +1960,311 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget advertisementCard() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+      child: Container(
+        decoration: BoxDecoration(
+            color: black.withOpacity(0.02),
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: darkGrey.withOpacity(0.1))),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      bottom: 15,
+                      right: 5,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [linearPurple, linearpink]),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                                right: 10, left: 10, top: 5, bottom: 5),
+                            child: TextLabel(
+                              title: 'Advertisement',
+                              fontSize: 10,
+                              color: white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Image.asset(
+                          threeDot,
+                          color: black.withOpacity(0.5),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                      height: 250,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: AssetImage(advertisementImage),
+                              fit: BoxFit.cover)),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20, left: 20),
+                            child: Image.asset(fbImage),
+                          ),
+                          const SizedBox(
+                            height: 150,
+                          ),
+                          const Padding(
+                            padding:
+                                EdgeInsets.only(top: 10, bottom: 5, left: 20),
+                            child: TextLabel(
+                              title: 'Facebook -  Famous social media',
+                              fontSize: 16,
+                              color: white,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      )),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Container(
+                height: 55,
+                width: Constants.width(context),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15), color: vandeColor),
+                child: const Center(
+                  child: TextLabel(
+                    title: "I am interested",
+                    fontSize: 16,
+                    color: white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget offerCard() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+      child: Container(
+        decoration: BoxDecoration(
+            color: black.withOpacity(0.02),
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: darkGrey.withOpacity(0.1))),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      bottom: 15,
+                      right: 5,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: const LinearGradient(
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                                colors: [linearPurple, linearpink]),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
+                                right: 10, left: 10, top: 5, bottom: 5),
+                            child: TextLabel(
+                              title: 'Offer',
+                              fontSize: 10,
+                              color: white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Image.asset(
+                          threeDot,
+                          color: black.withOpacity(0.5),
+                        )
+                      ],
+                    ),
+                  ),
+                  Container(
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(offerImage),
+                              fit: BoxFit.cover)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 80),
+                            child: TextLabel(
+                              title: 'Buy 2 Get 1 Free',
+                              fontSize: 30,
+                              color: white,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 60,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 10, bottom: 10, left: 15, right: 15),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                TextLabel(
+                                  title: 'Offer on Jeans',
+                                  fontSize: 16,
+                                  color: white,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                                TextLabel(
+                                  title:
+                                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text More',
+                                  fontSize: 13,
+                                  color: white,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(blogUser),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              TextLabel(
+                                title: "Farita Smith",
+                                fontSize: 17,
+                                color: black,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              TextLabel(
+                                title: "@SmithFa",
+                                fontSize: 15,
+                                color: black,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      TextLabel(
+                        title: "05 March 2022 5:00AM",
+                        fontSize: 12,
+                        color: black.withOpacity(0.4),
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              height: 50,
+              decoration: const BoxDecoration(
+                  color: white,
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(redHeart),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const TextLabel(
+                              title: "122",
+                              fontSize: 17,
+                              color: black,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(redComment),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            const TextLabel(
+                              title: "10K",
+                              fontSize: 17,
+                              color: black,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Image.asset(share)
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget jobsCard() {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
@@ -2278,11 +2593,16 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Stack(children: [
-                    Image.asset(blogImage),
-                    Positioned(
-                        top: 10, right: 20, child: Image.asset(circleClose))
-                  ]),
+                  ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: controller.images.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          child: Image.asset(controller.images[index]),
+                        );
+                      }),
+                  Image.asset(blogImage),
                   const SizedBox(
                     height: 10,
                   ),
@@ -2813,13 +3133,8 @@ class _HomePageState extends State<HomePage> {
       color: skyColor.withOpacity(0.6),
       child: Column(
         children: [
-          const SizedBox(
-            height: 25,
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -2919,9 +3234,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 25,
-          )
         ],
       ),
     );
