@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/login/view/signup_type.dart';
+import 'package:vande_mission/screen/beforelogin/view/signup_type.dart';
 
 class LoginScreenController extends GetxController {
   void onTapRegister() {

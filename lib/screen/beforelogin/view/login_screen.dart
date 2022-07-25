@@ -8,7 +8,6 @@ import '../../../widgets/main_widget.dart';
 import '../../../widgets/text_label.dart';
 import '../controller/login_screen_controller.dart';
 
-
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 

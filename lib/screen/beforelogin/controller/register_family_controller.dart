@@ -2,7 +2,7 @@
 
 import 'package:get/get.dart';
 
-import 'package:vande_mission/screen/login/view/add_society.dart';
+import 'package:vande_mission/screen/beforelogin/view/add_society.dart';
 
 class RegisterFamilyController extends GetxController {
   void onTapNext() {

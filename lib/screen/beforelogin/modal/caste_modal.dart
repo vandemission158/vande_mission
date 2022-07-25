@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final stateModal = stateModalFromJson(jsonString);
+//     final casteModal = casteModalFromJson(jsonString);
 
 import 'dart:convert';
 
-StateModal stateModalFromJson(String str) => StateModal.fromJson(json.decode(str));
+CasteModal casteModalFromJson(String str) => CasteModal.fromJson(json.decode(str));
 
-String stateModalToJson(StateModal data) => json.encode(data.toJson());
+String casteModalToJson(CasteModal data) => json.encode(data.toJson());
 
-class StateModal {
-    StateModal({
+class CasteModal {
+    CasteModal({
         this.currentPage,
         this.data,
         this.firstPageUrl,
@@ -32,14 +32,14 @@ class StateModal {
     int? lastPage;
     String? lastPageUrl;
     List<Link>? links;
-    String? nextPageUrl;
+    dynamic nextPageUrl;
     String? path;
     int? perPage;
     dynamic prevPageUrl;
     int? to;
-    int ?total;
+    int? total;
 
-    factory StateModal.fromJson(Map<String, dynamic> json) => StateModal(
+    factory CasteModal.fromJson(Map<String, dynamic> json) => CasteModal(
         currentPage: json["current_page"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         firstPageUrl: json["first_page_url"],
@@ -76,51 +76,21 @@ class Datum {
     Datum({
         this.id,
         this.name,
-        this.country,
     });
 
     int? id;
     String? name;
-    Country? country;
 
     factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         name: json["name"],
-        country: Country.fromJson(json["country"]),
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-        "country": country!.toJson(),
     };
 }
-
-class Country {
-    Country({
-        this.id,
-        this.name,
-    });
-
-    int? id;
-    Name? name;
-
-    factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: nameValues.map![json["name"]],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": nameValues.reverse![name],
-    };
-}
-
-enum Name { INDIA }
-
-final nameValues = EnumValues({
-    "India": Name.INDIA
-});
 
 class Link {
     Link({
@@ -134,26 +104,14 @@ class Link {
     bool? active;
 
     factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"],
+        url: json["url"] == null ? null : json["url"],
         label: json["label"],
         active: json["active"],
     );
 
     Map<String, dynamic> toJson() => {
-        "url": url,
+        "url": url == null ? null : url,
         "label": label,
         "active": active,
     };
-}
-
-class EnumValues<T> {
-    Map<String, T>? map;
-    Map<T, String>? reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String>? get reverse {
-        reverseMap ??= map!.map((k, v) => MapEntry(v, k));
-        return reverseMap;
-    }
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/login/controller/lets_add_family_controller.dart';
 import 'package:vande_mission/widgets/main_widget.dart';
 import 'package:vande_mission/widgets/small_button.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/constant.dart';
+import '../controller/lets_add_family_controller.dart';
 
 class LetsAddFamily extends StatelessWidget {
   LetsAddFamily({Key? key}) : super(key: key);
