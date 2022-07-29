@@ -17,6 +17,8 @@ const String addFamilyAPI = "beforelogin/family/store";
 const String addFamilyMemberAPIKey = "beforelogin/member/store";
 const String familyMemberAPI = "beforelogin/familymember";
 const String addressListAPI = "beforelogin/address";
+const String loginAPIKey = "beforelogin/login";
+
 
 
 const int timout = 30000;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
 
 import '../helper/constant.dart';
@@ -273,6 +274,24 @@ class RemoteService {
         var jsonString = response.data;
 
         return AddressListModal.fromJson(jsonString);
+      } else {
+        return null;
+      }
+    } on DioError {
+      return null;
+    }
+  }
+
+   Future<LoginModal?> loginAPI(
+      Map formData) async {
+    try {
+      var url =  baseUrl + formData["action"];
+      var response = await dio.post(url, data: formData);
+
+      if (response.statusCode == 200) {
+        var jsonString = response.data;
+
+        return LoginModal.fromJson(jsonString);
       } else {
         return null;
       }

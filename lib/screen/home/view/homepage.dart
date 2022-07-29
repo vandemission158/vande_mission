@@ -2593,15 +2593,15 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  ListView.builder(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemCount: controller.images.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                          child: Image.asset(controller.images[index]),
-                        );
-                      }),
+                  // ListView.builder(
+                  //   physics: const AlwaysScrollableScrollPhysics(),
+                  //     scrollDirection: Axis.horizontal,
+                  //     itemCount: controller.images.length,
+                  //     itemBuilder: (context, index) {
+                  //       return Card(
+                  //         child: Image.asset(controller.images[index]),
+                  //       );
+                  //     }),
                   Image.asset(blogImage),
                   const SizedBox(
                     height: 10,
