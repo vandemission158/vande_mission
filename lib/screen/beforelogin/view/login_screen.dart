@@ -83,6 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20)),
                         child: TextField(
+                          controller: controller.phoneNumberController.value,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(20)),
@@ -124,6 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 15,
               ),
               TextField(
+                controller: controller.otpController.value,
                 decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
                         horizontal: 15, vertical: 20),
@@ -145,11 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 15,
               ),
-              const CustomButton(
+              CustomButton(
                 gradientLeft: orangeLight2,
                 gradientRight: orangeLight1,
                 title: "login",
                 color: orange,
+                onTap: () => controller.onTapLogin(),
               ),
               const SizedBox(
                 height: 15,
