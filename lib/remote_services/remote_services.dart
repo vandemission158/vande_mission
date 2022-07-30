@@ -280,4 +280,6 @@ class RemoteService {
       return null;
     }
   }
+
+  getStateDetail(Map<String, Object> data, String nextpage) {}
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/beforelogin/view/add_new_family_member.dart';
 import 'package:vande_mission/screen/beforelogin/view/lets_add_family_member.dart';
+import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.dart';
 
 import 'screen/beforelogin/view/address_list.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
-      home: LetsAddFamilyMember(),
+     // home: LetsAddFamilyMember(),
+      home: PaymentScreen(),
     );
   }
 }
