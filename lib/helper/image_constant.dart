@@ -99,3 +99,4 @@ const String offerImage = "assets/images/offer_image.png";
 const String fbImage = "assets/images/fb_image.png";
 const String advertisementImage = "assets/images/advertisement_image.png";
 const String familyMember = "assets/images/family_member.png";
+const String bankImage = "assets/images/bank_image.png";

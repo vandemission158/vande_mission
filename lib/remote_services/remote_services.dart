@@ -299,4 +299,5 @@ class RemoteService {
     } on DioError {
       return null;
     }
-  }}
+  }
+}
