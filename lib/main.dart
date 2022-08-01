@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.dart';
+import 'package:vande_mission/screen/afterlogin/demo_payment.dart';
 import 'package:vande_mission/screen/beforelogin/view/add_new_family_member.dart';
 import 'package:vande_mission/screen/beforelogin/view/lets_add_family_member.dart';
 import 'package:vande_mission/screen/beforelogin/view/login_screen.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
      // home: LoginScreen(),
-      home: const PaymentScreen(),
+      home:  PaymentScreen(),
     );
   }
 }
