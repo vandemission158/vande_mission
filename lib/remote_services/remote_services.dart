@@ -289,13 +289,10 @@ class RemoteService {
     }
   }
 
-<<<<<<< HEAD
   Future<LoginModal?> loginAPI(Map formData) async {
-=======
   // getStateDetail(Map<String, Object> data, String nextpage) {}
    Future<LoginModal?> loginAPI(
       Map formData) async {
->>>>>>> 7e0e2756c61a12c1b03d519ce1e79b8a781fb2be
     try {
       var url = baseUrl + formData["action"];
       var response = await dio.post(url, data: formData);
@@ -310,7 +307,6 @@ class RemoteService {
     } on DioError {
       return null;
     }
-<<<<<<< HEAD
   }
 
   Future<AddGroupModal?> addGroupyApi(Map formData) async {
@@ -329,6 +325,4 @@ class RemoteService {
     }
   }
 }
-=======
   }}
->>>>>>> 7e0e2756c61a12c1b03d519ce1e79b8a781fb2be
