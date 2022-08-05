@@ -97,7 +97,6 @@ class CreateNewGroupController extends GetxController {
       },
     );
   }
-  
 
   void addGroupAPICall(
       int countryId,
@@ -111,8 +110,8 @@ class CreateNewGroupController extends GetxController {
       String about,
       String type) async {
     var data = {
-      "auth_key":authKey,
-      'division':category.value.toString(),
+      "auth_key": authKey,
+      'division': category.value.toString(),
       "country_id": countryId,
       "state_id": stateId,
       "district_id": districtId,
@@ -125,7 +124,6 @@ class CreateNewGroupController extends GetxController {
       "action": addGroupKey,
       "caste_id": casteId,
       "owner_id": 2,
-      
     };
 
     RemoteService remoteService = RemoteService();
