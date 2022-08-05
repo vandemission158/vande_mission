@@ -289,8 +289,6 @@ class RemoteService {
     }
   }
 
-  Future<LoginModal?> loginAPI(Map formData) async {
-  // getStateDetail(Map<String, Object> data, String nextpage) {}
    Future<LoginModal?> loginAPI(
       Map formData) async {
     try {
@@ -325,4 +323,4 @@ class RemoteService {
     }
   }
 }
-  }}
+
