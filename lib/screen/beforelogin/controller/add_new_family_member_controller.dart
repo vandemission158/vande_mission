@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:vande_mission/helper/constant.dart';
-import 'package:vande_mission/screen/home/view/homepage.dart';
+import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 import 'package:vande_mission/screen/beforelogin/modal/add_family_member_modal.dart';
 
 import '../../../helper/app_color.dart';

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:vande_mission/screen/afterlogin/modal/AddGroupModal.dart';
 import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
-
 
 import '../helper/constant.dart';
 import '../screen/beforelogin/modal/add_family_member_modal.dart';
@@ -14,7 +14,6 @@ import '../screen/beforelogin/modal/family_member_modal.dart';
 import '../screen/beforelogin/modal/society_modal.dart';
 import '../screen/beforelogin/modal/state_modal.dart';
 import '../screen/beforelogin/modal/village_modal.dart';
-
 
 class RemoteService {
   late BaseOptions options;
@@ -54,19 +53,25 @@ class RemoteService {
   Future<CountryModal?> getCountryAPI(
       Map formData, String nextpage, String q) async {
     try {
+      print("remot file12324641312");
       var url = nextpage.isNotEmpty
           ? nextpage.toString() + "&q=$q"
           : baseUrl + formData["action"] + "?q=$q";
-      var response = await dio.post(url, data: formData);
 
+      var response = await dio.post(url, data: formData);
+      print(response);
       if (response.statusCode == 200) {
+        print("remot file");
         var jsonString = response.data;
 
         return CountryModal.fromJson(jsonString);
       } else {
+        print("remot fil errore");
         return null;
       }
-    } on DioError {
+    } on DioError catch (e) {
+      print(e.response!.statusCode);
+      print("remot die file");
       return null;
     }
   }
@@ -263,7 +268,9 @@ class RemoteService {
   }
 
   Future<AddressListModal?> getAddressListAPI(
-      Map formData, String nextpage,) async {
+    Map formData,
+    String nextpage,
+  ) async {
     try {
       var url = nextpage.isNotEmpty
           ? nextpage.toString()
@@ -282,10 +289,15 @@ class RemoteService {
     }
   }
 
+<<<<<<< HEAD
+  Future<LoginModal?> loginAPI(Map formData) async {
+=======
+  // getStateDetail(Map<String, Object> data, String nextpage) {}
    Future<LoginModal?> loginAPI(
       Map formData) async {
+>>>>>>> 7e0e2756c61a12c1b03d519ce1e79b8a781fb2be
     try {
-      var url =  baseUrl + formData["action"];
+      var url = baseUrl + formData["action"];
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -298,5 +310,25 @@ class RemoteService {
     } on DioError {
       return null;
     }
+<<<<<<< HEAD
+  }
+
+  Future<AddGroupModal?> addGroupyApi(Map formData) async {
+    try {
+      var response =
+          await dio.post(baseUrl + formData["action"], data: formData);
+      if (response.statusCode == 200) {
+        var jsonString = response.data;
+
+        return AddGroupModal.fromJson(jsonString);
+      } else {
+        return null;
+      }
+    } on DioError {
+      return null;
+    }
   }
 }
+=======
+  }}
+>>>>>>> 7e0e2756c61a12c1b03d519ce1e79b8a781fb2be

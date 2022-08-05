@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/home/view/homepage.dart';
 
 import 'package:vande_mission/screen/beforelogin/view/lets_add_family.dart';
 
@@ -186,6 +185,7 @@ class RegisterFamilyController extends GetxController {
   }
 
   void fetchCountryAPICall() {
+    print("fetch function calll");
     getCountryAPICall("", dropdownSearchText.value.text);
     loadMoreCountryApicall();
     dropdownSearchText.value.clear();
@@ -375,6 +375,7 @@ class RegisterFamilyController extends GetxController {
   }
 
   Future<Object?> countryBottomSheet(BuildContext context) {
+    print("Hello country");
     fetchCountryAPICall();
     return showCupertinoModalBottomSheet<void>(
       context: context,
@@ -905,6 +906,7 @@ class RegisterFamilyController extends GetxController {
   }
 
   void getCountryAPICall(String nextpage, String q) async {
+    print("get country");
     // if (!hasNextPage.value) {
     //   isLoading.value = true;
     // }
@@ -914,7 +916,9 @@ class RegisterFamilyController extends GetxController {
     RemoteService remoteService = RemoteService();
     try {
       var res = await remoteService.getCountryAPI(data, nextpage, q);
+      print("Hellppppppp12345487412p");
       if (res != null) {
+        print("Hellpppppppp");
         var oldCurrentPage = countryModal.value.currentPage;
         var newCurrentPage = res.currentPage;
         var viewData = countryModal.value.data;

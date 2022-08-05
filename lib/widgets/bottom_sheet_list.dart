@@ -10,7 +10,7 @@ class BottomSheetList extends StatelessWidget {
   final TextEditingController? textController;
   final FocusNode? focusNode;
   final Function? onChangedText;
-  final PageController pageController;
+  final PageController? pageController;
   final Widget? child;
   const BottomSheetList(
       {Key? key,
@@ -18,7 +18,7 @@ class BottomSheetList extends StatelessWidget {
       this.textController,
       this.focusNode,
       this.onChangedText,
-      required this.pageController,
+      this.pageController,
       this.child,
       this.show,
       this.hide})

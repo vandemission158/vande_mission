@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/screen/login/controller/stepper_controller.dart';
+import 'package:vande_mission/screen/afterlogin/controller/stepper_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 late StepperController stepperController;

@@ -4,7 +4,7 @@ import 'package:vande_mission/screen/beforelogin/view/signup_type.dart';
 
 import '../../../helper/constant.dart';
 import '../../../remote_services/remote_services.dart';
-import '../../home/view/homepage.dart';
+import '../../afterlogin/view/homepage.dart';
 import '../modal/login_modal.dart';
 
 class LoginScreenController extends GetxController {
