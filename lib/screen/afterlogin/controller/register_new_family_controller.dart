@@ -21,12 +21,12 @@ class RegisterFamilyController extends GetxController {
   final TextEditingController dropdownSearchText = TextEditingController();
   var nextpage = "".obs;
  
-  @override
-  void onInit() {
-     getStateDetais(1,"");
-    // TODO: implement onInit
-    super.onInit();
-  }
+  // @override
+  // void onInit() {
+  //    getStateDetais(1,"");
+  //   // TODO: implement onInit
+  //   super.onInit();
+  // }
 
   void loadMore() {
     scrollController = PageController()
@@ -36,6 +36,14 @@ class RegisterFamilyController extends GetxController {
               {if (hasNextPage.value) getStateDetais(1, "",nextPageURL)}
           });
   }
+  // void loadMore() {
+  //   scrollController = PageController()
+  //     ..addListener(() => {
+  //           if (scrollController.position.maxScrollExtent ==
+  //               scrollController.offset)
+  //             {if (hasNextPage.value) getStateDetais(1, "")}
+  //         });
+  // }
 
   void onTapNext() {
     Get.to(() => HomePage());
@@ -151,24 +159,42 @@ class RegisterFamilyController extends GetxController {
           print("show name ${tempList[i].name}");
         }
         // if(){
+  // void getStateDetais(int userId, String nextpage) async {
+  //   // isLoading.value = true;
+  //   var data = {
+  //     "country_id": 1,
+  //     "action": "beforelogin/state",
+  //     "pagination": 1
+  //   };
+  //   RemoteService remoteService = RemoteService();
+  //   try {
+  //     var res = await remoteService.getStateDetail(data, nextpage);
+  //     if (res != null) {
+  //       stateModal.value = res;
+  //       tempList.addAll(res.data!);
+  //       for(int i = 0;i<tempList.length;i++)
+  //       {
+  //         print("show name ${tempList[i].name}");
+  //       }
+  //       // if(){
 
-        // }
+  //       // }
 
-        // nextpage.value = res.nextPageUrl.toString();
-        // print("Next page url:---"+res.nextPageUrl.toString());
-        // print("Hello response" + res.data.toString());
-        print(
-            "Hello statemodal:--" + stateModal.value.data![0].name.toString());
-        // for (var i = 0; i < res.data!.length; i++) {
-        //   tempList.add(res.data![i]);
-        //   print("listttttt" + stateList.toList().toString());
-        //   print("temp" + tempList.toList().toString());
-        // }
-      } else {
-        // Constants.snackBar("login", 'something_went_wrong', true);
-      }
-    } finally {
-      // isLoading.value = false;
-    }
-  }
+  //       // nextpage.value = res.nextPageUrl.toString();
+  //       // print("Next page url:---"+res.nextPageUrl.toString());
+  //       // print("Hello response" + res.data.toString());
+  //       print(
+  //           "Hello statemodal:--" + stateModal.value.data![0].name.toString());
+  //       // for (var i = 0; i < res.data!.length; i++) {
+  //       //   tempList.add(res.data![i]);
+  //       //   print("listttttt" + stateList.toList().toString());
+  //       //   print("temp" + tempList.toList().toString());
+  //       // }
+  //     } else {
+  //       // Constants.snackBar("login", 'something_went_wrong', true);
+  //     }
+  //   } finally {
+  //     // isLoading.value = false;
+  //   }
+  // }
 }
