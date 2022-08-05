@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/screen/home/view/homepage.dart';
 // import 'package:vande_mission/screen/login/modal/state_modal.dart';
 import '../../../helper/constant.dart';
 import '../../../remote_services/remote_services.dart';
 import '../../../widgets/text_label.dart';
 import '../../beforelogin/modal/state_modal.dart';
 import '../../beforelogin/view/register_new_society.dart';
+import '../view/homepage.dart';
 // import '../view/register_new_society.dart';
 
 class RegisterFamilyController extends GetxController {
@@ -33,7 +33,7 @@ class RegisterFamilyController extends GetxController {
       ..addListener(() => {
             if (scrollController.position.maxScrollExtent ==
                 scrollController.offset)
-              {if (hasNextPage.value) getStateDetais(1, "")}
+              {if (hasNextPage.value) getStateDetais(1, "",nextPageURL)}
           });
   }
 
@@ -133,7 +133,7 @@ class RegisterFamilyController extends GetxController {
 
   List<String> stateList = [];
 
-  void getStateDetais(int userId, String nextpage) async {
+  void getStateDetais(int userId, String nextpage, String q) async {
     // isLoading.value = true;
     var data = {
       "country_id": 1,
@@ -142,7 +142,7 @@ class RegisterFamilyController extends GetxController {
     };
     RemoteService remoteService = RemoteService();
     try {
-      var res = await remoteService.getStateDetail(data, nextpage);
+      var res = await remoteService.getStateAPI(data, nextpage,q);
       if (res != null) {
         stateModal.value = res;
         tempList.addAll(res.data!);
