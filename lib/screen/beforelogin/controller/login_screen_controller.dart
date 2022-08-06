@@ -17,9 +17,8 @@ class LoginScreenController extends GetxController {
     Get.to(() => SignUpType());
   }
 
-  
   void onTapLogin() {
-   checkLoginAPI(phoneNumberController.value.text,otpController.value.text);
+    checkLoginAPI(phoneNumberController.value.text, otpController.value.text);
   }
 
   void checkLoginAPI(String phoneNumber, String otp) async {
@@ -30,16 +29,24 @@ class LoginScreenController extends GetxController {
       "phone_code": "+91",
       "action": loginAPIKey,
     };
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(loginAPIKey);
     try {
       var res = await remoteService.loginAPI(data);
       if (res != null) {
         print("not call");
         loginModal.value = res;
-        if (loginModal.value.id != null) {
+        if (res.id != null && res.token != null && res.authKey != null) {
+          authorizationToken = res.token.toString();
+          id = res.id!.toString();
+          authorizationKey = res.authKey.toString();
+          Constants.setHive(authKey, res.authKey.toString());
+          Constants.setHive(authToken, res.token.toString());
+          Constants.setHive(userId, res.id.toString());
+          Constants.setHive(isLoginHive, true);
           print("id " + loginModal.value.id.toString());
-          print("Data Successfully Login");
-          Get.back();
+          print("Data Successfully Token:---" + authorizationToken);
+          print("Data Successfully Key:---" + authorizationKey);
+
           Get.to(() => const HomePage());
         } else {
           print("data not inseted");

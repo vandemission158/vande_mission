@@ -98,6 +98,8 @@ class CreateNewGroupController extends GetxController {
     );
   }
 
+  
+
   void addGroupAPICall(
       int countryId,
       int stateId,
@@ -123,10 +125,10 @@ class CreateNewGroupController extends GetxController {
       "type": type,
       "action": addGroupKey,
       "caste_id": casteId,
-      "owner_id": 2,
+      "owner_id": id,
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(addGroupKey);
     try {
       var res = await remoteService.addGroupyApi(data);
       if (res != null) {

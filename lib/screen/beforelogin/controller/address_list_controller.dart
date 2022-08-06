@@ -28,7 +28,7 @@ class AddressListController extends GetxController {
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(addressListAPI);
     try {
       var res = await remoteService.getAddressListAPI(data, nextpage);
       if (res != null) {

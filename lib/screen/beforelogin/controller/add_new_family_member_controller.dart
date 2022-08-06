@@ -491,7 +491,7 @@ class AddNewFamilyMemberController extends GetxController {
       String otpNumber,
       String imagePathFront,
       String imagePathBack) async {
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(addFamilyMemberAPIKey);
     try {
       var res = await remoteService.addFamilyMemberAPI(
           firstName,

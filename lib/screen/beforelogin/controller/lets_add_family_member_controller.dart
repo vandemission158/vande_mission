@@ -39,7 +39,7 @@ class LetsAddFamilyMemberController extends GetxController {
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(familyMemberAPI);
     try {
       var res = await remoteService.getFamilyMemberAPI(data, nextpage);
       if (res != null) {

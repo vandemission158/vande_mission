@@ -329,12 +329,11 @@ class CreateNewGroup extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: CustomButton(
-                        gradientLeft: blueLight,
-                        gradientRight: blueLight2,
-                        title: "Create",
-                        color: blue,
-                        onTap: () {
-                          controller.addGroupAPICall(
+                          gradientLeft: blueLight,
+                          gradientRight: blueLight2,
+                          title: "Create",
+                          color: blue,
+                          onTap: () => controller.addGroupAPICall(
                               registerFamilyController.countryID.toInt(),
                               registerFamilyController.stateID.toInt(),
                               registerFamilyController.districtID.toInt(),
@@ -344,10 +343,10 @@ class CreateNewGroup extends StatelessWidget {
                               registerFamilyController.casteID.toInt(),
                               controller.groupNameController.toString(),
                               controller.groupTypeController.toString(),
-                              controller.groupTypeController.toString());
+                              controller.groupTypeController.toString())
                           // controller.joinMember();
-                        },
-                      ),
+
+                          ),
                     ),
                   ],
                 ),

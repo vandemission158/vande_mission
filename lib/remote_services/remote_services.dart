@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:vande_mission/remote_services/dio_exception.dart';
 import 'package:vande_mission/screen/afterlogin/modal/AddGroupModal.dart';
+import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
 import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
 import '../helper/constant.dart';
@@ -19,7 +21,7 @@ class RemoteService {
   late BaseOptions options;
   late Dio dio;
 
-  RemoteService() {
+  RemoteService(String action) {
     options = BaseOptions(
         baseUrl: baseUrl,
         receiveDataWhenStatusError: true,
@@ -27,7 +29,14 @@ class RemoteService {
         receiveTimeout: timout // 30 seconds
         );
     dio = Dio(options);
-    dio.options.headers["Authorization"] = "Bearer $authorizationToken";
+    // print(action.toString());
+    final splitted = action.split('/');
+    if (splitted.contains('afterlogin')) {
+      print("true " + splitted.toString());
+      dio.options.headers["Authorization"] = "Bearer $authorizationToken";
+    } else {
+      print("false " + splitted.toString());
+    }
   }
 
   Future<StateModal?> getStateAPI(
@@ -289,8 +298,7 @@ class RemoteService {
     }
   }
 
-   Future<LoginModal?> loginAPI(
-      Map formData) async {
+  Future<LoginModal?> loginAPI(Map formData) async {
     try {
       var url = baseUrl + formData["action"];
       var response = await dio.post(url, data: formData);
@@ -322,6 +330,20 @@ class RemoteService {
       return null;
     }
   }
+
+  Future<Object> logoutApi(Map formData) async {
+    try {
+      var response =
+          await dio.post(baseUrl + formData["action"], data: formData);
+      // print(response.statusCode.toString());
+      // if (response.statusCode == 200) {
+      //   var jsonString = response.data;
+      //   print("dsad"+response.statusCode.toString());
+      // }
+      return LogoutModal.fromJson(response.data);
+    } on DioError catch (e) {
+      var errorMessage = DioExceptions.fromDioError(e).toString();
+      return errorMessage;
+    }
+  }
 }
-
-

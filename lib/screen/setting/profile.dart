@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vande_mission/helper/constant.dart';
+import 'package:vande_mission/screen/setting/profile_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../helper/app_color.dart';
@@ -12,6 +15,7 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final ProfileController controller = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -208,6 +212,42 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 )),
+            GestureDetector(
+              onTap: () => controller.logoutAPICall(),
+              child: Container(
+                  height: 56,
+                  decoration: BoxDecoration(
+                      color: lightWhite,
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(notificationsSound),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                TextLabel(
+                                  title: "Logout",
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Image.asset(settingTap)
+                      ],
+                    ),
+                  )),
+            ),
           ],
         ),
       ),

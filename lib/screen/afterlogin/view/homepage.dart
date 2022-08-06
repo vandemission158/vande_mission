@@ -3221,6 +3221,7 @@ class _HomePageState extends State<HomePage> {
                   width: 20,
                 ),
                 GestureDetector(
+                  onTap:()=> controller.bottomSheetFirstname(context),
                   child: Container(
                     width: 30,
                     height: 30,

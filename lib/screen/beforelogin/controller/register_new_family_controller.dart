@@ -185,7 +185,6 @@ class RegisterFamilyController extends GetxController {
   }
 
   void fetchCountryAPICall() {
-    print("fetch function calll");
     getCountryAPICall("", dropdownSearchText.value.text);
     loadMoreCountryApicall();
     dropdownSearchText.value.clear();
@@ -842,14 +841,16 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    var action =
+        authorizationKey.isNotEmpty ? afterLoginStateAPI : befooreLoginStateAPI;
     var data = {
       "country_id": countryId,
-      "action": stateAPI,
+      "action": action,
       "pagination": 1,
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getStateAPI(data, nextpage, q);
       if (res != null) {
@@ -906,17 +907,23 @@ class RegisterFamilyController extends GetxController {
   }
 
   void getCountryAPICall(String nextpage, String q) async {
-    print("get country");
     // if (!hasNextPage.value) {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
-    var data = {"action": countryAPI, "pagination": 1, "apicall": "suggetion"};
-
-    RemoteService remoteService = RemoteService();
+    print(authKey.toString());
+    var action = authorizationKey.isNotEmpty
+        ? afterLoginCountryAPI
+        : beforeLoginCountryAPI;
+    var data = {"action": action, "pagination": 1, "apicall": "suggetion"};
+    if (authorizationKey.isNotEmpty) {
+      data.addAll({"auth_key": authorizationKey});
+    }
+    print("auth_key:-----" + authorizationKey);
+    print("Data:----" + data.toString());
+    RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getCountryAPI(data, nextpage, q);
-      print("Hellppppppp12345487412p");
       if (res != null) {
         print("Hellpppppppp");
         var oldCurrentPage = countryModal.value.currentPage;
@@ -950,14 +957,18 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    var action = authorizationKey.isNotEmpty
+        ? afterLoginDistrictAPI
+        : beforeLoginDistrictAPI;
+
     var data = {
       "country_id": countryId,
       "state_id": stateId,
-      "action": districtAPI,
+      "action": action,
       "pagination": 1,
       "apicall": "suggetion"
     };
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getDistrictAPI(data, nextpage, q);
       if (res != null) {
@@ -992,16 +1003,20 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    var action = authorizationKey.isNotEmpty
+        ? afterLoginVillageAPI
+        : befooreLoginVillageAPI;
+
     var data = {
       "country_id": countryId,
       "state_id": stateId,
       "district_id": districtId,
-      "action": villageAPI,
+      "action": action,
       "pagination": 1,
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getVillageAPI(data, nextpage, q);
       if (res != null) {
@@ -1036,17 +1051,21 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    var action = authorizationKey.isNotEmpty
+        ? afterLoginSocietyAPI
+        : befooreLoginSocietyAPI;
+
     var data = {
       "country_id": countryId,
       "state_id": stateId,
       "district_id": districtId,
       "village_id": villageId,
-      "action": societyAPI,
+      "action": action,
       "pagination": 1,
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getSocietyAPI(data, nextpage, q);
       if (res != null) {
@@ -1082,7 +1101,7 @@ class RegisterFamilyController extends GetxController {
     // isLoading.value = true;
     var data = {"action": casteAPI, "pagination": 1, "apicall": "suggetion"};
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(casteAPI);
     try {
       var res = await remoteService.getCasteAPI(data, nextpage, q);
       if (res != null) {
@@ -1133,7 +1152,7 @@ class RegisterFamilyController extends GetxController {
       "pagination": 1,
       "apicall": "suggetion"
     };
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(addSocietyAPI);
     try {
       var res = await remoteService.addSociety(data);
       if (res != null) {
@@ -1182,7 +1201,7 @@ class RegisterFamilyController extends GetxController {
       "apicall": "suggetion"
     };
 
-    RemoteService remoteService = RemoteService();
+    RemoteService remoteService = RemoteService(addFamilyAPI);
     try {
       var res = await remoteService.addFamilyApi(data);
       if (res != null) {

@@ -61,6 +61,13 @@ const String iGroup = "assets/icons/i_group.png";
 const String iconPlace = "assets/icons/place_icon.png";
 const String micIcon = "assets/icons/mic_icon.png";
 const String playIcon = "assets/icons/play.png";
+const String productIcon = "assets/icons/productIcon.png";
+const String blogIcon = "assets/icons/blogIcon.png";
+const String offerIcon = "assets/icons/offerIcon.png";
+const String newAdIcon = "assets/icons/newAdIcon.png";
+const String brodcastIcon = "assets/icons/brodcastIcon.png";
+
+
 
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";
