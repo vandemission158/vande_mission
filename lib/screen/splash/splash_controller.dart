@@ -13,17 +13,17 @@ class SplashController extends GetxController {
   }
 
   Future checkIsLogin() async {
-   // get user id, auth token and is login from hive database
+    // get user id, auth token and is login from hive database
     if (await Constants.getHive(userId) != null) {
       id = await Constants.getHive(userId);
     }
     if (await Constants.getHive(authToken) != null) {
       authorizationToken = await Constants.getHive(authToken);
     }
-     if (await Constants.getHive(authKey) != null) {
-      authorizationToken = await Constants.getHive(authToken);
+    if (await Constants.getHive(authKey) != null) {
+      authorizationKey = await Constants.getHive(authKey);
     }
-    var isLogin = await Constants.getHive(isLoginHive);
+    var isLogin = await Constants.getHive(isLoginHive); 
     if (isLogin == true) {
       Get.offAll(() => const HomePage(), transition: Transition.fadeIn);
     } else {

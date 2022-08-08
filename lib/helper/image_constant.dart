@@ -67,11 +67,8 @@ const String offerIcon = "assets/icons/offerIcon.png";
 const String newAdIcon = "assets/icons/newAdIcon.png";
 const String brodcastIcon = "assets/icons/brodcastIcon.png";
 
-
-
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";
-
 
 //images
 const String vandeMissionImg = "assets/images/vande_mission_image.png";

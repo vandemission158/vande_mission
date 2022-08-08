@@ -30,6 +30,8 @@ class RemoteService {
         );
     dio = Dio(options);
     // print(action.toString());
+    print(action);
+    print(authorizationToken);
     final splitted = action.split('/');
     if (splitted.contains('afterlogin')) {
       print("true " + splitted.toString());
@@ -316,9 +318,11 @@ class RemoteService {
   }
 
   Future<AddGroupModal?> addGroupyApi(Map formData) async {
+    print("first time calll block");
     try {
-      var response =
-          await dio.post(baseUrl + formData["action"], data: formData);
+      print("first time calll try ");
+      var response = await dio.post(baseUrl + addGroupKey, data: formData);
+      print("first time calll");
       if (response.statusCode == 200) {
         var jsonString = response.data;
 
@@ -331,19 +335,19 @@ class RemoteService {
     }
   }
 
-  Future<Object> logoutApi(Map formData) async {
+  Future<LogoutModal?> logoutApi(Map formData) async {
     try {
       var response =
           await dio.post(baseUrl + formData["action"], data: formData);
-      // print(response.statusCode.toString());
-      // if (response.statusCode == 200) {
-      //   var jsonString = response.data;
-      //   print("dsad"+response.statusCode.toString());
-      // }
-      return LogoutModal.fromJson(response.data);
-    } on DioError catch (e) {
-      var errorMessage = DioExceptions.fromDioError(e).toString();
-      return errorMessage;
+      if (response.statusCode == 200) {
+        var jsonString = response.data;
+        print("dsad" + response.statusCode.toString());
+        return LogoutModal.fromJson(response.data);
+      } else {
+        return null;
+      }
+    } on DioError {
+      return null;
     }
   }
 }

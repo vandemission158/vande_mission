@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/local_string.dart';
-import 'package:vande_mission/screen/afterlogin/view/create_new_group.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
 import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.dart';
 import 'package:vande_mission/screen/afterlogin/demo_payment.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';

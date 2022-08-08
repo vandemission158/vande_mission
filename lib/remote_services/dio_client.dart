@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:vande_mission/remote_services/pretty_dio_logger.dart';
 import '../helper/constant.dart';
 
 class DioClient {
@@ -8,19 +9,27 @@ class DioClient {
 
   DioClient(String action) {
     options = BaseOptions(
-        baseUrl: baseUrl,
-        receiveDataWhenStatusError: true,
-        connectTimeout: timout, // 30 seconds
-        receiveTimeout: timout // 30 seconds
-        );
+      baseUrl: baseUrl,
+      receiveDataWhenStatusError: true,
+      connectTimeout: timout, // 30 seconds
+      receiveTimeout: timout, // 30 seconds
+      responseType: ResponseType.json,
+    );
     dio = Dio(options);
+    // var loggerInterceptor = LoggerInterceptor();
+    // dio.interceptors.add(loggerInterceptor);
+    dio.interceptors.add(PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        error: true,
+        compact: true,
+        maxWidth: 90));
     // print(action.toString());
     final splitted = action.split('/');
     if (splitted.contains('afterlogin')) {
-      print("true " + splitted.toString());
       dio.options.headers["Authorization"] = "Bearer $authorizationToken";
-    } else {
-      print("false " + splitted.toString());
     }
   }
   // Get:-----------------------------------------------------------------------

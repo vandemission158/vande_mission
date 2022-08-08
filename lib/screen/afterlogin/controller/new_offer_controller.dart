@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/view/create_blog.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
 
 class NewOfferController extends GetxController{
   var items = [
@@ -11,7 +11,7 @@ class NewOfferController extends GetxController{
   String dropdownvalue = "Home Applience";
 
  createBlogMove(){
-  Get.to(CreateBlogScreen());
+  Get.to(AddBlogScreen());
  }
 
 }

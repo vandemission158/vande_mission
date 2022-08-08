@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/afterlogin/controller/create_new_group_controller.dart';
-import 'package:vande_mission/screen/afterlogin/view/create_new_group.dart';
+import 'package:vande_mission/screen/afterlogin/controller/add_group_controller.dart';
+import 'package:vande_mission/screen/afterlogin/controller/add_business_controller.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
+import 'package:vande_mission/screen/afterlogin/view/create_job_first.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/new_product.dart';
+import 'package:vande_mission/screen/afterlogin/view/new_property_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_business_screen.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/app_color.dart';
@@ -13,19 +19,55 @@ class HomePageController extends GetxController {
   var images = [videoImage, offerImage, advertisementImage].obs;
 
   final List<Map<String, dynamic>> bottomData = [
-    {'title': "New Group", 'images': group},
-    {'title': "New Business", 'images': business},
-    {'title': "New Event", 'images': events},
-    {'title': "New Book", 'images': book},
-    {'title': "New Job", 'images': jobs},
-    {'title': "New Blog", 'images': blogIcon},
-    {'title': "New Product", 'images': productIcon},
-    {'title': "New Property", 'images': properties},
-    {'title': "New Offer", 'images': offerIcon},
+    {
+      'id': 1,
+      'title': "New Group",
+      'images': group,
+    },
+    {'id': 2, 'title': "New Business", 'images': business},
+    {'id': 3, 'title': "New Event", 'images': events},
+    {'id': 4, 'title': "New Book", 'images': book},
+    {'id': 5, 'title': "New Job", 'images': jobs},
+    {'id': 6, 'title': "New Blog", 'images': blogIcon},
+    {'id': 7, 'title': "New Product", 'images': productIcon},
+    {'id': 8, 'title': "New Property", 'images': properties},
+    {'id': 9, 'title': "New Offer", 'images': offerIcon},
   ].obs;
 
   void onTapCreateNewGroup() {
-    Get.to(() => CreateNewGroup());
+    Get.to(() => AddGroupScreen());
+  }
+
+  void onTapCreateNewBussiness() {
+    Get.to(() => AddBusinessScreen());
+  }
+
+  void onTapCreateNewEvent() {
+    Get.to(() => AddGroupScreen());
+  }
+
+  void onTapCreateNewBook() {
+    Get.to(() =>AddBlogScreen());
+  }
+
+  void onTapCreateNewJob() {
+    Get.to(() => CreateJobFirst());
+  }
+
+  void onTapCreateNewBlog() {
+    Get.to(() => AddBlogScreen());
+  }
+
+  void onTapCreateNewProduct() {
+    Get.to(() => NewProductScreen());
+  }
+
+  void onTapCreateNewProperty() {
+    Get.to(() => NewPropertyScreen());
+  }
+
+  void onTapCreateNewOffer() {
+    Get.to(() => AddGroupScreen());
   }
 
   Future<Object?> bottomSheetFirstname(BuildContext context) {
@@ -150,7 +192,44 @@ class HomePageController extends GetxController {
                           itemCount: bottomData.length,
                           itemBuilder: (BuildContext ctx, index) {
                             return GestureDetector(
-                              onTap: () => onTapCreateNewGroup(),
+                              onTap: () {
+                                if (bottomData[index]['id'] == 1) {
+                                  Get.back();
+                                  onTapCreateNewGroup();
+                                }
+                                if (bottomData[index]['id'] == 2) {
+                                  Get.back();
+                                  onTapCreateNewBussiness();
+                                }
+                                if (bottomData[index]['id'] == 3) {
+                                  Get.back();
+                                  onTapCreateNewEvent();
+                                }
+                                if (bottomData[index]['id'] == 4) {
+                                  Get.back();
+                                  onTapCreateNewBook();
+                                }
+                                if (bottomData[index]['id'] == 5) {
+                                  Get.back();
+                                  onTapCreateNewJob();
+                                }
+                                if (bottomData[index]['id'] == 6) {
+                                  Get.back();
+                                  onTapCreateNewBlog();
+                                }
+                                if (bottomData[index]['id'] == 7) {
+                                  Get.back();
+                                  onTapCreateNewProduct();
+                                }
+                                if (bottomData[index]['id'] == 8) {
+                                  Get.back();
+                                  onTapCreateNewProperty();
+                                }
+                                if (bottomData[index]['id'] == 9) {
+                                  Get.back();
+                                  onTapCreateNewOffer();
+                                }
+                              },
                               child: Container(
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(

@@ -1,60 +1,63 @@
 import 'package:dio/dio.dart';
 
-class DioExceptions implements Exception {
-  late String message;
+class DioException implements Exception {
+  late String errorMessage;
 
-  DioExceptions.fromDioError(DioError dioError) {
+  DioException.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.cancel:
-        message = "Request to API server was cancelled";
+        errorMessage = 'Request to the server was cancelled.';
         break;
       case DioErrorType.connectTimeout:
-        message = "Connection timeout with API server";
+        errorMessage = 'Connection timed out.';
         break;
       case DioErrorType.receiveTimeout:
-        message = "Receive timeout in connection with API server";
-        break;
-      case DioErrorType.response:
-        message = _handleError(
-          dioError.response?.statusCode,
-          dioError.response?.data,
-        );
+        errorMessage = 'Receiving timeout occurred.';
         break;
       case DioErrorType.sendTimeout:
-        message = "Send timeout in connection with API server";
+        errorMessage = 'Request send timeout.';
+        break;
+      case DioErrorType.response:
+        errorMessage = _handleStatusCode(dioError.response?.statusCode);
         break;
       case DioErrorType.other:
-        if (dioError.message.contains("SocketException")) {
-          message = 'No Internet';
+        if (dioError.message.contains('SocketException')) {
+          errorMessage = 'No Internet.';
           break;
         }
-        message = "Unexpected error occurred";
+        errorMessage = 'Unexpected error occurred.';
         break;
       default:
-        message = "Something went wrong";
+        errorMessage = 'Something went wrong';
         break;
     }
   }
 
-  String _handleError(int? statusCode, dynamic error) {
+  String _handleStatusCode(int? statusCode) {
     switch (statusCode) {
       case 400:
-        return 'Bad request';
+        return 'Bad request.';
       case 401:
-        return 'Unauthorized';
+        return 'Authentication failed.';
       case 403:
-        return 'Forbidden';
+        return 'The authenticated user is not allowed to access the specified API endpoint.';
       case 404:
-        return error['message'];
+        return 'The requested resource does not exist.';
+      case 405:
+        return 'Method not allowed. Please check the Allow header for the allowed HTTP methods.';
+      case 415:
+        return 'Unsupported media type. The requested content type or version number is invalid.';
+      case 422:
+        return 'Data validation failed.';
+      case 429:
+        return 'Too many requests.';
       case 500:
-        return 'Internal server error';
-      case 502:
-        return 'Bad gateway';
+        return 'Internal server error.';
       default:
-        return 'Oops something went wrong';
+        return 'Oops something went wrong!';
     }
   }
 
   @override
-  String toString() => message;
+  String toString() => errorMessage;
 }
