@@ -304,8 +304,7 @@ class AddGroupController extends GetxController {
                   return GestureDetector(
                     onTap: () => sendGrouTypeData(index),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: TextLabel(
                         title: groupType[index].toString(),
                         fontSize: 16,
@@ -321,16 +320,7 @@ class AddGroupController extends GetxController {
     );
   }
 
-  void addGroupAPICall(
-      int countryId,
-      int stateId,
-      int districtId,
-      int villageId,
-      int subDistrictId,
-      int societyId,
-      String name,
-      String about,
-      String type) async {
+  void addGroupAPICall(int countryId, int stateId, int districtId, int villageId, int subDistrictId, int societyId, String name, String about, String type) async {
     var data = {
       "auth_key": authorizationKey,
       'division': category.value.toString(),
@@ -348,13 +338,13 @@ class AddGroupController extends GetxController {
     };
     DioClient dioClient = DioClient(addGroupKey);
     try {
-      var res = await GroupApi(dioClient: dioClient).addGroupApi(data);
+      // var res = await GroupApi(dioClient: dioClient).addGroupApi(data);
 
-      if (res != null) {
-        print("Data Show:----" + res.id.toString());
-        print(res);
-        Get.to(() => HomePage());
-      }
+      // if (res != null) {
+      //   print("Data Show:----" + res.id.toString());
+      //   print(res);
+      //   Get.to(() => HomePage());
+      // }
     } finally {
       print("Hello");
     }
