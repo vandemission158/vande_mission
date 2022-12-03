@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/controller/add_group_controller.dart';
 import 'package:vande_mission/screen/afterlogin/controller/add_business_controller.dart';
+import 'package:vande_mission/screen/afterlogin/view/Add_book_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/add_ad_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
+import 'package:vande_mission/screen/afterlogin/view/create_event_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_job_first.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/new_product.dart';
@@ -29,10 +32,28 @@ class HomePageController extends GetxController {
     {'id': 4, 'title': "New Book", 'images': book},
     {'id': 5, 'title': "New Job", 'images': jobs},
     {'id': 6, 'title': "New Blog", 'images': blogIcon},
-    {'id': 7, 'title': "New Product", 'images': productIcon},
+    {'id': 7, 'title': "New Product", 'images': productYellow},
     {'id': 8, 'title': "New Property", 'images': properties},
     {'id': 9, 'title': "New Offer", 'images': offerIcon},
   ].obs;
+
+  var colors = [
+    green,
+    bluePanchayat,
+    yellowSociety,
+    pinkVillage,
+    lightblue,
+    lightPink,
+    yellowSociety,
+    bluePanchayat,
+    green
+  ].obs;
+
+  var pollImages = [pollFirstImage, pollSecondImage];
+
+  void onTapCreateNewAdvertisement() {
+    Get.to(() => AddAdsScreen());
+  }
 
   void onTapCreateNewGroup() {
     Get.to(() => AddGroupScreen());
@@ -43,11 +64,11 @@ class HomePageController extends GetxController {
   }
 
   void onTapCreateNewEvent() {
-    Get.to(() => AddGroupScreen());
+    Get.to(() => CreateEventFirstScreen());
   }
 
   void onTapCreateNewBook() {
-    Get.to(() =>AddBlogScreen());
+    Get.to(() => AddBookScreen());
   }
 
   void onTapCreateNewJob() {
@@ -85,7 +106,7 @@ class HomePageController extends GetxController {
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),
             child: SizedBox(
-              height: 600,
+              height: 500,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -93,7 +114,11 @@ class HomePageController extends GetxController {
                   //  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const TextLabel(title: "Create New Posts", fontSize: 20),
+                    const TextLabel(
+                      title: "Create New Posts",
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                     const SizedBox(
                       height: 10,
                     ),
@@ -110,7 +135,7 @@ class HomePageController extends GetxController {
                                     begin: Alignment.centerLeft,
                                     end: Alignment.centerRight,
                                     colors: [orangeLight2, orangeLight1]),
-                                borderRadius: BorderRadius.circular(15)),
+                                borderRadius: BorderRadius.circular(10)),
                             child: Center(
                               child: Padding(
                                 padding:
@@ -120,7 +145,7 @@ class HomePageController extends GetxController {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(right: 20),
+                                      padding: const EdgeInsets.only(right: 14),
                                       child: Image.asset(brodcastIcon),
                                     ),
                                     Text(
@@ -141,40 +166,50 @@ class HomePageController extends GetxController {
                         ),
                         Expanded(
                           child: GestureDetector(
-                              //  onTap: () => onTap!(),
+                              onTap: () {
+                                Get.back();
+                                onTapCreateNewAdvertisement();
+                              },
                               child: Container(
-                            width: Constants.width(context),
-                            height: 55,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [orangeLight2, orangeLight1]),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Center(
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20),
-                                      child: Image.asset(newAdIcon),
+                                width: Constants.width(context),
+                                height: 55,
+                                decoration: BoxDecoration(
+                                    gradient:  LinearGradient(
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                        colors: [
+                                          adsgradiant1,
+                                          adsgradiant2,
+                                          adsgradiant3
+                                        ]),
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 20),
+                                          child: Image.asset(newAdIcon),
+                                        ),
+                                        Text(
+                                          "New Ad",
+                                          style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              color: white,
+                                              fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      "New Adds",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 12,
-                                          color: white,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                          )),
+                              )),
                         ),
                       ],
                     ),
@@ -186,9 +221,9 @@ class HomePageController extends GetxController {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 4,
-                                  childAspectRatio: 0.75,
-                                  mainAxisSpacing: 15,
-                                  crossAxisSpacing: 15),
+                                  childAspectRatio: 0.90,
+                                  mainAxisSpacing: 20,
+                                  crossAxisSpacing: 5),
                           itemCount: bottomData.length,
                           itemBuilder: (BuildContext ctx, index) {
                             return GestureDetector(
@@ -239,10 +274,11 @@ class HomePageController extends GetxController {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
-                                      height: 80,
-                                      width: 80,
+                                      height: 70,
+                                      width: 70,
                                       decoration: BoxDecoration(
-                                          color: green.withOpacity(0.1),
+                                          color: colors[(index) % colors.length]
+                                              .withOpacity(0.10),
                                           borderRadius:
                                               BorderRadius.circular(10)),
                                       child: Center(
@@ -253,39 +289,18 @@ class HomePageController extends GetxController {
                                       )),
                                     ),
                                     TextLabel(
+                                      textAlign: TextAlign.center,
                                       title:
                                           bottomData[index]['title'].toString(),
                                       fontSize: 12,
-                                      color: darkGrey,
-                                      fontWeight: FontWeight.w400,
+                                      color: black,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ],
                                 ),
                               ),
                             );
                           }),
-                    ),
-                    GestureDetector(
-                      //  onTap: () => checkUpdateUserDetail(),
-                      child: Container(
-                        height: 55,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            color: blue,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Center(
-                          child: Center(
-                            child: Text(
-                              "Done",
-                              style: GoogleFonts.roboto(
-                                  color: white,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                  fontStyle: FontStyle.normal),
-                            ),
-                          ),
-                        ),
-                      ),
                     ),
                   ],
                 ),
