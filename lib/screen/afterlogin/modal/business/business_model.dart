@@ -1,100 +1,163 @@
 // To parse this JSON data, do
 //
-//     final businessModal = businessModalFromJson(jsonString);
+//     final businessModel = businessModelFromJson(jsonString);
 
 import 'dart:convert';
 
-BusinessModel businessModalFromJson(String str) =>
-    BusinessModel.fromJson(json.decode(str));
+BusinessModel businessModelFromJson(String? str) =>
+    BusinessModel.fromJson(json.decode(str!));
 
-String businessModalToJson(BusinessModel data) => json.encode(data.toJson());
+String? businessModelToJson(BusinessModel data) => json.encode(data.toJson());
 
 class BusinessModel {
   BusinessModel({
+    this.currentPage,
+    this.data,
+    this.firstPageUrl,
+    this.from,
+    this.lastPage,
+    this.lastPageUrl,
+    this.links,
+    this.nextPageUrl,
+    this.path,
+    this.perPage,
+    this.prevPageUrl,
+    this.to,
+    this.total,
+  });
+
+  int? currentPage;
+  List<Datum>? data;
+  String? firstPageUrl;
+  int? from;
+  int? lastPage;
+  String? lastPageUrl;
+  List<Link>? links;
+  dynamic nextPageUrl;
+  String? path;
+  int? perPage;
+  dynamic prevPageUrl;
+  int? to;
+  int? total;
+
+  factory BusinessModel.fromJson(Map<String, dynamic> json) => BusinessModel(
+        currentPage: json["current_page"],
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        firstPageUrl: json["first_page_url"],
+        from: json["from"],
+        lastPage: json["last_page"],
+        lastPageUrl: json["last_page_url"],
+        links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
+        nextPageUrl: json["next_page_url"],
+        path: json["path"],
+        perPage: json["per_page"],
+        prevPageUrl: json["prev_page_url"],
+        to: json["to"],
+        total: json["total"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "current_page": currentPage,
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+        "first_page_url": firstPageUrl,
+        "from": from,
+        "last_page": lastPage,
+        "last_page_url": lastPageUrl,
+        "links": List<dynamic>.from(links!.map((x) => x.toJson())),
+        "next_page_url": nextPageUrl,
+        "path": path,
+        "per_page": perPage,
+        "prev_page_url": prevPageUrl,
+        "to": to,
+        "total": total,
+      };
+}
+
+class Datum {
+  Datum({
     this.id,
-    this.division,
-    this.name,
-    this.photo,
-    this.about,
     this.type,
-    this.createdAt,
-    this.updatedAt,
-    this.photoUrl,
-    this.isTotalBusinessMember,
+    this.name,
+    this.area,
+    this.pincode,
+    this.location,
+    this.latitude,
+    this.longitude,
+    this.experience,
+    this.description,
+    this.socialLink,
     this.typeofcategory,
+    this.createdby,
     this.country,
     this.state,
     this.district,
     this.subdistrict,
     this.village,
     this.society,
-    this.owner,
-    this.businessmember,
   });
 
   int? id;
-  String? division;
-  String? name;
-  dynamic photo;
-  String? about;
   String? type;
-  String? createdAt;
-  String? updatedAt;
-  String? photoUrl;
-  int? isTotalBusinessMember;
+  String? name;
+  String? area;
+  String? pincode;
+  dynamic location;
+  dynamic latitude;
+  dynamic longitude;
+  String? experience;
+  String? description;
+  dynamic socialLink;
   Typeofcategory? typeofcategory;
+  Createdby? createdby;
   Country? country;
   Country? state;
   Country? district;
   Country? subdistrict;
   Village? village;
-  Country? society;
-  Owner? owner;
-  List<dynamic>? businessmember;
+  dynamic society;
 
-  factory BusinessModel.fromJson(Map<String, dynamic> json) => BusinessModel(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        division: json["division"],
-        name: json["name"],
-        photo: json["photo"],
-        about: json["about"],
         type: json["type"],
-        createdAt: json["created_at"],
-        updatedAt: json["updated_at"],
-        photoUrl: json["photo_url"],
-        isTotalBusinessMember: json["isTotalBusinessMember"],
+        name: json["name"],
+        area: json["area"] == null ? null : json["area"],
+        pincode: json["pincode"],
+        location: json["location"],
+        latitude: json["latitude"],
+        longitude: json["longitude"],
+        experience: json["experience"],
+        description: json["description"] == null ? null : json["description"],
+        socialLink: json["social_link"],
         typeofcategory: Typeofcategory.fromJson(json["typeofcategory"]),
+        createdby: Createdby.fromJson(json["createdby"]),
         country: Country.fromJson(json["country"]),
         state: Country.fromJson(json["state"]),
         district: Country.fromJson(json["district"]),
         subdistrict: Country.fromJson(json["subdistrict"]),
         village: Village.fromJson(json["village"]),
-        society: Country.fromJson(json["society"]),
-        owner: Owner.fromJson(json["owner"]),
-        businessmember:
-            List<dynamic>.from(json["businessmember"].map((x) => x)),
+        society: json["society"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "division": division,
-        "name": name,
-        "photo": photo,
-        "about": about,
         "type": type,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-        "photo_url": photoUrl,
-        "isTotalBusinessMember": isTotalBusinessMember,
+        "name": name,
+        "area": area == null ? null : area,
+        "pincode": pincode,
+        "location": location,
+        "latitude": latitude,
+        "longitude": longitude,
+        "experience": experience,
+        "description": description == null ? null : description,
+        "social_link": socialLink,
         "typeofcategory": typeofcategory!.toJson(),
+        "createdby": createdby!.toJson(),
         "country": country!.toJson(),
         "state": state!.toJson(),
         "district": district!.toJson(),
         "subdistrict": subdistrict!.toJson(),
         "village": village!.toJson(),
-        "society": society!.toJson(),
-        "owner": owner!.toJson(),
-        "businessmember": List<dynamic>.from(businessmember!.map((x) => x)),
+        "society": society,
       };
 }
 
@@ -118,10 +181,11 @@ class Country {
       };
 }
 
-class Owner {
-  Owner({
+class Createdby {
+  Createdby({
     this.id,
     this.firstName,
+    this.middleName,
     this.lastName,
     this.phoneNumber,
     this.storageUrl,
@@ -129,13 +193,15 @@ class Owner {
 
   int? id;
   String? firstName;
+  String? middleName;
   String? lastName;
   String? phoneNumber;
   String? storageUrl;
 
-  factory Owner.fromJson(Map<String, dynamic> json) => Owner(
+  factory Createdby.fromJson(Map<String, dynamic> json) => Createdby(
         id: json["id"],
         firstName: json["first_name"],
+        middleName: json["middle_name"],
         lastName: json["last_name"],
         phoneNumber: json["phone_number"],
         storageUrl: json["storage_url"],
@@ -144,6 +210,7 @@ class Owner {
   Map<String, dynamic> toJson() => {
         "id": id,
         "first_name": firstName,
+        "middle_name": middleName,
         "last_name": lastName,
         "phone_number": phoneNumber,
         "storage_url": storageUrl,
@@ -183,7 +250,7 @@ class Category {
 
   int? id;
   String? name;
-  dynamic parent;
+  String? parent;
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json["id"],
@@ -219,5 +286,29 @@ class Village {
         "id": id,
         "name": name,
         "totalsociety": totalsociety,
+      };
+}
+
+class Link {
+  Link({
+    this.url,
+    this.label,
+    this.active,
+  });
+
+  String? url;
+  String? label;
+  bool? active;
+
+  factory Link.fromJson(Map<String, dynamic> json) => Link(
+        url: json["url"] == null ? null : json["url"],
+        label: json["label"],
+        active: json["active"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "url": url == null ? null : url,
+        "label": label,
+        "active": active,
       };
 }

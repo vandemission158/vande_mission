@@ -1,25 +1,24 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/add_job_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/delete_job_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_delete_model.dart';
 import 'package:vande_mission/screen/afterlogin/modal/job/job_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/update_job_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/job/job_update_model.dart';
 
 class JobApi {
   final DioClient dioClient;
 
   JobApi({required this.dioClient});
 
-  Future<JobModel?> jobApi(Map formData, String nextpage, String q) async {
+  Future<JobModel?> jobApi(Map requestAll, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
-
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response = await dioClient.post(url, data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
       return JobModel.fromJson(jsonString);
     } on DioError {
@@ -27,40 +26,73 @@ class JobApi {
     }
   }
 
-  Future<AddJobModel?> addJobApi(Map formData) async {
+  Future<JobStoreModel?> jobStoreApi(Map requestAll) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"];
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return AddJobModel.fromJson(jsonString);
+      return JobStoreModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<UpdateJobModel?> updateJobApi(Map formData) async {
+  Future<JobUpdateModel?> jobUpdateApi(Map requestAll, id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return UpdateJobModel.fromJson(jsonString);
+      return JobUpdateModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<DeleteJobModel?> deleteJobApi(Map formData) async {
+  Future<JobDeleteModel?> jobDeleteApi(Map requestAll, id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return DeleteJobModel.fromJson(jsonString);
+      return JobDeleteModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<JobInterestModel?> jobInterestApi(Map requestAll, String nextpage, String q) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return JobInterestModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<JobInterestStoreModel?> jobInterestStoreApi(Map requestAll) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"];
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return JobInterestStoreModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<JobInterestDeleteModel?> jobInterestDeleteApi(Map requestAll, id) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id;
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return JobInterestDeleteModel.fromJson(jsonString);
     } on DioError {
       return null;
     }

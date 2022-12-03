@@ -1,126 +1,135 @@
 // To parse this JSON data, do
 //
-//     final offerModal = offerModalFromJson(jsonString);
+//     final offerModel = offerModelFromJson(jsonString);
 
 import 'dart:convert';
 
-OfferModel offerModalFromJson(String str) =>
-    OfferModel.fromJson(json.decode(str));
+OfferModel offerModelFromJson(String? str) =>
+    OfferModel.fromJson(json.decode(str!));
 
-String offerModalToJson(OfferModel data) => json.encode(data.toJson());
+String? offerModelToJson(OfferModel data) => json.encode(data.toJson());
 
 class OfferModel {
   OfferModel({
-    this.id,
-    this.division,
-    this.name,
-    this.photo,
-    this.about,
-    this.type,
-    this.createdAt,
-    this.updatedAt,
-    this.photoUrl,
-    this.isTotalOfferMember,
-    this.typeofcategory,
-    this.country,
-    this.state,
-    this.district,
-    this.subdistrict,
-    this.village,
-    this.society,
-    this.owner,
-    this.offermember,
+    this.currentPage,
+    this.data,
+    this.firstPageUrl,
+    this.from,
+    this.lastPage,
+    this.lastPageUrl,
+    this.links,
+    this.nextPageUrl,
+    this.path,
+    this.perPage,
+    this.prevPageUrl,
+    this.to,
+    this.total,
   });
 
-  int? id;
-  String? division;
-  String? name;
-  dynamic photo;
-  String? about;
-  String? type;
-  String? createdAt;
-  String? updatedAt;
-  String? photoUrl;
-  int? isTotalOfferMember;
-  Typeofcategory? typeofcategory;
-  Country? country;
-  Country? state;
-  Country? district;
-  Country? subdistrict;
-  Village? village;
-  Country? society;
-  Owner? owner;
-  List<dynamic>? offermember;
+  int? currentPage;
+  List<Datum>? data;
+  String? firstPageUrl;
+  int? from;
+  int? lastPage;
+  String? lastPageUrl;
+  List<Link>? links;
+  dynamic nextPageUrl;
+  String? path;
+  int? perPage;
+  dynamic prevPageUrl;
+  int? to;
+  int? total;
 
   factory OfferModel.fromJson(Map<String, dynamic> json) => OfferModel(
-        id: json["id"],
-        division: json["division"],
-        name: json["name"],
-        photo: json["photo"],
-        about: json["about"],
-        type: json["type"],
-        createdAt: json["created_at"],
-        updatedAt: json["updated_at"],
-        photoUrl: json["photo_url"],
-        isTotalOfferMember: json["isTotalOfferMember"],
-        typeofcategory: Typeofcategory.fromJson(json["typeofcategory"]),
-        country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
-        subdistrict: Country.fromJson(json["subdistrict"]),
-        village: Village.fromJson(json["village"]),
-        society: Country.fromJson(json["society"]),
-        owner: Owner.fromJson(json["owner"]),
-        offermember: List<dynamic>.from(json["offermember"].map((x) => x)),
+        currentPage: json["current_page"],
+        data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
+        firstPageUrl: json["first_page_url"],
+        from: json["from"],
+        lastPage: json["last_page"],
+        lastPageUrl: json["last_page_url"],
+        links: List<Link>.from(json["links"].map((x) => Link.fromJson(x))),
+        nextPageUrl: json["next_page_url"],
+        path: json["path"],
+        perPage: json["per_page"],
+        prevPageUrl: json["prev_page_url"],
+        to: json["to"],
+        total: json["total"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "division": division,
-        "name": name,
-        "photo": photo,
-        "about": about,
-        "type": type,
-        "created_at": createdAt,
-        "updated_at": updatedAt,
-        "photo_url": photoUrl,
-        "isTotalOfferMember": isTotalOfferMember,
-        "typeofcategory": typeofcategory!.toJson(),
-        "country": country!.toJson(),
-        "state": state!.toJson(),
-        "district": district!.toJson(),
-        "subdistrict": subdistrict!.toJson(),
-        "village": village!.toJson(),
-        "society": society!.toJson(),
-        "owner": owner!.toJson(),
-        "offermember": List<dynamic>.from(offermember!.map((x) => x)),
+        "current_page": currentPage,
+        "data": List<dynamic>.from(data!.map((x) => x.toJson())),
+        "first_page_url": firstPageUrl,
+        "from": from,
+        "last_page": lastPage,
+        "last_page_url": lastPageUrl,
+        "links": List<dynamic>.from(links!.map((x) => x.toJson())),
+        "next_page_url": nextPageUrl,
+        "path": path,
+        "per_page": perPage,
+        "prev_page_url": prevPageUrl,
+        "to": to,
+        "total": total,
       };
 }
 
-class Country {
-  Country({
+class Datum {
+  Datum({
     this.id,
-    this.name,
+    this.title,
+    this.description,
+    this.image,
+    this.video,
+    this.startDate,
+    this.endDate,
+    this.promocode,
+    this.typeofcategory,
+    this.createdby,
   });
 
   int? id;
-  String? name;
+  String? title;
+  String? description;
+  List<Image>? image;
+  dynamic video;
+  DateTime? startDate;
+  DateTime? endDate;
+  dynamic promocode;
+  dynamic typeofcategory;
+  Createdby? createdby;
 
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
+  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        name: json["name"],
+        title: json["title"],
+        description: json["description"],
+        image: List<Image>.from(json["image"].map((x) => Image.fromJson(x))),
+        video: json["video"],
+        startDate: DateTime.parse(json["start_date"]),
+        endDate: DateTime.parse(json["end_date"]),
+        promocode: json["promocode"],
+        typeofcategory: json["typeofcategory"],
+        createdby: Createdby.fromJson(json["createdby"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": name,
+        "title": title,
+        "description": description,
+        "image": List<dynamic>.from(image!.map((x) => x.toJson())),
+        "video": video,
+        "start_date": startDate!.toIso8601String(),
+        "end_date": endDate!.toIso8601String(),
+        "promocode": promocode,
+        "typeofcategory": typeofcategory,
+        "createdby": createdby!.toJson(),
       };
 }
 
-class Owner {
-  Owner({
+class Createdby {
+  Createdby({
     this.id,
     this.firstName,
+    this.middleName,
     this.lastName,
     this.phoneNumber,
     this.storageUrl,
@@ -128,13 +137,15 @@ class Owner {
 
   int? id;
   String? firstName;
+  String? middleName;
   String? lastName;
   String? phoneNumber;
   String? storageUrl;
 
-  factory Owner.fromJson(Map<String, dynamic> json) => Owner(
+  factory Createdby.fromJson(Map<String, dynamic> json) => Createdby(
         id: json["id"],
         firstName: json["first_name"],
+        middleName: json["middle_name"],
         lastName: json["last_name"],
         phoneNumber: json["phone_number"],
         storageUrl: json["storage_url"],
@@ -143,80 +154,53 @@ class Owner {
   Map<String, dynamic> toJson() => {
         "id": id,
         "first_name": firstName,
+        "middle_name": middleName,
         "last_name": lastName,
         "phone_number": phoneNumber,
         "storage_url": storageUrl,
       };
 }
 
-class Typeofcategory {
-  Typeofcategory({
-    this.id,
-    this.type,
-    this.category,
+class Image {
+  Image({
+    this.imageName,
+    this.imagePath,
   });
 
-  int? id;
-  String? type;
-  Category? category;
+  String? imageName;
+  String? imagePath;
 
-  factory Typeofcategory.fromJson(Map<String, dynamic> json) => Typeofcategory(
-        id: json["id"],
-        type: json["type"],
-        category: Category.fromJson(json["category"]),
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
+        imageName: json["image_name"],
+        imagePath: json["image_path"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "type": type,
-        "category": category!.toJson(),
+        "image_name": imageName,
+        "image_path": imagePath,
       };
 }
 
-class Category {
-  Category({
-    this.id,
-    this.name,
-    this.parent,
+class Link {
+  Link({
+    this.url,
+    this.label,
+    this.active,
   });
 
-  int? id;
-  String? name;
-  dynamic parent;
+  String? url;
+  String? label;
+  bool? active;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-        id: json["id"],
-        name: json["name"],
-        parent: json["parent"],
+  factory Link.fromJson(Map<String, dynamic> json) => Link(
+        url: json["url"] == null ? null : json["url"],
+        label: json["label"],
+        active: json["active"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "parent": parent,
-      };
-}
-
-class Village {
-  Village({
-    this.id,
-    this.name,
-    this.totalsociety,
-  });
-
-  int? id;
-  String? name;
-  int? totalsociety;
-
-  factory Village.fromJson(Map<String, dynamic> json) => Village(
-        id: json["id"],
-        name: json["name"],
-        totalsociety: json["totalsociety"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "totalsociety": totalsociety,
+        "url": url == null ? null : url,
+        "label": label,
+        "active": active,
       };
 }

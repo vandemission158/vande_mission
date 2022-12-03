@@ -1,25 +1,21 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/add_book_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/delete_book_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/book/book_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/book/book_delete_model.dart';
 import 'package:vande_mission/screen/afterlogin/modal/book/book_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/update_book_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/book/book_update_model.dart';
 
 class BookApi {
   final DioClient dioClient;
 
   BookApi({required this.dioClient});
 
-  Future<BookModel?> bookApi(Map formData, String nextpage, String q) async {
+  Future<BookModel?> bookApi(Map requestAll, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
-
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response = await dioClient.post(url, data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
       return BookModel.fromJson(jsonString);
     } on DioError {
@@ -27,40 +23,37 @@ class BookApi {
     }
   }
 
-  Future<AddBookModel?> addBookApi(Map formData) async {
+  Future<BookStoreModel?> bookStoreApi(Map requestAll) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      // dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"];
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return AddBookModel.fromJson(jsonString);
+      return BookStoreModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<UpdateBookModel?> updateBookApi(Map formData) async {
+  Future<BookUpdateModel?> bookUpdateApi(Map requestAll, id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      // dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return UpdateBookModel.fromJson(jsonString);
+      return BookUpdateModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<DeleteBookModel?> deleteBookApi(Map formData) async {
+  Future<BookDeleteModel?> bookDeleteApi(Map requestAll, id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return DeleteBookModel.fromJson(jsonString);
+      return BookDeleteModel.fromJson(jsonString);
     } on DioError {
       return null;
     }

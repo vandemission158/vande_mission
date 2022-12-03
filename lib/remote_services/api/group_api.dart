@@ -1,25 +1,25 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/group/add_group_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/group/delete_group_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_member_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_member_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_member_request_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_member_store_model.dart';
 import 'package:vande_mission/screen/afterlogin/modal/group/group_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/group/update_group_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/group/group_update_model.dart';
 
 class GroupApi {
   final DioClient dioClient;
 
   GroupApi({required this.dioClient});
 
-  Future<GroupModel?> groupApi(Map formData, String nextpage, String q) async {
+  Future<GroupModel?> groupApi(Map requestAll, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
-
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response = await dioClient.post(url, data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
       return GroupModel.fromJson(jsonString);
     } on DioError {
@@ -27,40 +27,85 @@ class GroupApi {
     }
   }
 
-  Future<AddGroupModel?> addGroupApi(Map formData) async {
+  Future<GroupStoreModel?> groupStoreApi(Map requestAll) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/form-data';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      // dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"];
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return AddGroupModel.fromJson(jsonString);
+      return GroupStoreModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<UpdateGroupModel?> updateGroupApi(Map formData) async {
+  Future<GroupUpdateModel?> groupUpdateApi(Map requestAll, int id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      // dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return UpdateGroupModel.fromJson(jsonString);
+      return GroupUpdateModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
   }
 
-  Future<DeleteGroupModel?> deleteGroupApi(Map formData) async {
+  Future<GroupDeleteModel?> groupDeleteApi(Map requestAll, int id) async {
     try {
-      dioClient.options.headers['content-Type'] =
-          'application/x-www-form-urlencoded';
-      Response response =
-          await dioClient.post(baseUrl + formData["action"], data: formData);
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return DeleteGroupModel.fromJson(jsonString);
+      return GroupDeleteModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<GroupMemberModel?> groupMemberApi(Map requestAll, String nextpage, String q) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return GroupMemberModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<GroupMemberStoreModel?> groupMemberStoreApi(Map requestAll) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"];
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return GroupMemberStoreModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<GroupMemberDeleteModel?> groupMemberDeleteApi(Map requestAll, id) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return GroupMemberDeleteModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+  }
+
+  Future<GroupMemberRequestModel?> groupMemberRequestApi(Map requestAll, id) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = baseUrl + requestAll["action"] + '/' + id.toString();
+      Response response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return GroupMemberRequestModel.fromJson(jsonString);
     } on DioError {
       return null;
     }
