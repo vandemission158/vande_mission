@@ -5,11 +5,18 @@ import 'package:vande_mission/helper/app_color.dart';
 
 import '../../../helper/image_constant.dart';
 
-class ComponetsScreenController extends GetxController{
-
+class ComponetsScreenController extends GetxController {
   String dropdownValue = 'One';
   String text = "#tranding";
-  
+  var showPoll = false.obs;
+  var showGallery = false.obs;
+  var showAddVideo = false.obs;
+  var showPlace = false.obs;
+  var showAddSome = false.obs;
+  var showText = false.obs;
+  var showRecord = false.obs;
+
+  var currentRangeValues = 1.0.obs;
   final List<Map<String, dynamic>> texts = [
     {
       "text": "O1. This text contains a url: https://flutter.dev",
@@ -39,40 +46,27 @@ class ComponetsScreenController extends GetxController{
     },
   ];
 
+  ///this list is bottom sheet color
+  var bottomColor = [
+    green,
+    blue,
+    yellowSociety,
+    pinkVillage,
+  ].obs;
 
-///this list is bottom sheet color
- List<Color> bottomColor = [
-  green.withOpacity(0.1),
-  blue.withOpacity(0.1),
-  yellowSociety.withOpacity(0.1),
-  pinkVillage.withOpacity(0.1),
-  green.withOpacity(0.1)
- ];
+  ///this list is bottomsheet text
+  var textBottom = [
+    {'id': 1, 'name': "create_poll", 'image': iGroup},
+    {'id': 2, 'name': "gallery", 'image': photos},
+    {'id': 3, 'name': "add_video", 'image': videos},
+    {'id': 4, 'name': "place", 'image': iconPlace},
+    {'id': 5, 'name': "add_some", 'image': iGroup},
+  ].obs;
 
-///this list is bottomsheet text 
- List<String> textBottom = [
-  "create_poll",
-  "gallery",
-  "add_video",
-  "place",
-  "add_some"
- ];
+  ///this list is bottom sheet icon
 
-///this list is bottom sheet icon
- List<String> icons = [
-     iGroup,
-     photos,
-     videos,
-     iconPlace,
-     iGroup
- ];
+  ///this image define is gridview
+  var pollImages = [pollFirstImage, pollSecondImage];
 
-///this image define is gridview
- List<String> pollImages = [
-  pollFirstImage,
-  pollSecondImage
- ];
-
- int addIndex = 0;
-
+  int addIndex = 0;
 }
