@@ -61,7 +61,7 @@ const String iGroup = "assets/icons/i_group.png";
 const String iconPlace = "assets/icons/place_icon.png";
 const String micIcon = "assets/icons/mic_icon.png";
 const String playIcon = "assets/icons/play.png";
-const String productIcon = "assets/icons/productIcon.png";
+const String productYellow = "assets/icons/product_yellow.png";
 const String blogIcon = "assets/icons/blogIcon.png";
 const String offerIcon = "assets/icons/offerIcon.png";
 const String newAdIcon = "assets/icons/newAdIcon.png";
@@ -69,6 +69,7 @@ const String brodcastIcon = "assets/icons/brodcastIcon.png";
 
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";
+const String closeCircle = "assets/icons/close_circle.png";
 
 //images
 const String vandeMissionImg = "assets/images/vande_mission_image.png";
@@ -104,3 +105,7 @@ const String fbImage = "assets/images/fb_image.png";
 const String advertisementImage = "assets/images/advertisement_image.png";
 const String familyMember = "assets/images/family_member.png";
 const String bankImage = "assets/images/bank_image.png";
+const String backgroundImage = "assets/images/Background.png";
+const String searchEmptyImage = "assets/images/SearchEmpty.png";
+const String searchNotFoundImage = "assets/images/SearchNotFound.png";
+const String departmentDetailImage = "assets/images/Department_detail.png";
