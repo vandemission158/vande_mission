@@ -9,11 +9,13 @@ class CustomDropDown extends StatelessWidget {
   final String? title;
   final TextEditingController? controller;
   final Function? onTap;
+  final Color? color;
   const CustomDropDown({
     Key? key,
     this.title,
     this.controller,
     this.onTap,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -23,9 +25,10 @@ class CustomDropDown extends StatelessWidget {
       onTap: () => onTap!(),
       child: IgnorePointer(
         child: Container(
+          height: 56,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: lightWhite,
+            color: color,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -55,7 +58,7 @@ class CustomDropDown extends StatelessWidget {
                           color: darkGrey,
                         ),
                         hintText: title!.tr,
-                        fillColor: lightWhite),
+                        fillColor: color),
                   ),
                 ),
                 Image.asset(downBlack)
