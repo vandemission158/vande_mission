@@ -4,18 +4,9 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/local_string.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
-import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.dart';
-import 'package:vande_mission/screen/afterlogin/demo_payment.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
-import 'package:vande_mission/screen/beforelogin/view/add_new_family_member.dart';
-import 'package:vande_mission/screen/beforelogin/view/register_new_family.dart';
-import 'package:vande_mission/screen/splash/splash_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/village_detail.dart';
 
-import 'screen/afterlogin/view/componet_screen.dart';
-import 'package:vande_mission/screen/beforelogin/view/lets_add_family_member.dart';
-import 'package:vande_mission/screen/beforelogin/view/login_screen.dart';
-import 'screen/beforelogin/view/address_list.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
-      home: Splash(),
+      home: const DepartmentDetail(),
       // home: LoginScreen(),
     );
   }
