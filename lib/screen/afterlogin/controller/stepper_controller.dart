@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class StepperController extends GetxController{
+class StepperController extends GetxController {
+  int activeStep = 2; // Initial step set to 5.
 
-     int activeStep = 2; // Initial step set to 5.
+  int upperBound = 3;
 
-      int upperBound = 3;
-
-var items = [
-  "Full Time",
-  "Part Time",
-  "Intership",
-  "Agency & Partners"
-];
+  var items = ["Full Time", "Part Time", "Intership", "Agency & Partners"];
 
   String dropdownvalue = "Agency & Partners";
 
@@ -20,15 +14,12 @@ var items = [
 
   final List<ChipData> allChips = [];
 
-   ///remove the skill method
+  ///remove the skill method
   void deleteChip(String id) {
-      allChips.removeWhere((element) => element.id == id);
+    allChips.removeWhere((element) => element.id == id);
   }
 
   int stepperIndex = 1;
-  
-  
-
 }
 
 /// Data model for a chip
