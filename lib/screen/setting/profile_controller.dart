@@ -3,6 +3,7 @@ import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
 // import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
 import '../../helper/constant.dart';
+import '../../helper/image_constant.dart';
 import '../../remote_services/api/auth_api.dart';
 import '../../remote_services/dio_client.dart';
 import '../../remote_services/remote_services.dart';
@@ -10,6 +11,14 @@ import '../../remote_services/remote_services.dart';
 class ProfileController extends GetxController {
   var logutModal = LogoutModal().obs;
 
+  var memberList = [
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"},
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"},
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"},
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"},
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"},
+    {"image": familyImage1, "name": "Jhone Deo", "sex": "Male"}
+  ].obs;
   // void logoutAPICall() async {
   //   // if (!hasNextPage.value) {
   //   //   isLoading.value = true;
