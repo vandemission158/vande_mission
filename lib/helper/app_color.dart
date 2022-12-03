@@ -35,10 +35,12 @@ const lightPink = Color(0xffEC6E93);
 const lightblue = Color(0xff42B2F1);
 const greylight = Color(0xffE6E6E6);
 const greenlight = Color(0xffEFF7FF);
-
-
-
-
+const userPlaceholderColor = Color(0xffd2d4d3);
+const adsgradiant1 = Color(0xff27CAC0);
+const adsgradiant2 = Color(0xff726FF1);
+const adsgradiant3 = Color(0xffEC5CD5);
+const postGradiant1 = Color(0xff79A9FE);
+const postGradiant2 = Color(0xff1460E3);
 
 const orangeLight2 = Color(0xffF0A055);
 const orangeLight1 = Color(0xffF1530E);
