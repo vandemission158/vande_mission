@@ -18,11 +18,11 @@ class BookPreviewScreen extends StatelessWidget {
         backgroundColor: greenlight,
         foregroundColor: black,
         elevation: 0,
-        actions:  [
+        actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
-              onTap:(() => Get.to(()=>PostDetailScreen())),
+              onTap: (() => Get.to(() => PostDetailScreen())),
               child: Center(
                 child: TextLabel(
                   title: "Edit",
@@ -46,16 +46,10 @@ class BookPreviewScreen extends StatelessWidget {
                   height: 200,
                 ),
                 Container(
-                  decoration: BoxDecoration(
-                      color: greenlight,
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15))),
+                  decoration: BoxDecoration(color: greenlight, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
                   height: 90,
                 ),
-                Positioned(
-                    top: 0,
-                    left: 130,
-                    right: 130,
-                    child: Image.asset(wallapaper1))
+                Positioned(top: 0, left: 130, right: 130, child: Image.asset(wallapaper1))
               ],
             ),
             Padding(
@@ -88,8 +82,7 @@ class BookPreviewScreen extends StatelessWidget {
                         unratedColor: lightGrey,
                         allowHalfRating: true,
                         itemCount: 5,
-                        itemPadding:
-                            const EdgeInsets.symmetric(horizontal: 2.0),
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 2.0),
                         itemBuilder: (context, _) => const Icon(
                           Icons.star,
                           color: Colors.amber,
@@ -126,8 +119,7 @@ class BookPreviewScreen extends StatelessWidget {
                     height: 30,
                   ),
                   TextLabel(
-                    title:
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+                    title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
                     color: black.withOpacity(0.5),
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
