@@ -4,6 +4,10 @@ import 'package:vande_mission/remote_services/api/offer_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 
 class OfferController extends GetxController {
+  var items = ["Home Applience", "Office Applience", "Land Applience"];
+
+  String dropdownvalue = "Home Applience";
+
   void offerApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
     requestAll!.addAll({
       "action": pathOfferAPI,

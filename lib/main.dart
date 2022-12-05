@@ -6,7 +6,7 @@ import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/local_string.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 import 'package:vande_mission/screen/afterlogin/view/village_detail.dart';
-
+import 'package:vande_mission/screen/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +26,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
-      home: const DepartmentDetail(),
+      // home: const DepartmentDetail(),
+      home: Splash(),
       // home: LoginScreen(),
     );
   }

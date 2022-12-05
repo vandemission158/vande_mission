@@ -9,6 +9,7 @@ import 'text_label.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({Key? key}) : super(key: key);
+  // final CustomDrawerController controller = Get.put(CustomDrawerController());
   final CustomDrawerController controller = Get.put(CustomDrawerController());
 
   @override
@@ -25,14 +26,10 @@ class CustomDrawer extends StatelessWidget {
                 Container(
                   height: 175,
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [linearOrangeLight, linearOrangeLight2]),
+                    gradient: LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [linearOrangeLight, linearOrangeLight2]),
                   ),
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 45),
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 45),
                     child: Column(
                       children: [
                         Row(
@@ -73,9 +70,7 @@ class CustomDrawer extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            GestureDetector(
-                                onTap: () => Get.back(),
-                                child: Image.asset(close, color: white))
+                            GestureDetector(onTap: () => Get.back(), child: Image.asset(close, color: white))
                           ],
                         ),
                         const SizedBox(
@@ -84,16 +79,12 @@ class CustomDrawer extends StatelessWidget {
                         Container(
                           height: 40,
                           width: Constants.width(context),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: drawerBoxColor),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: drawerBoxColor),
                           child: Center(
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 20, right: 20),
+                              padding: const EdgeInsets.only(left: 20, right: 20),
                               child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: const [
                                   TextLabel(
                                     title: "Family identity number",
@@ -167,34 +158,22 @@ class CustomDrawer extends StatelessWidget {
                         child: GridView.builder(
                           itemCount: controller.drawerList.length,
                           physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  childAspectRatio: 0.75,
-                                  mainAxisSpacing: 15,
-                                  crossAxisSpacing: 15),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.75, mainAxisSpacing: 15, crossAxisSpacing: 15),
                           itemBuilder: (context, index) => Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 height: 80,
                                 width: 80,
-                                decoration: BoxDecoration(
-                                    color: controller.colors[
-                                            (index) % controller.colors.length]
-                                        .withOpacity(0.10),
-                                    borderRadius: BorderRadius.circular(10)),
+                                decoration: BoxDecoration(color: controller.colors[(index) % controller.colors.length].withOpacity(0.10), borderRadius: BorderRadius.circular(10)),
                                 child: Center(
                                     child: Padding(
                                   padding: const EdgeInsets.all(17),
-                                  child: Image.asset(controller
-                                      .drawerList[index]["image"]
-                                      .toString()),
+                                  child: Image.asset(controller.drawerList[index]["image"].toString()),
                                 )),
                               ),
                               TextLabel(
-                                title: controller.drawerList[index]["name"]
-                                    .toString(),
+                                title: controller.drawerList[index]["name"].toString(),
                                 fontSize: 12,
                                 color: darkGrey,
                                 fontWeight: FontWeight.w400,
@@ -219,34 +198,22 @@ class CustomDrawer extends StatelessWidget {
                         child: GridView.builder(
                           itemCount: controller.drawerList2.length,
                           physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  childAspectRatio: 0.75,
-                                  mainAxisSpacing: 15,
-                                  crossAxisSpacing: 15),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.75, mainAxisSpacing: 15, crossAxisSpacing: 15),
                           itemBuilder: (context, index) => Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 height: 80,
                                 width: 80,
-                                decoration: BoxDecoration(
-                                    color: controller.colors[
-                                            (index) % controller.colors.length]
-                                        .withOpacity(0.10),
-                                    borderRadius: BorderRadius.circular(10)),
+                                decoration: BoxDecoration(color: controller.colors[(index) % controller.colors.length].withOpacity(0.10), borderRadius: BorderRadius.circular(10)),
                                 child: Center(
                                     child: Padding(
                                   padding: const EdgeInsets.all(17),
-                                  child: Image.asset(controller
-                                      .drawerList2[index]["image"]
-                                      .toString()),
+                                  child: Image.asset(controller.drawerList2[index]["image"].toString()),
                                 )),
                               ),
                               TextLabel(
-                                title: controller.drawerList2[index]["name"]
-                                    .toString(),
+                                title: controller.drawerList2[index]["name"].toString(),
                                 fontSize: 12,
                                 color: darkGrey,
                                 fontWeight: FontWeight.w400,
@@ -271,34 +238,22 @@ class CustomDrawer extends StatelessWidget {
                         child: GridView.builder(
                           itemCount: controller.drawerList3.length,
                           physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  childAspectRatio: 0.75,
-                                  mainAxisSpacing: 15,
-                                  crossAxisSpacing: 15),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.75, mainAxisSpacing: 15, crossAxisSpacing: 15),
                           itemBuilder: (context, index) => Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
                                 height: 80,
                                 width: 80,
-                                decoration: BoxDecoration(
-                                    color: controller.colors[
-                                            (index) % controller.colors.length]
-                                        .withOpacity(0.10),
-                                    borderRadius: BorderRadius.circular(10)),
+                                decoration: BoxDecoration(color: controller.colors[(index) % controller.colors.length].withOpacity(0.10), borderRadius: BorderRadius.circular(10)),
                                 child: Center(
                                     child: Padding(
                                   padding: const EdgeInsets.all(17),
-                                  child: Image.asset(controller
-                                      .drawerList3[index]["image"]
-                                      .toString()),
+                                  child: Image.asset(controller.drawerList3[index]["image"].toString()),
                                 )),
                               ),
                               TextLabel(
-                                title: controller.drawerList3[index]["name"]
-                                    .toString(),
+                                title: controller.drawerList3[index]["name"].toString(),
                                 fontSize: 12,
                                 color: darkGrey,
                                 fontWeight: FontWeight.w400,
@@ -345,9 +300,7 @@ class CustomDrawer extends StatelessWidget {
         Container(
           height: 80,
           width: 80,
-          decoration: BoxDecoration(
-              color: bluePanchayat.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(color: bluePanchayat.withOpacity(0.1), borderRadius: BorderRadius.circular(10)),
           child: Center(
               child: Padding(
             padding: const EdgeInsets.all(17),

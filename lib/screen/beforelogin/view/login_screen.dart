@@ -61,10 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text(
                             "+91",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                color: grey),
+                            style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
                           ),
                           const SizedBox(
                             width: 5,
@@ -80,24 +77,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Expanded(
                       child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20)),
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                         child: TextField(
                           controller: controller.phoneNumberController.value,
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 15, vertical: 20),
+                              border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                               focusedBorder: const UnderlineInputBorder(
                                 borderRadius: BorderRadius.zero,
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
+                                borderSide: BorderSide(color: Colors.transparent),
                               ),
                               enabledBorder: const UnderlineInputBorder(
                                 borderRadius: BorderRadius.zero,
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
+                                borderSide: BorderSide(color: Colors.transparent),
                               ),
                               filled: true,
                               hintStyle: const TextStyle(color: grey),
@@ -112,10 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: Text(
                         "request_otp".tr,
-                        style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: blue),
+                        style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400, color: blue),
                       ),
                     ),
                   ],
@@ -127,8 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 controller: controller.otpController.value,
                 decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 20),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                     focusedBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent),
                     ),
@@ -157,11 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 15,
               ),
-              const TextLabel(
-                  title: "are_new_user",
-                  color: lightGrey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500),
+              const TextLabel(title: "are_new_user", color: lightGrey, fontSize: 16, fontWeight: FontWeight.w500),
               const SizedBox(
                 height: 15,
               ),
@@ -178,8 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Text(
                   "change_language".tr,
-                  style: GoogleFonts.poppins(
-                      fontSize: 16, fontWeight: FontWeight.w400, color: blue),
+                  style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: blue),
                 ),
                 const SizedBox(
                   width: 10,

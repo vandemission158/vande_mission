@@ -7,6 +7,7 @@ import 'package:vande_mission/screen/afterlogin/controller/add_business_controll
 import 'package:vande_mission/screen/afterlogin/view/Add_book_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_ad_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
+import 'package:vande_mission/screen/afterlogin/view/business/business_create_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_event_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_job_first.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
@@ -37,17 +38,7 @@ class HomePageController extends GetxController {
     {'id': 9, 'title': "New Offer", 'images': offerIcon},
   ].obs;
 
-  var colors = [
-    green,
-    bluePanchayat,
-    yellowSociety,
-    pinkVillage,
-    lightblue,
-    lightPink,
-    yellowSociety,
-    bluePanchayat,
-    green
-  ].obs;
+  var colors = [green, bluePanchayat, yellowSociety, pinkVillage, lightblue, lightPink, yellowSociety, bluePanchayat, green].obs;
 
   var pollImages = [pollFirstImage, pollSecondImage];
 
@@ -60,7 +51,7 @@ class HomePageController extends GetxController {
   }
 
   void onTapCreateNewBussiness() {
-    Get.to(() => AddBusinessScreen());
+    Get.to(() => BusinessCreateScreen());
   }
 
   void onTapCreateNewEvent() {
@@ -103,13 +94,11 @@ class HomePageController extends GetxController {
         ),
         builder: (BuildContext context) {
           return Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
+            padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
             child: SizedBox(
               height: 500,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
                   //  mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,16 +119,10 @@ class HomePageController extends GetxController {
                               child: Container(
                             width: Constants.width(context),
                             height: 55,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                    colors: [orangeLight2, orangeLight1]),
-                                borderRadius: BorderRadius.circular(10)),
+                            decoration: BoxDecoration(gradient: const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [orangeLight2, orangeLight1]), borderRadius: BorderRadius.circular(10)),
                             child: Center(
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 20),
+                                padding: const EdgeInsets.symmetric(horizontal: 20),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -150,10 +133,7 @@ class HomePageController extends GetxController {
                                     ),
                                     Text(
                                       "New Brodcast",
-                                      style: GoogleFonts.poppins(
-                                          fontSize: 12,
-                                          color: white,
-                                          fontWeight: FontWeight.w500),
+                                      style: GoogleFonts.poppins(fontSize: 12, color: white, fontWeight: FontWeight.w500),
                                     ),
                                   ],
                                 ),
@@ -173,37 +153,21 @@ class HomePageController extends GetxController {
                               child: Container(
                                 width: Constants.width(context),
                                 height: 55,
-                                decoration: BoxDecoration(
-                                    gradient:  LinearGradient(
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
-                                        colors: [
-                                          adsgradiant1,
-                                          adsgradiant2,
-                                          adsgradiant3
-                                        ]),
-                                    borderRadius: BorderRadius.circular(10)),
+                                decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [adsgradiant1, adsgradiant2, adsgradiant3]), borderRadius: BorderRadius.circular(10)),
                                 child: Center(
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20),
                                     child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 20),
+                                          padding: const EdgeInsets.only(right: 20),
                                           child: Image.asset(newAdIcon),
                                         ),
                                         Text(
                                           "New Ad",
-                                          style: GoogleFonts.poppins(
-                                              fontSize: 12,
-                                              color: white,
-                                              fontWeight: FontWeight.w500),
+                                          style: GoogleFonts.poppins(fontSize: 12, color: white, fontWeight: FontWeight.w500),
                                         ),
                                       ],
                                     ),
@@ -218,12 +182,7 @@ class HomePageController extends GetxController {
                     ),
                     Expanded(
                       child: GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                  childAspectRatio: 0.90,
-                                  mainAxisSpacing: 20,
-                                  crossAxisSpacing: 5),
+                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4, childAspectRatio: 0.90, mainAxisSpacing: 20, crossAxisSpacing: 5),
                           itemCount: bottomData.length,
                           itemBuilder: (BuildContext ctx, index) {
                             return GestureDetector(
@@ -267,31 +226,23 @@ class HomePageController extends GetxController {
                               },
                               child: Container(
                                 alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15)),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
                                       height: 70,
                                       width: 70,
-                                      decoration: BoxDecoration(
-                                          color: colors[(index) % colors.length]
-                                              .withOpacity(0.10),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
+                                      decoration: BoxDecoration(color: colors[(index) % colors.length].withOpacity(0.10), borderRadius: BorderRadius.circular(10)),
                                       child: Center(
                                           child: Padding(
                                         padding: const EdgeInsets.all(17),
-                                        child: Image.asset(
-                                            bottomData[index]['images']),
+                                        child: Image.asset(bottomData[index]['images']),
                                       )),
                                     ),
                                     TextLabel(
                                       textAlign: TextAlign.center,
-                                      title:
-                                          bottomData[index]['title'].toString(),
+                                      title: bottomData[index]['title'].toString(),
                                       fontSize: 12,
                                       color: black,
                                       fontWeight: FontWeight.w600,

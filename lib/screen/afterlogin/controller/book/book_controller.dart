@@ -4,6 +4,10 @@ import 'package:vande_mission/remote_services/api/book_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 
 class BookController extends GetxController {
+  var items = ["English", "Gujarati", "Hindi"];
+
+  String dropdownvalue = "English";
+
   void bookApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
     requestAll!.addAll({
       "action": pathBookAPI,

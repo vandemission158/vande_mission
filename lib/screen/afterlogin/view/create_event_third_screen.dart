@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../helper/app_color.dart';
-import '../../../helper/constant.dart';
 import '../../../helper/image_constant.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_dropdown.dart';
@@ -20,11 +19,9 @@ class CreateEventThirdScreen extends StatelessWidget {
   CreateEventThirdScreen({Key? key}) : super(key: key);
 
   final StepperController stepperController = Get.put(StepperController());
-  final ComponetsScreenController componetsScreenController =
-      Get.put(ComponetsScreenController());
+  final ComponetsScreenController componetsScreenController = Get.put(ComponetsScreenController());
   final AddAdsContrller controller = Get.put(AddAdsContrller());
-  final CreateEventFirstController createEventFirstController =
-      Get.put(CreateEventFirstController());
+  final CreateEventFirstController createEventFirstController = Get.put(CreateEventFirstController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,8 +46,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                 stepperSubTitle3: "Location",
               ),
               Container(
-                decoration: BoxDecoration(
-                    color: white, borderRadius: BorderRadius.circular(10)),
+                decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(10)),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
                   child: Column(
@@ -93,8 +89,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                             ),
                             GestureDetector(
-                              onTap: () =>
-                                  createEventFirstController.userList(context),
+                              onTap: () => createEventFirstController.userList(context),
                               child: const TextLabel(
                                 title: "Add",
                                 color: orange,
@@ -133,8 +128,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                               color: verticalDividerColor.withOpacity(0.2),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20),
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
                               child: Center(child: Image.asset(search)),
                             )
                           ],
@@ -149,8 +143,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                           Row(
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15)),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
                                 child: Image.asset(
                                   familyImage1,
                                   height: 56,
@@ -161,25 +154,16 @@ class CreateEventThirdScreen extends StatelessWidget {
                                 width: 10,
                               ),
                               Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     "John Doe",
-                                    style: GoogleFonts.lato(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        fontStyle: FontStyle.normal,
-                                        color: missonColor),
+                                    style: GoogleFonts.lato(fontWeight: FontWeight.w500, fontSize: 16, fontStyle: FontStyle.normal, color: missonColor),
                                   ),
                                   Text(
                                     "Male",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        fontStyle: FontStyle.normal,
-                                        color: grey),
+                                    style: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, fontStyle: FontStyle.normal, color: grey),
                                   ),
                                 ],
                               ),
@@ -203,8 +187,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                           Row(
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15)),
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
                                 child: Image.asset(
                                   familyImage1,
                                   height: 56,
@@ -215,25 +198,16 @@ class CreateEventThirdScreen extends StatelessWidget {
                                 width: 10,
                               ),
                               Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     "John Doe",
-                                    style: GoogleFonts.lato(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        fontStyle: FontStyle.normal,
-                                        color: missonColor),
+                                    style: GoogleFonts.lato(fontWeight: FontWeight.w500, fontSize: 16, fontStyle: FontStyle.normal, color: missonColor),
                                   ),
                                   Text(
                                     "Male",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        fontStyle: FontStyle.normal,
-                                        color: grey),
+                                    style: GoogleFonts.poppins(fontWeight: FontWeight.w400, fontSize: 12, fontStyle: FontStyle.normal, color: grey),
                                   ),
                                 ],
                               ),
@@ -257,28 +231,19 @@ class CreateEventThirdScreen extends StatelessWidget {
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              border: Border.all(
-                                  color: createEventFirstController
-                                              .isChecked.value ==
-                                          true
-                                      ? yellowSociety
-                                      : yellowSociety,
-                                  width: 3),
+                              border: Border.all(color: createEventFirstController.isChecked.value == true ? yellowSociety : yellowSociety, width: 3),
                             ),
                             width: 24,
                             height: 24,
                             child: Theme(
-                              data: ThemeData(
-                                  unselectedWidgetColor: Colors.white),
+                              data: ThemeData(unselectedWidgetColor: Colors.white),
                               child: Checkbox(
                                 checkColor: yellowSociety,
                                 activeColor: white,
-                                value:
-                                    createEventFirstController.isChecked.value,
+                                value: createEventFirstController.isChecked.value,
                                 tristate: false,
                                 onChanged: (isCheckedValue) {
-                                  createEventFirstController.isChecked.value =
-                                      isCheckedValue!;
+                                  createEventFirstController.isChecked.value = isCheckedValue!;
                                 },
                               ),
                             ),
@@ -300,8 +265,7 @@ class CreateEventThirdScreen extends StatelessWidget {
                       const Padding(
                         padding: EdgeInsets.only(left: 10),
                         child: TextLabel(
-                          title:
-                              "Reminded invitee 24 hour ago and at the start of event before 5 minute",
+                          title: "Reminded invitee 24 hour ago and at the start of event before 5 minute",
                           color: missonColor,
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
@@ -342,8 +306,7 @@ class CreateEventThirdScreen extends StatelessWidget {
               //     Get.to(() => const Chat(), arguments: item, transition: rightToLeft),
               child: Container(
                 color: context.theme.backgroundColor,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Row(
                   children: [
                     Column(
@@ -352,25 +315,13 @@ class CreateEventThirdScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            ClipRRect(
-                                borderRadius: BorderRadius.circular(43.0),
-                                child: Image.asset(createEventFirstController
-                                    .locationList[index]['image']
-                                    .toString())),
+                            ClipRRect(borderRadius: BorderRadius.circular(43.0), child: Image.asset(createEventFirstController.locationList[index]['image'].toString())),
                             const SizedBox(
                               width: 15,
                             ),
                             Text(
-                              createEventFirstController.locationList[index]
-                                      ['name']!
-                                  .toUpperCase()
-                                  .capitalizeFirst
-                                  .toString(),
-                              style: GoogleFonts.lato(
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15,
-                                  fontStyle: FontStyle.normal,
-                                  color: context.theme.focusColor),
+                              createEventFirstController.locationList[index]['name']!.toUpperCase().capitalizeFirst.toString(),
+                              style: GoogleFonts.lato(fontWeight: FontWeight.w700, fontSize: 15, fontStyle: FontStyle.normal, color: context.theme.focusColor),
                             ),
                           ],
                         ),
@@ -379,25 +330,15 @@ class CreateEventThirdScreen extends StatelessWidget {
                             ClipRRect(
                                 borderRadius: BorderRadius.circular(43.0),
                                 child: Image.asset(
-                                  createEventFirstController.locationList[index]
-                                          ['image']
-                                      .toString(),
+                                  createEventFirstController.locationList[index]['image'].toString(),
                                   color: white,
                                 )),
                             const SizedBox(
                               width: 15,
                             ),
                             Text(
-                              createEventFirstController.locationList[index]
-                                      ['chick']!
-                                  .toUpperCase()
-                                  .capitalizeFirst
-                                  .toString(),
-                              style: GoogleFonts.lato(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  fontStyle: FontStyle.normal,
-                                  color: grey),
+                              createEventFirstController.locationList[index]['chick']!.toUpperCase().capitalizeFirst.toString(),
+                              style: GoogleFonts.lato(fontWeight: FontWeight.w400, fontSize: 12, fontStyle: FontStyle.normal, color: grey),
                             ),
                           ],
                         ),

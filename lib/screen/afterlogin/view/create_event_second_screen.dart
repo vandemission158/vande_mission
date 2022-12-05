@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_ads_third_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_event_third_screen.dart';
 
 import '../../../helper/app_color.dart';
@@ -10,7 +9,6 @@ import '../../../widgets/custom_button.dart';
 import '../../../widgets/custom_dropdown.dart';
 import '../../../widgets/custom_stepper.dart';
 import '../../../widgets/custom_textfield.dart';
-import '../../../widgets/tap_to_upload_button.dart';
 import '../../../widgets/text_label.dart';
 import '../controller/add_ads_controller.dart';
 import '../controller/componet_screen_controller.dart';
@@ -22,11 +20,9 @@ import 'add_ads_second_screen.dart';
 class CreateEventSecondScreen extends StatelessWidget {
   CreateEventSecondScreen({Key? key}) : super(key: key);
   final StepperController stepperController = Get.put(StepperController());
-  final ComponetsScreenController componetsScreenController =
-      Get.put(ComponetsScreenController());
+  final ComponetsScreenController componetsScreenController = Get.put(ComponetsScreenController());
   final AddAdsContrller controller = Get.put(AddAdsContrller());
-  final CreateEventFirstController createEventFirstController =
-      Get.put(CreateEventFirstController());
+  final CreateEventFirstController createEventFirstController = Get.put(CreateEventFirstController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,8 +51,7 @@ class CreateEventSecondScreen extends StatelessWidget {
                       color: greenlight,
                     ),
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(left: 16, right: 16, top: 10),
+                      padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,8 +77,7 @@ class CreateEventSecondScreen extends StatelessWidget {
                             title: "Select Bussiness type",
                             color: white,
                             onTap: () => controller.businessTypeBottom(context),
-                            controller:
-                                controller.businessTypeTextController.value,
+                            controller: controller.businessTypeTextController.value,
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 14),
@@ -112,10 +106,7 @@ class CreateEventSecondScreen extends StatelessWidget {
                                     children: [
                                       Text(
                                         "+91",
-                                        style: GoogleFonts.poppins(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w400,
-                                            color: grey),
+                                        style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
                                       ),
                                       const SizedBox(
                                         width: 5,
@@ -131,36 +122,23 @@ class CreateEventSecondScreen extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
                                     child: TextField(
                                       keyboardType: TextInputType.number,
                                       // controller: controller.phoneNumberController.value,
                                       decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 15, vertical: 20),
-                                          focusedBorder:
-                                              const UnderlineInputBorder(
+                                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                                          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+                                          focusedBorder: const UnderlineInputBorder(
                                             borderRadius: BorderRadius.zero,
-                                            borderSide: BorderSide(
-                                                color: Colors.transparent),
+                                            borderSide: BorderSide(color: Colors.transparent),
                                           ),
-                                          enabledBorder:
-                                              const UnderlineInputBorder(
+                                          enabledBorder: const UnderlineInputBorder(
                                             borderRadius: BorderRadius.zero,
-                                            borderSide: BorderSide(
-                                                color: Colors.transparent),
+                                            borderSide: BorderSide(color: Colors.transparent),
                                           ),
                                           filled: true,
-                                          hintStyle: GoogleFonts.poppins(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: grey),
+                                          hintStyle: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
                                           hintText: "enter_mobile_number".tr,
                                           fillColor: white),
                                     ),

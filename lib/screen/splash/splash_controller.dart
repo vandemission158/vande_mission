@@ -23,7 +23,7 @@ class SplashController extends GetxController {
     if (await Constants.getHive(authKey) != null) {
       authorizationKey = await Constants.getHive(authKey);
     }
-    var isLogin = await Constants.getHive(isLoginHive); 
+    var isLogin = await Constants.getHive(isLoginHive);
     if (isLogin == true) {
       Get.offAll(() => const HomePage(), transition: Transition.fadeIn);
     } else {

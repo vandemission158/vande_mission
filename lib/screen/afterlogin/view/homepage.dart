@@ -12,6 +12,7 @@ import 'package:vande_mission/widgets/announcement_card.dart';
 import 'package:vande_mission/widgets/book_card.dart';
 import 'package:vande_mission/widgets/bussiness_card.dart';
 import 'package:vande_mission/widgets/drawer.dart';
+import 'package:vande_mission/widgets/drawer/menu_drawer.dart';
 import 'package:vande_mission/widgets/expandable_text_widget.dart';
 import 'package:vande_mission/widgets/jobs_card.dart';
 import 'package:vande_mission/widgets/offer_card.dart';
@@ -53,15 +54,10 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           foregroundColor: black,
           actions: [
-            GestureDetector(
-                onTap: () => Get.to(() => SearchScreen()),
-                child: Image.asset(search)),
-            GestureDetector(
-                 onTap: () => Get.to(() => const Profile()),
-                child: Image.asset(notificationIcon)),
+            GestureDetector(onTap: () => Get.to(() => SearchScreen()), child: Image.asset(search)),
+            GestureDetector(onTap: () => Get.to(() => const Profile()), child: Image.asset(notificationIcon)),
             PopupMenuButton<int>(
-              shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0))),
+              shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15.0))),
               itemBuilder: (context) => [
                 PopupMenuItem(
                   value: 1,
@@ -150,33 +146,29 @@ class _HomePageState extends State<HomePage> {
                 ]),
           ),
         ),
-        drawer: CustomDrawer(),
+        // drawer: CustomDrawer(),
+        drawer: MenuDrawer(),
         body: Column(
           children: [
             Expanded(
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
-                  children: [AnnouncementCard(),
+                  children: [
+                    AnnouncementCard(),
                     AdvertiesmentCard(),
-                     OfferCard(),
-                     BlogCard(),
-                     EventCard(),
-                     BussinessCard(),
+                    OfferCard(),
+                    BlogCard(),
+                    EventCard(),
+                    BussinessCard(),
                     Padding(
-                      padding: const EdgeInsets.only(
-                          left: 20, right: 20, top: 10, bottom: 10),
+                      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
                       child: Container(
-                        decoration: BoxDecoration(
-                            color: black.withOpacity(0.02),
-                            borderRadius: BorderRadius.circular(15),
-                            border:
-                                Border.all(color: darkGrey.withOpacity(0.1))),
+                        decoration: BoxDecoration(color: black.withOpacity(0.02), borderRadius: BorderRadius.circular(15), border: Border.all(color: darkGrey.withOpacity(0.1))),
                         child: Column(
                           children: [
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 15, right: 15),
+                              padding: const EdgeInsets.only(left: 15, right: 15),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -187,27 +179,15 @@ class _HomePageState extends State<HomePage> {
                                       right: 5,
                                     ),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
-                                            gradient: const LinearGradient(
-                                                begin: Alignment.centerLeft,
-                                                end: Alignment.centerRight,
-                                                colors: [
-                                                  linearPurple,
-                                                  linearpink
-                                                ]),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
+                                            gradient: const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [linearPurple, linearpink]),
+                                            borderRadius: BorderRadius.circular(5),
                                           ),
                                           child: const Padding(
-                                            padding: EdgeInsets.only(
-                                                right: 10,
-                                                left: 10,
-                                                top: 5,
-                                                bottom: 5),
+                                            padding: EdgeInsets.only(right: 10, left: 10, top: 5, bottom: 5),
                                             child: TextLabel(
                                               title: 'Photos',
                                               fontSize: 10,
@@ -233,8 +213,7 @@ class _HomePageState extends State<HomePage> {
                                         return Stack(
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 10),
+                                              padding: const EdgeInsets.only(right: 10),
                                               child: Image.asset(
                                                 controller.pollImages[index],
                                                 height: 200,
@@ -265,8 +244,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 5,
                                   ),
                                   const TextLabel(
-                                    title:
-                                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and More',
+                                    title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and More',
                                     fontSize: 13,
                                     color: black,
                                     fontWeight: FontWeight.w400,
@@ -288,10 +266,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                     PhotosCard(),
                     VideoCard(),
-                     BookCard(),
-                     PropertyCard(),
-                     ProductCard(),
-                     JobsCard(),
+                    BookCard(),
+                    PropertyCard(),
+                    ProductCard(),
+                    JobsCard(),
 
                     ProductCard(),
                     //  WeatherCard(),
@@ -348,8 +326,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                     child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     color: white,
@@ -357,9 +334,7 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Image.asset(smily)),
+                      ClipRRect(borderRadius: BorderRadius.circular(15.0), child: Image.asset(smily)),
                       const SizedBox(
                         width: 5,
                       ),
@@ -378,30 +353,19 @@ class _HomePageState extends State<HomePage> {
                             keyboardType: TextInputType.multiline,
                             maxLines: null,
                             textAlignVertical: TextAlignVertical.top,
-                            style: GoogleFonts.lato(
-                                color: context.theme.focusColor,
-                                fontWeight: FontWeight.w400,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 12),
+                            style: GoogleFonts.lato(color: context.theme.focusColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 12),
                             decoration: InputDecoration(
                               contentPadding: const EdgeInsets.only(
                                 bottom: 10,
                               ),
                               hintText: 'Type here'.tr,
-                              hintStyle: GoogleFonts.lato(
-                                  color: context.theme.hintColor,
-                                  fontWeight: FontWeight.w400,
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 16),
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
+                              hintStyle: GoogleFonts.lato(color: context.theme.hintColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
+                              floatingLabelBehavior: FloatingLabelBehavior.always,
                               focusedBorder: const UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
+                                borderSide: BorderSide(color: Colors.transparent),
                               ),
                               enabledBorder: const UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.transparent),
+                                borderSide: BorderSide(color: Colors.transparent),
                               ),
                             ),
                             keyboardAppearance: Brightness.light,
@@ -433,8 +397,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     width: 30,
                     height: 30,
-                    decoration: BoxDecoration(
-                        color: white, borderRadius: BorderRadius.circular(25)),
+                    decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(25)),
                     child: Center(
                       child: Image.asset(plusIcon),
                     ),

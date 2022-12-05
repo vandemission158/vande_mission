@@ -1,0 +1,405 @@
+final HomePageController controller = Get.put(HomePageController());
+  // final AuthController authController = Get.put(AuthController());
+  // onPressed: () => authController.autologinApiCall({})
+  // onPressed: () => authController.settingApiCall({}),
+
+  final UserController userController = Get.put(UserController());
+  // onPressed: () => userController.mentionApiCall({}, "", ""),
+  // onPressed: () => userController.familyApiCall({}, "", ""),
+  // onPressed: () => userController.userUpdateApiCall({
+  //             "family_id": 1,
+  //             "field_name": 'first_name',
+  //             "type": 'text', //text,file,textarea,object,array,date
+  //             "value": 'Maulik', //Obj:{"nri":1,"nri_address":"Patel","nri_pincode":"382481"}
+  //           }, 2),
+  //onPressed: () => userController.relationApiCall({}),
+  //onPressed: () => userController.familymemberApiCall({}),
+  //onPressed: () => userController.familyRelationApiCall({}),
+  //onPressed: () => userController.familyRelationStoreApiCall({}),
+
+  // final SkillController skillController = Get.put(SkillController());
+  //onPressed: () => skillController.skillApiCall({}, "", ""),
+  //onPressed: () => skillController.skillStoreApiCall({}),
+
+  // final BlogController blogController = Get.put(BlogController());
+  // onPressed: () => blogController.blogApiCall({}, "", ""),
+  // onPressed: () => blogController.blogStoreApiCall({
+  //    "typeofcategory_id": 408, //217
+  //     "title": "Blog 1",
+  //     "keywords": "k1,k2,k3",
+  //     "video": "",
+  //     "description": "Hello",
+  // }),
+  // onPressed: () => blogController.blogUpdateApiCall({
+  //"typeofcategory_id": 408, //217
+  //     "title": "Blog 1",
+  //     "keywords": "k1,k2,k3",
+  //     "video": "",
+  //     "description": "Hello",
+  //}, 1),
+  // onPressed: () => blogController.blogDeleteApiCall(1),
+  // onPressed: () => blogController.blogLikeDislikeApiCall({"blog_id": 1, "is_like": 1}),
+  // onPressed: () => blogController.blogCommentApiCall({"blog_id": 1}),
+  // onPressed: () => blogController.blogCommentStoreApiCall({"blog_id": 1, "text": "blog comment"}),
+  // onPressed: () => blogController.blogCommentDeleteApiCall(3),
+  // onPressed: () => blogController.blogCommentLikeApiCall({"blog_id": 1, "blog_comment_id": 1}),
+  // onPressed: () => blogController.blogCommentReplyApiCall({"blog_id": 1, "blog_comment_id": 1}),
+  // onPressed: () => blogController.blogCommentReplyStoreApiCall({"blog_id": 1, "blog_comment_id": 1, "text": "blog comment"}),
+  // onPressed: () => blogController.blogCommentReplyDeleteApiCall(3),
+  // onPressed: () => blogController.blogCommentReplyLikeApiCall(3),
+
+  // final GroupController groupController = Get.put(GroupController());
+  //onPressed: () => groupController.groupApiCall({}, "", ""),
+  // onPressed: () => groupController.groupStoreApiCall({
+  //             'division': 'Address', //Category Or Address
+  //             "typeofcategory_id": 217, //217
+  //             "country_id": 1,
+  //             "state_id": 10,
+  //             "district_id": 175,
+  //             "subdistrict_id": 3682,
+  //             "village_id": 523078,
+  //             "society_id": 1,
+  //             "name": 'group 1',
+  //             "about": 'test',
+  //             "type": 'Private',
+  //             "photo": ""
+  //           }),
+  // onPressed: () => groupController.groupUpdateApiCall({
+  //             'division': 'Address', //Category Or Address
+  //             "typeofcategory_id": 217, //217
+  //             "country_id": 1,
+  //             "state_id": 10,
+  //             "district_id": 175,
+  //             "subdistrict_id": 3682,
+  //             "village_id": 523078,
+  //             "society_id": 1,
+  //             "name": 'group 1',
+  //             "about": 'test',
+  //             "type": 'Private',
+  //             "photo": ""
+  //           }, 27),
+  // onPressed: () => groupController.groupDeleteApiCall(27),
+  // onPressed: () => groupController.groupMemberApiCall({'group_id': 26}, "", ""),
+  // onPressed: () => groupController.groupMemberStoreApiCall({'group_id': 26, 'member_id':}, "", ""),
+  // onPressed: () => groupController.groupMemberDeleteApiCall(20),
+  // onPressed: () => groupController.groupMemberRequestApiCall({"is_request": "Accept"}, 1),
+
+  // final EventController eventController = Get.put(EventController());
+  //onPressed: () => eventController.eventApiCall({}, "", ""),
+  // onPressed: () => eventController.eventStoreApiCall({
+  //             "typeofcategory_id": 382, //217
+  //             "title": "Wedding ceremany 1",
+  //             "datetype": "date", //date,datetime
+  //             "start_datetime": "2022-04-22 09:00:00",
+  //             "end_datetime": "2022-04-22 10:00:00",
+  //             "allow_end_date": 1,
+  //             "location": "Gota",
+  //             "notes": "test",
+  //             "epass": 1, //1 epass system 0 general
+  //             "paid": 1, //1-paid,0-free
+  //             "price": "50",
+  //           }),
+  // onPressed: () => eventController.eventUpdateApiCall({
+  //             "typeofcategory_id": 382, //217
+  //             "title": "Wedding ceremany 1x 11",
+  //             "datetype": "date", //date,datetime
+  //             "start_datetime": "2022-04-22 09:00:00",
+  //             "end_datetime": "2022-04-22 10:00:00",
+  //             "allow_end_date": 1,
+  //             "location": "Gota",
+  //             "notes": "test",
+  //             "epass": 1, //1 epass system 0 general
+  //             "paid": 1, //1-paid,0-free
+  //             "price": "50",
+  //           }, 6),
+  //  onPressed: () => eventController.eventDeleteApiCall(8),
+  // final EventOrganiserController eventOrganiserController = Get.put(EventOrganiserController());
+// onPressed: () => eventOrganiserController.eventOrganiserApiCall({'event_id': 6}, "", ""),
+//  onPressed: () => eventOrganiserController.eventOrganiserStoreApiCall({
+//               "organiser": "Family", //'Family', 'Society', 'Member', 'Group'
+//               "event_id": 6,
+//               // "member_id": 0,
+//               "family_id": 6,
+//               // "society_id": 0,
+//               // "group_id": 0,
+//             }),
+// onPressed: () => eventOrganiserController.eventOrganiserDeleteApiCall(4),
+  // final EventInvitationController eventInvitationController = Get.put(EventInvitationController());
+  //onPressed: () => eventInvitationController.eventInvitationApiCall({}, "", ""),
+  // onPressed: () => eventInvitationController.eventInvitationStoreApiCall({
+  //             "event_id": 1,
+  //             "event_invitation_type": 'Village', //'Village', 'Society', 'Member', 'Group'
+  //             // "member_id": 0,
+  //             // "family_id": 1,
+  //             // "society_id": 0,
+  //             // "group_id": 0,
+  //             "village_id": 523078,
+  //           }),
+  // onPressed: () => eventInvitationController.eventInvitationDeleteApiCall(4),
+  // final EventInterestController eventInterestController = Get.put(EventInterestController());
+  //onPressed: () => eventInterestController.eventInterestApiCall({'event_id': 1}, "", ""),
+  //  onPressed: () => eventInterestController.eventInterestStoreApiCall({'event_id': 1, is_attend:0}),
+  // onPressed: () => eventInterestController.eventInterestDeleteApiCall(4),
+
+  // final JobController jobController = Get.put(JobController());
+  // onPressed: () => jobController.jobApiCall({}, "", ""),
+  // onPressed: () => jobController.jobStoreApiCall({
+  //             "typeofcategory_id": 291, //217
+  //             "title": "Sr. php Developer",
+  //             "type": "Fulltime", //'Fulltime','Parttime','Internship','Volunteer','Contract'
+  //             "education": "Graduation",
+  //             "experience": "5+ year",
+  //             "skill": "laravel,yii2,codeigniter",
+  //             "salary_type": "Monthly", //Monthly,Hourly,Yearly
+  //             "min_salary": "30K",
+  //             "max_salary": "35K",
+  //             "vacancy": 5,
+  //             "advertisement": "",
+  //             "sector": "Private", //'Government', 'Private'
+  //             "description": "",
+  //             "option": "Company", //'Company', 'Business', 'Freelancer'
+  //             "option_name": "DD",
+  //             "option_website": "",
+  //             "option_address": "Ahmedabad",
+  //             "option_email": "maulikpatel240@gmail.com",
+  //             "option_phone_number": "6354800439",
+  //             "is_closed": 0,
+  //           }),
+  // onPressed: () => jobController.jobUpdateApiCall({
+  //             "typeofcategory_id": 291, //217
+  //             "title": "Sr. php Developer 1",
+  //             "type": "Fulltime", //'Fulltime','Parttime','Internship','Volunteer','Contract'
+  //             "education": "Graduation",
+  //             "experience": "5+ year",
+  //             "skill": "laravel,yii2,codeigniter",
+  //             "salary_type": "Monthly", //Monthly,Hourly,Yearly
+  //             "min_salary": "30K",
+  //             "max_salary": "35K",
+  //             "vacancy": 5,
+  //             "advertisement": "",
+  //             "sector": "Private", //'Government', 'Private'
+  //             "description": "",
+  //             "option": "Company", //'Company', 'Business', 'Freelancer'
+  //             "option_name": "DD",
+  //             "option_website": "",
+  //             "option_address": "Ahmedabad",
+  //             "option_email": "maulikpatel240@gmail.com",
+  //             "option_phone_number": "6354800439",
+  //             "is_closed": 0,
+  //           }, 2),
+  // onPressed: () => jobController.jobDeleteApiCall(2),
+
+  // final JobInterestController jobInterestController = Get.put(JobInterestController());
+  // onPressed: () => jobInterestController.jobInterestApiCall({'job_id': 1}, "", ""),
+  //  onPressed: () => jobInterestController.jobInterestStoreApiCall({'job_id': 1}),
+  // onPressed: () => jobInterestController.jobInterestDeleteApiCall(4),
+
+  // final ProductController productController = Get.put(ProductController());
+  // onPressed: () => productController.productApiCall({}, "", ""),
+//  onPressed: () => productController.productStoreApiCall({
+//               "typeofcategory_id": 291, //217
+//               "type": "Product", //Product or Property
+//               "name": "i10 Nios",
+//               "sku": "12345678",
+//               "price": "50000",
+//               "max_retail_price": "60000",
+//               "product_type": "New", //New, Used
+//               "property_type": "", //Rent,Sale
+//               "description": "",
+//               "address": "",
+//               "pincode": "",
+//               "is_sale": 1,
+//               "image": [],
+//               "video": "",
+//             }),
+//  onPressed: () => productController.productDeleteApiCall(2),
+  // final ProductInterestController productInterestController = Get.put(ProductInterestController());
+//   onPressed: () => productInterestController.productInterestApiCall({'product_id': 1}, "", ""),
+//    onPressed: () => productInterestController.productInterestStoreApiCall({'product_id': 1, is_attend:0}),
+//   onPressed: () => productInterestController.productInterestDeleteApiCall(4),
+
+  // final OfferController offerController = Get.put(OfferController());
+// onPressed: () => offerController.offerApiCall({}, "", ""),
+  //  onPressed: () => offerController.offerStoreApiCall({
+  //             "typeofcategory_id": null,
+  //             "title": "Brand Factory 50% off",
+  //             "description": "brand factory buy 1 get free offer",
+  //             "start_date": "2022-04-05 10:00:00",
+  //             "end_date": "2022-04-05 10:00:00",
+  //             "promocode": "",
+  //             "image": [],
+  //             "removeimage": [],
+  //             "video": "",
+  //           }),
+  // onPressed: () => offerController.offerUpdateApiCall({
+  //             "typeofcategory_id": null,
+  //             "title": "Brand Factory 50% off",
+  //             "description": "brand factory buy 1 get free offer",
+  //             "start_date": "2022-04-05 10:00:00",
+  //             "end_date": "2022-04-05 10:00:00",
+  //             "promocode": "",
+  //             "image": [],
+  //             "removeimage": [],
+  //             "video": "",
+  //           },2),
+  //  onPressed: () => offerController.offerDeleteApiCall(4),
+
+  // final BookController bookController = Get.put(BookController());
+  //onPressed: () => bookController.bookDeleteApiCall({},"",""),
+  // onPressed: () => bookController.bookStoreApiCall({
+  //             "typeofcategory_id": 352,
+  //             "title": "Ramayan 1",
+  //             "edition": 1,
+  //             "price_type": "Free", //Free,Paid
+  //             "price": "",
+  //             "website": "",
+  //             "language": "English",
+  //             "publishing_date": "2022-05-01",
+  //             "book_pdf": "",
+  //           }),
+  //  onPressed: () => bookController.bookUpdateApiCall({
+  //             "typeofcategory_id": 352,
+  //             "title": "Ramayan 1",
+  //             "edition": 1,
+  //             "price_type": "Free", //Free,Paid
+  //             "price": "",
+  //             "website": "",
+  //             "language": "English",
+  //             "publishing_date": "2022-05-01",
+  //             "book_pdf": "",
+  //           }, 4),
+  // onPressed: () => bookController.bookDeleteApiCall(4),
+  // final BookChapterController bookChapterController = Get.put(BookChapterController());
+  //onPressed: () => bookChapterController.bookChapterApiCall({"book_id": 1}, "", ""),
+  // onPressed: () => bookChapterController.bookChapterStoreApiCall({
+  //             "book_id": 1,
+  //             "title": "Ramayan",
+  //             "text": "sss",
+  //             "image": [],
+  //             "video": [],
+  //             "chapter_pdf": "",
+  //           }),
+  // onPressed: () => bookChapterController.bookChapterUpdateApiCall({
+  //             "book_id": 1,
+  //             "title": "Ramayan",
+  //             "text": "sss",
+  //             "image": [],
+  //             "video": [],
+  //             "chapter_pdf": "",
+  //           }, 2),
+  // onPressed: () => bookChapterController.bookChapterDeleteApiCall(2),
+  // final PostController postController = Get.put(PostController());
+  // onPressed: () => postController.postApiCall({}, "", ""),
+  // onPressed: () => postController.postStoreApiCall({}),
+  // onPressed: () => postController.postUpdateApiCall({}, 1),
+  // onPressed: () => postController.postDeleteApiCall(1),
+  // onPressed: () => postController.postLikeDislikeApiCall({"post_id": 1, "is_like": 1}),
+  // onPressed: () => postController.postCommentApiCall({"post_id": 1}),
+  // onPressed: () => postController.postCommentStoreApiCall({"post_id": 1, "text": "post comment"}),
+  // onPressed: () => postController.postCommentDeleteApiCall(3),
+  // onPressed: () => postController.postCommentLikeApiCall({"post_id": 1, "post_comment_id": 1}),
+  // onPressed: () => postController.postCommentReplyApiCall({"post_id": 1, "post_comment_id": 1}),
+  // onPressed: () => postController.postCommentReplyStoreApiCall({"post_id": 1, "post_comment_id": 1, "text": "post comment"}),
+  // onPressed: () => postController.postCommentReplyDeleteApiCall(3),
+  // onPressed: () => postController.postCommentReplyLikeApiCall(3),
+
+  // final HashtagsController hashtagsController = Get.put(HashtagsController());
+  //  onPressed: () => hashtagsController.hashtagsApiCall({}, "", ""),
+
+  // final ContentController contentController = Get.put(ContentController());
+  //  onPressed: () => contentController.textApiCall({}, "", ""),
+  //   onPressed: () => contentController.photoApiCall({}, "", ""),
+  //   onPressed: () => contentController.videoApiCall({}, "", ""),
+  //   onPressed: () => contentController.musicApiCall({}, "", ""),
+  //   onPressed: () => contentController.documentApiCall({}, "", ""),
+  // final BroadcastController broadcastController = Get.put(BroadcastController());
+  // onPressed: () => broadcastController.broadcastApiCall({}, "", ""),
+  //  onPressed: () => broadcastController.broadcastStoreApiCall({
+  //             'title': 'Broadcast', //Broadcast Or Company
+  //             "message": "Broadcast 1",
+  //             "photo": [],
+  //             "broadcast_type": "Family", //'Member','Family','Group','Village','Society','Punchayat','SubDistrict','District','State'
+  //             "broadcast_alert": [],
+  //           }),
+  // onPressed: () => broadcastController.broadcastDeleteApiCall(4),
+  // final BusinessController businessController = Get.put(BusinessController());
+  //  onPressed: () => businessController.businessApiCall({}, "", ""),
+  // onPressed: () => businessController.businessStoreApiCall({
+  //             'type': 'Business', //Business Or Company
+  //             "name": "Business 1",
+  //             "typeofcategory_id": 408, //217
+  //             "country_id": 1,
+  //             "state_id": 10,
+  //             "district_id": 175,
+  //             "subdistrict_id": 3682,
+  //             "village_id": 523078,
+  //             "society_id": 1,
+  //             "area": "",
+  //             "pincode": "382480",
+  //             "experience": "1",
+  //             "description": "",
+  //           }),
+
+  // onPressed: () => businessController.businessUpdateApiCall({
+  //   'type': 'Business', //Business Or Company
+  //   "name": "Business 1",
+  //   "typeofcategory_id": 408, //217
+  //   "country_id": 1,
+  //   "state_id": 10,
+  //   "district_id": 175,
+  //   "subdistrict_id": 3682,
+  //   "village_id": 523078,
+  //   "society_id": 1,
+  //   "area": "",
+  //   "pincode": "382480",
+  //   "experience": "1",
+  //   "description": "",
+  // },2),
+  // onPressed: () => businessController.businessDeleteApiCall(4),
+  // final BusinessPartnerController businessPartnerController = Get.put(BusinessPartnerController());
+  // onPressed: () => businessPartnerController.businessPartnerApiCall({}, "", ""),
+  // onPressed: () => businessPartnerController.businessPartnerStoreApiCall({'business_id': 2}),
+  // onPressed: () => businessPartnerController.businessPartnerDeleteApiCall(4),
+
+  // final BusinessInquiryController businessInquiryController = Get.put(BusinessInquiryController());
+  //onPressed: () => businessInquiryController.businessInquiryApiCall({}, "", ""),
+  // onPressed: () => businessInquiryController.businessInquiryStoreApiCall({
+  //             'business_id': "2",
+  //             'message': "test",
+  //             'location': "",
+  //           }),
+  // onPressed: () => businessInquiryController.businessInquiryDeleteApiCall(4),
+
+  final AdsController adsController = Get.put(AdsController());
+  // onPressed: () => adsController.adsApiCall({}, "", ""),
+  //  onPressed: () => adsController.adsStoreApiCall({
+  //             "name": "Ads 1",
+  //             "ad_media_type": 'Image', //Image or Video or Carousel
+  //             "ad_media_image": [],
+  //             "ad_media_video": [],
+  //             "ad_media_carousel": [],
+  //             "headline": "Campaign title", //Campaign title
+  //             "description": "Campaign description",
+  //             "start_datetime": '2022-10-01',
+  //             "end_datetime": '2022-10-07',
+  //             "url": '',
+  //             "bidding": "Click", //Click, View
+  //             "audience": '1,2', //Multiple Country
+  //             "appears": 'Post, Entire,', //Mulitiple Screen selected //Post, Entire, Sidebar, Text, Photo, Video, Movie, Music, Group, Blog, Job, Book, Event, Business, Work, Product, Offer, Ringtone, Notification
+  //           }),
+  //  onPressed: () => adsController.adsUpdateApiCall({
+  //             "name": "Ads 1",
+  //             "ad_media_type": 'Image', //Image or Video or Carousel
+  //             "ad_media_image": [],
+  //             "ad_media_video": [],
+  //             "ad_media_carousel": [],
+  //             "headline": "Campaign title", //Campaign title
+  //             "description": "Campaign description",
+  //             "start_datetime": '2022-10-01',
+  //             "end_datetime": '2022-10-07',
+  //             "url": '',
+  //             "bidding": "Click", //Click, View
+  //             "audience": '1,2', //Multiple Country
+  //             "appears": 'Post, Entire,', //Mulitiple Screen selected //Post, Entire, Sidebar, Text, Photo, Video, Movie, Music, Group, Blog, Job, Book, Event, Business, Work, Product, Offer, Ringtone, Notification
+  //           }, 2),
+  // onPressed: () => adsController.adsDeleteApiCall(4),

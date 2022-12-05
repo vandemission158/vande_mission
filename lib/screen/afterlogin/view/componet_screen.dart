@@ -12,8 +12,7 @@ import 'package:vande_mission/widgets/text_label.dart';
 class ComponetsScreen extends StatelessWidget {
   ComponetsScreen({Key? key}) : super(key: key);
 
-  final ComponetsScreenController controller =
-      Get.put(ComponetsScreenController());
+  final ComponetsScreenController controller = Get.put(ComponetsScreenController());
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +56,7 @@ class ComponetsScreen extends StatelessWidget {
                       height: 5,
                     ),
                     const TextLabel(
-                      title:
-                          "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                      title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                       color: black,
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
@@ -83,10 +81,7 @@ class ComponetsScreen extends StatelessWidget {
                                 textAlign: TextAlign.left,
                                 linkTypes: controller.texts[i]['types'],
                                 // textStyle: const TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w500),
-                                linkStyle: const TextStyle(
-                                    color: black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500),
+                                linkStyle: const TextStyle(color: black, fontSize: 16, fontWeight: FontWeight.w500),
                                 // onTap: (link) =>
                                 //     showSnackbar("link pressed: ${link.value!}"),
                               ),
@@ -166,13 +161,9 @@ class ComponetsScreen extends StatelessWidget {
 
                 if (controller.showPoll.value)
                   Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border:
-                            Border.all(color: bluePanchayat.withOpacity(0.10))),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: bluePanchayat.withOpacity(0.10))),
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(left: 12, right: 12, top: 10),
+                      padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
                       child: Column(
                         children: [
                           Row(
@@ -200,29 +191,21 @@ class ComponetsScreen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 10),
                             child: Container(
-                              decoration: BoxDecoration(
-                                  color: bluePanchayat.withOpacity(0.1),
-                                  borderRadius: BorderRadius.circular(10)),
+                              decoration: BoxDecoration(color: bluePanchayat.withOpacity(0.1), borderRadius: BorderRadius.circular(10)),
                               child: const Padding(
                                 padding: EdgeInsets.only(left: 20),
                                 child: TextField(
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "Answer 1"),
+                                  decoration: InputDecoration(border: InputBorder.none, hintText: "Answer 1"),
                                 ),
                               ),
                             ),
                           ),
                           Container(
-                            decoration: BoxDecoration(
-                                color: bluePanchayat.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(10)),
+                            decoration: BoxDecoration(color: bluePanchayat.withOpacity(0.1), borderRadius: BorderRadius.circular(10)),
                             child: const Padding(
                               padding: EdgeInsets.only(left: 20),
                               child: TextField(
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Answer 2"),
+                                decoration: InputDecoration(border: InputBorder.none, hintText: "Answer 2"),
                               ),
                             ),
                           ),
@@ -293,25 +276,16 @@ class ComponetsScreen extends StatelessWidget {
                             closeCircle,
                           )),
                     ),
-                    Positioned(
-                        top: 20,
-                        bottom: 20,
-                        left: 20,
-                        right: 20,
-                        child: Image.asset(playIcon)),
+                    Positioned(top: 20, bottom: 20, left: 20, right: 20, child: Image.asset(playIcon)),
                   ]),
 
                 if (controller.showPlace.value)
                   Padding(
                     padding: const EdgeInsets.only(top: 20, bottom: 20),
                     child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                              color: bluePanchayat.withOpacity(0.10))),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: bluePanchayat.withOpacity(0.10))),
                       child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 12, right: 12, top: 12),
+                        padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
                         child: Column(
                           children: [
                             Row(
@@ -336,23 +310,20 @@ class ComponetsScreen extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 20, right: 10, left: 10, bottom: 10),
+                              padding: const EdgeInsets.only(top: 20, right: 10, left: 10, bottom: 10),
                               child: Image.asset(
                                 mapImage,
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 10, bottom: 20),
+                              padding: const EdgeInsets.only(top: 10, bottom: 20),
                               child: Row(
                                 children: [
                                   Image.asset(cityImage),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 12),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         TextLabel(
                                           title: 'city',
@@ -380,13 +351,9 @@ class ComponetsScreen extends StatelessWidget {
 
                 if (controller.showAddSome.value)
                   Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border:
-                            Border.all(color: bluePanchayat.withOpacity(0.10))),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), border: Border.all(color: bluePanchayat.withOpacity(0.10))),
                     child: Padding(
-                      padding:
-                          const EdgeInsets.only(left: 12, right: 12, top: 12),
+                      padding: const EdgeInsets.only(left: 12, right: 12, top: 12),
                       child: Column(
                         children: [
                           Row(
@@ -419,8 +386,7 @@ class ComponetsScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(left: 10),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       const TextLabel(
                                         title: "Hocco Eatery",
@@ -440,8 +406,7 @@ class ComponetsScreen extends StatelessWidget {
                                       SizedBox(
                                         width: Constants.width(context) / 1.5,
                                         child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Image.asset(location),
                                             const SizedBox(
@@ -449,8 +414,7 @@ class ComponetsScreen extends StatelessWidget {
                                             ),
                                             const Expanded(
                                               child: TextLabel(
-                                                title:
-                                                    "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                                title: "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
                                                 color: black,
                                                 fontSize: 11,
                                                 fontWeight: FontWeight.w400,
@@ -482,13 +446,7 @@ class ComponetsScreen extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20),
           height: 210,
           // width: MediaQuery.of(context).size.width,
-          decoration: const BoxDecoration(
-              color: white,
-              boxShadow: [
-                BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.15), blurRadius: 5)
-              ],
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15), topRight: Radius.circular(15))),
+          decoration: const BoxDecoration(color: white, boxShadow: [BoxShadow(color: Color.fromRGBO(0, 0, 0, 0.15), blurRadius: 5)], borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15))),
           child: Column(
             children: [
               Expanded(
@@ -522,21 +480,13 @@ class ComponetsScreen extends StatelessWidget {
                               Container(
                                 height: 70,
                                 width: 70,
-                                decoration: BoxDecoration(
-                                    color: controller.bottomColor[index %
-                                            controller.bottomColor.length]
-                                        .withOpacity(0.10),
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Center(
-                                    child: Image.asset(controller
-                                        .textBottom[index]["image"]
-                                        .toString())),
+                                decoration: BoxDecoration(color: controller.bottomColor[index % controller.bottomColor.length].withOpacity(0.10), borderRadius: BorderRadius.circular(10)),
+                                child: Center(child: Image.asset(controller.textBottom[index]["image"].toString())),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 10),
                                 child: TextLabel(
-                                  title: controller.textBottom[index]["name"]
-                                      .toString(),
+                                  title: controller.textBottom[index]["name"].toString(),
                                   fontSize: 12,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -548,8 +498,7 @@ class ComponetsScreen extends StatelessWidget {
                     }),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Row(
                   children: [
                     Expanded(
@@ -557,9 +506,7 @@ class ComponetsScreen extends StatelessWidget {
                         onTap: () => controller.showRecord(true),
                         child: Container(
                           height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: vandeColor)),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: vandeColor)),
                           child: Center(
                             child: Row(
                               children: [
@@ -590,10 +537,7 @@ class ComponetsScreen extends StatelessWidget {
                         height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          gradient:  LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [postGradiant1, postGradiant2]),
+                          gradient: LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [postGradiant1, postGradiant2]),
                         ),
                         child: const Center(
                           child: TextLabel(

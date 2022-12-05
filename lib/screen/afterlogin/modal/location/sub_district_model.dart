@@ -5,11 +5,9 @@
 
 import 'dart:convert';
 
-SubDistrictModel subDistrictModelFromJson(String? str) =>
-    SubDistrictModel.fromJson(json.decode(str!));
+SubDistrictModel subDistrictModelFromJson(String? str) => SubDistrictModel.fromJson(json.decode(str!));
 
-String? subDistrictModelToJson(SubDistrictModel data) =>
-    json.encode(data.toJson());
+String? subDistrictModelToJson(SubDistrictModel data) => json.encode(data.toJson());
 
 class SubDistrictModel {
   SubDistrictModel({
@@ -42,8 +40,7 @@ class SubDistrictModel {
   int? to;
   int? total;
 
-  factory SubDistrictModel.fromJson(Map<String, dynamic> json) =>
-      SubDistrictModel(
+  factory SubDistrictModel.fromJson(Map<String, dynamic> json) => SubDistrictModel(
         currentPage: json["current_page"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         firstPageUrl: json["first_page_url"],
@@ -130,9 +127,7 @@ class Country {
 
 enum Name { INDIA, MAHISAGAR, GUJARAT }
 
-final nameValues = EnumValues(
-    {"GUJARAT": Name.GUJARAT, "India": Name.INDIA, "Mahisagar": Name.MAHISAGAR},
-    {});
+final nameValues = EnumValues({"GUJARAT": Name.GUJARAT, "India": Name.INDIA, "Mahisagar": Name.MAHISAGAR}, {});
 
 class Link {
   Link({
@@ -146,13 +141,13 @@ class Link {
   bool? active;
 
   factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] ?? null,
+        url: json["url"],
         label: json["label"],
         active: json["active"],
       );
 
   Map<String, dynamic> toJson() => {
-        "url": url ?? null,
+        "url": url,
         "label": label,
         "active": active,
       };
