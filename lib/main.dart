@@ -27,8 +27,9 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
       // home: const DepartmentDetail(),
-      home: HomePage(),
+      // home: HomePage(),
       // home: LoginScreen(),
+      home: Splash(),
     );
   }
 }
