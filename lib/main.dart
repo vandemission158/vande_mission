@@ -4,6 +4,8 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/local_string.dart';
+import 'package:vande_mission/screen/afterlogin/view/business/business_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/department/department_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 import 'package:vande_mission/screen/afterlogin/view/village_detail.dart';
 import 'package:vande_mission/screen/splash/splash_screen.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
       // home: const DepartmentDetail(),
-      home: HomePage(),
+      home: DepartmentIndexScreen(),
       // home: LoginScreen(),
     );
   }
