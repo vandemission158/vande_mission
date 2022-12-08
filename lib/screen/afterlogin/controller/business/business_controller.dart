@@ -12,18 +12,19 @@ class BusinessController extends GetxController {
   var businessDataList = <Datum>[].obs;
   final searchText = TextEditingController().obs;
 
-  String dropdownvalue = "INDIA";
-
-  chooseFamilyScreen() {
-    Get.to(() => ChosseFamilyMember());
-  }
-
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
 
-    businessApiCall({}, "", searchText.toString());
+    // businessApiCall({}, "", searchText.toString());
+    businessApiCall({}, "", "");
+  }
+
+  String dropdownvalue = "INDIA";
+
+  chooseFamilyScreen() {
+    Get.to(() => ChosseFamilyMember());
   }
 
   void businessApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
@@ -35,12 +36,23 @@ class BusinessController extends GetxController {
     });
     DioClient dioClient = DioClient(requestAll['action'].toString());
     try {
-      var res = await BusinessApi(dioClient: dioClient).businessApi(requestAll, nextpage, q);
+      final res = await BusinessApi(dioClient: dioClient).businessApi(requestAll, nextpage, q);
       if (res != null) {
-        print(res);
+        var oldCurrentPage = bussinessModel.value.currentPage;
+        var newCurrentPage = res.currentPage;
+        var viewData = bussinessModel.value.data;
+        var newViewData = res.data;
+        bussinessModel.value = res;
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
+          if (viewData != null && newViewData != null) {
+            viewData.addAll(newViewData);
+            bussinessModel.value.data = viewData;
+          } else {}
+        }
       }
-    } finally {
-      print("Hello");
+    } catch (e) {
+      print('test');
+      // TODO: handle exception, for example by showing an alert to the user
     }
   }
 
