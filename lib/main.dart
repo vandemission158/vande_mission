@@ -3,10 +3,16 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vande_mission/helper/constant.dart';
+import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/helper/local_string.dart';
+import 'package:vande_mission/inquiry_page.dart';
 import 'package:vande_mission/screen/afterlogin/view/business/business_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/business/business_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/department/department_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
+import 'package:vande_mission/screen/afterlogin/view/panchayat/panchayat_index_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/skill/skill_index_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/society/society_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/village_detail.dart';
 import 'package:vande_mission/screen/splash/splash_screen.dart';
 
@@ -29,7 +35,7 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: const Locale('en', 'US'),
       // home: const DepartmentDetail(),
-      home: DepartmentIndexScreen(),
+      home: inquirypage(),
       // home: LoginScreen(),
     );
   }

@@ -11,16 +11,14 @@ import 'package:vande_mission/widgets/card_top.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 import 'package:vande_mission/widgets/user_time_row.dart';
 
-class SkillIndexScreen extends StatefulWidget {
-  SkillIndexScreen({Key? key}) : super(key: key);
+class SocietyIndexScreen extends StatefulWidget {
+  SocietyIndexScreen({Key? key}) : super(key: key);
 
   @override
-  State<SkillIndexScreen> createState() => _SkillIndexScreenState();
+  State<SocietyIndexScreen> createState() => _SocietyIndexScreenState();
 }
 
-class _SkillIndexScreenState extends State<SkillIndexScreen> {
-  final BusinessController businessController = Get.put(BusinessController());
-
+class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +26,7 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
           backgroundColor: white,
           foregroundColor: black,
           elevation: 0,
-          title: const Text('Skill'),
+          title: const Text('society'),
         ),
         backgroundColor: white,
         body: Column(
@@ -131,6 +129,9 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                     }),
               ),
             ),
+
+            //ahi thi code change karva
+
             Padding(
               padding: const EdgeInsets.only(
                   left: 20, right: 20, top: 20, bottom: 20),
@@ -146,109 +147,128 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(left: 20, top: 20),
-                            child: Row(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                const Text(
+                                  "Punit Park Society",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
                                   children: [
-                                    SizedBox(
-                                      child: Image.asset(profileUser),
-                                      width: 50,
+                                    Image.asset(location),
+                                    const SizedBox(
+                                      width: 10,
                                     ),
-                                    const Text(
-                                      "Jenna Doe",
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w700),
+                                    const Expanded(
+                                      child: TextLabel(
+                                        title:
+                                            "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                        color: black,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w400,
+                                      ),
                                     ),
                                     const SizedBox(
-                                      height: 5,
+                                      width: 30,
                                     ),
-                                    const TextLabel(
-                                      title: "Female | 24 Years",
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w500,
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Divider(
+                            height: 2,
+                            color: black.withOpacity(0.2),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 39),
+                                child: Row(
+                                  children: const [
+                                    TextLabel(
+                                      title: "50",
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: orange,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    TextLabel(
+                                      title: "Families",
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
                                       color: black,
                                     ),
                                   ],
                                 ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                              ),
+                              Container(
+                                width: 2,
+                                height: 50,
+                                color: black.withOpacity(0.2),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 42),
+                                child: Row(
+                                  children: const [
                                     TextLabel(
-                                      title: "Skills",
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w500,
-                                      color: black.withOpacity(0.5),
+                                      title: "50",
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: orange,
                                     ),
                                     SizedBox(
-                                      height: 25,
-                                      width: Constants.width(context) / 1.8,
-                                      child: Center(
-                                        child: ListView.builder(
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.horizontal,
-                                            itemCount: 20,
-                                            itemBuilder: (context, inde) {
-                                              return Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 10),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                      color: orange,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15),
-                                                      border: Border.all(
-                                                          width: 1,
-                                                          color:
-                                                              black.withOpacity(
-                                                                  0.2))),
-                                                  child: const Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 20,
-                                                            vertical: 3),
-                                                    child: TextLabel(
-                                                      title: "Coding",
-                                                      fontSize: 8,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      color: white,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }),
-                                      ),
+                                      width: 10,
                                     ),
-                                    SizedBox(height: 20,),
-                                    SizedBox(
-                                      width: Constants.width(context) / 1.6,
-                                      child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Image.asset(location),
-                                          const SizedBox(
-                                            width: 10,
-                                          ),
-                                          const Expanded(
-                                            child: TextLabel(
-                                              title:
-                                                  "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
-                                              color: black,
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    )
+                                    TextLabel(
+                                      title: "Business",
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
+                                      color: black,
+                                    ),
                                   ],
-                                )
-                              ],
-                            ),
+                                ),
+                              ),
+                               Container(
+                                width: 2,
+                                height: 50,
+                                color: black.withOpacity(0.2),
+                              ),
+                                Padding(
+                                padding: const EdgeInsets.only(right: 42),
+                                child: Row(
+                                  children: const [
+                                    TextLabel(
+                                      title: "04",
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: orange,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    TextLabel(
+                                      title: "Cast",
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w400,
+                                      color: black,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       )),

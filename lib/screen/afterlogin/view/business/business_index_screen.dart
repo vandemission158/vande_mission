@@ -169,13 +169,7 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                         ],
                       ),
                     ),
-                    Positioned(
-                        top: 0,
-                        right: 10,
-                        child: IconButton(
-                          icon: const Icon(Icons.more_vert_rounded),
-                          onPressed: () {},
-                        ))
+                
                   ],
                 ),
               )
