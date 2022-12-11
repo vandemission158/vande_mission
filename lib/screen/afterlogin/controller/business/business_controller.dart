@@ -15,7 +15,7 @@ class BusinessController extends GetxController {
   var items = ["USA", "INDIA", "JAPAN"];
 
   @override
-  Future<void> onInit() async {
+  void onInit() {
     super.onInit();
     businessApiCall({}, "", "");
   }
@@ -69,7 +69,24 @@ class BusinessController extends GetxController {
 
   void businessUpdateApiCall(Map<String, dynamic>? requestAll, int id) async {
     requestAll!.addAll({
-      "action": pathBusinessStoreAPI,
+      "action": pathBusinessUpdateAPI,
+      "auth_key": authorizationKey,
+    });
+
+    DioClient dioClient = DioClient(requestAll['action'].toString());
+    try {
+      var res = await BusinessApi(dioClient: dioClient).businessUpdateApi(requestAll, id);
+      if (res != null) {
+        print(res);
+      }
+    } finally {
+      print("Hello");
+    }
+  }
+
+  void businessLogoApiCall(Map<String, dynamic>? requestAll, int id) async {
+    requestAll!.addAll({
+      "action": pathBusinessLogoAPI,
       "auth_key": authorizationKey,
     });
 

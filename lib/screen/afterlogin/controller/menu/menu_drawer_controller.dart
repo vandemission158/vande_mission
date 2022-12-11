@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/view/business/business_index_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/department/department_index_screen.dart';
 
 class MenuDrawerController extends GetxController {
   var colors = [
@@ -13,7 +14,11 @@ class MenuDrawerController extends GetxController {
     lightblue,
   ].obs;
   var drawerList = [
-    {'name': "Department", 'image': department, 'screen': null},
+    {
+      'name': "Department",
+      'image': department,
+      'screen': () => const DepartmentIndexScreen(),
+    },
     {'name': "Panchayat", 'image': panchayat, 'screen': null},
     {'name': "Society", 'image': society, 'screen': null},
     {'name': "Village", 'image': village, 'screen': null},
@@ -21,7 +26,7 @@ class MenuDrawerController extends GetxController {
     {
       'name': "Business",
       'image': business,
-      'screen': () => BusinessIndexScreen(),
+      'screen': () => const BusinessIndexScreen(),
     },
   ].obs;
 
