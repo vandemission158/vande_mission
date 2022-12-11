@@ -2,26 +2,45 @@ import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 import 'package:vande_mission/remote_services/dio_exception.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/country_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/district_model.dart';
 import 'package:vande_mission/screen/afterlogin/modal/location/panchayat_model.dart';
-import 'package:vande_mission/screen/beforelogin/modal/add_society_modal.dart';
-import 'package:vande_mission/screen/beforelogin/modal/country_modal.dart';
-import 'package:vande_mission/screen/beforelogin/modal/district_modal.dart';
-import 'package:vande_mission/screen/beforelogin/modal/society_modal.dart';
-import 'package:vande_mission/screen/beforelogin/modal/state_modal.dart';
-import 'package:vande_mission/screen/beforelogin/modal/village_modal.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/society_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/state_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/sub_district_model.dart';
+import 'package:vande_mission/screen/afterlogin/modal/location/village_model.dart';
 
 class LocationApi {
   final DioClient dioClient;
 
   LocationApi({required this.dioClient});
 
-  Future<CountryModal?> countryApi(Map formData, String nextpage, String q) async {
+  Future<CountryModel?> countryApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : formData["action"] + "?q=$q";
-      var response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return CountryModal.fromJson(jsonString);
+      return CountryModel.fromJson(jsonString);
+    } on DioError {
+      return null;
+    }
+    // on DioError catch (e) {
+    //   // final errorMessage = DioException.fromDioError(e).toString();
+    //   // print(errorMessage);
+    //   return null;
+    // } catch (e) {
+    //   return null;
+    // }
+  }
+
+  Future<StateModel?> stateApi(Map requestAll, String nextpage, String q) async {
+    try {
+      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
+      var jsonString = response.data;
+      return StateModel.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);
@@ -31,13 +50,13 @@ class LocationApi {
     }
   }
 
-  Future<StateModal?> stateApi(Map formData, String nextpage, String q) async {
+  Future<DistrictModel?> districtApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
-      var response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return StateModal.fromJson(jsonString);
+      return DistrictModel.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);
@@ -47,13 +66,13 @@ class LocationApi {
     }
   }
 
-  Future<DistrictModal?> districtApi(Map formData, String nextpage, String q) async {
+  Future<SubDistrictModel?> subDistrictApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
-      var response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return DistrictModal.fromJson(jsonString);
+      return SubDistrictModel.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);
@@ -63,13 +82,13 @@ class LocationApi {
     }
   }
 
-  Future<VillageModal?> villageApi(Map formData, String nextpage, String q) async {
+  Future<VillageModel?> villageApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
-      var response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return VillageModal.fromJson(jsonString);
+      return VillageModel.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);
@@ -79,13 +98,13 @@ class LocationApi {
     }
   }
 
-  Future<SocietyModal?> societyApi(Map formData, String nextpage, String q) async {
+  Future<SocietyModel?> societyApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
-      var response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      var response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
-      return SocietyModal.fromJson(jsonString);
+      return SocietyModel.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);
@@ -95,29 +114,13 @@ class LocationApi {
     }
   }
 
-  Future<PanchayatModel?> panchayatApi(Map formData, String nextpage, String q) async {
+  Future<PanchayatModel?> panchayatApi(Map requestAll, String nextpage, String q) async {
     try {
       dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
-      Response response = await dioClient.post(url, data: formData);
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + requestAll["action"] + "?q=$q";
+      Response response = await dioClient.post(url, data: requestAll);
       var jsonString = response.data;
       return PanchayatModel.fromJson(jsonString);
-    } on DioError catch (e) {
-      final errorMessage = DioException.fromDioError(e).toString();
-      print(errorMessage);
-      return null;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  Future<AddSocietyModal?> addSociety(Map formData) async {
-    try {
-      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
-      var url = baseUrl + formData["action"];
-      Response response = await dioClient.post(url, data: formData);
-      var jsonString = response.data;
-      return AddSocietyModal.fromJson(jsonString);
     } on DioError catch (e) {
       final errorMessage = DioException.fromDioError(e).toString();
       print(errorMessage);

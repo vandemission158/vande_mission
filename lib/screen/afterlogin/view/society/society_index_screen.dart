@@ -2,23 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/afterlogin/modal/business/business_controller.dart';
-import 'package:vande_mission/widgets/bussiness_card.dart';
-import 'package:vande_mission/widgets/card_button.dart';
-import 'package:vande_mission/widgets/card_top.dart';
+import 'package:vande_mission/screen/afterlogin/controller/location/society_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
-import 'package:vande_mission/widgets/user_time_row.dart';
 
 class SocietyIndexScreen extends StatefulWidget {
-  SocietyIndexScreen({Key? key}) : super(key: key);
+  const SocietyIndexScreen({Key? key}) : super(key: key);
 
   @override
   State<SocietyIndexScreen> createState() => _SocietyIndexScreenState();
 }
 
 class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
+  final SocietyController societyController = Get.put(SocietyController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +31,7 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: dropdownColor,
@@ -58,21 +54,13 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                         height: 37,
                         child: TextField(
                           maxLines: null,
-                          style: GoogleFonts.lato(
-                              color: black,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16),
+                          style: GoogleFonts.lato(color: black, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.only(
                               bottom: 10,
                             ),
                             hintText: 'Search here'.tr,
-                            hintStyle: GoogleFonts.lato(
-                                color: context.theme.hintColor,
-                                fontWeight: FontWeight.w400,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16),
+                            hintStyle: GoogleFonts.lato(color: context.theme.hintColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             focusedBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),
@@ -110,13 +98,9 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                  width: 1, color: black.withOpacity(0.2))),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                             child: TextLabel(
                               title: "All",
                               fontSize: 15,
@@ -133,15 +117,11 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
             //ahi thi code change karva
 
             Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 20, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
               child: Stack(
                 children: [
                   Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: grey),
-                          color: white,
-                          borderRadius: BorderRadius.circular(15)),
+                      decoration: BoxDecoration(border: Border.all(width: 1, color: grey), color: white, borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -152,9 +132,7 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                               children: [
                                 const Text(
                                   "Punit Park Society",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500),
+                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                                 ),
                                 const SizedBox(
                                   height: 5,
@@ -167,8 +145,7 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                                     ),
                                     const Expanded(
                                       child: TextLabel(
-                                        title:
-                                            "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                        title: "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
                                         color: black,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w400,
@@ -241,12 +218,12 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                                   ],
                                 ),
                               ),
-                               Container(
+                              Container(
                                 width: 2,
                                 height: 50,
                                 color: black.withOpacity(0.2),
                               ),
-                                Padding(
+                              Padding(
                                 padding: const EdgeInsets.only(right: 42),
                                 child: Row(
                                   children: const [

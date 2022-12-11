@@ -4,22 +4,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/afterlogin/modal/business/business_controller.dart';
-import 'package:vande_mission/widgets/bussiness_card.dart';
-import 'package:vande_mission/widgets/card_button.dart';
-import 'package:vande_mission/widgets/card_top.dart';
+import 'package:vande_mission/screen/afterlogin/controller/skill/skill_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
-import 'package:vande_mission/widgets/user_time_row.dart';
 
 class SkillIndexScreen extends StatefulWidget {
-  SkillIndexScreen({Key? key}) : super(key: key);
+  const SkillIndexScreen({Key? key}) : super(key: key);
 
   @override
   State<SkillIndexScreen> createState() => _SkillIndexScreenState();
 }
 
 class _SkillIndexScreenState extends State<SkillIndexScreen> {
-  final BusinessController businessController = Get.put(BusinessController());
+  final SkillController skillController = Get.put(SkillController());
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +32,7 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: dropdownColor,
@@ -60,21 +55,13 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                         height: 37,
                         child: TextField(
                           maxLines: null,
-                          style: GoogleFonts.lato(
-                              color: black,
-                              fontWeight: FontWeight.w400,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 16),
+                          style: GoogleFonts.lato(color: black, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.only(
                               bottom: 10,
                             ),
                             hintText: 'Search here'.tr,
-                            hintStyle: GoogleFonts.lato(
-                                color: context.theme.hintColor,
-                                fontWeight: FontWeight.w400,
-                                fontStyle: FontStyle.normal,
-                                fontSize: 16),
+                            hintStyle: GoogleFonts.lato(color: context.theme.hintColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             focusedBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),
@@ -112,13 +99,9 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(
-                                  width: 1, color: black.withOpacity(0.2))),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 5),
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                             child: TextLabel(
                               title: "All",
                               fontSize: 15,
@@ -132,15 +115,11 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 20, bottom: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
               child: Stack(
                 children: [
                   Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: grey),
-                          color: white,
-                          borderRadius: BorderRadius.circular(15)),
+                      decoration: BoxDecoration(border: Border.all(width: 1, color: grey), color: white, borderRadius: BorderRadius.circular(15)),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -157,9 +136,7 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                                     ),
                                     const Text(
                                       "Jenna Doe",
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w700),
+                                      style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
                                     ),
                                     const SizedBox(
                                       height: 5,
@@ -191,29 +168,15 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                                             itemCount: 20,
                                             itemBuilder: (context, inde) {
                                               return Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 10),
+                                                padding: const EdgeInsets.only(left: 10),
                                                 child: Container(
-                                                  decoration: BoxDecoration(
-                                                      color: orange,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15),
-                                                      border: Border.all(
-                                                          width: 1,
-                                                          color:
-                                                              black.withOpacity(
-                                                                  0.2))),
+                                                  decoration: BoxDecoration(color: orange, borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
                                                   child: const Padding(
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 20,
-                                                            vertical: 3),
+                                                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
                                                     child: TextLabel(
                                                       title: "Coding",
                                                       fontSize: 8,
-                                                      fontWeight:
-                                                          FontWeight.w600,
+                                                      fontWeight: FontWeight.w600,
                                                       color: white,
                                                     ),
                                                   ),
@@ -222,12 +185,13 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                                             }),
                                       ),
                                     ),
-                                    SizedBox(height: 20,),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
                                     SizedBox(
                                       width: Constants.width(context) / 1.6,
                                       child: Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Image.asset(location),
                                           const SizedBox(
@@ -235,8 +199,7 @@ class _SkillIndexScreenState extends State<SkillIndexScreen> {
                                           ),
                                           const Expanded(
                                             child: TextLabel(
-                                              title:
-                                                  "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                              title: "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
                                               color: black,
                                               fontSize: 11,
                                               fontWeight: FontWeight.w400,

@@ -6,6 +6,7 @@ import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/controller/business/business_controller.dart';
+import 'package:vande_mission/widgets/network_image_widget.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 class BusinessIndexScreen extends StatefulWidget {
@@ -151,7 +152,21 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Container(decoration: BoxDecoration(border: Border.all(width: 1, color: grey), borderRadius: BorderRadius.circular(15)), child: Image.asset(hoccoImage)),
+                  child: Container(
+                    decoration: BoxDecoration(border: Border.all(width: 1, color: grey), borderRadius: BorderRadius.circular(15)),
+                    child: Image.asset(hoccoImage),
+                    // child: NetworkImageWidget(
+                    //   imageUrl: data["image"].toString(),
+                    //   height: 30,
+                    //   width: 30,
+                    //   boxFit: BoxFit.cover,
+                    //   errorImage: familyImage1,
+                    //   errorWidth: 30,
+                    //   errorHeight: 30,
+                    //   indicatorWidth: 20,
+                    //   indicatorHeight: 20,
+                    // ),
+                  ),
                 ),
                 Container(
                   height: 100,
