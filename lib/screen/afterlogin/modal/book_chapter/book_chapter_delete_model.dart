@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-BookChapterDeleteModel bookChapterDeleteModelFromJson(String str) =>
-    BookChapterDeleteModel.fromJson(json.decode(str));
+BookChapterDeleteModel bookChapterDeleteModelFromJson(String str) => BookChapterDeleteModel.fromJson(json.decode(str));
 
-String bookChapterDeleteModelToJson(BookChapterDeleteModel data) =>
-    json.encode(data.toJson());
+String bookChapterDeleteModelToJson(BookChapterDeleteModel data) => json.encode(data.toJson());
 
 class BookChapterDeleteModel {
   BookChapterDeleteModel({
@@ -19,8 +17,7 @@ class BookChapterDeleteModel {
   String? id;
   String? message;
 
-  factory BookChapterDeleteModel.fromJson(Map<String, dynamic> json) =>
-      BookChapterDeleteModel(
+  factory BookChapterDeleteModel.fromJson(Map<String, dynamic> json) => BookChapterDeleteModel(
         id: json["id"],
         message: json["message"],
       );

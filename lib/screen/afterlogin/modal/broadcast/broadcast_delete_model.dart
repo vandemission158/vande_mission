@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-BroadcastDeleteModel broadcastDeleteModelFromJson(String str) =>
-    BroadcastDeleteModel.fromJson(json.decode(str));
+BroadcastDeleteModel broadcastDeleteModelFromJson(String str) => BroadcastDeleteModel.fromJson(json.decode(str));
 
-String broadcastDeleteModelToJson(BroadcastDeleteModel data) =>
-    json.encode(data.toJson());
+String broadcastDeleteModelToJson(BroadcastDeleteModel data) => json.encode(data.toJson());
 
 class BroadcastDeleteModel {
   BroadcastDeleteModel({
@@ -19,8 +17,7 @@ class BroadcastDeleteModel {
   String? id;
   String? message;
 
-  factory BroadcastDeleteModel.fromJson(Map<String, dynamic> json) =>
-      BroadcastDeleteModel(
+  factory BroadcastDeleteModel.fromJson(Map<String, dynamic> json) => BroadcastDeleteModel(
         id: json["id"],
         message: json["message"],
       );

@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-BlogCommentLikeModel blogCommentLikeModelFromJson(String str) =>
-    BlogCommentLikeModel.fromJson(json.decode(str));
+BlogCommentLikeModel blogCommentLikeModelFromJson(String str) => BlogCommentLikeModel.fromJson(json.decode(str));
 
-String blogCommentLikeModelToJson(BlogCommentLikeModel data) =>
-    json.encode(data.toJson());
+String blogCommentLikeModelToJson(BlogCommentLikeModel data) => json.encode(data.toJson());
 
 class BlogCommentLikeModel {
   BlogCommentLikeModel({
@@ -19,8 +17,7 @@ class BlogCommentLikeModel {
   int? id;
   int? totalLike;
 
-  factory BlogCommentLikeModel.fromJson(Map<String, dynamic> json) =>
-      BlogCommentLikeModel(
+  factory BlogCommentLikeModel.fromJson(Map<String, dynamic> json) => BlogCommentLikeModel(
         id: json["id"],
         totalLike: json["total_like"],
       );

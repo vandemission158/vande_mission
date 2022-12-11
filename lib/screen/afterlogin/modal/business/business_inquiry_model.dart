@@ -4,6 +4,10 @@
 
 import 'dart:convert';
 
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/business/business.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/customer.dart';
+
 BusinessInquiryModel businessInquiryModelFromJson(String? str) => BusinessInquiryModel.fromJson(json.decode(str!));
 
 String? businessInquiryModelToJson(BusinessInquiryModel data) => json.encode(data.toJson());
@@ -117,117 +121,5 @@ class Datum {
         "updated_at": updatedAt,
         "business": business!.toJson(),
         "customer": customer!.toJson(),
-      };
-}
-
-class Business {
-  Business({
-    this.id,
-    this.name,
-    this.typeofcategory,
-    this.createdby,
-    this.country,
-    this.state,
-    this.district,
-    this.subdistrict,
-    this.village,
-    this.society,
-  });
-
-  int? id;
-  String? name;
-  dynamic typeofcategory;
-  dynamic createdby;
-  dynamic country;
-  dynamic state;
-  dynamic district;
-  dynamic subdistrict;
-  dynamic village;
-  dynamic society;
-
-  factory Business.fromJson(Map<String, dynamic> json) => Business(
-        id: json["id"],
-        name: json["name"],
-        typeofcategory: json["typeofcategory"],
-        createdby: json["createdby"],
-        country: json["country"],
-        state: json["state"],
-        district: json["district"],
-        subdistrict: json["subdistrict"],
-        village: json["village"],
-        society: json["society"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "typeofcategory": typeofcategory,
-        "createdby": createdby,
-        "country": country,
-        "state": state,
-        "district": district,
-        "subdistrict": subdistrict,
-        "village": village,
-        "society": society,
-      };
-}
-
-class Customer {
-  Customer({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Customer.fromJson(Map<String, dynamic> json) => Customer(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

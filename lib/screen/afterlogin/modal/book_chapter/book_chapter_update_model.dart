@@ -4,11 +4,15 @@
 
 import 'dart:convert';
 
-BookChapterUpdateModel bookChapterUpdateModelFromJson(String? str) =>
-    BookChapterUpdateModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/relation_model/image/image.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/video/video.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/book/book.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/book/chapter_pdf.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/member.dart';
 
-String? bookChapterUpdateModelToJson(BookChapterUpdateModel data) =>
-    json.encode(data.toJson());
+BookChapterUpdateModel bookChapterUpdateModelFromJson(String? str) => BookChapterUpdateModel.fromJson(json.decode(str!));
+
+String? bookChapterUpdateModelToJson(BookChapterUpdateModel data) => json.encode(data.toJson());
 
 class BookChapterUpdateModel {
   BookChapterUpdateModel({
@@ -41,8 +45,7 @@ class BookChapterUpdateModel {
   Book? book;
   Member? member;
 
-  factory BookChapterUpdateModel.fromJson(Map<String, dynamic> json) =>
-      BookChapterUpdateModel(
+  factory BookChapterUpdateModel.fromJson(Map<String, dynamic> json) => BookChapterUpdateModel(
         id: json["id"],
         chapter: json["chapter"],
         text: json["text"],
@@ -72,129 +75,5 @@ class BookChapterUpdateModel {
         "storage_url": storageUrl,
         "book": book!.toJson(),
         "member": member!.toJson(),
-      };
-}
-
-class Book {
-  Book({
-    this.id,
-    this.isCreateChapter,
-    this.isTotalChapter,
-    this.storageUrl,
-  });
-
-  int? id;
-  int? isCreateChapter;
-  int? isTotalChapter;
-  String? storageUrl;
-
-  factory Book.fromJson(Map<String, dynamic> json) => Book(
-        id: json["id"],
-        isCreateChapter: json["isCreateChapter"],
-        isTotalChapter: json["isTotalChapter"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "isCreateChapter": isCreateChapter,
-        "isTotalChapter": isTotalChapter,
-        "storage_url": storageUrl,
-      };
-}
-
-class ChapterPdf {
-  ChapterPdf({
-    this.fileName,
-    this.filePath,
-  });
-
-  String? fileName;
-  String? filePath;
-
-  factory ChapterPdf.fromJson(Map<String, dynamic> json) => ChapterPdf(
-        fileName: json["fileName"],
-        filePath: json["filePath"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "fileName": fileName,
-        "filePath": filePath,
-      };
-}
-
-class Image {
-  Image({
-    this.imageName,
-    this.imagePath,
-  });
-
-  String? imageName;
-  String? imagePath;
-
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
-        imageName: json["image_name"],
-        imagePath: json["image_path"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "image_name": imageName,
-        "image_path": imagePath,
-      };
-}
-
-class Member {
-  Member({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Member.fromJson(Map<String, dynamic> json) => Member(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Video {
-  Video({
-    this.videoName,
-    this.videoPath,
-  });
-
-  String? videoName;
-  String? videoPath;
-
-  factory Video.fromJson(Map<String, dynamic> json) => Video(
-        videoName: json["video_name"],
-        videoPath: json["video_path"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "video_name": videoName,
-        "video_path": videoPath,
       };
 }

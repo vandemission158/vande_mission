@@ -3,9 +3,11 @@
 //     final authorModel = authorModelFromJson(jsonString);
 
 import 'dart:convert';
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/book/book.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/member.dart';
 
-AuthorModel authorModelFromJson(String? str) =>
-    AuthorModel.fromJson(json.decode(str!));
+AuthorModel authorModelFromJson(String? str) => AuthorModel.fromJson(json.decode(str!));
 
 String? authorModelToJson(AuthorModel data) => json.encode(data.toJson());
 
@@ -95,7 +97,7 @@ class Datum {
         name: json["name"] == null ? null : json["name"],
         photo: json["photo"],
         description: json["description"],
-        book: Book.fromJson(json["book"]),
+        book: json["book"] == null ? null : Book.fromJson(json["book"]),
         member: json["member"] == null ? null : Member.fromJson(json["member"]),
       );
 
@@ -105,103 +107,6 @@ class Datum {
         "photo": photo,
         "description": description,
         "book": book!.toJson(),
-        "member": member == null ? null : member!.toJson(),
-      };
-}
-
-class Book {
-  Book({
-    this.id,
-    this.title,
-    this.isCreateChapter,
-    this.isTotalChapter,
-    this.storageUrl,
-    this.isTotalIndex,
-  });
-
-  int? id;
-  String? title;
-  int? isCreateChapter;
-  int? isTotalChapter;
-  String? storageUrl;
-  int? isTotalIndex;
-
-  factory Book.fromJson(Map<String, dynamic> json) => Book(
-        id: json["id"],
-        title: json["title"],
-        isCreateChapter: json["isCreateChapter"],
-        isTotalChapter: json["isTotalChapter"],
-        storageUrl: json["storage_url"],
-        isTotalIndex:
-            json["isTotalIndex"] == null ? null : json["isTotalIndex"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "isCreateChapter": isCreateChapter,
-        "isTotalChapter": isTotalChapter,
-        "storage_url": storageUrl,
-        "isTotalIndex": isTotalIndex == null ? null : isTotalIndex,
-      };
-}
-
-class Member {
-  Member({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  dynamic phoneNumber;
-  String? storageUrl;
-
-  factory Member.fromJson(Map<String, dynamic> json) => Member(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
+        "member": member!.toJson(),
       };
 }

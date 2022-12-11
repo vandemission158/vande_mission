@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-BlogCommentReplyDeleteModel blogCommentReplyDeleteModelFromJson(String str) =>
-    BlogCommentReplyDeleteModel.fromJson(json.decode(str));
+BlogCommentReplyDeleteModel blogCommentReplyDeleteModelFromJson(String str) => BlogCommentReplyDeleteModel.fromJson(json.decode(str));
 
-String blogCommentReplyDeleteModelToJson(BlogCommentReplyDeleteModel data) =>
-    json.encode(data.toJson());
+String blogCommentReplyDeleteModelToJson(BlogCommentReplyDeleteModel data) => json.encode(data.toJson());
 
 class BlogCommentReplyDeleteModel {
   BlogCommentReplyDeleteModel({
@@ -19,8 +17,7 @@ class BlogCommentReplyDeleteModel {
   String? id;
   String? message;
 
-  factory BlogCommentReplyDeleteModel.fromJson(Map<String, dynamic> json) =>
-      BlogCommentReplyDeleteModel(
+  factory BlogCommentReplyDeleteModel.fromJson(Map<String, dynamic> json) => BlogCommentReplyDeleteModel(
         id: json["id"],
         message: json["message"],
       );

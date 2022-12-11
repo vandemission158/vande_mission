@@ -4,8 +4,7 @@
 
 import 'dart:convert';
 
-BlogLikeModel blogLikeModelFromJson(String str) =>
-    BlogLikeModel.fromJson(json.decode(str));
+BlogLikeModel blogLikeModelFromJson(String str) => BlogLikeModel.fromJson(json.decode(str));
 
 String blogLikeModelToJson(BlogLikeModel data) => json.encode(data.toJson());
 

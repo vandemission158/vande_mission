@@ -4,11 +4,11 @@
 
 import 'dart:convert';
 
-BroadcastUpdateModel broadcastUpdateModelFromJson(String? str) =>
-    BroadcastUpdateModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
 
-String? broadcastUpdateModelToJson(BroadcastUpdateModel data) =>
-    json.encode(data.toJson());
+BroadcastUpdateModel broadcastUpdateModelFromJson(String? str) => BroadcastUpdateModel.fromJson(json.decode(str!));
+
+String? broadcastUpdateModelToJson(BroadcastUpdateModel data) => json.encode(data.toJson());
 
 class BroadcastUpdateModel {
   BroadcastUpdateModel({
@@ -29,8 +29,7 @@ class BroadcastUpdateModel {
   String? storageUrl;
   Createdby? createdby;
 
-  factory BroadcastUpdateModel.fromJson(Map<String, dynamic> json) =>
-      BroadcastUpdateModel(
+  factory BroadcastUpdateModel.fromJson(Map<String, dynamic> json) => BroadcastUpdateModel(
         title: json["title"],
         message: json["message"],
         photo: json["photo"],
@@ -48,41 +47,5 @@ class BroadcastUpdateModel {
         "is_show": isShow,
         "storage_url": storageUrl,
         "createdby": createdby!.toJson(),
-      };
-}
-
-class Createdby {
-  Createdby({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Createdby.fromJson(Map<String, dynamic> json) => Createdby(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
       };
 }
