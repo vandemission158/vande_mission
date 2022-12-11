@@ -11,6 +11,8 @@ class BusinessController extends GetxController {
   var bussinessModel = BusinessModel().obs;
   var businessDataList = <Datum>[].obs;
   final searchText = TextEditingController().obs;
+  var isLoadingBusinessApiCall = false.obs;
+  var qBusiness = "".obs;
 
   @override
   void onInit() {
@@ -28,6 +30,7 @@ class BusinessController extends GetxController {
   }
 
   void businessApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
+    isLoadingBusinessApiCall.value = true;
     requestAll!.addAll({
       "action": pathBusinessAPI,
       "auth_key": authorizationKey,
@@ -47,8 +50,9 @@ class BusinessController extends GetxController {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             bussinessModel.value.data = viewData;
-          } else {}
+          }
         }
+        isLoadingBusinessApiCall.value = false;
       }
     } catch (e) {
       print('test');

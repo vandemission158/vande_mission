@@ -83,15 +83,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreStateApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (stateModal.value.nextPageUrl != "")
                   {
-                    getStateAPICall(
-                        countryID.value,
-                        stateModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getStateAPICall(countryID.value, stateModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -100,13 +96,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreCountryApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (countryModal.value.nextPageUrl != "")
                   {
-                    getCountryAPICall(countryModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getCountryAPICall(countryModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -115,16 +109,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreDistrictApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (districtModal.value.nextPageUrl != "")
                   {
-                    getDistrictAPICall(
-                        countryID.value,
-                        stateID.value,
-                        districtModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getDistrictAPICall(countryID.value, stateID.value, districtModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -133,17 +122,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreVillageApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (villageModal.value.nextPageUrl != "")
                   {
-                    getVillageAPICall(
-                        countryID.value,
-                        stateID.value,
-                        districtID.value,
-                        villageModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getVillageAPICall(countryID.value, stateID.value, districtID.value, villageModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -152,18 +135,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreSocietyApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (societyModal.value.nextPageUrl != "")
                   {
-                    getSocietyAPICall(
-                        countryID.value,
-                        stateID.value,
-                        districtID.value,
-                        villageID.value,
-                        societyModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getSocietyAPICall(countryID.value, stateID.value, districtID.value, villageID.value, societyModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -172,13 +148,11 @@ class RegisterFamilyController extends GetxController {
   void loadMoreCasteApicall() {
     scrollController = PageController()
       ..addListener(() => {
-            if (scrollController.position.maxScrollExtent ==
-                scrollController.offset)
+            if (scrollController.position.maxScrollExtent == scrollController.offset)
               {
                 if (casteModal.value.nextPageUrl != "")
                   {
-                    getCasteAPICall(societyModal.value.nextPageUrl.toString(),
-                        dropdownSearchText.value.text),
+                    getCasteAPICall(societyModal.value.nextPageUrl.toString(), dropdownSearchText.value.text),
                   }
               }
           });
@@ -197,22 +171,19 @@ class RegisterFamilyController extends GetxController {
   }
 
   void fetchDistrictAPICall() {
-    getDistrictAPICall(
-        countryID.value, stateID.value, "", dropdownSearchText.value.text);
+    getDistrictAPICall(countryID.value, stateID.value, "", dropdownSearchText.value.text);
     loadMoreDistrictApicall();
     dropdownSearchText.value.clear();
   }
 
   void fetchVillageAPICall() {
-    getVillageAPICall(countryID.value, stateID.value, districtID.value, "",
-        dropdownSearchText.value.text);
+    getVillageAPICall(countryID.value, stateID.value, districtID.value, "", dropdownSearchText.value.text);
     loadMoreVillageApicall();
     dropdownSearchText.value.clear();
   }
 
   void fetchSocietyAPICall() {
-    getSocietyAPICall(countryID.value, stateID.value, districtID.value,
-        villageID.value, "", dropdownSearchText.value.text);
+    getSocietyAPICall(countryID.value, stateID.value, districtID.value, villageID.value, "", dropdownSearchText.value.text);
     loadMoreSocietyApicall();
     dropdownSearchText.value.clear();
   }
@@ -224,46 +195,39 @@ class RegisterFamilyController extends GetxController {
   }
 
   void sendCountryData(int index) {
-    countryTextController.value.text =
-        countryModal.value.data![index].name.toString();
+    countryTextController.value.text = countryModal.value.data![index].name.toString();
     countryID.value = countryModal.value.data![index].id!.toInt();
     Get.back();
   }
 
   void sendStateData(int index) {
-    stateTextController.value.text =
-        stateModal.value.data![index].name.toString();
+    stateTextController.value.text = stateModal.value.data![index].name.toString();
     stateID.value = stateModal.value.data![index].id!.toInt();
     Get.back();
   }
 
   void sendDistrictData(int index) {
-    districtTextController.value.text =
-        districtModal.value.data![index].name.toString();
+    districtTextController.value.text = districtModal.value.data![index].name.toString();
     districtID.value = districtModal.value.data![index].id!.toInt();
 
     Get.back();
   }
 
   void sendVillageData(int index) {
-    villageTextController.value.text =
-        villageModal.value.data![index].name.toString();
+    villageTextController.value.text = villageModal.value.data![index].name.toString();
     villageID.value = villageModal.value.data![index].id!.toInt();
-    subDistrictID.value =
-        villageModal.value.data![index].subdistrict!.id!.toInt();
+    subDistrictID.value = villageModal.value.data![index].subdistrict!.id!.toInt();
     Get.back();
   }
 
   void sendSocietyData(int index) {
-    societyTextController.value.text =
-        societyModal.value.data![index].name.toString();
+    societyTextController.value.text = societyModal.value.data![index].name.toString();
     societyID.value = societyModal.value.data![index].id!.toInt();
     Get.back();
   }
 
   void sendCasteData(int index) {
-    casteTextController.value.text =
-        casteModal.value.data![index].name.toString();
+    casteTextController.value.text = casteModal.value.data![index].name.toString();
     casteID.value = casteModal.value.data![index].id!.toInt();
     Get.back();
   }
@@ -277,18 +241,15 @@ class RegisterFamilyController extends GetxController {
   }
 
   void onchangeDistrictext() {
-    getDistrictAPICall(
-        countryID.value, stateID.value, "", dropdownSearchText.value.text);
+    getDistrictAPICall(countryID.value, stateID.value, "", dropdownSearchText.value.text);
   }
 
   void onchangeVillagetext() {
-    getVillageAPICall(countryID.value, stateID.value, districtID.value, "",
-        dropdownSearchText.value.text);
+    getVillageAPICall(countryID.value, stateID.value, districtID.value, "", dropdownSearchText.value.text);
   }
 
   void onchangeSocietytext() {
-    getSocietyAPICall(countryID.value, stateID.value, districtID.value,
-        villageID.value, "", dropdownSearchText.value.text);
+    getSocietyAPICall(countryID.value, stateID.value, districtID.value, villageID.value, "", dropdownSearchText.value.text);
   }
 
   void onchangeCastetext() {
@@ -296,17 +257,7 @@ class RegisterFamilyController extends GetxController {
   }
 
   void onTapNext() {
-    addFamilyAPICall(
-        countryID.value,
-        stateID.value,
-        districtID.value,
-        villageID.value,
-        subDistrictID.value,
-        societyID.value,
-        casteID.value,
-        areaTextController.value.text,
-        pincodeTextController.value.text,
-        houseNumberTextController.value.text);
+    addFamilyAPICall(countryID.value, stateID.value, districtID.value, villageID.value, subDistrictID.value, societyID.value, casteID.value, areaTextController.value.text, pincodeTextController.value.text, houseNumberTextController.value.text);
   }
 
   void onTapNewSociety() {
@@ -316,13 +267,7 @@ class RegisterFamilyController extends GetxController {
   }
 
   void onTapAddSociety() {
-    addSocietyAPICall(
-        countryID.value,
-        stateID.value,
-        districtID.value,
-        villageID.value,
-        subDistrictID.value,
-        addSocietyTextController.value.text);
+    addSocietyAPICall(countryID.value, stateID.value, districtID.value, villageID.value, subDistrictID.value, addSocietyTextController.value.text);
   }
 
   Future<Object?> stateBottomSheet(BuildContext context) {
@@ -345,15 +290,13 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: stateModal.value.data!.length +
-                      (stateModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: stateModal.value.data!.length + (stateModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < stateModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendStateData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: TextLabel(
                             title: stateModal.value.data?[index].name,
                             fontSize: 16,
@@ -394,18 +337,15 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: countryModal.value.data!.length +
-                      (countryModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: countryModal.value.data!.length + (countryModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < countryModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendCountryData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: TextLabel(
-                            title:
-                                countryModal.value.data![index].name.toString(),
+                            title: countryModal.value.data![index].name.toString(),
                             fontSize: 16,
                             color: darkGrey,
                             fontWeight: FontWeight.w400,
@@ -443,15 +383,13 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: districtModal.value.data!.length +
-                      (districtModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: districtModal.value.data!.length + (districtModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < districtModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendDistrictData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: TextLabel(
                             title: districtModal.value.data?[index].name,
                             fontSize: 16,
@@ -628,15 +566,13 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: villageModal.value.data!.length +
-                      (villageModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: villageModal.value.data!.length + (villageModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < villageModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendVillageData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -647,9 +583,7 @@ class RegisterFamilyController extends GetxController {
                                 fontWeight: FontWeight.w400,
                               ),
                               TextLabel(
-                                title: villageModal
-                                    .value.data?[index].subdistrict!.name
-                                    .toString(),
+                                title: villageModal.value.data?[index].subdistrict!.name.toString(),
                                 fontSize: 14,
                                 color: grey,
                                 fontWeight: FontWeight.w400,
@@ -734,15 +668,13 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: societyModal.value.data!.length +
-                      (societyModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: societyModal.value.data!.length + (societyModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < societyModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendSocietyData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -795,15 +727,13 @@ class RegisterFamilyController extends GetxController {
             } else {
               return ListView.builder(
                   controller: scrollController,
-                  itemCount: casteModal.value.data!.length +
-                      (casteModal.value.nextPageUrl != null ? 1 : 0),
+                  itemCount: casteModal.value.data!.length + (casteModal.value.nextPageUrl != null ? 1 : 0),
                   itemBuilder: (context, index) {
                     if (index < casteModal.value.data!.length) {
                       return GestureDetector(
                         onTap: () => sendCasteData(index),
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -841,14 +771,8 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
-    var action =
-        authorizationKey.isNotEmpty ? afterLoginStateAPI : befooreLoginStateAPI;
-    var data = {
-      "country_id": countryId,
-      "action": action,
-      "pagination": 1,
-      "apicall": "suggetion"
-    };
+    var action = authorizationKey.isNotEmpty ? afterLoginStateAPI : befooreLoginStateAPI;
+    var data = {"country_id": countryId, "action": action, "pagination": 1, "apicall": "suggetion"};
 
     RemoteService remoteService = RemoteService(action);
     try {
@@ -861,10 +785,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         stateModal.value = res;
         // print("search text data" + stateModal.value.data![0].name.toString());
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             stateModal.value.data = viewData;
@@ -912,9 +833,7 @@ class RegisterFamilyController extends GetxController {
     // }
     // isLoading.value = true;
     print(authKey.toString());
-    var action = authorizationKey.isNotEmpty
-        ? afterLoginCountryAPI
-        : beforeLoginCountryAPI;
+    var action = authorizationKey.isNotEmpty ? afterLoginCountryAPI : beforeLoginCountryAPI;
     var data = {"action": action, "pagination": 1, "apicall": "suggetion"};
     if (authorizationKey.isNotEmpty) {
       data.addAll({"auth_key": authorizationKey});
@@ -932,10 +851,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         countryModal.value = res;
 
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             countryModal.value.data = viewData;
@@ -951,23 +867,14 @@ class RegisterFamilyController extends GetxController {
     }
   }
 
-  void getDistrictAPICall(
-      int countryId, int stateId, String nextpage, String q) async {
+  void getDistrictAPICall(int countryId, int stateId, String nextpage, String q) async {
     // if (!hasNextPage.value) {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
-    var action = authorizationKey.isNotEmpty
-        ? afterLoginDistrictAPI
-        : beforeLoginDistrictAPI;
+    var action = authorizationKey.isNotEmpty ? afterLoginDistrictAPI : beforeLoginDistrictAPI;
 
-    var data = {
-      "country_id": countryId,
-      "state_id": stateId,
-      "action": action,
-      "pagination": 1,
-      "apicall": "suggetion"
-    };
+    var data = {"country_id": countryId, "state_id": stateId, "action": action, "pagination": 1, "apicall": "suggetion"};
     RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getDistrictAPI(data, nextpage, q);
@@ -978,10 +885,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         districtModal.value = res;
 
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             districtModal.value.data = viewData;
@@ -997,24 +901,14 @@ class RegisterFamilyController extends GetxController {
     }
   }
 
-  void getVillageAPICall(int countryId, int stateId, int districtId,
-      String nextpage, String q) async {
+  void getVillageAPICall(int countryId, int stateId, int districtId, String nextpage, String q) async {
     // if (!hasNextPage.value) {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
-    var action = authorizationKey.isNotEmpty
-        ? afterLoginVillageAPI
-        : befooreLoginVillageAPI;
+    var action = authorizationKey.isNotEmpty ? afterLoginVillageAPI : befooreLoginVillageAPI;
 
-    var data = {
-      "country_id": countryId,
-      "state_id": stateId,
-      "district_id": districtId,
-      "action": action,
-      "pagination": 1,
-      "apicall": "suggetion"
-    };
+    var data = {"country_id": countryId, "state_id": stateId, "district_id": districtId, "action": action, "pagination": 1, "apicall": "suggetion"};
 
     RemoteService remoteService = RemoteService(action);
     try {
@@ -1026,10 +920,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         villageModal.value = res;
 
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             villageModal.value.data = viewData;
@@ -1045,25 +936,14 @@ class RegisterFamilyController extends GetxController {
     }
   }
 
-  void getSocietyAPICall(int countryId, int stateId, int districtId,
-      int villageId, String nextpage, String q) async {
+  void getSocietyAPICall(int countryId, int stateId, int districtId, int villageId, String nextpage, String q) async {
     // if (!hasNextPage.value) {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
-    var action = authorizationKey.isNotEmpty
-        ? afterLoginSocietyAPI
-        : befooreLoginSocietyAPI;
+    var action = authorizationKey.isNotEmpty ? afterLoginSocietyAPI : befooreLoginSocietyAPI;
 
-    var data = {
-      "country_id": countryId,
-      "state_id": stateId,
-      "district_id": districtId,
-      "village_id": villageId,
-      "action": action,
-      "pagination": 1,
-      "apicall": "suggetion"
-    };
+    var data = {"country_id": countryId, "state_id": stateId, "district_id": districtId, "village_id": villageId, "action": action, "pagination": 1, "apicall": "suggetion"};
 
     RemoteService remoteService = RemoteService(action);
     try {
@@ -1075,10 +955,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         societyModal.value = res;
 
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             societyModal.value.data = viewData;
@@ -1111,10 +988,7 @@ class RegisterFamilyController extends GetxController {
         var newViewData = res.data;
         casteModal.value = res;
 
-        if (oldCurrentPage != null &&
-            newCurrentPage != null &&
-            oldCurrentPage < newCurrentPage &&
-            oldCurrentPage != newCurrentPage) {
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
             casteModal.value.data = viewData;
@@ -1160,8 +1034,7 @@ class RegisterFamilyController extends GetxController {
         if (addSocietyModal.value.id != null) {
           societyID.value = addSocietyModal.value.id!.toInt();
           showSocityTextField(false);
-          societyTextController.value.text =
-              addSocietyTextController.value.text.toString();
+          societyTextController.value.text = addSocietyTextController.value.text.toString();
           print("add society id:- " + addSocietyModal.value.id.toString());
         }
       } else {
@@ -1172,17 +1045,7 @@ class RegisterFamilyController extends GetxController {
     }
   }
 
-  void addFamilyAPICall(
-      int countryId,
-      int stateId,
-      int districtId,
-      int villageId,
-      int subDistrictId,
-      int societyId,
-      int casteId,
-      String area,
-      String pincode,
-      String houseNumber) async {
+  void addFamilyAPICall(int countryId, int stateId, int districtId, int villageId, int subDistrictId, int societyId, int casteId, String area, String pincode, String houseNumber) async {
     var data = {
       "country_id": countryId,
       "state_id": stateId,
