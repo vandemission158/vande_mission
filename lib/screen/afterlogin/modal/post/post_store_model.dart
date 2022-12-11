@@ -4,8 +4,16 @@
 
 import 'dart:convert';
 
-PostStoreModel postStoreModelFromJson(String? str) =>
-    PostStoreModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/group.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/job.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/product.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/offer.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/book.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/event.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/post/blog.dart';
+
+PostStoreModel postStoreModelFromJson(String? str) => PostStoreModel.fromJson(json.decode(str!));
 
 String? postStoreModelToJson(PostStoreModel data) => json.encode(data.toJson());
 
@@ -88,13 +96,13 @@ class PostStoreModel {
   String? storageUrl;
   int? totalLike;
   Createdby? createdby;
-  dynamic group;
-  dynamic event;
-  dynamic blog;
-  dynamic job;
-  dynamic product;
-  dynamic offer;
-  dynamic book;
+  Group? group;
+  Event? event;
+  Blog? blog;
+  Job? job;
+  Product? product;
+  Offer? offer;
+  Book? book;
 
   factory PostStoreModel.fromJson(Map<String, dynamic> json) => PostStoreModel(
         id: json["id"],
@@ -131,13 +139,13 @@ class PostStoreModel {
         storageUrl: json["storage_url"],
         totalLike: json["total_like"],
         createdby: Createdby.fromJson(json["createdby"]),
-        group: json["group"],
-        event: json["event"],
-        blog: json["blog"],
-        job: json["job"],
-        product: json["product"],
-        offer: json["offer"],
-        book: json["book"],
+        group: json["group"] == null ? null : Group.fromJson(json["group"]),
+        event: json["event"] == null ? null : Event.fromJson(json["event"]),
+        blog: json["blog"] == null ? null : Blog.fromJson(json["blog"]),
+        job: json["job"] == null ? null : Job.fromJson(json["job"]),
+        product: json["product"] == null ? null : Product.fromJson(json["product"]),
+        offer: json["offer"] == null ? null : Offer.fromJson(json["offer"]),
+        book: json["book"] == null ? null : Book.fromJson(json["book"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -175,13 +183,13 @@ class PostStoreModel {
         "storage_url": storageUrl,
         "total_like": totalLike,
         "createdby": createdby!.toJson(),
-        "group": group,
-        "event": event,
-        "blog": blog,
-        "job": job,
-        "product": product,
-        "offer": offer,
-        "book": book,
+        "group": group == null ? null : group!.toJson(),
+        "event": event == null ? null : event!.toJson(),
+        "blog": blog == null ? null : blog!.toJson(),
+        "job": job == null ? null : job!.toJson(),
+        "product": product == null ? null : product!.toJson(),
+        "offer": offer == null ? null : offer!.toJson(),
+        "book": book == null ? null : book!.toJson(),
       };
 }
 

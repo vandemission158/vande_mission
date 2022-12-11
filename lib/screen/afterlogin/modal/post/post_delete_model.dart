@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-PostDeleteModel postDeleteModelFromJson(String str) =>
-    PostDeleteModel.fromJson(json.decode(str));
+PostDeleteModel postDeleteModelFromJson(String str) => PostDeleteModel.fromJson(json.decode(str));
 
-String postDeleteModelToJson(PostDeleteModel data) =>
-    json.encode(data.toJson());
+String postDeleteModelToJson(PostDeleteModel data) => json.encode(data.toJson());
 
 class PostDeleteModel {
   PostDeleteModel({
@@ -19,8 +17,7 @@ class PostDeleteModel {
   String? id;
   String? message;
 
-  factory PostDeleteModel.fromJson(Map<String, dynamic> json) =>
-      PostDeleteModel(
+  factory PostDeleteModel.fromJson(Map<String, dynamic> json) => PostDeleteModel(
         id: json["id"],
         message: json["message"],
       );

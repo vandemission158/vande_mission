@@ -5,8 +5,11 @@
 
 import 'dart:convert';
 
-DistrictModel districtModelFromJson(String? str) =>
-    DistrictModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+
+DistrictModel districtModelFromJson(String? str) => DistrictModel.fromJson(json.decode(str!));
 
 String? districtModelToJson(DistrictModel data) => json.encode(data.toJson());
 
@@ -85,13 +88,13 @@ class Datum {
   int? id;
   String? name;
   Country? country;
-  Country? state;
+  State? state;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         name: json["name"],
         country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
+        state: State.fromJson(json["state"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -100,70 +103,4 @@ class Datum {
         "country": country!.toJson(),
         "state": state!.toJson(),
       };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  Name? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: nameValues.map[json["name"]],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": nameValues.reverse[name],
-      };
-}
-
-enum Name { INDIA, GUJARAT }
-
-final nameValues =
-    EnumValues({'GUJARAT': Name.GUJARAT, "India": Name.INDIA}, {});
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] ?? null,
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url ?? null,
-        "label": label,
-        "active": active,
-      };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(
-    this.map,
-    this.reverseMap,
-  );
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

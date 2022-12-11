@@ -4,8 +4,12 @@
 
 import 'dart:convert';
 
-OfferModel offerModelFromJson(String? str) =>
-    OfferModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/category/typeofcategory.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/image/image.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
+
+OfferModel offerModelFromJson(String? str) => OfferModel.fromJson(json.decode(str!));
 
 String? offerModelToJson(OfferModel data) => json.encode(data.toJson());
 
@@ -95,7 +99,7 @@ class Datum {
   DateTime? startDate;
   DateTime? endDate;
   dynamic promocode;
-  dynamic typeofcategory;
+  Typeofcategory? typeofcategory;
   Createdby? createdby;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
@@ -107,7 +111,7 @@ class Datum {
         startDate: DateTime.parse(json["start_date"]),
         endDate: DateTime.parse(json["end_date"]),
         promocode: json["promocode"],
-        typeofcategory: json["typeofcategory"],
+        typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
         createdby: Createdby.fromJson(json["createdby"]),
       );
 
@@ -120,87 +124,7 @@ class Datum {
         "start_date": startDate!.toIso8601String(),
         "end_date": endDate!.toIso8601String(),
         "promocode": promocode,
-        "typeofcategory": typeofcategory,
+        "typeofcategory": typeofcategory!.toJson(),
         "createdby": createdby!.toJson(),
-      };
-}
-
-class Createdby {
-  Createdby({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Createdby.fromJson(Map<String, dynamic> json) => Createdby(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Image {
-  Image({
-    this.imageName,
-    this.imagePath,
-  });
-
-  String? imageName;
-  String? imagePath;
-
-  factory Image.fromJson(Map<String, dynamic> json) => Image(
-        imageName: json["image_name"],
-        imagePath: json["image_path"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "image_name": imageName,
-        "image_path": imagePath,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

@@ -4,8 +4,17 @@
 
 import 'dart:convert';
 
-EventModel eventModelFromJson(String? str) =>
-    EventModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/subdistrict.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/village.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/society.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/category/typeofcategory.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
+
+EventModel eventModelFromJson(String? str) => EventModel.fromJson(json.decode(str!));
 
 String? eventModelToJson(EventModel data) => json.encode(data.toJson());
 
@@ -133,11 +142,11 @@ class Datum {
   Typeofcategory? typeofcategory;
   Createdby? createdby;
   Country? country;
-  Country? state;
-  Country? district;
-  Country? subdistrict;
+  State? state;
+  District? district;
+  Subdistrict? subdistrict;
   Village? village;
-  Country? society;
+  Society? society;
   List<dynamic>? eventOrganiser;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
@@ -149,8 +158,7 @@ class Datum {
         villageId: json["village_id"],
         societyId: json["society_id"],
         area: json["area"],
-        organiserPhoneNumber:
-            List<String>.from(json["organiser_phone_number"].map((x) => x)),
+        organiserPhoneNumber: List<String>.from(json["organiser_phone_number"].map((x) => x)),
         title: json["title"],
         datetype: json["datetype"],
         startDate: DateTime.parse(json["start_date"]),
@@ -164,16 +172,15 @@ class Datum {
         eventInvitationType: json["event_invitation_type"],
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
-        typeofcategory: Typeofcategory.fromJson(json["typeofcategory"]),
-        createdby: Createdby.fromJson(json["createdby"]),
-        country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
-        subdistrict: Country.fromJson(json["subdistrict"]),
-        village: Village.fromJson(json["village"]),
-        society: Country.fromJson(json["society"]),
-        eventOrganiser:
-            List<dynamic>.from(json["event_organiser"].map((x) => x)),
+        typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
+        createdby: json["createdby"] == null ? null : Createdby.fromJson(json["createdby"]),
+        country: json["country"] == null ? null : Country.fromJson(json["country"]),
+        state: json["state"] == null ? null : State.fromJson(json["state"]),
+        district: json["district"] == null ? null : District.fromJson(json["district"]),
+        subdistrict: json["subdistrict"] == null ? null : Subdistrict.fromJson(json["subdistrict"]),
+        village: json["village"] == null ? null : Village.fromJson(json["village"]),
+        society: json["society"] == null ? null : Society.fromJson(json["society"]),
+        eventOrganiser: List<dynamic>.from(json["event_organiser"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -185,14 +192,11 @@ class Datum {
         "village_id": villageId,
         "society_id": societyId,
         "area": area,
-        "organiser_phone_number":
-            List<dynamic>.from(organiserPhoneNumber!.map((x) => x)),
+        "organiser_phone_number": List<dynamic>.from(organiserPhoneNumber!.map((x) => x)),
         "title": title,
         "datetype": datetype,
-        "start_date":
-            "${startDate!.year.toString().padLeft(4, '0')}-${startDate!.month.toString().padLeft(2, '0')}-${startDate!.day.toString().padLeft(2, '0')}",
-        "end_date":
-            "${endDate!.year.toString().padLeft(4, '0')}-${endDate!.month.toString().padLeft(2, '0')}-${endDate!.day.toString().padLeft(2, '0')}",
+        "start_date": "${startDate!.year.toString().padLeft(4, '0')}-${startDate!.month.toString().padLeft(2, '0')}-${startDate!.day.toString().padLeft(2, '0')}",
+        "end_date": "${endDate!.year.toString().padLeft(4, '0')}-${endDate!.month.toString().padLeft(2, '0')}-${endDate!.day.toString().padLeft(2, '0')}",
         "start_time": startTime,
         "end_time": endTime,
         "allow_end_date": allowEndDate,
@@ -211,157 +215,5 @@ class Datum {
         "village": village!.toJson(),
         "society": society!.toJson(),
         "event_organiser": List<dynamic>.from(eventOrganiser!.map((x) => x)),
-      };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Createdby {
-  Createdby({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Createdby.fromJson(Map<String, dynamic> json) => Createdby(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Typeofcategory {
-  Typeofcategory({
-    this.id,
-    this.type,
-    this.category,
-  });
-
-  int? id;
-  String? type;
-  Category? category;
-
-  factory Typeofcategory.fromJson(Map<String, dynamic> json) => Typeofcategory(
-        id: json["id"],
-        type: json["type"],
-        category: Category.fromJson(json["category"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "type": type,
-        "category": category!.toJson(),
-      };
-}
-
-class Category {
-  Category({
-    this.id,
-    this.name,
-    this.parent,
-  });
-
-  int? id;
-  String? name;
-  dynamic parent;
-
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-        id: json["id"],
-        name: json["name"],
-        parent: json["parent"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "parent": parent,
-      };
-}
-
-class Village {
-  Village({
-    this.id,
-    this.name,
-    this.totalsociety,
-  });
-
-  int? id;
-  String? name;
-  int? totalsociety;
-
-  factory Village.fromJson(Map<String, dynamic> json) => Village(
-        id: json["id"],
-        name: json["name"],
-        totalsociety: json["totalsociety"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "totalsociety": totalsociety,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

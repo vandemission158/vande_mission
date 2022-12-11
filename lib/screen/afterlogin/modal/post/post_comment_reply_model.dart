@@ -4,11 +4,12 @@
 
 import 'dart:convert';
 
-PostCommentReplyModel postCommentReplyModelFromJson(String? str) =>
-    PostCommentReplyModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/member.dart';
 
-String? postCommentReplyModelToJson(PostCommentReplyModel data) =>
-    json.encode(data.toJson());
+PostCommentReplyModel postCommentReplyModelFromJson(String? str) => PostCommentReplyModel.fromJson(json.decode(str!));
+
+String? postCommentReplyModelToJson(PostCommentReplyModel data) => json.encode(data.toJson());
 
 class PostCommentReplyModel {
   PostCommentReplyModel({
@@ -41,8 +42,7 @@ class PostCommentReplyModel {
   int? to;
   int? total;
 
-  factory PostCommentReplyModel.fromJson(Map<String, dynamic> json) =>
-      PostCommentReplyModel(
+  factory PostCommentReplyModel.fromJson(Map<String, dynamic> json) => PostCommentReplyModel(
         currentPage: json["current_page"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         firstPageUrl: json["first_page_url"],
@@ -104,65 +104,5 @@ class Datum {
         "created_at": createdAt,
         "total_like": totalLike,
         "member": member!.toJson(),
-      };
-}
-
-class Member {
-  Member({
-    this.id,
-    this.firstName,
-    this.middleName,
-    this.lastName,
-    this.phoneNumber,
-    this.storageUrl,
-  });
-
-  int? id;
-  String? firstName;
-  String? middleName;
-  String? lastName;
-  String? phoneNumber;
-  String? storageUrl;
-
-  factory Member.fromJson(Map<String, dynamic> json) => Member(
-        id: json["id"],
-        firstName: json["first_name"],
-        middleName: json["middle_name"],
-        lastName: json["last_name"],
-        phoneNumber: json["phone_number"],
-        storageUrl: json["storage_url"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "middle_name": middleName,
-        "last_name": lastName,
-        "phone_number": phoneNumber,
-        "storage_url": storageUrl,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

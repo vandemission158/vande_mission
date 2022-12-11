@@ -4,8 +4,12 @@
 
 import 'dart:convert';
 
-PanchayatModel panchayatModelFromJson(String? str) =>
-    PanchayatModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+
+PanchayatModel panchayatModelFromJson(String? str) => PanchayatModel.fromJson(json.decode(str!));
 
 String? panchayatModelToJson(PanchayatModel data) => json.encode(data.toJson());
 
@@ -80,20 +84,23 @@ class Datum {
     this.totalvillage,
     this.country,
     this.state,
+    this.district,
   });
 
   int? id;
   String? name;
   int? totalvillage;
   Country? country;
-  Country? state;
+  State? state;
+  District? district;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         name: json["name"],
         totalvillage: json["totalvillage"],
         country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
+        state: State.fromJson(json["state"]),
+        district: District.fromJson(json["district"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -102,49 +109,6 @@ class Datum {
         "totalvillage": totalvillage,
         "country": country!.toJson(),
         "state": state!.toJson(),
-      };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
+        "district": district!.toJson(),
       };
 }

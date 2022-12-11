@@ -4,11 +4,19 @@
 
 import 'dart:convert';
 
-GroupStoreModel groupStoreModelFromJson(String? str) =>
-    GroupStoreModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/subdistrict.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/village.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/society.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/category/typeofcategory.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/group/group_member.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
 
-String? groupStoreModelToJson(GroupStoreModel data) =>
-    json.encode(data.toJson());
+GroupStoreModel groupStoreModelFromJson(String? str) => GroupStoreModel.fromJson(json.decode(str!));
+
+String? groupStoreModelToJson(GroupStoreModel data) => json.encode(data.toJson());
 
 class GroupStoreModel {
   GroupStoreModel({
@@ -44,17 +52,16 @@ class GroupStoreModel {
   String? storageUrl;
   int? isTotalGroupMember;
   Typeofcategory? typeofcategory;
-  Country? country;
-  Country? state;
-  Country? district;
-  Country? subdistrict;
-  Village? village;
-  Country? society;
   Createdby? createdby;
+  Country? country;
+  State? state;
+  District? district;
+  Subdistrict? subdistrict;
+  Village? village;
+  Society? society;
   List<Groupmember>? groupmember;
 
-  factory GroupStoreModel.fromJson(Map<String, dynamic> json) =>
-      GroupStoreModel(
+  factory GroupStoreModel.fromJson(Map<String, dynamic> json) => GroupStoreModel(
         id: json["id"],
         division: json["division"],
         name: json["name"],
@@ -65,16 +72,15 @@ class GroupStoreModel {
         updatedAt: json["updated_at"],
         storageUrl: json["storage_url"],
         isTotalGroupMember: json["isTotalGroupMember"],
-        typeofcategory: Typeofcategory.fromJson(json["typeofcategory"]),
-        country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
-        subdistrict: Country.fromJson(json["subdistrict"]),
-        village: Village.fromJson(json["village"]),
-        society: Country.fromJson(json["society"]),
-        createdby: Createdby.fromJson(json["createdby"]),
-        groupmember: List<Groupmember>.from(
-            json["groupmember"].map((x) => Groupmember.fromJson(x))),
+        typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
+        createdby: json["createdby"] == null ? null : Createdby.fromJson(json["createdby"]),
+        country: json["country"] == null ? null : Country.fromJson(json["country"]),
+        state: json["state"] == null ? null : State.fromJson(json["state"]),
+        district: json["district"] == null ? null : District.fromJson(json["district"]),
+        subdistrict: json["subdistrict"] == null ? null : Subdistrict.fromJson(json["subdistrict"]),
+        village: json["village"] == null ? null : Village.fromJson(json["village"]),
+        society: json["society"] == null ? null : Society.fromJson(json["society"]),
+        groupmember: List<Groupmember>.from(json["groupmember"].map((x) => Groupmember.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -88,14 +94,14 @@ class GroupStoreModel {
         "updated_at": updatedAt,
         "storage_url": storageUrl,
         "isTotalGroupMember": isTotalGroupMember,
-        "typeofcategory": typeofcategory!.toJson(),
+        "typeofcategory": typeofcategory == null ? null : typeofcategory!.toJson(),
+        "createdby": createdby!.toJson(),
         "country": country!.toJson(),
         "state": state!.toJson(),
         "district": district!.toJson(),
         "subdistrict": subdistrict!.toJson(),
         "village": village!.toJson(),
         "society": society!.toJson(),
-        "createdby": createdby!.toJson(),
         "groupmember": List<dynamic>.from(groupmember!.map((x) => x.toJson())),
       };
 }

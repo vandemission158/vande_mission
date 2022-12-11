@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-GroupDeleteModel groupDeleteModelFromJson(String str) =>
-    GroupDeleteModel.fromJson(json.decode(str));
+GroupDeleteModel groupDeleteModelFromJson(String str) => GroupDeleteModel.fromJson(json.decode(str));
 
-String groupDeleteModelToJson(GroupDeleteModel data) =>
-    json.encode(data.toJson());
+String groupDeleteModelToJson(GroupDeleteModel data) => json.encode(data.toJson());
 
 class GroupDeleteModel {
   GroupDeleteModel({
@@ -19,8 +17,7 @@ class GroupDeleteModel {
   String? id;
   String? message;
 
-  factory GroupDeleteModel.fromJson(Map<String, dynamic> json) =>
-      GroupDeleteModel(
+  factory GroupDeleteModel.fromJson(Map<String, dynamic> json) => GroupDeleteModel(
         id: json["id"],
         message: json["message"],
       );

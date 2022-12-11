@@ -5,11 +5,12 @@
 
 import 'dart:convert';
 
-TypeOfCategoryModel typeOfCategoryModelFromJson(String? str) =>
-    TypeOfCategoryModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/category/category.dart';
 
-String? typeOfCategoryModelToJson(TypeOfCategoryModel data) =>
-    json.encode(data.toJson());
+TypeOfCategoryModel typeOfCategoryModelFromJson(String? str) => TypeOfCategoryModel.fromJson(json.decode(str!));
+
+String? typeOfCategoryModelToJson(TypeOfCategoryModel data) => json.encode(data.toJson());
 
 class TypeOfCategoryModel {
   TypeOfCategoryModel({
@@ -42,8 +43,7 @@ class TypeOfCategoryModel {
   int? to;
   int? total;
 
-  factory TypeOfCategoryModel.fromJson(Map<String, dynamic> json) =>
-      TypeOfCategoryModel(
+  factory TypeOfCategoryModel.fromJson(Map<String, dynamic> json) => TypeOfCategoryModel(
         currentPage: json["current_page"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         firstPageUrl: json["first_page_url"],
@@ -89,78 +89,13 @@ class Datum {
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        type: typeValues.map[json["type"]],
+        type: json["type"],
         category: Category.fromJson(json["category"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "type": typeValues.reverse[type],
+        "type": type,
         "category": category!.toJson(),
       };
-}
-
-class Category {
-  Category({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-enum Type { GROUP }
-
-final typeValues = EnumValues({"Group": Type.GROUP}, {});
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
-      };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(
-    this.map,
-    this.reverseMap,
-  );
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

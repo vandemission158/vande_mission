@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-OfferDeleteModel offerDeleteModelFromJson(String str) =>
-    OfferDeleteModel.fromJson(json.decode(str));
+OfferDeleteModel offerDeleteModelFromJson(String str) => OfferDeleteModel.fromJson(json.decode(str));
 
-String offerDeleteModelToJson(OfferDeleteModel data) =>
-    json.encode(data.toJson());
+String offerDeleteModelToJson(OfferDeleteModel data) => json.encode(data.toJson());
 
 class OfferDeleteModel {
   OfferDeleteModel({
@@ -19,8 +17,7 @@ class OfferDeleteModel {
   String? id;
   String? message;
 
-  factory OfferDeleteModel.fromJson(Map<String, dynamic> json) =>
-      OfferDeleteModel(
+  factory OfferDeleteModel.fromJson(Map<String, dynamic> json) => OfferDeleteModel(
         id: json["id"],
         message: json["message"],
       );

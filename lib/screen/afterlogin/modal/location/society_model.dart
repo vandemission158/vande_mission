@@ -4,8 +4,15 @@
 
 import 'dart:convert';
 
-SocietyModel societyModelFromJson(String? str) =>
-    SocietyModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/subdistrict.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/village.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/religion/religion.dart';
+
+SocietyModel societyModelFromJson(String? str) => SocietyModel.fromJson(json.decode(str!));
 
 String? societyModelToJson(SocietyModel data) => json.encode(data.toJson());
 
@@ -96,11 +103,11 @@ class Datum {
   dynamic headquarters;
   dynamic chairman;
   Country? country;
-  Country? state;
-  Country? district;
-  Country? subdistrict;
+  State? state;
+  District? district;
+  Subdistrict? subdistrict;
   Village? village;
-  Country? religion;
+  Religion? religion;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
@@ -110,11 +117,11 @@ class Datum {
         headquarters: json["headquarters"],
         chairman: json["chairman"],
         country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
-        subdistrict: Country.fromJson(json["subdistrict"]),
+        state: State.fromJson(json["state"]),
+        district: District.fromJson(json["district"]),
+        subdistrict: Subdistrict.fromJson(json["subdistrict"]),
         village: Village.fromJson(json["village"]),
-        religion: Country.fromJson(json["religion"]),
+        religion: Religion.fromJson(json["religion"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -130,73 +137,5 @@ class Datum {
         "subdistrict": subdistrict!.toJson(),
         "village": village!.toJson(),
         "religion": religion!.toJson(),
-      };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Village {
-  Village({
-    this.id,
-    this.name,
-    this.totalsociety,
-  });
-
-  int? id;
-  String? name;
-  int? totalsociety;
-
-  factory Village.fromJson(Map<String, dynamic> json) => Village(
-        id: json["id"],
-        name: json["name"],
-        totalsociety: json["totalsociety"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "totalsociety": totalsociety,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

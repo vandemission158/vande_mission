@@ -4,8 +4,16 @@
 
 import 'dart:convert';
 
-FamilyModel familyModelFromJson(String? str) =>
-    FamilyModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/subdistrict.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/village.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/society.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/owner.dart';
+
+FamilyModel familyModelFromJson(String? str) => FamilyModel.fromJson(json.decode(str!));
 
 String? familyModelToJson(FamilyModel data) => json.encode(data.toJson());
 
@@ -105,12 +113,12 @@ class Datum {
   String? type;
   String? storageUrl;
   Country? country;
-  Country? state;
-  Country? district;
-  Country? subdistrict;
+  State? state;
+  District? district;
+  Subdistrict? subdistrict;
   Village? village;
-  Country? society;
-  dynamic owner;
+  Society? society;
+  Owner? owner;
   List<dynamic>? otherAddress;
   List<dynamic>? mainmember;
 
@@ -124,14 +132,13 @@ class Datum {
         houseNumber: json["house_number"] == null ? null : json["house_number"],
         type: json["type"],
         storageUrl: json["storage_url"],
-        country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
-        subdistrict: Country.fromJson(json["subdistrict"]),
-        village: Village.fromJson(json["village"]),
-        society:
-            json["society"] == null ? null : Country.fromJson(json["society"]),
-        owner: json["owner"],
+        country: json["country"] == null ? null : Country.fromJson(json["country"]),
+        state: json["state"] == null ? null : State.fromJson(json["state"]),
+        district: json["district"] == null ? null : District.fromJson(json["district"]),
+        subdistrict: json["subdistrict"] == null ? null : Subdistrict.fromJson(json["subdistrict"]),
+        village: json["village"] == null ? null : Village.fromJson(json["village"]),
+        society: json["society"] == null ? null : Society.fromJson(json["society"]),
+        owner: json["owner"] == null ? null : Owner.fromJson(json["owner"]),
         otherAddress: List<dynamic>.from(json["other_address"].map((x) => x)),
         mainmember: List<dynamic>.from(json["mainmember"].map((x) => x)),
       );
@@ -152,76 +159,8 @@ class Datum {
         "subdistrict": subdistrict!.toJson(),
         "village": village!.toJson(),
         "society": society == null ? null : society!.toJson(),
-        "owner": owner,
+        "owner": owner!.toJson(),
         "other_address": List<dynamic>.from(otherAddress!.map((x) => x)),
         "mainmember": List<dynamic>.from(mainmember!.map((x) => x)),
-      };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Village {
-  Village({
-    this.id,
-    this.name,
-    this.totalsociety,
-  });
-
-  int? id;
-  String? name;
-  int? totalsociety;
-
-  factory Village.fromJson(Map<String, dynamic> json) => Village(
-        id: json["id"],
-        name: json["name"],
-        totalsociety: json["totalsociety"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "totalsociety": totalsociety,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

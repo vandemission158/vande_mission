@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-ProductInterestDeleteModel productInterestDeleteModelFromJson(String str) =>
-    ProductInterestDeleteModel.fromJson(json.decode(str));
+ProductInterestDeleteModel productInterestDeleteModelFromJson(String str) => ProductInterestDeleteModel.fromJson(json.decode(str));
 
-String productInterestDeleteModelToJson(ProductInterestDeleteModel data) =>
-    json.encode(data.toJson());
+String productInterestDeleteModelToJson(ProductInterestDeleteModel data) => json.encode(data.toJson());
 
 class ProductInterestDeleteModel {
   ProductInterestDeleteModel({
@@ -19,8 +17,7 @@ class ProductInterestDeleteModel {
   String? id;
   String? message;
 
-  factory ProductInterestDeleteModel.fromJson(Map<String, dynamic> json) =>
-      ProductInterestDeleteModel(
+  factory ProductInterestDeleteModel.fromJson(Map<String, dynamic> json) => ProductInterestDeleteModel(
         id: json["id"],
         message: json["message"],
       );

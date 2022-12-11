@@ -4,8 +4,9 @@
 
 import 'dart:convert';
 
-CountryModel countryModelFromJson(String str) =>
-    CountryModel.fromJson(json.decode(str));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+
+CountryModel countryModelFromJson(String str) => CountryModel.fromJson(json.decode(str));
 
 String countryModelToJson(CountryModel data) => json.encode(data.toJson());
 
@@ -90,29 +91,5 @@ class Datum {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

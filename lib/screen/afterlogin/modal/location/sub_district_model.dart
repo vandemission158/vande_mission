@@ -5,6 +5,11 @@
 
 import 'dart:convert';
 
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+
 SubDistrictModel subDistrictModelFromJson(String? str) => SubDistrictModel.fromJson(json.decode(str!));
 
 String? subDistrictModelToJson(SubDistrictModel data) => json.encode(data.toJson());
@@ -85,15 +90,15 @@ class Datum {
   int? id;
   String? name;
   Country? country;
-  Country? state;
-  Country? district;
+  State? state;
+  District? district;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
         name: json["name"],
         country: Country.fromJson(json["country"]),
-        state: Country.fromJson(json["state"]),
-        district: Country.fromJson(json["district"]),
+        state: State.fromJson(json["state"]),
+        district: District.fromJson(json["district"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -103,69 +108,4 @@ class Datum {
         "state": state!.toJson(),
         "district": district!.toJson(),
       };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  Name? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: nameValues.map[json["name"]],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": nameValues.reverse[name],
-      };
-}
-
-enum Name { INDIA, MAHISAGAR, GUJARAT }
-
-final nameValues = EnumValues({"GUJARAT": Name.GUJARAT, "India": Name.INDIA, "Mahisagar": Name.MAHISAGAR}, {});
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url,
-        "label": label,
-        "active": active,
-      };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(
-    this.map,
-    this.reverseMap,
-  );
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

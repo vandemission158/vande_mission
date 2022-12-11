@@ -5,8 +5,10 @@
 
 import 'dart:convert';
 
-StateModel stateModelFromJson(String? str) =>
-    StateModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+
+StateModel stateModelFromJson(String? str) => StateModel.fromJson(json.decode(str!));
 
 String? stateModelToJson(StateModel data) => json.encode(data.toJson());
 
@@ -96,69 +98,4 @@ class Datum {
         "name": name,
         "country": country!.toJson(),
       };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  Name? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: nameValues.map[json["name"]],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": nameValues.reverse[name],
-      };
-}
-
-enum Name { INDIA }
-
-final nameValues = EnumValues({"India": Name.INDIA}, {});
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
-      };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(
-    this.map,
-    this.reverseMap,
-  );
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

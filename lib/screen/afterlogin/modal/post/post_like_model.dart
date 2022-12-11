@@ -4,8 +4,7 @@
 
 import 'dart:convert';
 
-PostLikeModel postLikeModelFromJson(String str) =>
-    PostLikeModel.fromJson(json.decode(str));
+PostLikeModel postLikeModelFromJson(String str) => PostLikeModel.fromJson(json.decode(str));
 
 String postLikeModelToJson(PostLikeModel data) => json.encode(data.toJson());
 

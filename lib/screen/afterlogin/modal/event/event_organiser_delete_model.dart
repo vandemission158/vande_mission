@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-EventOrganiserDeleteModel eventOrganiserDeleteModelFromJson(String str) =>
-    EventOrganiserDeleteModel.fromJson(json.decode(str));
+EventOrganiserDeleteModel eventOrganiserDeleteModelFromJson(String str) => EventOrganiserDeleteModel.fromJson(json.decode(str));
 
-String eventOrganiserDeleteModelToJson(EventOrganiserDeleteModel data) =>
-    json.encode(data.toJson());
+String eventOrganiserDeleteModelToJson(EventOrganiserDeleteModel data) => json.encode(data.toJson());
 
 class EventOrganiserDeleteModel {
   EventOrganiserDeleteModel({
@@ -19,8 +17,7 @@ class EventOrganiserDeleteModel {
   String? id;
   String? message;
 
-  factory EventOrganiserDeleteModel.fromJson(Map<String, dynamic> json) =>
-      EventOrganiserDeleteModel(
+  factory EventOrganiserDeleteModel.fromJson(Map<String, dynamic> json) => EventOrganiserDeleteModel(
         id: json["id"],
         message: json["message"],
       );

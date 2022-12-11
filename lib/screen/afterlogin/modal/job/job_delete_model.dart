@@ -4,8 +4,7 @@
 
 import 'dart:convert';
 
-JobDeleteModel jobDeleteModelFromJson(String str) =>
-    JobDeleteModel.fromJson(json.decode(str));
+JobDeleteModel jobDeleteModelFromJson(String str) => JobDeleteModel.fromJson(json.decode(str));
 
 String jobDeleteModelToJson(JobDeleteModel data) => json.encode(data.toJson());
 

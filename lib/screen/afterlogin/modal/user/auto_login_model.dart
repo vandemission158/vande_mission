@@ -4,6 +4,13 @@
 
 import 'dart:convert';
 
+import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/state.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/district.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/subdistrict.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/village.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/society.dart';
+
 AutoLoginModel autoLoginFromJson(String? str) => AutoLoginModel.fromJson(json.decode(str!));
 
 String? autoLoginToJson(AutoLoginModel data) => json.encode(data.toJson());
@@ -201,9 +208,9 @@ class Family {
   Country? country;
   State? state;
   District? district;
-  SubDistrict? subdistrict;
+  Subdistrict? subdistrict;
   Village? village;
-  Role? society;
+  Society? society;
 
   factory Family.fromJson(Map<String, dynamic> json) => Family(
         id: json["id"],
@@ -225,9 +232,9 @@ class Family {
         country: Country.fromJson(json["country"]),
         state: State.fromJson(json["state"]),
         district: District.fromJson(json["district"]),
-        subdistrict: SubDistrict.fromJson(json["subdistrict"]),
+        subdistrict: Subdistrict.fromJson(json["subdistrict"]),
         village: Village.fromJson(json["village"]),
-        society: Role.fromJson(json["society"]),
+        society: Society.fromJson(json["society"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -273,109 +280,5 @@ class Role {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-      };
-}
-
-class Country {
-  Country({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class State {
-  State({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory State.fromJson(Map<String, dynamic> json) => State(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class District {
-  District({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory District.fromJson(Map<String, dynamic> json) => District(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class SubDistrict {
-  SubDistrict({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory SubDistrict.fromJson(Map<String, dynamic> json) => SubDistrict(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Village {
-  Village({
-    this.id,
-    this.name,
-    this.totalsociety,
-  });
-
-  int? id;
-  String? name;
-  int? totalsociety;
-
-  factory Village.fromJson(Map<String, dynamic> json) => Village(
-        id: json["id"],
-        name: json["name"],
-        totalsociety: json["totalsociety"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "totalsociety": totalsociety,
       };
 }

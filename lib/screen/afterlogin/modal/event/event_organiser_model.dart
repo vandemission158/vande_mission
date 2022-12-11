@@ -4,11 +4,16 @@
 
 import 'dart:convert';
 
-EventOrganiserModel eventOrganiserModelFromJson(String? str) =>
-    EventOrganiserModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/event/id/event.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/location/society.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/group/group.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/family/family.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/member.dart';
 
-String? eventOrganiserModelToJson(EventOrganiserModel data) =>
-    json.encode(data.toJson());
+EventOrganiserModel eventOrganiserModelFromJson(String? str) => EventOrganiserModel.fromJson(json.decode(str!));
+
+String? eventOrganiserModelToJson(EventOrganiserModel data) => json.encode(data.toJson());
 
 class EventOrganiserModel {
   EventOrganiserModel({
@@ -41,8 +46,7 @@ class EventOrganiserModel {
   int? to;
   int? total;
 
-  factory EventOrganiserModel.fromJson(Map<String, dynamic> json) =>
-      EventOrganiserModel(
+  factory EventOrganiserModel.fromJson(Map<String, dynamic> json) => EventOrganiserModel(
         currentPage: json["current_page"],
         data: List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
         firstPageUrl: json["first_page_url"],
@@ -98,10 +102,10 @@ class Datum {
         id: json["id"],
         organiser: json["organiser"],
         event: Event.fromJson(json["event"]),
-        family: Family.fromJson(json["family"]),
-        member: Member.fromJson(json["member"]),
-        society: Society.fromJson(json["society"]),
-        group: Group.fromJson(json["group"]),
+        family: json["family"] == null ? null : Family.fromJson(json["family"]),
+        member: json["member"] == null ? null : Member.fromJson(json["member"]),
+        society: json["society"] == null ? null : Society.fromJson(json["society"]),
+        group: json["group"] == null ? null : Group.fromJson(json["group"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -112,158 +116,5 @@ class Datum {
         "member": member!.toJson(),
         "society": society!.toJson(),
         "group": group!.toJson(),
-      };
-}
-
-class Event {
-  Event({
-    this.id,
-  });
-
-  int? id;
-
-  factory Event.fromJson(Map<String, dynamic> json) => Event(
-        id: json["id"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-      };
-}
-
-class Family {
-  Family({
-    this.id,
-    this.houseNumber,
-    this.storageUrl,
-    this.mainmember,
-  });
-
-  int? id;
-  dynamic houseNumber;
-  String? storageUrl;
-  List<Member>? mainmember;
-
-  factory Family.fromJson(Map<String, dynamic> json) => Family(
-        id: json["id"],
-        houseNumber: json["house_number"],
-        storageUrl: json["storage_url"],
-        mainmember: List<Member>.from(
-            json["mainmember"].map((x) => Member.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "house_number": houseNumber,
-        "storage_url": storageUrl,
-        "mainmember": List<dynamic>.from(mainmember!.map((x) => x.toJson())),
-      };
-}
-
-class Member {
-  Member({
-    this.id,
-    this.firstName,
-    this.lastName,
-    this.middleName,
-    this.storageUrl,
-    this.phoneNumber,
-  });
-
-  int? id;
-  String? firstName;
-  String? lastName;
-  String? middleName;
-  String? storageUrl;
-  dynamic phoneNumber;
-
-  factory Member.fromJson(Map<String, dynamic> json) => Member(
-        id: json["id"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        middleName: json["middle_name"],
-        storageUrl: json["storage_url"],
-        phoneNumber: json["phone_number"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "first_name": firstName,
-        "last_name": lastName,
-        "middle_name": middleName,
-        "storage_url": storageUrl,
-        "phone_number": phoneNumber,
-      };
-}
-
-class Group {
-  Group({
-    this.id,
-    this.name,
-    this.storageUrl,
-    this.isTotalGroupMember,
-  });
-
-  int? id;
-  String? name;
-  String? storageUrl;
-  int? isTotalGroupMember;
-
-  factory Group.fromJson(Map<String, dynamic> json) => Group(
-        id: json["id"],
-        name: json["name"],
-        storageUrl: json["storage_url"],
-        isTotalGroupMember: json["isTotalGroupMember"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "storage_url": storageUrl,
-        "isTotalGroupMember": isTotalGroupMember,
-      };
-}
-
-class Society {
-  Society({
-    this.id,
-    this.name,
-  });
-
-  int? id;
-  String? name;
-
-  factory Society.fromJson(Map<String, dynamic> json) => Society(
-        id: json["id"],
-        name: json["name"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

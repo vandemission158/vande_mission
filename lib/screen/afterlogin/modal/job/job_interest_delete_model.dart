@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-JobInterestDeleteModel jobInterestDeleteModelFromJson(String str) =>
-    JobInterestDeleteModel.fromJson(json.decode(str));
+JobInterestDeleteModel jobInterestDeleteModelFromJson(String str) => JobInterestDeleteModel.fromJson(json.decode(str));
 
-String jobInterestDeleteModelToJson(JobInterestDeleteModel data) =>
-    json.encode(data.toJson());
+String jobInterestDeleteModelToJson(JobInterestDeleteModel data) => json.encode(data.toJson());
 
 class JobInterestDeleteModel {
   JobInterestDeleteModel({
@@ -19,8 +17,7 @@ class JobInterestDeleteModel {
   String? id;
   String? message;
 
-  factory JobInterestDeleteModel.fromJson(Map<String, dynamic> json) =>
-      JobInterestDeleteModel(
+  factory JobInterestDeleteModel.fromJson(Map<String, dynamic> json) => JobInterestDeleteModel(
         id: json["id"],
         message: json["message"],
       );

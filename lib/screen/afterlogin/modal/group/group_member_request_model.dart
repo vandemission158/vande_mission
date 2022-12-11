@@ -4,11 +4,9 @@
 
 import 'dart:convert';
 
-GroupMemberRequestModel groupMemberRequestModelFromJson(String? str) =>
-    GroupMemberRequestModel.fromJson(json.decode(str!));
+GroupMemberRequestModel groupMemberRequestModelFromJson(String? str) => GroupMemberRequestModel.fromJson(json.decode(str!));
 
-String? groupMemberRequestModelToJson(GroupMemberRequestModel data) =>
-    json.encode(data.toJson());
+String? groupMemberRequestModelToJson(GroupMemberRequestModel data) => json.encode(data.toJson());
 
 class GroupMemberRequestModel {
   GroupMemberRequestModel({
@@ -27,8 +25,7 @@ class GroupMemberRequestModel {
   String? createdAt;
   String? updatedAt;
 
-  factory GroupMemberRequestModel.fromJson(Map<String, dynamic> json) =>
-      GroupMemberRequestModel(
+  factory GroupMemberRequestModel.fromJson(Map<String, dynamic> json) => GroupMemberRequestModel(
         id: json["id"],
         captain: json["captain"],
         wisecaptain: json["wisecaptain"],

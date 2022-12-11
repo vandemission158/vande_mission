@@ -4,8 +4,9 @@
 
 import 'dart:convert';
 
-MusicModel musicModelFromJson(String? str) =>
-    MusicModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+
+MusicModel musicModelFromJson(String? str) => MusicModel.fromJson(json.decode(str!));
 
 String? musicModelToJson(MusicModel data) => json.encode(data.toJson());
 
@@ -70,29 +71,5 @@ class MusicModel {
         "prev_page_url": prevPageUrl,
         "to": to,
         "total": total,
-      };
-}
-
-class Link {
-  Link({
-    this.url,
-    this.label,
-    this.active,
-  });
-
-  String? url;
-  String? label;
-  bool? active;
-
-  factory Link.fromJson(Map<String, dynamic> json) => Link(
-        url: json["url"] == null ? null : json["url"],
-        label: json["label"],
-        active: json["active"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "url": url == null ? null : url,
-        "label": label,
-        "active": active,
       };
 }

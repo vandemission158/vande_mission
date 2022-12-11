@@ -4,11 +4,13 @@
 
 import 'dart:convert';
 
-OfferUpdateModel offerUpdateModelFromJson(String? str) =>
-    OfferUpdateModel.fromJson(json.decode(str!));
+import 'package:vande_mission/screen/afterlogin/relation_model/category/typeofcategory.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/image/image.dart';
+import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
 
-String? offerUpdateModelToJson(OfferUpdateModel data) =>
-    json.encode(data.toJson());
+OfferUpdateModel offerUpdateModelFromJson(String? str) => OfferUpdateModel.fromJson(json.decode(str!));
+
+String? offerUpdateModelToJson(OfferUpdateModel data) => json.encode(data.toJson());
 
 class OfferUpdateModel {
   OfferUpdateModel({
@@ -32,11 +34,10 @@ class OfferUpdateModel {
   DateTime? startDate;
   DateTime? endDate;
   dynamic promocode;
-  dynamic typeofcategory;
+  Typeofcategory? typeofcategory;
   Createdby? createdby;
 
-  factory OfferUpdateModel.fromJson(Map<String, dynamic> json) =>
-      OfferUpdateModel(
+  factory OfferUpdateModel.fromJson(Map<String, dynamic> json) => OfferUpdateModel(
         id: json["id"],
         title: json["title"],
         description: json["description"],
@@ -45,7 +46,7 @@ class OfferUpdateModel {
         startDate: DateTime.parse(json["start_date"]),
         endDate: DateTime.parse(json["end_date"]),
         promocode: json["promocode"],
-        typeofcategory: json["typeofcategory"],
+        typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
         createdby: Createdby.fromJson(json["createdby"]),
       );
 
@@ -58,7 +59,7 @@ class OfferUpdateModel {
         "start_date": startDate!.toIso8601String(),
         "end_date": endDate!.toIso8601String(),
         "promocode": promocode,
-        "typeofcategory": typeofcategory,
+        "typeofcategory": typeofcategory!.toJson(),
         "createdby": createdby!.toJson(),
       };
 }
