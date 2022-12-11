@@ -1,11 +1,27 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/api/business_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
+import 'package:vande_mission/screen/afterlogin/modal/business/business_model.dart';
 import 'package:vande_mission/screen/afterlogin/view/choose_family_member.dart';
 
 class BusinessController extends GetxController {
   var items = ["USA", "INDIA", "JAPAN"];
+  var bussinessModel = BusinessModel().obs;
+  var businessDataList = <Datum>[].obs;
+  final searchText = TextEditingController().obs;
+  var isLoadingBusinessApiCall = false.obs;
+  var qBusiness = "".obs;
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+
+    // businessApiCall({}, "", searchText.toString());
+    businessApiCall({}, "", "");
+  }
 
   String dropdownvalue = "INDIA";
 
@@ -14,6 +30,7 @@ class BusinessController extends GetxController {
   }
 
   void businessApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
+    isLoadingBusinessApiCall.value = true;
     requestAll!.addAll({
       "action": pathBusinessAPI,
       "auth_key": authorizationKey,
@@ -22,12 +39,24 @@ class BusinessController extends GetxController {
     });
     DioClient dioClient = DioClient(requestAll['action'].toString());
     try {
-      var res = await BusinessApi(dioClient: dioClient).businessApi(requestAll, nextpage, q);
+      final res = await BusinessApi(dioClient: dioClient).businessApi(requestAll, nextpage, q);
       if (res != null) {
-        print(res);
+        var oldCurrentPage = bussinessModel.value.currentPage;
+        var newCurrentPage = res.currentPage;
+        var viewData = bussinessModel.value.data;
+        var newViewData = res.data;
+        bussinessModel.value = res;
+        if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
+          if (viewData != null && newViewData != null) {
+            viewData.addAll(newViewData);
+            bussinessModel.value.data = viewData;
+          }
+        }
+        isLoadingBusinessApiCall.value = false;
       }
-    } finally {
-      print("Hello");
+    } catch (e) {
+      print('test');
+      // TODO: handle exception, for example by showing an alert to the user
     }
   }
 
