@@ -14,10 +14,13 @@ class TypeOfCategoryController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
-    typeOfCategoryApiCall({}, "", "");
+    print("testdata");
+    print(typeOfCategoryModel.value.currentPage);
+
+    // typeOfCategoryApiCall({"type": "Business"}, "", "");
   }
 
-  void typeOfCategoryApiCall(Map<String, dynamic>? requestAll, String nextpage, String q) async {
+  void typeOfCategoryApiCall(Map? requestAll, String nextpage, String q) async {
     isLoadingTypeOfCategoryApiCall.value = true;
     requestAll!.addAll({
       "action": pathTypeOfCategoryAPI,

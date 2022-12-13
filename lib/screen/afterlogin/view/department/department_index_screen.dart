@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
 import 'package:vande_mission/screen/afterlogin/controller/department/department_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
@@ -16,7 +16,6 @@ class DepartmentIndexScreen extends StatefulWidget {
 
 class _DepartmentIndexScreenState extends State<DepartmentIndexScreen> {
   final DepartmentController departmentController = Get.put(DepartmentController());
-  final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
 
   @override
   Widget build(BuildContext context) {
@@ -85,34 +84,6 @@ class _DepartmentIndexScreenState extends State<DepartmentIndexScreen> {
                   ),
                 ],
               ),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            height: 35,
-            child: Center(
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 20,
-                  itemBuilder: (context, inde) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
-                        child: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                          child: TextLabel(
-                            title: "All",
-                            fontSize: 15,
-                            fontWeight: FontWeight.w500,
-                            color: orange,
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
             ),
           ),
           Padding(

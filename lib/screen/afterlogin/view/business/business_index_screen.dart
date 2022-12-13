@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +8,7 @@ import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/controller/business/business_controller.dart';
+import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
 import 'package:vande_mission/widgets/network_image_widget.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
@@ -17,7 +20,14 @@ class BusinessIndexScreen extends StatefulWidget {
 }
 
 class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
+  final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
   final BusinessController businessController = Get.put(BusinessController());
+
+  void loadMoreCategory() {
+    if (typeOfCategoryController.typeOfCategoryModel.value.nextPageUrl != null) {
+      typeOfCategoryController.typeOfCategoryApiCall({"type": "Business"}, typeOfCategoryController.typeOfCategoryModel.value.nextPageUrl.toString(), "");
+    }
+  }
 
   void loadMoreBusiness() {
     if (businessController.bussinessModel.value.nextPageUrl != null) {
@@ -108,6 +118,46 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 35,
+                child: Center(
+                  child: Obx(() {
+                    if (typeOfCategoryController.typeOfCategoryModel.value.data == null) {
+                      // return const Center(child: CircularProgressIndicator());
+                      return Container(
+                        child: Text("Hello"),
+                      );
+                    } else {
+                      return LazyLoadScrollView(
+                        scrollDirection: Axis.horizontal,
+                        onEndOfPage: () => loadMoreCategory(),
+                        scrollOffset: 100,
+                        child: Scrollbar(
+                          // onRefresh: () async => typeOfCategoryController.typeOfCategoryApiCall({"type": "Business"}, "", ""),
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              // shrinkWrap: true,
+                              itemCount: typeOfCategoryController.typeOfCategoryModel.value.data!.length + (typeOfCategoryController.typeOfCategoryModel.value.nextPageUrl != null ? 1 : 0),
+                              itemBuilder: (context, index) {
+                                if (index < typeOfCategoryController.typeOfCategoryModel.value.data!.length) {
+                                  var data = typeOfCategoryController.typeOfCategoryModel.value.data![index];
+                                  return categoryData(data);
+                                } else {
+                                  return Container(
+                                    child: Text("Hello"),
+                                  );
+                                  // return const Center(child: CircularProgressIndicator());
+                                }
+                              }),
+                        ),
+                      );
+                    }
+                  }),
+                ),
+              ),
               Expanded(
                 child: Obx(() {
                   if (businessController.bussinessModel.value.data == null) {
@@ -142,6 +192,19 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
   }
 
   Widget listData(data) {
+    var category = data.typeofcategory!.category!.name.toString();
+    List<dynamic> addressArray = [
+      if (data.area == null) "" else data.area.toString(),
+      if (data.society == null) "" else data.society.name.toString(),
+      data.village!.name.toString(),
+      data.subdistrict!.name.toString(),
+      data.district!.name.toString(),
+      data.state!.name.toString(),
+      data.country!.name.toString(),
+    ];
+    addressArray.removeWhere((item) => item.isEmpty);
+    var address = addressArray.join(", ").toString();
+    var imageUrl = data.storageUrl + '/' + data.logo.toString();
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
       child: Stack(
@@ -154,18 +217,18 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Container(
                     decoration: BoxDecoration(border: Border.all(width: 1, color: grey), borderRadius: BorderRadius.circular(15)),
-                    child: Image.asset(hoccoImage),
-                    // child: NetworkImageWidget(
-                    //   imageUrl: data["image"].toString(),
-                    //   height: 30,
-                    //   width: 30,
-                    //   boxFit: BoxFit.cover,
-                    //   errorImage: familyImage1,
-                    //   errorWidth: 30,
-                    //   errorHeight: 30,
-                    //   indicatorWidth: 20,
-                    //   indicatorHeight: 20,
-                    // ),
+                    // child: Image.asset(hoccoImage),
+                    child: NetworkImageWidget(
+                      imageUrl: imageUrl,
+                      height: 50,
+                      width: 50,
+                      boxFit: BoxFit.cover,
+                      errorImage: familyImage1,
+                      errorWidth: 30,
+                      errorHeight: 30,
+                      indicatorWidth: 20,
+                      indicatorHeight: 20,
+                    ),
                   ),
                 ),
                 Container(
@@ -184,7 +247,7 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                         fontWeight: FontWeight.w500,
                       ),
                       TextLabel(
-                        title: "Food Business | 12 Workers",
+                        title: category + " | 12 Workers",
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
                         color: black.withOpacity(0.5),
@@ -198,9 +261,9 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                             const SizedBox(
                               width: 10,
                             ),
-                            const Expanded(
+                            Expanded(
                               child: TextLabel(
-                                title: "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                title: address,
                                 color: black,
                                 fontSize: 11,
                                 fontWeight: FontWeight.w400,
@@ -226,4 +289,22 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
       ),
     );
   }
+}
+
+Widget categoryData(data) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 10),
+    child: Container(
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        child: TextLabel(
+          title: "All",
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+          color: orange,
+        ),
+      ),
+    ),
+  );
 }

@@ -10,7 +10,7 @@ class CategoryApi {
 
   Future<TypeOfCategoryModel?> typeOfCategoryApi(Map formData, String nextpage, String q) async {
     try {
-      dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
+      // dioClient.options.headers['content-Type'] = 'application/x-www-form-urlencoded';
       var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       Response response = await dioClient.post(url, data: formData);
       var jsonString = response.data;

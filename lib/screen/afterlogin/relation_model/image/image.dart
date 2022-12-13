@@ -1,33 +1,29 @@
 // To parse this JSON data, do
 //
-//     final category = categoryFromJson(jsonString);
+//     final image = imageFromJson(jsonString);
 
 import 'dart:convert';
 
-Category categoryFromJson(String? str) => Category.fromJson(json.decode(str!));
+Image imageFromJson(String? str) => Image.fromJson(json.decode(str!));
 
-String categoryToJson(Category data) => json.encode(data.toJson());
+String imageToJson(Image data) => json.encode(data.toJson());
 
-class Category {
-  Category({
-    this.id,
-    this.name,
-    this.parent,
+class Image {
+  Image({
+    this.imageName,
+    this.imagePath,
   });
 
-  int? id;
-  String? name;
-  String? parent;
+  String? imageName;
+  String? imagePath;
 
-  factory Category.fromJson(Map<String, dynamic> json) => Category(
-        id: json["id"],
-        name: json["name"],
-        parent: json["parent"],
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
+        imageName: json["image_name"],
+        imagePath: json["image_path"],
       );
 
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "parent": parent,
+        "image_name": imageName,
+        "image_path": imagePath,
       };
 }

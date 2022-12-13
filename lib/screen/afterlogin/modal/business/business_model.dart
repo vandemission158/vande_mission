@@ -96,6 +96,7 @@ class Datum {
     this.experience,
     this.description,
     this.socialLink,
+    this.storageUrl,
     this.typeofcategory,
     this.createdby,
     this.country,
@@ -118,6 +119,7 @@ class Datum {
   String? experience;
   String? description;
   dynamic socialLink;
+  String? storageUrl;
   Typeofcategory? typeofcategory;
   Createdby? createdby;
   Country? country;
@@ -140,6 +142,7 @@ class Datum {
         experience: json["experience"],
         description: json["description"] == null ? null : json["description"],
         socialLink: json["social_link"],
+        storageUrl: json["storage_url"],
         typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
         createdby: json["createdby"] == null ? null : Createdby.fromJson(json["createdby"]),
         country: json["country"] == null ? null : Country.fromJson(json["country"]),
@@ -163,6 +166,7 @@ class Datum {
         "experience": experience,
         "description": description == null ? null : description,
         "social_link": socialLink,
+        "storage_url": storageUrl,
         "typeofcategory": typeofcategory!.toJson(),
         "createdby": createdby!.toJson(),
         "country": country!.toJson(),

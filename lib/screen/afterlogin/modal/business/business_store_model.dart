@@ -31,6 +31,7 @@ class BusinessStoreModel {
     this.experience,
     this.description,
     this.socialLink,
+    this.storageUrl,
     this.typeofcategory,
     this.createdby,
     this.country,
@@ -53,6 +54,7 @@ class BusinessStoreModel {
   String? experience;
   dynamic description;
   dynamic socialLink;
+  String? storageUrl;
   Typeofcategory? typeofcategory;
   Createdby? createdby;
   Country? country;
@@ -75,6 +77,7 @@ class BusinessStoreModel {
         experience: json["experience"],
         description: json["description"],
         socialLink: json["social_link"],
+        storageUrl: json["storage_url"],
         typeofcategory: json["typeofcategory"] == null ? null : Typeofcategory.fromJson(json["typeofcategory"]),
         createdby: json["createdby"] == null ? null : Createdby.fromJson(json["createdby"]),
         country: json["country"] == null ? null : Country.fromJson(json["country"]),
@@ -98,6 +101,7 @@ class BusinessStoreModel {
         "experience": experience,
         "description": description,
         "social_link": socialLink,
+        "storage_url": storageUrl,
         "typeofcategory": typeofcategory!.toJson(),
         "createdby": createdby!.toJson(),
         "country": country!.toJson(),

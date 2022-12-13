@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/api/business_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
+import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
 import 'package:vande_mission/screen/afterlogin/modal/business/business_model.dart';
 
 class BusinessController extends GetxController {
+  final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
   var isLoadingBusinessApiCall = false.obs;
   var bussinessModel = BusinessModel().obs;
   var qBusiness = "".obs;
@@ -17,6 +19,7 @@ class BusinessController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    typeOfCategoryController.typeOfCategoryApiCall({"type": "Business"}, "", "");
     businessApiCall({}, "", "");
   }
 
