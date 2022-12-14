@@ -10,7 +10,7 @@ class BusinessController extends GetxController {
   final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
   var isLoadingBusinessApiCall = false.obs;
   var bussinessModel = BusinessModel().obs;
-  var qBusiness = "".obs;
+  var search = "".obs;
   final searchText = TextEditingController().obs;
 
   String dropdownvalue = "INDIA";

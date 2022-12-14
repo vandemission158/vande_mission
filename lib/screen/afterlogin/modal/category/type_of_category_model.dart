@@ -84,7 +84,7 @@ class Datum {
   });
 
   int? id;
-  Type? type;
+  String? type;
   Category? category;
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(

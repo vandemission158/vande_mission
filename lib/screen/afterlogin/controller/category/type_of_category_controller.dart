@@ -9,14 +9,12 @@ class TypeOfCategoryController extends GetxController {
   var isLoadingTypeOfCategoryApiCall = false.obs;
   var typeOfCategoryModel = TypeOfCategoryModel().obs;
   var qTypeOfCategory = "".obs;
+  var whereId = "".obs;
   final searchText = TextEditingController().obs;
 
   @override
   Future<void> onInit() async {
     super.onInit();
-    print("testdata");
-    print(typeOfCategoryModel.value.currentPage);
-
     // typeOfCategoryApiCall({"type": "Business"}, "", "");
   }
 

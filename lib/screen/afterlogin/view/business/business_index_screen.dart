@@ -31,7 +31,7 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
 
   void loadMoreBusiness() {
     if (businessController.bussinessModel.value.nextPageUrl != null) {
-      businessController.businessApiCall({}, businessController.bussinessModel.value.nextPageUrl.toString(), businessController.qBusiness.value);
+      businessController.businessApiCall({}, businessController.bussinessModel.value.nextPageUrl.toString(), businessController.search.value);
     }
   }
 
@@ -93,7 +93,7 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                             ),
                             keyboardAppearance: Brightness.light,
                             onChanged: ((q) {
-                              businessController.qBusiness.value = q;
+                              businessController.search.value = q;
                               businessController.businessApiCall({}, "", q);
                             }),
                             // controller: controller.searchTextcontroller.value,
@@ -102,7 +102,7 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          businessController.qBusiness.value = "";
+                          businessController.search.value = "";
                           businessController.searchText.value.clear();
                           businessController.businessApiCall({}, "", "");
                         },
@@ -126,15 +126,15 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                 child: Center(
                   child: Obx(() {
                     if (typeOfCategoryController.typeOfCategoryModel.value.data == null) {
-                      // return const Center(child: CircularProgressIndicator());
-                      return Container(
-                        child: Text("Hello"),
-                      );
+                      return const Center(child: CircularProgressIndicator());
+                      // return Container(
+                      //   child: Text("Hello"),
+                      // );
                     } else {
                       return LazyLoadScrollView(
                         scrollDirection: Axis.horizontal,
                         onEndOfPage: () => loadMoreCategory(),
-                        scrollOffset: 100,
+                        scrollOffset: 200,
                         child: Scrollbar(
                           // onRefresh: () async => typeOfCategoryController.typeOfCategoryApiCall({"type": "Business"}, "", ""),
                           child: ListView.builder(
@@ -146,10 +146,10 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
                                   var data = typeOfCategoryController.typeOfCategoryModel.value.data![index];
                                   return categoryData(data);
                                 } else {
-                                  return Container(
-                                    child: Text("Hello"),
-                                  );
-                                  // return const Center(child: CircularProgressIndicator());
+                                  // return Container(
+                                  //   child: Text("Hello"),
+                                  // );
+                                  return const Center(child: CircularProgressIndicator());
                                 }
                               }),
                         ),
@@ -292,17 +292,27 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
 }
 
 Widget categoryData(data) {
+  final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
+  final BusinessController businessController = Get.put(BusinessController());
+
   return Padding(
     padding: const EdgeInsets.only(left: 10),
     child: Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: TextLabel(
-          title: "All",
-          fontSize: 15,
-          fontWeight: FontWeight.w500,
-          color: orange,
+      child: GestureDetector(
+        onTap: () {
+          var typeOfCategoryId = data.id.toString();
+          typeOfCategoryController.whereId.value = typeOfCategoryId;
+          businessController.businessApiCall({"type": "Business", "typeofcategory_id": typeOfCategoryId}, "", businessController.search.value.toString());
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          child: TextLabel(
+            title: data.category.name,
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
+            color: orange,
+          ),
         ),
       ),
     ),
