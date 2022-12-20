@@ -10,6 +10,7 @@ import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/controller/business/business_controller.dart';
 import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
 import 'package:vande_mission/widgets/network_image_widget.dart';
+import 'package:vande_mission/widgets/shimmer_effect.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 class BusinessIndexScreen extends StatefulWidget {
@@ -123,40 +124,69 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
               ),
               SizedBox(
                 height: 35,
-                child: Center(
-                  child: Obx(() {
-                    if (typeOfCategoryController.typeOfCategoryModel.value.data == null) {
-                      return const Center(child: CircularProgressIndicator());
-                      // return Container(
-                      //   child: Text("Hello"),
-                      // );
-                    } else {
-                      return LazyLoadScrollView(
-                        scrollDirection: Axis.horizontal,
-                        onEndOfPage: () => loadMoreCategory(),
-                        scrollOffset: 200,
-                        child: Scrollbar(
-                          // onRefresh: () async => typeOfCategoryController.typeOfCategoryApiCall({"type": "Business"}, "", ""),
-                          child: ListView.builder(
+                child: Obx(() {
+                  // if (typeOfCategoryController.isLoadingTypeOfCategoryApiCall.value && typeOfCategoryController.typeOfCategoryModel.value.data == null) {
+                  //   return shimmerLoading();
+                  //   // return Container(
+                  //   //   child: Text("Hello"),
+                  //   // );
+                  // } else {
+                  return LazyLoadScrollView(
+                    scrollDirection: Axis.horizontal,
+                    onEndOfPage: () => loadMoreCategory(),
+                    scrollOffset: 200,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: typeOfCategoryController.isLoadingTypeOfCategoryApiCall.value
+                                ? ShimmerEffect(50, 35, 20)
+                                : Container(
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        businessController.businessApiCall({"type": "Business"}, "", businessController.search.value.toString());
+                                      },
+                                      child: const Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                                        child: TextLabel(
+                                          title: "All",
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w500,
+                                          color: orange,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                          ),
+                          ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
                               scrollDirection: Axis.horizontal,
-                              // shrinkWrap: true,
-                              itemCount: typeOfCategoryController.typeOfCategoryModel.value.data!.length + (typeOfCategoryController.typeOfCategoryModel.value.nextPageUrl != null ? 1 : 0),
+                              shrinkWrap: true,
+                              itemCount: typeOfCategoryController.typeOfCategoryModel.value.data == null ? 10 : typeOfCategoryController.typeOfCategoryModel.value.data!.length + (typeOfCategoryController.typeOfCategoryModel.value.nextPageUrl != null ? 1 : 0),
                               itemBuilder: (context, index) {
-                                if (index < typeOfCategoryController.typeOfCategoryModel.value.data!.length) {
-                                  var data = typeOfCategoryController.typeOfCategoryModel.value.data![index];
-                                  return categoryData(data);
+                                if (typeOfCategoryController.typeOfCategoryModel.value.data == null) {
+                                  return shimmerLoading();
                                 } else {
-                                  // return Container(
-                                  //   child: Text("Hello"),
-                                  // );
-                                  return const Center(child: CircularProgressIndicator());
+                                  if (index < typeOfCategoryController.typeOfCategoryModel.value.data!.length) {
+                                    var data = typeOfCategoryController.typeOfCategoryModel.value.data![index];
+                                    return categoryData(data);
+                                  } else {
+                                    // return Container(
+                                    //   child: Text("Hello"),
+                                    // );
+                                    return shimmerLoading();
+                                  }
                                 }
                               }),
-                        ),
-                      );
-                    }
-                  }),
-                ),
+                        ],
+                      ),
+                    ),
+                  );
+                  // }
+                }),
               ),
               Expanded(
                 child: Obx(() {
@@ -189,6 +219,10 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
             ],
           )),
     );
+  }
+
+  Widget shimmerLoading() {
+    return const ShimmerEffect(50, 30, 15);
   }
 
   Widget listData(data) {

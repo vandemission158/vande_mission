@@ -41,11 +41,9 @@ class TypeOfCategoryController extends GetxController {
             typeOfCategoryModel.value.data = viewData;
           }
         }
-        isLoadingTypeOfCategoryApiCall.value = false;
       }
-    } catch (e) {
-      print('test');
-      // TODO: handle exception, for example by showing an alert to the user
+    } finally {
+      isLoadingTypeOfCategoryApiCall(false);
     }
   }
 }
