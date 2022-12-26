@@ -14,6 +14,7 @@ class DepartmentApi {
       var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       Response response = await dioClient.post(url, data: formData);
       var jsonString = response.data;
+      print("hello");
       return DepartmentModel.fromJson(jsonString);
     } on DioError {
       return null;

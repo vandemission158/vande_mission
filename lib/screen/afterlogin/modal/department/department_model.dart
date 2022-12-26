@@ -92,13 +92,13 @@ class Datum {
         id: json["id"],
         name: json["name"],
         type: json["type"],
-        minister: List<Minister>.from(json["minister"].map((x) => x)),
+        minister: List<Minister>.from(json["minister"].map((x) => Minister.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "type": type,
-        "minister": List<dynamic>.from(minister!.map((x) => x)),
+        "minister": List<dynamic>.from(minister!.map((x) => x.toJson())),
       };
 }

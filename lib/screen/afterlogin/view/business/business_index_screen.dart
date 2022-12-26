@@ -323,32 +323,32 @@ class _BusinessIndexScreenState extends State<BusinessIndexScreen> {
       ),
     );
   }
-}
 
-Widget categoryData(data) {
-  final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
-  final BusinessController businessController = Get.put(BusinessController());
+  Widget categoryData(data) {
+    final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
+    final BusinessController businessController = Get.put(BusinessController());
 
-  return Padding(
-    padding: const EdgeInsets.only(left: 10),
-    child: Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
-      child: GestureDetector(
-        onTap: () {
-          var typeOfCategoryId = data.id.toString();
-          typeOfCategoryController.whereId.value = typeOfCategoryId;
-          businessController.businessApiCall({"type": "Business", "typeofcategory_id": typeOfCategoryId}, "", businessController.search.value.toString());
-        },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          child: TextLabel(
-            title: data.category.name,
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            color: orange,
+    return Padding(
+      padding: const EdgeInsets.only(left: 10),
+      child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
+        child: GestureDetector(
+          onTap: () {
+            var typeOfCategoryId = data.id.toString();
+            typeOfCategoryController.whereId.value = typeOfCategoryId;
+            businessController.businessApiCall({"type": "Business", "typeofcategory_id": typeOfCategoryId}, "", businessController.search.value.toString());
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            child: TextLabel(
+              title: data.category.name,
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: orange,
+            ),
           ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }

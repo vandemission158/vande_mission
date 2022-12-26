@@ -8,7 +8,7 @@ import 'package:vande_mission/screen/afterlogin/modal/department/department_mode
 class DepartmentController extends GetxController {
   var isLoadingDepartmentApiCall = false.obs;
   var departmentModel = DepartmentModel().obs;
-  var qDepartment = "".obs;
+  var search = "".obs;
   final searchText = TextEditingController().obs;
 
   @override
@@ -28,6 +28,7 @@ class DepartmentController extends GetxController {
     DioClient dioClient = DioClient(requestAll['action'].toString());
     try {
       final res = await DepartmentApi(dioClient: dioClient).departmentApi(requestAll, nextpage, q);
+      print("hello");
       if (res != null) {
         var oldCurrentPage = departmentModel.value.currentPage;
         var newCurrentPage = res.currentPage;

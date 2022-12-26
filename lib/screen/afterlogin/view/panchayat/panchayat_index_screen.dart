@@ -22,7 +22,7 @@ class _PanchayatIndexScreenState extends State<PanchayatIndexScreen> {
           backgroundColor: white,
           foregroundColor: black,
           elevation: 0,
-          title: const Text('Department'),
+          title: const Text('Panchayat'),
         ),
         backgroundColor: white,
         body: Column(

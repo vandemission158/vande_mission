@@ -8,7 +8,7 @@ import 'package:vande_mission/screen/afterlogin/modal/location/panchayat_model.d
 class PanchayatController extends GetxController {
   var isLoadingPanchayatApiCall = false.obs;
   var panchayatModel = PanchayatModel().obs;
-  var qPanchayat = "".obs;
+  var search = "".obs;
   final searchText = TextEditingController().obs;
 
   @override
