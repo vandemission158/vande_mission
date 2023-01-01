@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/screen/afterlogin/controller/add_blog_controller.dart';
 import 'package:vande_mission/screen/afterlogin/controller/stepper_controller.dart';
 
 import '../../../helper/app_color.dart';
+import '../../../helper/constant.dart';
 import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
@@ -131,7 +133,7 @@ class AddBlogScreen extends StatelessWidget {
                                       children: stepperController.allChips
                                           .map((chip) => Chip(
                                         key: ValueKey(chip.id),
-                                        label: Text(chip.name,style: const TextStyle(fontSize: 13,fontWeight: FontWeight.w600),),
+                                        label: TextLabel(title:chip.name,fontSize: 13,fontWeight: FontWeight.w600),
                                         padding:
                                         const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
                                         deleteIconColor: blue,
@@ -153,22 +155,27 @@ class AddBlogScreen extends StatelessWidget {
              Padding(
                padding: const EdgeInsets.only(top:10),
                child: Container(
-        decoration: BoxDecoration(
-          color: dropdownColor,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: const Padding(
-          padding: EdgeInsets.only(left:20),
-          child: TextField(
-            maxLines: 10,
-           decoration:InputDecoration(
-            border: InputBorder.none,
-            hintText: "Write here",
-            hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
-           )
-          ),
-        ),
-          ),
+                decoration:BoxDecoration(color: lightWhite,
+                borderRadius: BorderRadius.circular(15)
+                ) ,
+                height: Constants.height(context)/2.5,
+                child: Column(
+                children: [
+                  QuillToolbar.basic(
+                    
+                    controller: bloagController.controller),
+                  Expanded(
+                    child: Container(
+                      child: QuillEditor.basic(
+
+                        controller: bloagController.controller,
+                        readOnly: false, // true for view only mode
+                      ),
+                    ),
+                  )
+                ],
+                ),
+              ),
              ),
              const Padding(
               padding: EdgeInsets.only(top: 14),

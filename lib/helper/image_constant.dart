@@ -70,6 +70,20 @@ const String brodcastIcon = "assets/icons/brodcastIcon.png";
 const String calender = "assets/icons/calendar.png";
 const String upload = "assets/icons/upload.png";
 const String closeCircle = "assets/icons/close_circle.png";
+const String downloadIcon = "assets/icons/download_icon.png";
+const String orangeThreeDots = "assets/icons/orange_three_dots.png";
+const String facebookIcon = "assets/icons/Facebook.png";
+const String instagramIcon = "assets/icons/Instagram.png";
+const String twitterIcon = "assets/icons/Twitter.png";
+const String whatsAppIcon = "assets/icons/Whatsapp.png";
+
+
+
+
+
+
+
+
 
 //images
 const String vandeMissionImg = "assets/images/vande_mission_image.png";
@@ -110,3 +124,12 @@ const String searchEmptyImage = "assets/images/SearchEmpty.png";
 const String searchNotFoundImage = "assets/images/SearchNotFound.png";
 const String departmentDetailImage = "assets/images/Department_detail.png";
 const String girlimage = "assets/images/girlimage.png";
+const String foodItemImage = "assets/images/food_item_image.png";
+const String touristPlaceImage = "assets/images/tourist_place_image.png";
+const String bookPreviewImage = "assets/images/book_preview_image.png";
+const String musicBackImage = "assets/images/music_back_image.png";
+const String musicPlayerImage = "assets/images/music_player_image.png";
+const String collectionDetailsImages = "assets/images/collection_details_images.png";
+
+
+

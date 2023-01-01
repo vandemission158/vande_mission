@@ -6,10 +6,12 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/image_constant.dart';
+import 'package:vande_mission/remote_services/api/district_api.dart';
 
 import 'package:vande_mission/screen/beforelogin/view/lets_add_family.dart';
 
 import '../../../helper/constant.dart';
+import '../../../remote_services/dio_client.dart';
 import '../../../remote_services/remote_services.dart';
 import '../../../widgets/bottom_sheet_list.dart';
 import '../../../widgets/text_label.dart';
@@ -771,9 +773,11 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    print(authorizationKey);
     var action = authorizationKey.isNotEmpty ? afterLoginStateAPI : befooreLoginStateAPI;
-    var data = {"country_id": countryId, "action": action, "pagination": 1, "apicall": "suggetion"};
-
+    print(action);
+    var data = {"country_id": countryId,"auth_key":authorizationKey, "action": action, "pagination": 1, "apicall": "suggetion"};
+    print(data);
     RemoteService remoteService = RemoteService(action);
     try {
       var res = await remoteService.getStateAPI(data, nextpage, q);
@@ -872,12 +876,20 @@ class RegisterFamilyController extends GetxController {
     //   isLoading.value = true;
     // }
     // isLoading.value = true;
+    print(authorizationKey);
     var action = authorizationKey.isNotEmpty ? afterLoginDistrictAPI : beforeLoginDistrictAPI;
 
-    var data = {"country_id": countryId, "state_id": stateId, "action": action, "pagination": 1, "apicall": "suggetion"};
+    var data = {"country_id": countryId, "state_id": stateId,"auth_key":authorizationKey, "action": action, "pagination": 1, "apicall": "suggetion"};
+   print(data);
     RemoteService remoteService = RemoteService(action);
+        // DioClient dioClient = DioClient(requestAll!['action'].toString());
+
     try {
+      // var res = await DistrictAPI(dioClient: dioClient).districtApi(requestAll, nextpage, q);
+      // final res = await BusinessApi(dioClient: dioClient).businessApi(requestAll, nextpage, q);
       var res = await remoteService.getDistrictAPI(data, nextpage, q);
+
+      print(res);
       if (res != null) {
         var oldCurrentPage = districtModal.value.currentPage;
         var newCurrentPage = res.currentPage;
@@ -888,6 +900,7 @@ class RegisterFamilyController extends GetxController {
         if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
+            print(viewData);
             districtModal.value.data = viewData;
           } else {}
         }
@@ -908,7 +921,7 @@ class RegisterFamilyController extends GetxController {
     // isLoading.value = true;
     var action = authorizationKey.isNotEmpty ? afterLoginVillageAPI : befooreLoginVillageAPI;
 
-    var data = {"country_id": countryId, "state_id": stateId, "district_id": districtId, "action": action, "pagination": 1, "apicall": "suggetion"};
+    var data = {"country_id": countryId, "state_id": stateId,"auth_key":authorizationKey, "district_id": districtId, "action": action, "pagination": 1, "apicall": "suggetion"};
 
     RemoteService remoteService = RemoteService(action);
     try {
@@ -943,7 +956,7 @@ class RegisterFamilyController extends GetxController {
     // isLoading.value = true;
     var action = authorizationKey.isNotEmpty ? afterLoginSocietyAPI : befooreLoginSocietyAPI;
 
-    var data = {"country_id": countryId, "state_id": stateId, "district_id": districtId, "village_id": villageId, "action": action, "pagination": 1, "apicall": "suggetion"};
+    var data = {"auth_key":authorizationKey, "action": action, "pagination": 1, "apicall": "suggetion"};
 
     RemoteService remoteService = RemoteService(action);
     try {
@@ -954,7 +967,7 @@ class RegisterFamilyController extends GetxController {
         var viewData = societyModal.value.data;
         var newViewData = res.data;
         societyModal.value = res;
-
+        print(societyModal);
         if (oldCurrentPage != null && newCurrentPage != null && oldCurrentPage < newCurrentPage && oldCurrentPage != newCurrentPage) {
           if (viewData != null && newViewData != null) {
             viewData.addAll(newViewData);
@@ -964,6 +977,7 @@ class RegisterFamilyController extends GetxController {
 
         // tempList.value = stateModal.value.data!;
       } else {
+        print("else");
         // Constants.snackBar("login", 'something_went_wrong', true);
       }
     } finally {

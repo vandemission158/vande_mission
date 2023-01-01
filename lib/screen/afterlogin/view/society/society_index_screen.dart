@@ -31,7 +31,8 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: dropdownColor,
@@ -54,13 +55,21 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                         height: 37,
                         child: TextField(
                           maxLines: null,
-                          style: GoogleFonts.lato(color: black, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
+                          style: GoogleFonts.lato(
+                              color: black,
+                              fontWeight: FontWeight.w400,
+                              fontStyle: FontStyle.normal,
+                              fontSize: 16),
                           decoration: InputDecoration(
                             contentPadding: const EdgeInsets.only(
                               bottom: 10,
                             ),
                             hintText: 'Search here'.tr,
-                            hintStyle: GoogleFonts.lato(color: context.theme.hintColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
+                            hintStyle: GoogleFonts.lato(
+                                color: context.theme.hintColor,
+                                fontWeight: FontWeight.w400,
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16),
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             focusedBorder: const UnderlineInputBorder(
                               borderSide: BorderSide(color: Colors.transparent),
@@ -98,9 +107,13 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Container(
-                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(width: 1, color: black.withOpacity(0.2))),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                  width: 1, color: black.withOpacity(0.2))),
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 5),
                             child: TextLabel(
                               title: "All",
                               fontSize: 15,
@@ -117,11 +130,18 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
             //ahi thi code change karva
 
             Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
+              padding: const EdgeInsets.only(
+                  left: 20, right: 20, top: 20, bottom: 20),
               child: Stack(
                 children: [
                   Container(
-                      decoration: BoxDecoration(border: Border.all(width: 1, color: grey), color: white, borderRadius: BorderRadius.circular(15)),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border(
+                              bottom: BorderSide(color: grey.withOpacity(0.2)),
+                              top: BorderSide(color: grey.withOpacity(0.2)),
+                              left: BorderSide(color: grey.withOpacity(0.2)),
+                              right: BorderSide(color: grey.withOpacity(0.2)))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -132,7 +152,9 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                               children: [
                                 const Text(
                                   "Punit Park Society",
-                                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 const SizedBox(
                                   height: 5,
@@ -145,7 +167,8 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                                     ),
                                     const Expanded(
                                       child: TextLabel(
-                                        title: "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                        title:
+                                            "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
                                         color: black,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w400,
@@ -166,86 +189,83 @@ class _SocietyIndexScreenState extends State<SocietyIndexScreen> {
                             height: 2,
                             color: black.withOpacity(0.2),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 39),
-                                child: Row(
-                                  children: const [
-                                    TextLabel(
-                                      title: "50",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: orange,
+                          IntrinsicHeight(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 10),
+                                    child: Row(
+                                      children: const [
+                                        TextLabel(
+                                          title: "50",
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w600,
+                                          color: orange,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        TextLabel(
+                                          title: "Families",
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400,
+                                          color: black,
+                                        ),
+                                      ],
                                     ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    TextLabel(
-                                      title: "Families",
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w400,
-                                      color: black,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  VerticalDivider(
+                                    color: grey.withOpacity(0.1),
+                                    thickness: 1,
+                                  ),
+                                  Row(
+                                    children: const [
+                                      TextLabel(
+                                        title: "50",
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: orange,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      TextLabel(
+                                        title: "Business",
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w400,
+                                        color: black,
+                                      ),
+                                    ],
+                                  ),
+                                  VerticalDivider(
+                                    color: grey.withOpacity(0.1),
+                                    thickness: 1,
+                                  ),
+                                  Row(
+                                    children: const [
+                                      TextLabel(
+                                        title: "04",
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: orange,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      TextLabel(
+                                        title: "Cast",
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w400,
+                                        color: black,
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
-                              Container(
-                                width: 2,
-                                height: 50,
-                                color: black.withOpacity(0.2),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 42),
-                                child: Row(
-                                  children: const [
-                                    TextLabel(
-                                      title: "50",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: orange,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    TextLabel(
-                                      title: "Business",
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w400,
-                                      color: black,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: 2,
-                                height: 50,
-                                color: black.withOpacity(0.2),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 42),
-                                child: Row(
-                                  children: const [
-                                    TextLabel(
-                                      title: "04",
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                      color: orange,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    TextLabel(
-                                      title: "Cast",
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w400,
-                                      color: black,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       )),

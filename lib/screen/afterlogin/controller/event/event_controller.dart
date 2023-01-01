@@ -18,6 +18,7 @@ class EventController extends GetxController {
   late StreamSubscription<bool> subcription;
   var hideKeyboard = false.obs;
   late PageController scrollController;
+  var itemIncrese = 1.obs;
   var locationList = [
     {'name': "Bardon, QLD", 'image': familyImage1, 'chick': "32 chicks nearby"}
   ].obs;

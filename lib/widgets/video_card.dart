@@ -66,6 +66,11 @@ class VideoCard extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
+
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [Image.asset(videoImage), Image.asset(playIcon)],
+                  ),
                   const SizedBox(
                     height: 5,
                   ),

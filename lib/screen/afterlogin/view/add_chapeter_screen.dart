@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:get/get.dart';
+import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/screen/afterlogin/controller/add_chapeter_controller.dart';
 
 import '../../../helper/app_color.dart';
@@ -7,125 +9,157 @@ import '../../../widgets/custom_button.dart';
 import '../../../widgets/text_label.dart';
 
 class AddChapertScreen extends StatelessWidget {
- AddChapertScreen({Key? key}) : super(key: key);
+  AddChapertScreen({Key? key}) : super(key: key);
 
-  final AddChapterController addChapterController = Get.put(AddChapterController());
+  final AddChapterController addChapterController =
+      Get.put(AddChapterController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back,color: black,),
+        leading: const Icon(
+          Icons.arrow_back,
+          color: black,
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
+      // body: 
+              
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left:16,right: 16),
+          padding: const EdgeInsets.only(left: 16, right: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               const TextLabel(
-                        title: 'Add Chapter',
-                        color: missonColor,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      const Padding(
-                  padding: EdgeInsets.only(top:10),
-                  child: TextLabel(
-                    title: "Chapter Title",
-                    color: lightGrey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+              const TextLabel(
+                title: 'Add Chapter',
+                color: missonColor,
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: TextLabel(
+                  title: "Chapter Title",
+                  color: lightGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: dropdownColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: TextField(
+                        decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Rugved",
+                      hintStyle: TextStyle(
+                          color: black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400),
+                    )),
                   ),
                 ),
-                 Padding(
-                   padding: const EdgeInsets.only(top:10),
-                   child: Container(
-            decoration: BoxDecoration(
-              color: dropdownColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.only(left:20),
-              child: TextField(
-               decoration:InputDecoration(
-                border: InputBorder.none,
-                hintText: "Rugved",
-                hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
-               )
               ),
-            ),
+              const Padding(
+                padding: EdgeInsets.only(top: 14),
+                child: TextLabel(
+                  title: "Upload your Chapter PDF (Optional)",
+                  color: lightGrey2,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-                 ),
-                 const Padding(
-              padding: EdgeInsets.only(top: 14),
-              child: TextLabel(
-                          title: "Upload your Chapter PDF (Optional)",
-                          color: lightGrey2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+              Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: lightWhite,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 12, right: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        TextLabel(
+                          title: "Tap to upload",
+                          color: vandeColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
                         ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top:10),
-              child: Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                color: lightWhite,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left:12,right: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    TextLabel(
-                      title: "Tap to upload",
-                      color: vandeColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
+                        Icon(Icons.file_upload_outlined)
+                      ],
                     ),
-                    Icon(Icons.file_upload_outlined)
-                  ],
-                ),
-              ),
-              ),
-            ),
-               const Padding(
-                  padding: EdgeInsets.only(top:10),
-                  child: TextLabel(
-                    title: "Description (Editor)",
-                    color: lightGrey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
                   ),
                 ),
-                 Padding(
-                   padding: const EdgeInsets.only(top:10),
-                   child: Container(
-            decoration: BoxDecoration(
-              color: dropdownColor,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.only(left:20),
-              child: TextField(
-                maxLines: 5,
-               decoration:InputDecoration(
-                border: InputBorder.none,
-                hintText: "Write here",
-                hintStyle: TextStyle(color: black,fontSize: 16,fontWeight: FontWeight.w400),
-               )
               ),
-            ),
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: TextLabel(
+                  title: "Description (Editor)",
+                  color: lightGrey,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
-                 ),
-                 Padding(
-               padding: const EdgeInsets.only(top:40),
-               child: CustomButton(
+              Container(
+                decoration:BoxDecoration(color: lightWhite,
+                borderRadius: BorderRadius.circular(15)
+                ) ,
+                height: Constants.height(context)/1.5,
+                child: Column(
+                children: [
+                  QuillToolbar.basic(
+                    
+                    controller: addChapterController.controller),
+                  Expanded(
+                    child: Container(
+                      child: QuillEditor.basic(
+
+                        controller: addChapterController.controller,
+                        readOnly: false, // true for view only mode
+                      ),
+                    ),
+                  )
+                ],
+                ),
+              ),
+
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 10),
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       color: dropdownColor,
+              //       borderRadius: BorderRadius.circular(15),
+              //     ),
+              //     child: const Padding(
+              //       padding: EdgeInsets.only(left: 20),
+              //       child: TextField(
+              //           maxLines: 5,
+              //           decoration: InputDecoration(
+              //             border: InputBorder.none,
+              //             hintText: "Write here",
+              //             hintStyle: TextStyle(
+              //                 color: black,
+              //                 fontSize: 16,
+              //                 fontWeight: FontWeight.w400),
+              //           )),
+              //     ),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.only(top: 40),
+                child: CustomButton(
                   gradientLeft: blueLight,
                   gradientRight: blueLight2,
                   title: "Add",
@@ -134,7 +168,7 @@ class AddChapertScreen extends StatelessWidget {
                     addChapterController.createNewGroupScreen();
                   },
                 ),
-             ),
+              ),
             ],
           ),
         ),

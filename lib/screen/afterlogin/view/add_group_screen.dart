@@ -68,6 +68,7 @@ class AddGroupScreen extends StatelessWidget {
                             child: CustomTextField(
                               controller: controller.groupNameController.value,
                               autofocus: false,
+                              fontSize: 16,
                               hintText: "Group Name",
                             ),
                           ),
@@ -266,81 +267,108 @@ class AddGroupScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Padding(
+
+                        controller.category.value == "Address"?
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 14),
+                              child: TextLabel(
+                                title: "Country",
+                                color: lightGrey2,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            CustomDropDown(
+                                controller: registerFamilyController
+                                    .countryTextController.value,
+                                onTap: () => registerFamilyController
+                                    .countryBottomSheet(context),
+                                title: "select_country"),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 14),
+                              child: TextLabel(
+                                title: "State",
+                                color: lightGrey2,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            CustomDropDown(
+                                controller: registerFamilyController
+                                    .stateTextController.value,
+                                onTap: () => registerFamilyController
+                                    .stateBottomSheet(context),
+                                title: "select_state"),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 14),
+                              child: TextLabel(
+                                title: "District",
+                                color: lightGrey2,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            CustomDropDown(
+                                controller: registerFamilyController
+                                    .districtTextController.value,
+                                onTap: () => registerFamilyController
+                                    .districtBottomSheet(context),
+                                title: "select_district"),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 14),
+                              child: TextLabel(
+                                title: "Village/City/Town",
+                                color: lightGrey2,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            CustomDropDown(
+                                controller: registerFamilyController
+                                    .villageTextController.value,
+                                onTap: () => registerFamilyController
+                                    .villageBottomSheet(context),
+                                title: "select_village"),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: TextLabel(
+                                title: "Society Name",
+                                color: lightGrey,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            CustomDropDown(
+                                controller: registerFamilyController
+                                    .societyTextController.value,
+                                onTap: () => registerFamilyController
+                                    .societyBottomSheet(context),
+                                title: "select_society"),
+                          ],
+                        ):
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
                           padding: EdgeInsets.only(top: 14),
                           child: TextLabel(
-                            title: "Country",
+                            title: "Category",
                             color: lightGrey2,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                         CustomDropDown(
-                            controller: registerFamilyController
-                                .countryTextController.value,
-                            onTap: () => registerFamilyController
-                                .countryBottomSheet(context),
-                            title: "select_country"),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 14),
-                          child: TextLabel(
-                            title: "State",
-                            color: lightGrey2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                            controller: controller.groupTypeController.value,
+                            onTap: () =>
+                                controller.categoryeBottomSheet(context),
+                            title: "Select Category"),
+                        
+                          ],
                         ),
-                        CustomDropDown(
-                            controller: registerFamilyController
-                                .stateTextController.value,
-                            onTap: () => registerFamilyController
-                                .stateBottomSheet(context),
-                            title: "select_state"),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 14),
-                          child: TextLabel(
-                            title: "District",
-                            color: lightGrey2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        CustomDropDown(
-                            controller: registerFamilyController
-                                .districtTextController.value,
-                            onTap: () => registerFamilyController
-                                .districtBottomSheet(context),
-                            title: "select_district"),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 14),
-                          child: TextLabel(
-                            title: "Village/City/Town",
-                            color: lightGrey2,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        CustomDropDown(
-                            controller: registerFamilyController
-                                .villageTextController.value,
-                            onTap: () => registerFamilyController
-                                .villageBottomSheet(context),
-                            title: "select_village"),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: TextLabel(
-                            title: "Society Name",
-                            color: lightGrey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        CustomDropDown(
-                            controller: registerFamilyController
-                                .societyTextController.value,
-                            onTap: () => registerFamilyController
-                                .societyBottomSheet(context),
-                            title: "select_society"),
                         const Padding(
                           padding: EdgeInsets.only(top: 14),
                           child: TextLabel(

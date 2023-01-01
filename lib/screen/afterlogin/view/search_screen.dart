@@ -96,20 +96,49 @@ class SearchScreen extends StatelessWidget {
             ),
             SizedBox(
               height: 35,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: controller.searchList.length,
-                  itemBuilder: (context, index) => Padding(
-                        padding: const EdgeInsets.only(left: 6),
-                        child: SearchListCategory(
-                          title: controller.searchList[index],
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: orange,
                         ),
-                      )),
+                        child: const Center(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            child: TextLabel(
+                              title: "All",
+                              fontSize: 16,
+                              color: white,
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        )),
+                    ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.searchList.length,
+                        itemBuilder: (context, index) => Padding(
+                              padding: const EdgeInsets.only(left: 6),
+                              child: SearchListCategory(
+                                title: controller.searchList[index],
+                              ),
+                            )),
+                  ],
+                ),
+              ),
             ),
             Obx(
               () => controller.searchTextcontroller.value.text.isNotEmpty
                   ? seachEmptyWidget()
-                  : BookCardSearch(),
+                  : const BookCardSearch(),
             )
           ],
         ),
