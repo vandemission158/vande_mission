@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      style: GoogleFonts.poppins(fontSize: fontSize!, fontWeight: fontWeight!),
+      style: GoogleFonts.poppins(fontSize: fontSize, fontWeight: fontWeight),
       autofocus: autofocus!,
       focusNode: focusNode,
       controller: controller,
@@ -46,7 +46,7 @@ class CustomTextField extends StatelessWidget {
           filled: true,
           hintStyle: const TextStyle(color: grey),
           hintText: hintText!.tr,
-          fillColor: color!),
+          fillColor: color),
     );
   }
 }

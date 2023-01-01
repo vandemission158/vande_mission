@@ -228,15 +228,22 @@ import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/api/group_api.dart';
+import 'package:vande_mission/remote_services/remote_services.dart';
 import 'package:vande_mission/screen/afterlogin/modal/AddGroupModal.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 
 import '../../../helper/app_color.dart';
+import '../../../remote_services/api/category_api.dart';
 import '../../../remote_services/dio_client.dart';
 import '../../../widgets/bottom_sheet_list.dart';
 import '../../../widgets/text_label.dart';
+import '../modal/category/type_of_category_model.dart';
+import 'category/type_of_category_controller.dart';
 
 class AddGroupController extends GetxController {
+
+    final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());
+
   final groupNameController = TextEditingController().obs;
   final aboutGroupController = TextEditingController().obs;
   final groupTypeController = TextEditingController().obs;
@@ -249,12 +256,15 @@ class AddGroupController extends GetxController {
   var category = "Address".obs;
 
   final addGroupModal = AddGroupModal().obs;
+  final typeofCategoryModel = TypeOfCategoryModel().obs;
+  var categoryData = <Datum>[].obs;
 
   late StreamSubscription<bool> subcription;
 
   @override
   void onInit() {
     super.onInit();
+    category.value = "Address";
     focusNode.addListener(() {
       showAppBar.value = focusNode.hasFocus;
     });
@@ -283,6 +293,44 @@ class AddGroupController extends GetxController {
     groupTypeController.value.text = groupType[index].toString();
     Get.back();
   }
+Future<Object?> categoryeBottomSheet(BuildContext context) {
+      typeOfCategoryController.typeOfCategoryApiCall({"type": "Group"}, "", "");
+
+    return showCupertinoModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return BottomSheetList(
+          //pageController: scrollController,
+          focusNode: focusNode,
+          hide: hideKeyboard.value,
+          show: showAppBar.value,
+          hintText: "search_country",
+          // onChangedText: () => onchangeDistrictext,
+          textController: dropdownSearchText.value,
+          child: Obx(() {
+            return ListView.builder(
+                itemCount: typeOfCategoryController.typeOfCategoryModel.value.data!.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () => sendGrouTypeData(index),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: TextLabel(
+                        title: typeOfCategoryController.typeOfCategoryModel.value.data![index].category!.name.toString(),
+                        fontSize: 16,
+                        color: darkGrey,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  );
+                });
+          }),
+        );
+      },
+    );
+  }
 
   Future<Object?> groupTypeBottomSheet(BuildContext context) {
     return showCupertinoModalBottomSheet<void>(
@@ -304,7 +352,8 @@ class AddGroupController extends GetxController {
                   return GestureDetector(
                     onTap: () => sendGrouTypeData(index),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
                       child: TextLabel(
                         title: groupType[index].toString(),
                         fontSize: 16,
@@ -320,7 +369,16 @@ class AddGroupController extends GetxController {
     );
   }
 
-  void addGroupAPICall(int countryId, int stateId, int districtId, int villageId, int subDistrictId, int societyId, String name, String about, String type) async {
+  void addGroupAPICall(
+      int countryId,
+      int stateId,
+      int districtId,
+      int villageId,
+      int subDistrictId,
+      int societyId,
+      String name,
+      String about,
+      String type) async {
     var data = {
       "auth_key": authorizationKey,
       'division': category.value.toString(),
@@ -337,16 +395,18 @@ class AddGroupController extends GetxController {
       "owner_id": id,
     };
     DioClient dioClient = DioClient(addGroupKey);
+    // RemoteService remoteService = RemoteService(addGroupKey);
+    print(data);
     try {
-      // var res = await GroupApi(dioClient: dioClient).addGroupApi(data);
-
-      // if (res != null) {
-      //   print("Data Show:----" + res.id.toString());
-      //   print(res);
-      //   Get.to(() => HomePage());
-      // }
+      var res = await GroupApi(dioClient: dioClient).groupStoreApi(data);
+      if (res != null) {
+        print("Data Show:----" + res.id.toString());
+        print(res);
+        Get.to(() => HomePage());
+      }
     } finally {
       print("Hello");
     }
   }
-}
+
+  }

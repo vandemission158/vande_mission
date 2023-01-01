@@ -46,13 +46,21 @@ class SearchIndexScreen extends StatelessWidget {
                   height: 37,
                   child: TextField(
                     maxLines: null,
-                    style: GoogleFonts.lato(color: black, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
+                    style: GoogleFonts.lato(
+                        color: black,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 16),
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.only(
                         bottom: 10,
                       ),
                       hintText: 'SearchIndex here'.tr,
-                      hintStyle: GoogleFonts.lato(color: context.theme.hintColor, fontWeight: FontWeight.w400, fontStyle: FontStyle.normal, fontSize: 16),
+                      hintStyle: GoogleFonts.lato(
+                          color: context.theme.hintColor,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          fontSize: 16),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       focusedBorder: const UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.transparent),
@@ -96,7 +104,9 @@ class SearchIndexScreen extends StatelessWidget {
                       )),
             ),
             Obx(
-              () => searchController.searchTextcontroller.value.text.isNotEmpty ? seachEmptyWidget() : BookCardSearch(),
+              () => searchController.searchTextcontroller.value.text.isNotEmpty
+                  ? seachEmptyWidget()
+                  : BookCardSearch(),
             )
           ],
         ),

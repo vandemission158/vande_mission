@@ -107,7 +107,7 @@ class SearchScreen extends StatelessWidget {
                       )),
             ),
             Obx(
-              () => controller.searchTextcontroller.value.text.isNotEmpty
+              () => !controller.searchTextcontroller.value.text.isNotEmpty
                   ? seachEmptyWidget()
                   : BookCardSearch(),
             )

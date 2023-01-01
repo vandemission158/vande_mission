@@ -110,3 +110,6 @@ const String searchEmptyImage = "assets/images/SearchEmpty.png";
 const String searchNotFoundImage = "assets/images/SearchNotFound.png";
 const String departmentDetailImage = "assets/images/Department_detail.png";
 const String girlimage = "assets/images/girlimage.png";
+const String foodItemImage = "assets/images/food_item_image.png";
+const String touristPlaceImage = "assets/images/tourist_place_image.png";
+

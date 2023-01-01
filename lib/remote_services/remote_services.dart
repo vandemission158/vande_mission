@@ -31,7 +31,6 @@ class RemoteService {
     dio = Dio(options);
     // print(action.toString());
     print(action);
-    print(authorizationToken);
     final splitted = action.split('/');
     if (splitted.contains('afterlogin')) {
       print("true " + splitted.toString());

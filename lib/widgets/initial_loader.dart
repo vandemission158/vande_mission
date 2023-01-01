@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vande_mission/helper/image_constant.dart';
+import 'package:vande_mission/widgets/text_label.dart';
 
 import '../helper/app_color.dart';
 
@@ -14,9 +15,14 @@ class InitialLoader extends StatelessWidget {
           Container(
             height: double.infinity,
             width: double.infinity,
-            color: blue,
+            color: white,
           ),
           Center(child: Image.asset(vandeMissionImg)),
+          const Positioned(
+            bottom: 50,
+            right: 50,
+            left: 50,
+            child: Center(child: TextLabel(title: "Made in India with ❤️",))),
           const Positioned.fill(
             bottom: 30,
             child: Align(
