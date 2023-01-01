@@ -16,9 +16,9 @@ class AdvertiesmentCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: black.withOpacity(0.02),
+            color: white,
             borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: darkGrey.withOpacity(0.1))),
+            border: Border.all(color: grey.withOpacity(0.1))),
         child: Column(
           children: [
             Padding(
@@ -30,7 +30,7 @@ class AdvertiesmentCard extends StatelessWidget {
                     title: "Advertisement",
                   ),
                   Container(
-                      height: 250,
+                      height: 275,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
@@ -45,14 +45,14 @@ class AdvertiesmentCard extends StatelessWidget {
                             child: Image.asset(fbImage),
                           ),
                           const SizedBox(
-                            height: 150,
+                            height: 160,
                           ),
                           const Padding(
                             padding:
                                 EdgeInsets.only(top: 10, bottom: 5, left: 20),
                             child: TextLabel(
                               title: 'Facebook -  Famous social media',
-                              fontSize: 16,
+                              fontSize: 15,
                               color: white,
                               fontWeight: FontWeight.w700,
                             ),

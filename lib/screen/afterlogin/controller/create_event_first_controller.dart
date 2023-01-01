@@ -22,6 +22,8 @@ class CreateEventFirstController extends GetxController {
     {'name': "Bardon, QLD", 'image': familyImage1, 'chick': "32 chicks nearby"}
   ].obs;
 
+  var itemIncrese = 1.obs;
+
   @override
   void onInit() {
     super.onInit();

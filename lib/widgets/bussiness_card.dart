@@ -17,9 +17,9 @@ class BussinessCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: black.withOpacity(0.02),
+            color: white,
             borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: darkGrey.withOpacity(0.1))),
+            border: Border.all(color: grey.withOpacity(0.1))),
         child: Column(
           children: [
             Padding(
@@ -53,13 +53,13 @@ class BussinessCard extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                           ),
                           SizedBox(
-                            width: Constants.width(context) / 1.6,
+                            width: Constants.width(context) / 1.8,
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Image.asset(location),
                                 const SizedBox(
-                                  width: 10,
+                                  width: 5,
                                 ),
                                 const Expanded(
                                   child: TextLabel(

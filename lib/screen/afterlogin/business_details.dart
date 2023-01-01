@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
+import 'package:vande_mission/helper/constant.dart';
 
 import '../../helper/app_color.dart';
 import '../../helper/image_constant.dart';
@@ -30,7 +31,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverAppBar(
-                  expandedHeight: 500,
+                  expandedHeight: Constants.height(context)/1.4,
                   title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
@@ -44,7 +45,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                         ),
                       ]),
                   pinned: true,
-                  backgroundColor: blue,
+                  backgroundColor: const Color(0xffEFF7FF),
                   elevation: 0,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Container(
@@ -55,7 +56,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                             height: 50,
                           ),
                           Container(
-                            color: const Color(0xffEFE2ed),
+                            color: const Color(0xffEFF7FF),
                             child: Padding(
                               padding:
                                   const EdgeInsets.only(left: 20.0, right: 20),
@@ -83,7 +84,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                                           ),
                                           const TextLabel(
                                             title: "Food",
-                                            fontSize: 18,
+                                            fontSize: 12,
                                             fontWeight: FontWeight.w400,
                                           ),
                                           Row(
@@ -101,7 +102,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                                                           "Shivalik 7 building near rambag, Maninagar, Ahmedabad, Gujarat 380008",
                                                       fontSize: 11,
                                                       fontWeight:
-                                                          FontWeight.w500,
+                                                          FontWeight.w600,
                                                     ))
                                                   ],
                                                 ),
@@ -118,7 +119,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                           ),
                           Container(
                             height: 40,
-                            color: const Color(0xffEFE2ed),
+                            color: const Color(0xffE0F0FF),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -143,7 +144,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                                 ),
                                 TextLabel(
                                   title: rating.toString() + " Rating & Review",
-                                  fontSize: 14,
+                                  fontSize: 11,
                                   fontWeight: FontWeight.w500,
                                   color: black,
                                 ),
@@ -160,8 +161,8 @@ class _BussinessDetailsState extends State<BussinessDetails>
                               children: const [
                                 TextLabel(
                                   title: "Description",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
                                   color: black,
                                 ),
                                 SizedBox(
@@ -170,10 +171,47 @@ class _BussinessDetailsState extends State<BussinessDetails>
                                 TextLabel(
                                   title:
                                       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.w400,
                                   color: grey,
                                 ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const TextLabel(
+                                  title: "Social Links",
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
+                                  color: black,
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(facebookIcon),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(instagramIcon),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(twitterIcon),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Image.asset(whatsAppIcon),
+                                  ],
+                                )
                               ],
                             ),
                           ),
@@ -291,7 +329,7 @@ class _BussinessDetailsState extends State<BussinessDetails>
                   ),
                   forceElevated: _,
                   bottom: PreferredSize(
-                    preferredSize: const Size.fromHeight(50),
+                    preferredSize: const Size.fromHeight(40),
                     child: Column(
                       children: [
                         Container(

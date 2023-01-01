@@ -14,9 +14,9 @@ class BookCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: black.withOpacity(0.02),
+            color: white,
             borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: darkGrey.withOpacity(0.1))),
+            border: Border.all(color: grey.withOpacity(0.1))),
         child: Column(
           children: [
             Padding(
@@ -59,7 +59,7 @@ class BookCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Image.asset(blogImage),
+                  Center(child: Image.asset(bookPreviewImage)),
                   const SizedBox(
                     height: 10,
                   ),
@@ -72,44 +72,47 @@ class BookCard extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
-                    children: [
-                      TextLabel(
-                        title: 'Mike Massimino',
-                        fontSize: 13,
-                        color: black.withOpacity(0.5),
-                        fontWeight: FontWeight.w400,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        color: black.withOpacity(0.5),
-                        width: 1,
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      TextLabel(
-                        title: '20 Chapter',
-                        fontSize: 13,
-                        color: black.withOpacity(0.5),
-                        fontWeight: FontWeight.w400,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        color: black.withOpacity(0.5),
-                        width: 1,
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Image.asset(star),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        TextLabel(
+                          title: 'Mike Massimino',
+                          fontSize: 13,
+                          color: black.withOpacity(0.5),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          color: black.withOpacity(0.5),
+                          width: 1,
+                          height: 10,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        TextLabel(
+                          title: '20 Chapter',
+                          fontSize: 13,
+                          color: black.withOpacity(0.5),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          color: black.withOpacity(0.5),
+                          width: 1,
+                          height: 10,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Image.asset(star),
+                      ],
+                    ),
                   ),
                   const TextLabel(
                     title:

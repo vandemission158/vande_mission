@@ -75,44 +75,47 @@ class BookCardSearch extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  Row(
-                    children: [
-                      TextLabel(
-                        title: 'Mike Massimino',
-                        fontSize: 13,
-                        color: black.withOpacity(0.5),
-                        fontWeight: FontWeight.w400,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        color: black.withOpacity(0.5),
-                        width: 1,
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      TextLabel(
-                        title: '20 Chapter',
-                        fontSize: 13,
-                        color: black.withOpacity(0.5),
-                        fontWeight: FontWeight.w400,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        color: black.withOpacity(0.5),
-                        width: 1,
-                        height: 10,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Image.asset(star),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        TextLabel(
+                          title: 'Mike Massimino',
+                          fontSize: 13,
+                          color: black.withOpacity(0.5),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          color: black.withOpacity(0.5),
+                          width: 1,
+                          height: 10,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        TextLabel(
+                          title: '20 Chapter',
+                          fontSize: 13,
+                          color: black.withOpacity(0.5),
+                          fontWeight: FontWeight.w400,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          color: black.withOpacity(0.5),
+                          width: 1,
+                          height: 10,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Image.asset(star),
+                      ],
+                    ),
                   ),
                   const TextLabel(
                     title:

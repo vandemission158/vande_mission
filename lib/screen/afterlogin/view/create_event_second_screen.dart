@@ -20,9 +20,11 @@ import 'add_ads_second_screen.dart';
 class CreateEventSecondScreen extends StatelessWidget {
   CreateEventSecondScreen({Key? key}) : super(key: key);
   final StepperController stepperController = Get.put(StepperController());
-  final ComponetsScreenController componetsScreenController = Get.put(ComponetsScreenController());
+  final ComponetsScreenController componetsScreenController =
+      Get.put(ComponetsScreenController());
   final AddAdsContrller controller = Get.put(AddAdsContrller());
-  final CreateEventFirstController createEventFirstController = Get.put(CreateEventFirstController());
+  final CreateEventFirstController createEventFirstController =
+      Get.put(CreateEventFirstController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +53,8 @@ class CreateEventSecondScreen extends StatelessWidget {
                       color: greenlight,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+                      padding:
+                          const EdgeInsets.only(left: 16, right: 16, top: 10),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -77,7 +80,8 @@ class CreateEventSecondScreen extends StatelessWidget {
                             title: "Select Bussiness type",
                             color: white,
                             onTap: () => controller.businessTypeBottom(context),
-                            controller: controller.businessTypeTextController.value,
+                            controller:
+                                controller.businessTypeTextController.value,
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 14),
@@ -91,70 +95,96 @@ class CreateEventSecondScreen extends StatelessWidget {
                           const SizedBox(
                             height: 2,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: white,
-                            ),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                  ),
+                          Obx(()=>
+                            ListView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount:
+                                  createEventFirstController.itemIncrese.value,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(top: 10.0),
                                   child: Row(
                                     children: [
-                                      Text(
-                                        "+91",
-                                        style: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
+                                      Expanded(
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            color: white,
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                  horizontal: 20,
+                                                ),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      "+91",
+                                                      style: GoogleFonts.poppins(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: grey),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Center(
+                                                        child: Image.asset(down))
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                height: 52,
+                                                width: 1,
+                                                color: verticalDividerColor
+                                                    .withOpacity(0.2),
+                                              ),
+                                              const Expanded(
+                                                child: CustomTextField(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w400,
+                                                  hintText: "Enter mobile number",
+                                                  autofocus: false,
+                                                  color: white,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(
-                                        width: 5,
+                                        width: 10,
                                       ),
-                                      Center(child: Image.asset(down))
+                                      GestureDetector(
+                                          onTap: () {
+                                            createEventFirstController
+                                                .itemIncrese--;
+                                          },
+                                          child: Image.asset(close))
                                     ],
                                   ),
-                                ),
-                                Container(
-                                  height: 52,
-                                  width: 1,
-                                  color: verticalDividerColor.withOpacity(0.2),
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                                    child: TextField(
-                                      keyboardType: TextInputType.number,
-                                      // controller: controller.phoneNumberController.value,
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                                          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-                                          focusedBorder: const UnderlineInputBorder(
-                                            borderRadius: BorderRadius.zero,
-                                            borderSide: BorderSide(color: Colors.transparent),
-                                          ),
-                                          enabledBorder: const UnderlineInputBorder(
-                                            borderRadius: BorderRadius.zero,
-                                            borderSide: BorderSide(color: Colors.transparent),
-                                          ),
-                                          filled: true,
-                                          hintStyle: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
-                                          hintText: "enter_mobile_number".tr,
-                                          fillColor: white),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                                );
+                              },
+                            ),  
                           ),
-                          const Padding(
+                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 10),
                             child: Center(
-                              child: TextLabel(
-                                title: "+ Add more numbers",
-                                color: missonColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
+                              child: GestureDetector(
+onTap: () {
+  createEventFirstController.itemIncrese++;
+},
+                                child: TextLabel(
+                                  title: "+ Add more numbers",
+                                  color: missonColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ),
                           ),

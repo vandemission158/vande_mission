@@ -32,7 +32,7 @@ class _VillageDetailsState extends State<VillageDetails>
                     handle: NestedScrollView.sliverOverlapAbsorberHandleFor(
                         context),
                     sliver: SliverAppBar(
-                      expandedHeight: 700,
+                      expandedHeight: Constants.height(context)/1.060,
                       title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: const [
@@ -42,7 +42,7 @@ class _VillageDetailsState extends State<VillageDetails>
                             ),
                           ]),
                       pinned: true,
-                      backgroundColor: blue,
+                      backgroundColor: white,
                       elevation: 0,
                       flexibleSpace: FlexibleSpaceBar(
                         background: Container(
@@ -94,7 +94,7 @@ class _VillageDetailsState extends State<VillageDetails>
                                                 EdgeInsets.only(left: 20.0),
                                             child: TextLabel(
                                               title: "Population",
-                                              fontSize: 20,
+                                              fontSize: 16,
                                               color: white,
                                               fontWeight: FontWeight.w400,
                                             ),
@@ -104,7 +104,7 @@ class _VillageDetailsState extends State<VillageDetails>
                                           ),
                                           TextLabel(
                                             title: "(Appoinment)",
-                                            fontSize: 18,
+                                            fontSize: 12,
                                             color: white,
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -114,9 +114,9 @@ class _VillageDetailsState extends State<VillageDetails>
                                         padding: EdgeInsets.only(right: 20.0),
                                         child: TextLabel(
                                           title: "1.2 Lacs",
-                                          fontSize: 18,
+                                          fontSize: 20,
                                           color: white,
-                                          fontWeight: FontWeight.w400,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                       ),
                                     ],
@@ -131,11 +131,13 @@ class _VillageDetailsState extends State<VillageDetails>
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                                                 const SizedBox(height: 15,),
+
                                     const Padding(
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 20),
                                       child: TextLabel(
-                                        title: "Ministers",
+                                        title: "Famous Tourist Places",
                                         fontSize: 18,
                                         fontWeight: FontWeight.w700,
                                         color: black,
@@ -171,12 +173,13 @@ class _VillageDetailsState extends State<VillageDetails>
                                                     child: Image.asset(
                                                       touristPlaceImage,
                                                       height: 120,
-                                                      width: 200,
+                                                      width: 170,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                   Container(
                                                     decoration: BoxDecoration(
+                                                      color: white,
                                                       border: Border(
                                                         bottom: BorderSide(
                                                             color: grey
@@ -210,14 +213,14 @@ class _VillageDetailsState extends State<VillageDetails>
                                                                           10)),
                                                     ),
                                                     child: SizedBox(
-                                                      width: 200,
+                                                      width: 168,
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsets
                                                                     .only(
                                                                 left: 10,
                                                                 right: 10,
-                                                                top: 10,
+                                                                top: 5,
                                                                 bottom: 10),
                                                         child: Column(
                                                           crossAxisAlignment:
@@ -227,16 +230,16 @@ class _VillageDetailsState extends State<VillageDetails>
                                                             TextLabel(
                                                               title:
                                                                   "Dr. Jhone Deo",
-                                                              fontSize: 16,
+                                                              fontSize: 12,
                                                               fontWeight:
                                                                   FontWeight
-                                                                      .w400,
+                                                                      .w500,
                                                               color: black,
                                                             ),
                                                             TextLabel(
                                                               title:
                                                                   "cabinate minister",
-                                                              fontSize: 12,
+                                                              fontSize: 10,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -255,8 +258,9 @@ class _VillageDetailsState extends State<VillageDetails>
                                   ],
                                 ),
                               ),
+                             const SizedBox(height: 15,),
                               Container(
-                                color: const Color(0xffEFF7FF),
+                                color: white,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -264,8 +268,8 @@ class _VillageDetailsState extends State<VillageDetails>
                                       padding:
                                           EdgeInsets.symmetric(horizontal: 20),
                                       child: TextLabel(
-                                        title: "Ministers",
-                                        fontSize: 18,
+                                        title: "Famous Food items",
+                                        fontSize: 16,
                                         fontWeight: FontWeight.w700,
                                         color: black,
                                       ),
@@ -300,7 +304,7 @@ class _VillageDetailsState extends State<VillageDetails>
                                                     child: Image.asset(
                                                       foodItemImage,
                                                       height: 120,
-                                                      width: 200,
+                                                      width: 170,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
@@ -339,7 +343,7 @@ class _VillageDetailsState extends State<VillageDetails>
                                                                           10)),
                                                     ),
                                                     child: SizedBox(
-                                                      width: 200,
+                                                      width: 168,
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsets
@@ -356,16 +360,16 @@ class _VillageDetailsState extends State<VillageDetails>
                                                             TextLabel(
                                                               title:
                                                                   "Dr. Jhone Deo",
-                                                              fontSize: 16,
+                                                              fontSize: 12,
                                                               fontWeight:
                                                                   FontWeight
-                                                                      .w400,
+                                                                      .w500,
                                                               color: black,
                                                             ),
                                                             TextLabel(
                                                               title:
                                                                   "cabinate minister",
-                                                              fontSize: 12,
+                                                              fontSize: 10,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w400,
@@ -390,7 +394,7 @@ class _VillageDetailsState extends State<VillageDetails>
                       ),
                       forceElevated: _,
                       bottom: PreferredSize(
-                        preferredSize: const Size.fromHeight(50),
+                        preferredSize: const Size.fromHeight(40),
                         child: Column(
                           children: [
                             Container(
@@ -460,221 +464,12 @@ class _VillageDetailsState extends State<VillageDetails>
                 children: const [
                   ProjectScreen(),
                   GroupScreen(),
-                  BussinessScreen()
+                  Business(),
                 ],
               )),
         ));
   }
 }
-
-// @override
-// Widget build(BuildContext context) {
-//   return
-//       // Scaffold(
-//       //     body: SafeArea(
-//       //   child: Column(
-//       //     crossAxisAlignment: CrossAxisAlignment.start,
-//       //     children: [
-//       //       const TextLabel(
-//       //         title: "Ministry of Science & Technologies",
-//       //         fontSize: 24,
-//       //         fontWeight: FontWeight.w700,
-//       //       ),
-//       //       const TextLabel(
-//       //         title: "Mandal, Ahmedabad, Gujarat",
-//       //         fontSize: 16,
-//       //         fontWeight: FontWeight.w400,
-//       //       ),
-//       //       Container(
-//       //         height: 180,
-//       //         child: ListView.builder(
-//       //           itemCount: 3,
-//       //           scrollDirection: Axis.horizontal,
-//       //           itemBuilder: (context, index) => Padding(
-//       //             padding: const EdgeInsets.only(left: 10),
-//       //             child: ClipRRect(
-//       //               borderRadius: BorderRadius.circular(20),
-//       //               child: Card(
-//       //                 child: Container(
-//       //                   decoration: BoxDecoration(
-//       //                     // boxShadow: const [
-//       //                   //   BoxShadow(
-//       //                   //     color: Colors.grey,
-//       //                   //     offset: Offset(0.0, 1.0), //(x,y)
-//       //                   //     blurRadius: 6.0,
-//       //                   //   ),
-//       //                   // ],
-//       //                       color: white, borderRadius: BorderRadius.circular(15)),
-//       //                   child: Column(
-//       //                     children: [
-//       //                       Image.asset(departmentDetailImage),
-//       //                       const TextLabel(
-//       //                         title: "Mr. John Doe",
-//       //                         fontSize: 12,
-//       //                         fontWeight: FontWeight.w500,
-//       //                       ),
-//       //                       TextLabel(
-//       //                         title: "Cabinate Minister",
-//       //                         fontSize: 10,
-//       //                         fontWeight: FontWeight.w400,
-//       //                         color: black.withOpacity(0.5),
-//       //                       )
-//       //                     ],
-//       //                   ),
-//       //                 ),
-//       //               ),
-//       //             ),
-//       //           ),
-//       //         ),
-//       //       ),
-//       //     ],
-//       //   ),
-//       // ));
-//       DefaultTabController(
-//     length: 2,
-//     child: Scaffold(
-//       backgroundColor: white,
-//       appBar: AppBar(
-//         leading: const Icon(
-//           Icons.arrow_back,
-//           color: black,
-//         ),
-//         backgroundColor: white,
-//         elevation: 0,
-//         actions: const [
-//           Padding(
-//             padding: EdgeInsets.only(right: 25, top: 10),
-//             child: Text(
-//               "Add New",
-//               style: TextStyle(
-//                   color: orange, fontSize: 16, fontWeight: FontWeight.w500),
-//             ),
-//           ),
-//         ],
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.only(
-//           left: 16,
-//           right: 16,
-//         ),
-//         child:
-//             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-//           Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               const TextLabel(
-//                 title: "Ministry of Science & Technologies",
-//                 fontSize: 24,
-//                 fontWeight: FontWeight.w700,
-//               ),
-//               const TextLabel(
-//                 title: "Mandal, Ahmedabad, Gujarat",
-//                 fontSize: 16,
-//                 fontWeight: FontWeight.w400,
-//               ),
-//               Container(
-//                 height: 180,
-//                 child: ListView.builder(
-//                   itemCount: 3,
-//                   scrollDirection: Axis.horizontal,
-//                   itemBuilder: (context, index) => Padding(
-//                     padding: const EdgeInsets.only(left: 10),
-//                     child: ClipRRect(
-//                       borderRadius: BorderRadius.circular(20),
-//                       child: Card(
-//                         child: Container(
-//                           decoration: BoxDecoration(
-//                               // boxShadow: const [
-//                               //   BoxShadow(
-//                               //     color: Colors.grey,
-//                               //     offset: Offset(0.0, 1.0), //(x,y)
-//                               //     blurRadius: 6.0,
-//                               //   ),
-//                               // ],
-//                               color: white,
-//                               borderRadius: BorderRadius.circular(15)),
-//                           child: Column(
-//                             children: [
-//                               Image.asset(departmentDetailImage),
-//                               const TextLabel(
-//                                 title: "Mr. John Doe",
-//                                 fontSize: 12,
-//                                 fontWeight: FontWeight.w500,
-//                               ),
-//                               TextLabel(
-//                                 title: "Cabinate Minister",
-//                                 fontSize: 10,
-//                                 fontWeight: FontWeight.w400,
-//                                 color: black.withOpacity(0.5),
-//                               )
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//           const Padding(
-//             padding: EdgeInsets.only(top: 20),
-//             child: TabBar(labelColor: orange, indicatorColor: orange, tabs: [
-//               Tab(
-//                 text: "Projects (50)",
-//               ),
-//               Tab(
-//                 text: "Complaints (200)",
-//               )
-//             ]),
-//           ),
-//           Expanded(
-//             child: Stack(
-//               children: [
-//                 Positioned(
-//                     top: 0,
-//                     left: 0,
-//                     right: 0,
-//                     child: Container(
-//                       decoration: BoxDecoration(
-//                         border: Border(
-//                           bottom: BorderSide(
-//                             color: orange.withOpacity(0.3),
-//                             width: 2.0,
-//                           ),
-//                         ),
-//                       ),
-//                     )),
-//                 TabBarView(children: [
-//                   SizedBox(
-//                     height: MediaQuery.of(context).size.height,
-//                     child: ListView.builder(
-//                         itemCount: 5,
-//                         shrinkWrap: true,
-//                         physics: const NeverScrollableScrollPhysics(),
-//                         itemBuilder: ((context, index) {
-//                           return listWidget(context);
-//                         })),
-//                   ),
-//                   SizedBox(
-//                     height: MediaQuery.of(context).size.height,
-//                     child: ListView.builder(
-//                         itemCount: 5,
-//                         shrinkWrap: true,
-//                         physics: const NeverScrollableScrollPhysics(),
-//                         itemBuilder: ((context, index) {
-//                           return listWidget(context);
-//                         })),
-//                   ),
-//                 ]),
-//               ],
-//             ),
-//           )
-//         ]),
-//       ),
-//     ),
-//   );
-// }
 
 class ProjectScreen extends StatelessWidget {
   const ProjectScreen({Key? key}) : super(key: key);
@@ -746,8 +541,8 @@ class ProjectScreen extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const TextLabel(
+                          children: const [
+                            TextLabel(
                               title: "Dr. Jhone",
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -777,8 +572,8 @@ class ProjectScreen extends StatelessWidget {
   }
 }
 
-class BussinessScreen extends StatelessWidget {
-  const BussinessScreen({Key? key}) : super(key: key);
+class Business extends StatelessWidget {
+  const Business({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -823,9 +618,9 @@ class BussinessScreen extends StatelessWidget {
     );
   }
 
- Widget listWidget(BuildContext context) {
+  Widget listWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
       child: Stack(
         children: [
           Container(
@@ -841,83 +636,83 @@ class BussinessScreen extends StatelessWidget {
                     blurStyle: BlurStyle.outer,
                   ),
                 ]),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: IntrinsicHeight(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(hoccoImage),
-                     
-                    ],
-                  ),
+                  const SizedBox(width: 15,),
+                  Container(
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(color: grey.withOpacity(0.2)),
+                              top: BorderSide(color: grey.withOpacity(0.2)),
+                              left: BorderSide(color: grey.withOpacity(0.2)),
+                              right: BorderSide(color: grey.withOpacity(0.2)))),
+                      child: Image.asset(hoccoImage)),
                   const SizedBox(
-                    width: 15,
+                    width: 10,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const TextLabel(
-                            title: "Hocco",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: black,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                  VerticalDivider(
+                    color: grey.withOpacity(0.2),
+                    thickness: 1,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const TextLabel(
+                          title: "following",
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: black,
+                        ),
+                        const TextLabel(
+                          title: "+20 more",
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: grey,
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          width: Constants.width(context) / 1.8,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              
-                              const TextLabel(
-                                title: "Food Business | 12 Workers",
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                                color: grey,
+                              Image.asset(location),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              const Expanded(
+                                child: TextLabel(
+                                  title:
+                                      "Shivalik 7 building near rambag brts, Maninagar, Ahmedabad, Gujarat 380008",
+                                  color: black,
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(location),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Expanded(
-                              child: TextLabel(
-                            title:
-                                "Shivalik 7 building near rambag, Maninagar, Ahmedabad, Gujarat 380008",
-                            fontSize: 11,
-                            fontWeight: FontWeight.w500,
-                          ))
-                        ],
-                      ),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
           ),
-          Positioned(top: 10, right: 20, child: Icon(Icons.more_vert_rounded))
+          const Positioned(
+              top: 10, right: 20, child: Icon(Icons.more_vert_rounded))
         ],
       ),
     );
   }
 }
-
-
 
 class GroupScreen extends StatelessWidget {
   const GroupScreen({Key? key}) : super(key: key);
@@ -985,128 +780,143 @@ class GroupScreen extends StatelessWidget {
                 ]),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Image.asset(blogUser),
-                      const TextLabel(
-                        title: "Join Group",
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: black,
-                      ),
-                      const TextLabel(
-                        title: "Join",
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        color: black,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const TextLabel(
-                            title: "following",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: black,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: 150,
-                                height: 40,
-                                child: Stack(
-                                  children: [
-                                    Container(
-                                        decoration: BoxDecoration(
-                                            color: white,
-                                            borderRadius:
-                                                BorderRadius.circular(50)),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: Image.asset(blogUser),
-                                        )),
-                                    Positioned(
-                                        left: 25,
-                                        child: Container(
-                                            decoration: BoxDecoration(
-                                                color: white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50)),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(2.0),
-                                              child: Image.asset(blogUser),
-                                            ))),
-                                    Positioned(
-                                        left: 50,
-                                        child: Container(
-                                            decoration: BoxDecoration(
-                                                color: white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50)),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(2.0),
-                                              child: Image.asset(blogUser),
-                                            ))),
-                                    Positioned(
-                                        left: 75,
-                                        child: Container(
-                                            decoration: BoxDecoration(
-                                                color: white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50)),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(2.0),
-                                              child: Image.asset(blogUser),
-                                            ))),
-                                  ],
+              child: IntrinsicHeight(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(width: 10,),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(blogUser),
+                        const TextLabel(
+                          title: "Join Group",
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: black,
+                        ),
+                        const TextLabel(
+                          title: "Join",
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                          color: black,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    VerticalDivider(
+                      color: grey.withOpacity(0.2),
+                      thickness: 1,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const TextLabel(
+                              title: "following",
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: black,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: Constants.width(context)/3.8,
+                                  height: 35,
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        height: 30,
+                                            width: 30,
+                                          decoration: BoxDecoration(
+                                              color: white,
+                                              borderRadius:
+                                                  BorderRadius.circular(50)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(2.0),
+                                            child: Image.asset(blogUser),
+                                          )),
+                                      Positioned(
+                                          left: 20,
+                                          child: Container(
+                                            height: 30,
+                                            width: 30,
+                                              decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(50)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Image.asset(blogUser),
+                                              ))),
+                                      Positioned(
+                                          left: 40,
+                                          child: Container(
+                                            height: 30,
+                                            width: 30,
+                                              decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(50)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Image.asset(blogUser),
+                                              ))),
+                                      Positioned(
+                                          left: 60,
+                                          child: Container(
+                                            height: 30,
+                                            width: 30,
+                                              decoration: BoxDecoration(
+                                                  color: white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(50)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Image.asset(blogUser),
+                                              ))),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              const TextLabel(
-                                title: "+20 more",
-                                fontSize: 15,
-                                fontWeight: FontWeight.w400,
-                                color: grey,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      const TextLabel(
-                        title: "Join Group",
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: orange,
-                      ),
-                    ],
-                  ),
-                ],
+                                const TextLabel(
+                                  title: "+20 more",
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                  color: grey,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const TextLabel(
+                          title: "Join Group",
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          color: orange,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Positioned(top: 10, right: 20, child: Icon(Icons.more_vert_rounded))
+          const Positioned(
+              top: 10, right: 20, child: Icon(Icons.more_vert_rounded))
         ],
       ),
     );
