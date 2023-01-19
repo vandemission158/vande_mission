@@ -20,11 +20,9 @@ class CreateJobFirst extends StatelessWidget {
   CreateJobFirst({Key? key}) : super(key: key);
 
   final StepperController stepperController = Get.put(StepperController());
-  final ComponetsScreenController componetsScreenController =
-      Get.put(ComponetsScreenController());
+  final ComponetsScreenController componetsScreenController = Get.put(ComponetsScreenController());
   final AddAdsContrller controller = Get.put(AddAdsContrller());
-  final CreateEventFirstController createEventFirstController =
-      Get.put(CreateEventFirstController());
+  final CreateEventFirstController createEventFirstController = Get.put(CreateEventFirstController());
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +49,9 @@ class CreateJobFirst extends StatelessWidget {
               ),
               Obx(
                 () => Container(
-                  decoration: BoxDecoration(
-                      color: dropdownColor,
-                      borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(color: dropdownColor, borderRadius: BorderRadius.circular(10)),
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 10),
+                    padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -98,8 +93,7 @@ class CreateJobFirst extends StatelessWidget {
                           title: "Select Job Category",
                           color: white,
                           onTap: () => controller.businessTypeBottom(context),
-                          controller:
-                              controller.businessTypeTextController.value,
+                          controller: controller.businessTypeTextController.value,
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 10),
@@ -114,8 +108,7 @@ class CreateJobFirst extends StatelessWidget {
                           title: "Select Job Type",
                           color: white,
                           onTap: () => controller.businessTypeBottom(context),
-                          controller:
-                              controller.businessTypeTextController.value,
+                          controller: controller.businessTypeTextController.value,
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 10),
@@ -127,9 +120,7 @@ class CreateJobFirst extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(15)),
+                          decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(15)),
                           child: Row(
                             children: [
                               Padding(
@@ -161,8 +152,7 @@ class CreateJobFirst extends StatelessWidget {
                           title: "Select Job Experience",
                           color: white,
                           onTap: () => controller.businessTypeBottom(context),
-                          controller:
-                              controller.businessTypeTextController.value,
+                          controller: controller.businessTypeTextController.value,
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 10),
@@ -174,9 +164,7 @@ class CreateJobFirst extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(15)),
+                          decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(15)),
                           child: Row(
                             children: [
                               Padding(
@@ -194,13 +182,10 @@ class CreateJobFirst extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, right: 10),
+                                padding: const EdgeInsets.only(left: 10, right: 10),
                                 child: InkWell(
                                   onTap: () {
-                                    stepperController.allChips.add(ChipData(
-                                        id: DateTime.now().toString(),
-                                        name: stepperController.skill.text));
+                                    stepperController.allChips.add(ChipData(id: DateTime.now().toString(), name: stepperController.skill.text));
                                     // reset the TextField
                                     stepperController.skill.text = '';
                                   },
@@ -231,10 +216,7 @@ class CreateJobFirst extends StatelessWidget {
                             children: stepperController.allChips
                                 .map((chip) => Chip(
                                       backgroundColor: dropdownColor,
-                                      shape: RoundedRectangleBorder(
-                                          side: const BorderSide(color: blue),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
+                                      shape: RoundedRectangleBorder(side: const BorderSide(color: blue), borderRadius: BorderRadius.circular(10)),
                                       key: ValueKey(chip.id),
                                       label: Text(
                                         chip.name,
@@ -244,8 +226,7 @@ class CreateJobFirst extends StatelessWidget {
                                           color: blue,
                                         ),
                                       ),
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 7, horizontal: 10),
+                                      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
                                       deleteIcon: Image.asset(
                                         close,
                                         height: 12,
