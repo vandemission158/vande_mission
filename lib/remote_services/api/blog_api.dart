@@ -1,19 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_reply_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_reply_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_reply_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_reply_store.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_comment_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/blog/blog_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_reply_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_reply_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_reply_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_reply_store.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_comment_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_model.dart';
+import 'package:vande_mission/screen/afterlogin/blog/model/blog_update_model.dart';
 
 class BlogApi {
   final DioClient dioClient;

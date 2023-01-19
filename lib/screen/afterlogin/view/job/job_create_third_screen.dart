@@ -44,325 +44,323 @@ class JobCreateThirdScreen extends StatelessWidget {
                 stepperSubTitle2: "",
                 stepperSubTitle3: "",
               ),
-              Obx(
-                () => Container(
-                  decoration: BoxDecoration(color: dropdownColor, borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const TextLabel(
-                          title: "Step 3",
-                          color: missonColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: TextLabel(
-                            title: "Job Division type",
-                            color: missonColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        CustomRadioButton(
-                          elevation: 0,
-                          absoluteZeroSpacing: false,
-                          unSelectedColor: white,
-                          buttonLables: const [
-                            'Business',
-                            'Company',
-                            'Freelancer',
-                          ],
-                          buttonValues: const [
-                            "Business",
-                            "Company",
-                            "Freelancer",
-                          ],
-                          enableShape: true,
-                          radius: 10,
-                          margin: const EdgeInsets.all(2),
-                          defaultSelected: "Business",
-                          buttonTextStyle: ButtonTextStyle(selectedColor: blue, unSelectedColor: grey, textStyle: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400)),
-                          radioButtonValue: (value) {
-                            print(value);
-                          },
-                          selectedBorderColor: blue,
-                          selectedColor: dropdownColor,
-                          unSelectedBorderColor: dropdownColor,
-                          shapeRadius: 10,
-                          width: 100,
-                        ),
-                        // Padding(
-                        //   padding: const EdgeInsets.only(top: 10),
-                        //   child: Row(
-                        //     children: [
-                        //       GestureDetector(
-                        //         onTap: () {},
-                        //         child: Container(
-                        //           decoration: BoxDecoration(
-                        //               color: white,
-                        //               borderRadius: BorderRadius.circular(10)),
-                        //           child: const Padding(
-                        //             padding: EdgeInsets.symmetric(
-                        //                 horizontal: 10, vertical: 5),
-                        //             child: TextLabel(
-                        //               title: "Business",
-                        //               color: missonColor,
-                        //               fontSize: 16,
-                        //               fontWeight: FontWeight.w400,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //       const SizedBox(
-                        //         width: 10,
-                        //       ),
-                        //       GestureDetector(
-                        //         onTap: () {},
-                        //         child: Container(
-                        //           decoration: BoxDecoration(
-                        //               color: white,
-                        //               borderRadius: BorderRadius.circular(10)),
-                        //           child: const Padding(
-                        //             padding: EdgeInsets.symmetric(
-                        //                 horizontal: 10, vertical: 5),
-                        //             child: TextLabel(
-                        //               title: "Company",
-                        //               color: missonColor,
-                        //               fontSize: 16,
-                        //               fontWeight: FontWeight.w400,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //       const SizedBox(
-                        //         width: 10,
-                        //       ),
-                        //       GestureDetector(
-                        //         onTap: () {},
-                        //         child: Container(
-                        //           decoration: BoxDecoration(
-                        //               color: white,
-                        //               borderRadius: BorderRadius.circular(10)),
-                        //           child: const Padding(
-                        //             padding: EdgeInsets.symmetric(
-                        //                 horizontal: 10, vertical: 5),
-                        //             child: TextLabel(
-                        //               title: "Freelancer",
-                        //               color: missonColor,
-                        //               fontSize: 16,
-                        //               fontWeight: FontWeight.w400,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const TextLabel(
-                          title: "Company Email (Optional)",
+              Container(
+                decoration: BoxDecoration(color: dropdownColor, borderRadius: BorderRadius.circular(10)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const TextLabel(
+                        title: "Step 3",
+                        color: missonColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: TextLabel(
+                          title: "Job Division type",
                           color: missonColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
                         ),
-                        const CustomTextField(
+                      ),
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      CustomRadioButton(
+                        elevation: 0,
+                        absoluteZeroSpacing: false,
+                        unSelectedColor: white,
+                        buttonLables: const [
+                          'Business',
+                          'Company',
+                          'Freelancer',
+                        ],
+                        buttonValues: const [
+                          "Business",
+                          "Company",
+                          "Freelancer",
+                        ],
+                        enableShape: true,
+                        radius: 10,
+                        margin: const EdgeInsets.all(2),
+                        defaultSelected: "Business",
+                        buttonTextStyle: ButtonTextStyle(selectedColor: blue, unSelectedColor: grey, textStyle: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w400)),
+                        radioButtonValue: (value) {
+                          print(value);
+                        },
+                        selectedBorderColor: blue,
+                        selectedColor: dropdownColor,
+                        unSelectedBorderColor: dropdownColor,
+                        shapeRadius: 10,
+                        width: 100,
+                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(top: 10),
+                      //   child: Row(
+                      //     children: [
+                      //       GestureDetector(
+                      //         onTap: () {},
+                      //         child: Container(
+                      //           decoration: BoxDecoration(
+                      //               color: white,
+                      //               borderRadius: BorderRadius.circular(10)),
+                      //           child: const Padding(
+                      //             padding: EdgeInsets.symmetric(
+                      //                 horizontal: 10, vertical: 5),
+                      //             child: TextLabel(
+                      //               title: "Business",
+                      //               color: missonColor,
+                      //               fontSize: 16,
+                      //               fontWeight: FontWeight.w400,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       GestureDetector(
+                      //         onTap: () {},
+                      //         child: Container(
+                      //           decoration: BoxDecoration(
+                      //               color: white,
+                      //               borderRadius: BorderRadius.circular(10)),
+                      //           child: const Padding(
+                      //             padding: EdgeInsets.symmetric(
+                      //                 horizontal: 10, vertical: 5),
+                      //             child: TextLabel(
+                      //               title: "Company",
+                      //               color: missonColor,
+                      //               fontSize: 16,
+                      //               fontWeight: FontWeight.w400,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //       const SizedBox(
+                      //         width: 10,
+                      //       ),
+                      //       GestureDetector(
+                      //         onTap: () {},
+                      //         child: Container(
+                      //           decoration: BoxDecoration(
+                      //               color: white,
+                      //               borderRadius: BorderRadius.circular(10)),
+                      //           child: const Padding(
+                      //             padding: EdgeInsets.symmetric(
+                      //                 horizontal: 10, vertical: 5),
+                      //             child: TextLabel(
+                      //               title: "Freelancer",
+                      //               color: missonColor,
+                      //               fontSize: 16,
+                      //               fontWeight: FontWeight.w400,
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextLabel(
+                        title: "Company Email (Optional)",
+                        color: missonColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      const CustomTextField(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        hintText: "Enter Company Name",
+                        autofocus: false,
+                        color: white,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const TextLabel(
+                        title: "Company Email",
+                        color: missonColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      const CustomTextField(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        hintText: "Enter Company Email",
+                        autofocus: false,
+                        color: white,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: TextLabel(
+                          title: "Company Contact Numbers",
+                          color: missonColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
-                          hintText: "Enter Company Name",
-                          autofocus: false,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
                           color: white,
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const TextLabel(
-                          title: "Company Email",
-                          color: missonColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
-                        const CustomTextField(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          hintText: "Enter Company Email",
-                          autofocus: false,
-                          color: white,
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: TextLabel(
-                            title: "Company Contact Numbers",
-                            color: missonColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: white,
-                          ),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                ),
-                                child: Row(
-                                  children: [
-                                    const TextLabel(
-                                      title: "+91",
-                                      color: grey,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Center(child: Image.asset(down))
-                                  ],
-                                ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20,
                               ),
-                              Container(
-                                height: 52,
-                                width: 1,
-                                color: verticalDividerColor.withOpacity(0.2),
-                              ),
-                              Expanded(
-                                child: Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                                  child: TextField(
-                                    keyboardType: TextInputType.number,
-                                    // controller: controller.phoneNumberController.value,
-                                    decoration: InputDecoration(
-                                        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
-                                        contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                                        focusedBorder: const UnderlineInputBorder(
-                                          borderRadius: BorderRadius.zero,
-                                          borderSide: BorderSide(color: Colors.transparent),
-                                        ),
-                                        enabledBorder: const UnderlineInputBorder(
-                                          borderRadius: BorderRadius.zero,
-                                          borderSide: BorderSide(color: Colors.transparent),
-                                        ),
-                                        filled: true,
-                                        hintStyle: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
-                                        hintText: "enter_mobile_number".tr,
-                                        fillColor: white),
+                              child: Row(
+                                children: [
+                                  const TextLabel(
+                                    title: "+91",
+                                    color: grey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
                                   ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Center(child: Image.asset(down))
+                                ],
+                              ),
+                            ),
+                            Container(
+                              height: 52,
+                              width: 1,
+                              color: verticalDividerColor.withOpacity(0.2),
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                                child: TextField(
+                                  keyboardType: TextInputType.number,
+                                  // controller: controller.phoneNumberController.value,
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                                      focusedBorder: const UnderlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(color: Colors.transparent),
+                                      ),
+                                      enabledBorder: const UnderlineInputBorder(
+                                        borderRadius: BorderRadius.zero,
+                                        borderSide: BorderSide(color: Colors.transparent),
+                                      ),
+                                      filled: true,
+                                      hintStyle: GoogleFonts.poppins(fontSize: 16, fontWeight: FontWeight.w400, color: grey),
+                                      hintText: "enter_mobile_number".tr,
+                                      fillColor: white),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10),
-                          child: Center(
-                            child: TextLabel(
-                              title: "+ Add more numbers",
-                              color: missonColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
                             ),
-                          ),
+                          ],
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Center(
                           child: TextLabel(
-                            title: "Company Website URL",
+                            title: "+ Add more numbers",
                             color: missonColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        const CustomTextField(
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: TextLabel(
+                          title: "Company Website URL",
+                          color: missonColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
-                          hintText: "Enter Company Website URL",
-                          autofocus: false,
-                          color: white,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: TextLabel(
-                            title: "Description",
-                            color: missonColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                      ),
+                      const CustomTextField(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        hintText: "Enter Company Website URL",
+                        autofocus: false,
+                        color: white,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: TextLabel(
+                          title: "Description",
+                          color: missonColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                         ),
-                        Container(
-                          decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(15)),
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 20),
-                                child: Image.asset(
-                                  location,
-                                  color: blue,
-                                ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(15)),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Image.asset(
+                                location,
+                                color: blue,
                               ),
-                              const Expanded(
-                                child: CustomTextField(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                  hintText: "Location",
-                                  autofocus: false,
-                                  color: white,
-                                ),
+                            ),
+                            const Expanded(
+                              child: CustomTextField(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                                hintText: "Location",
+                                autofocus: false,
+                                color: white,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Image.asset(mapImage),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Image.asset(mapImage),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 10),
+                        child: TextLabel(
+                          title: "Sector",
+                          color: missonColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10),
-                          child: TextLabel(
-                            title: "Sector",
-                            color: missonColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
+                      ),
+                      const CustomDropDown(
+                        title: "Select Sector",
+                        color: white,
+                        // onTap: () => controller.businessTypeBottom(context),
+                        // controller: controller.businessTypeTextController.value,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: CustomButton(
+                          gradientLeft: orangeLight2,
+                          gradientRight: orangeLight1,
+                          title: "Publish Job",
+                          color: blue,
+                          onTap: () {
+                            stepperController.stepperIndex = 3;
+                            // Get.to(JobCreateThirdScreen());
+                          },
                         ),
-                        CustomDropDown(
-                          title: "Select Sector",
-                          color: white,
-                          // onTap: () => controller.businessTypeBottom(context),
-                          // controller: controller.businessTypeTextController.value,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: CustomButton(
-                            gradientLeft: orangeLight2,
-                            gradientRight: orangeLight1,
-                            title: "Publish Job",
-                            color: blue,
-                            onTap: () {
-                              stepperController.stepperIndex = 3;
-                              // Get.to(JobCreateThirdScreen());
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                    ],
                   ),
                 ),
               ),

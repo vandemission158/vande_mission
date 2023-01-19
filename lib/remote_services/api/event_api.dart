@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/event/event_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/event/event_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/event/event_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/event/event_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/event/model/event_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/event/model/event_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/event/model/event_model.dart';
+import 'package:vande_mission/screen/afterlogin/event/model/event_update_model.dart';
 
 class EventApi {
   final DioClient dioClient;

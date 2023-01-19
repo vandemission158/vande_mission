@@ -10,19 +10,13 @@ import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.da
 import 'package:vande_mission/screen/afterlogin/department_details.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_chapeter_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/ads/ads_index_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/book/book_preview_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/business/business_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/business/business_detail_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/business/business_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/choose_family_member.dart';
 import 'package:vande_mission/screen/afterlogin/view/collection_details.dart';
 import 'package:vande_mission/screen/afterlogin/view/collection_music_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/collection_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/collection_text_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/collection_video_scree.dart';
-import 'package:vande_mission/screen/afterlogin/view/department/department_index_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/event/event_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/department/view/department_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 import 'package:vande_mission/screen/afterlogin/view/panchayat/panchayat_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/post_detail_screen.dart';
@@ -60,7 +54,8 @@ class MyApp extends StatelessWidget {
       // home: const DepartmentDetail(),
       // home: inquirypage(),
       // home: LoginScreen(),
-      home:  HomePage(),
+      // home:  HomePage(),
+      home: Splash(),
     );
   }
 }

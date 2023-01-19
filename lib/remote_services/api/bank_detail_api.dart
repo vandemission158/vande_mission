@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/bank_detail/bank_detail_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/bank_detail/bank_detail_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/bank_detail/bank_detail_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/bank_detail/model/bank_detail_model.dart';
+import 'package:vande_mission/screen/afterlogin/bank_detail/model/bank_detail_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/bank_detail/model/bank_detail_store_model.dart';
 
 class BankDetailApi {
   final DioClient dioClient;

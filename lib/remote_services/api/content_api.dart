@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/content/document_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/content/music.model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/content/photo_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/content/text_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/content/video_model.dart';
+import 'package:vande_mission/screen/afterlogin/content/model/document_model.dart';
+import 'package:vande_mission/screen/afterlogin/content/model/music.model.dart';
+import 'package:vande_mission/screen/afterlogin/content/model/photo_model.dart';
+import 'package:vande_mission/screen/afterlogin/content/model/text_model.dart';
+import 'package:vande_mission/screen/afterlogin/content/model/video_model.dart';
 
 class ContentApi {
   final DioClient dioClient;

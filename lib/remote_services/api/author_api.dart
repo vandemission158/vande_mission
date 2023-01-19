@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/author/author_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/author/author_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/author/author_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/author/author_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/author/model/author_model.dart';
+import 'package:vande_mission/screen/afterlogin/author/model/author_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/author/model/author_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/author/model/author_update_model.dart';
 
 class AuthorApi {
   final DioClient dioClient;

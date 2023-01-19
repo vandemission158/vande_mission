@@ -44,8 +44,9 @@ class JobCreateFirstScreen extends StatelessWidget {
                 stepperSubTitle2: "",
                 stepperSubTitle3: "",
               ),
-              Obx(
-                () => Container(
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
                   decoration: BoxDecoration(color: dropdownColor, borderRadius: BorderRadius.circular(10)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
@@ -86,7 +87,7 @@ class JobCreateFirstScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        CustomDropDown(
+                        const CustomDropDown(
                           title: "Select Job Category",
                           color: white,
                           // onTap: () => controller.businessTypeBottom(context),
@@ -101,7 +102,7 @@ class JobCreateFirstScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        CustomDropDown(
+                        const CustomDropDown(
                           title: "Select Job Type",
                           color: white,
                           // onTap: () => controller.businessTypeBottom(context),
@@ -145,7 +146,7 @@ class JobCreateFirstScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        CustomDropDown(
+                        const CustomDropDown(
                           title: "Select Job Experience",
                           color: white,
                           // onTap: () => controller.businessTypeBottom(context),

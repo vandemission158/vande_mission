@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/broadcast/broadcast_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/broadcast/broadcast_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/broadcast/broadcast_model.dart';
+import 'package:vande_mission/screen/afterlogin/broadcast/model/broadcast_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/broadcast/model/broadcast_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/broadcast/model/broadcast_model.dart';
 
 class BroadcastApi {
   final DioClient dioClient;

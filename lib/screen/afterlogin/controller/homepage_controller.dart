@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vande_mission/helper/image_constant.dart';
-import 'package:vande_mission/screen/afterlogin/controller/add_group_controller.dart';
-import 'package:vande_mission/screen/afterlogin/controller/add_business_controller.dart';
+import 'package:vande_mission/screen/afterlogin/ads/view/ads_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/blog/view/blog_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/book/view/book_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/broadcast/view/broadcast_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/business/view/business_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/event/view/event_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/group/view/group_create_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/Add_book_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_ad_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
-import 'package:vande_mission/screen/afterlogin/view/business/business_create_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_event_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/create_job_first.dart';
 import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/job/job_create_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/new_product.dart';
 import 'package:vande_mission/screen/afterlogin/view/new_property_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_business_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/offer/offer_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/product/product_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/view/property/property_create_screen.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/app_color.dart';
@@ -27,15 +34,56 @@ class HomePageController extends GetxController {
       'id': 1,
       'title': "New Group",
       'images': group,
+      'screen': () => GroupCreateScreen(),
     },
-    {'id': 2, 'title': "New Business", 'images': business},
-    {'id': 3, 'title': "New Event", 'images': events},
-    {'id': 4, 'title': "New Book", 'images': book},
-    {'id': 5, 'title': "New Job", 'images': jobs},
-    {'id': 6, 'title': "New Blog", 'images': blogIcon},
-    {'id': 7, 'title': "New Product", 'images': productYellow},
-    {'id': 8, 'title': "New Property", 'images': properties},
-    {'id': 9, 'title': "New Offer", 'images': offerIcon},
+    {
+      'id': 2,
+      'title': "New Business",
+      'images': business,
+      'screen': () => BusinessCreateScreen(),
+    },
+    {
+      'id': 3,
+      'title': "New Event",
+      'images': events,
+      'screen': () => EventCreateFirstScreen(),
+    },
+    {
+      'id': 4,
+      'title': "New Book",
+      'images': book,
+      'screen': () => BookCreateScreen(),
+    },
+    {
+      'id': 5,
+      'title': "New Job",
+      'images': jobs,
+      'screen': () => JobCreateFirstScreen(),
+    },
+    {
+      'id': 6,
+      'title': "New Blog",
+      'images': blogIcon,
+      'screen': () => BlogCreateScreen(),
+    },
+    {
+      'id': 7,
+      'title': "New Product",
+      'images': productYellow,
+      'screen': () => ProductCreateScreen(),
+    },
+    {
+      'id': 8,
+      'title': "New Property",
+      'images': properties,
+      'screen': () => PropertyCreateScreen(),
+    },
+    {
+      'id': 9,
+      'title': "New Offer",
+      'images': offerIcon,
+      'screen': () => OfferCreateScreen(),
+    },
   ].obs;
 
   var colors = [green, bluePanchayat, yellowSociety, pinkVillage, lightblue, lightPink, yellowSociety, bluePanchayat, green].obs;
@@ -115,31 +163,34 @@ class HomePageController extends GetxController {
                       children: [
                         Expanded(
                           child: GestureDetector(
-                              //  onTap: () => onTap!(),
+                              onTap: () {
+                                Get.back();
+                                Get.to(() => const BroadCastCreateScreen());
+                              },
                               child: Container(
-                            width: Constants.width(context),
-                            height: 55,
-                            decoration: BoxDecoration(gradient: const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [orangeLight2, orangeLight1]), borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 14),
-                                      child: Image.asset(brodcastIcon),
+                                width: Constants.width(context),
+                                height: 55,
+                                decoration: BoxDecoration(gradient: const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [orangeLight2, orangeLight1]), borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 14),
+                                          child: Image.asset(brodcastIcon),
+                                        ),
+                                        Text(
+                                          "New Brodcast",
+                                          style: GoogleFonts.poppins(fontSize: 12, color: white, fontWeight: FontWeight.w500),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      "New Brodcast",
-                                      style: GoogleFonts.poppins(fontSize: 12, color: white, fontWeight: FontWeight.w500),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ),
-                          )),
+                              )),
                         ),
                         const SizedBox(
                           width: 20,
@@ -148,7 +199,7 @@ class HomePageController extends GetxController {
                           child: GestureDetector(
                               onTap: () {
                                 Get.back();
-                                onTapCreateNewAdvertisement();
+                                Get.to(() => AdsCreateFirstScreen());
                               },
                               child: Container(
                                 width: Constants.width(context),
@@ -187,42 +238,44 @@ class HomePageController extends GetxController {
                           itemBuilder: (BuildContext ctx, index) {
                             return GestureDetector(
                               onTap: () {
-                                if (bottomData[index]['id'] == 1) {
-                                  Get.back();
-                                  onTapCreateNewGroup();
-                                }
-                                if (bottomData[index]['id'] == 2) {
-                                  Get.back();
-                                  onTapCreateNewBussiness();
-                                }
-                                if (bottomData[index]['id'] == 3) {
-                                  Get.back();
-                                  onTapCreateNewEvent();
-                                }
-                                if (bottomData[index]['id'] == 4) {
-                                  Get.back();
-                                  onTapCreateNewBook();
-                                }
-                                if (bottomData[index]['id'] == 5) {
-                                  Get.back();
-                                  onTapCreateNewJob();
-                                }
-                                if (bottomData[index]['id'] == 6) {
-                                  Get.back();
-                                  onTapCreateNewBlog();
-                                }
-                                if (bottomData[index]['id'] == 7) {
-                                  Get.back();
-                                  onTapCreateNewProduct();
-                                }
-                                if (bottomData[index]['id'] == 8) {
-                                  Get.back();
-                                  onTapCreateNewProperty();
-                                }
-                                if (bottomData[index]['id'] == 9) {
-                                  Get.back();
-                                  onTapCreateNewOffer();
-                                }
+                                Get.back();
+                                Get.to(bottomData[index]['screen']);
+                                // if (bottomData[index]['id'] == 1) {
+                                //   Get.back();
+                                //   onTapCreateNewGroup();
+                                // }
+                                // if (bottomData[index]['id'] == 2) {
+                                //   Get.back();
+                                //   onTapCreateNewBussiness();
+                                // }
+                                // if (bottomData[index]['id'] == 3) {
+                                //   Get.back();
+                                //   onTapCreateNewEvent();
+                                // }
+                                // if (bottomData[index]['id'] == 4) {
+                                //   Get.back();
+                                //   onTapCreateNewBook();
+                                // }
+                                // if (bottomData[index]['id'] == 5) {
+                                //   Get.back();
+                                //   onTapCreateNewJob();
+                                // }
+                                // if (bottomData[index]['id'] == 6) {
+                                //   Get.back();
+                                //   onTapCreateNewBlog();
+                                // }
+                                // if (bottomData[index]['id'] == 7) {
+                                //   Get.back();
+                                //   onTapCreateNewProduct();
+                                // }
+                                // if (bottomData[index]['id'] == 8) {
+                                //   Get.back();
+                                //   onTapCreateNewProperty();
+                                // }
+                                // if (bottomData[index]['id'] == 9) {
+                                //   Get.back();
+                                //   onTapCreateNewOffer();
+                                // }
                               },
                               child: Container(
                                 alignment: Alignment.center,

@@ -14,10 +14,11 @@ class ProductCreateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.arrow_back,
-          color: black,
-        ),
+        // leading: const Icon(
+        //   Icons.arrow_back,
+        //   color: black,
+        // ),
+        foregroundColor: black,
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),

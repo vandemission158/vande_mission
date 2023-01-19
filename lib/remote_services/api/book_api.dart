@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/book_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/book_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/book_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/book/book_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/book/model/book_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/book/model/book_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/book/model/book_model.dart';
+import 'package:vande_mission/screen/afterlogin/book/model/book_update_model.dart';
 
 class BookApi {
   final DioClient dioClient;

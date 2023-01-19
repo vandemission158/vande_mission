@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/department/department_model.dart';
+import 'package:vande_mission/screen/afterlogin/department/model/department_model.dart';
 
 class DepartmentApi {
   final DioClient dioClient;

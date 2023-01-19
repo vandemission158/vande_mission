@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/business/business_inquiry_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/business/business_inquiry_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/business/business_inquiry_model.dart';
+import 'package:vande_mission/screen/afterlogin/business/model/business_inquiry_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/business/model/business_inquiry_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/business/model/business_inquiry_model.dart';
 
 class BusinessInquiryApi {
   final DioClient dioClient;

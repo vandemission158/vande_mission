@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/ads/ads_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/ads/ads_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/ads/ads_update_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/ads/ads_model.dart';
+import 'package:vande_mission/screen/afterlogin/ads/model/ads_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/ads/model/ads_model.dart';
+import 'package:vande_mission/screen/afterlogin/ads/model/ads_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/ads/model/ads_update_model.dart';
 
 class AdsApi {
   final DioClient dioClient;
