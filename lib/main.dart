@@ -16,8 +16,7 @@ import 'package:vande_mission/screen/afterlogin/location/view/village/village_de
 import 'package:vande_mission/screen/afterlogin/payment/view/payment_index_screen.dart';
 import 'package:vande_mission/screen/afterlogin/home/view/member_family_screen.dart';
 import 'package:vande_mission/screen/afterlogin/post/view/post_detail_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/componet_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/join_member_screen.dart';
+import 'package:vande_mission/screen/afterlogin/home/view/componet_screen.dart';
 import 'package:vande_mission/screen/splash/splash_screen.dart';
 
 // import 'package:vande_mission/widgets/initial_loader.dart';
