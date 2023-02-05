@@ -38,7 +38,6 @@ import '../../../widgets/text_label.dart';
 import '../../../widgets/user_time_row.dart';
 import '../../setting/profile.dart';
 import '../../setting/setting.dart';
-import '../business_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

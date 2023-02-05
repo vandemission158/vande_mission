@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_update_model.dart';
 
 class ProductApi {
   final DioClient dioClient;

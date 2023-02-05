@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 import 'package:vande_mission/screen/afterlogin/modal/relation_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/user/family_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/user/family_relation_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/user/family_relation_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/user/user_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/user/model/family_model.dart';
+import 'package:vande_mission/screen/afterlogin/user/model/family_relation_model.dart';
+import 'package:vande_mission/screen/afterlogin/user/model/family_relation_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/user/model/user_update_model.dart';
 import 'package:vande_mission/screen/common/model/family_member_model.dart';
 
 class UserApi {

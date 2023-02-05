@@ -9,18 +9,11 @@ import 'package:vande_mission/screen/afterlogin/broadcast/view/broadcast_create_
 import 'package:vande_mission/screen/afterlogin/business/view/business_create_screen.dart';
 import 'package:vande_mission/screen/afterlogin/event/view/event_create_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/group/view/group_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/Add_book_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_ad_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_blog.dart';
-import 'package:vande_mission/screen/afterlogin/view/create_event_first_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/create_job_first.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_group_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/job/job_create_first_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/new_product.dart';
-import 'package:vande_mission/screen/afterlogin/view/new_property_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/offer/offer_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/product/product_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/property/property_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/job/view/job_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/offer/view/offer_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/product/view/product_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/property/view/property_create_screen.dart';
+
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../helper/app_color.dart';
@@ -91,43 +84,43 @@ class HomePageController extends GetxController {
   var pollImages = [pollFirstImage, pollSecondImage];
 
   void onTapCreateNewAdvertisement() {
-    Get.to(() => AddAdsScreen());
+    // Get.to(() => AddAdsScreen());
   }
 
   void onTapCreateNewGroup() {
-    Get.to(() => AddGroupScreen());
+    // Get.to(() => AddGroupScreen());
   }
 
   void onTapCreateNewBussiness() {
-    Get.to(() => BusinessCreateScreen());
+    // Get.to(() => BusinessCreateScreen());
   }
 
   void onTapCreateNewEvent() {
-    Get.to(() => CreateEventFirstScreen());
+    // Get.to(() => CreateEventFirstScreen());
   }
 
   void onTapCreateNewBook() {
-    Get.to(() => AddBookScreen());
+    // Get.to(() => AddBookScreen());
   }
 
   void onTapCreateNewJob() {
-    Get.to(() => CreateJobFirst());
+    // Get.to(() => CreateJobFirst());
   }
 
   void onTapCreateNewBlog() {
-    Get.to(() => AddBlogScreen());
+    // Get.to(() => AddBlogScreen());
   }
 
   void onTapCreateNewProduct() {
-    Get.to(() => NewProductScreen());
+    // Get.to(() => NewProductScreen());
   }
 
   void onTapCreateNewProperty() {
-    Get.to(() => NewPropertyScreen());
+    // Get.to(() => NewPropertyScreen());
   }
 
   void onTapCreateNewOffer() {
-    Get.to(() => AddGroupScreen());
+    // Get.to(() => AddGroupScreen());
   }
 
   Future<Object?> bottomSheetFirstname(BuildContext context) {

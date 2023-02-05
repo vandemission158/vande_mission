@@ -5,11 +5,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../../helper/app_color.dart';
-import '../../../../../helper/constant.dart';
-import '../../../../../helper/image_constant.dart';
-import '../../../../../widgets/card_button.dart';
-import '../../../../../widgets/text_label.dart';
+import '../../../../helper/app_color.dart';
+import '../../../../helper/constant.dart';
+import '../../../../helper/image_constant.dart';
+import '../../../../widgets/card_button.dart';
+import '../../../../widgets/text_label.dart';
 
 class AdsIndexScreen extends StatelessWidget {
   const AdsIndexScreen({Key? key}) : super(key: key);

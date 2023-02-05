@@ -2,13 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 import 'package:vande_mission/remote_services/dio_exception.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/country_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/district_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/panchayat_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/society_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/state_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/sub_district_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/location/village_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/country_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/district_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/panchayat_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/society_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/state_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/sub_district_model.dart';
+import 'package:vande_mission/screen/afterlogin/location/model/village_model.dart';
 
 class LocationApi {
   final DioClient dioClient;

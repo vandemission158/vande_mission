@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/controller/ads/controller/ads_controller.dart';
+import 'package:vande_mission/screen/afterlogin/ads/controller/ads_controller.dart';
+import 'package:vande_mission/screen/afterlogin/ads/view/ads_create_second_screen.dart';
 import 'package:vande_mission/screen/afterlogin/controller/componet_screen_controller.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_ads_second_screen.dart';
 import 'package:vande_mission/widgets/custom_dropdown.dart';
 import 'package:vande_mission/widgets/custom_textfield.dart';
 import 'package:vande_mission/widgets/tap_to_upload_button.dart';
 
-import '../../../../../helper/app_color.dart';
-import '../../../../../widgets/custom_button.dart';
-import '../../../../../widgets/custom_stepper.dart';
-import '../../../../../widgets/text_label.dart';
-import '../../../controller/stepper_controller.dart';
+import '../../../../helper/app_color.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/custom_stepper.dart';
+import '../../../../widgets/text_label.dart';
+import '../../controller/stepper_controller.dart';
 
 class AdsCreateFirstScreen extends StatelessWidget {
   AdsCreateFirstScreen({Key? key}) : super(key: key);
@@ -222,7 +222,7 @@ class AdsCreateFirstScreen extends StatelessWidget {
                                   color: blue,
                                   onTap: () {
                                     stepperController.stepperIndex = 2;
-                                    Get.to(() => CreateAdSecondScreen());
+                                    Get.to(() => AdsCreateSecondScreen());
                                   },
                                 ),
                               ),

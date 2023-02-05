@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/constant.dart';
-import 'package:vande_mission/screen/afterlogin/controller/modal/view/payment.dart';
 import 'package:vande_mission/screen/setting/profile_controller.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
@@ -51,28 +50,18 @@ class _ProfileState extends State<Profile> {
                     children: [
                       Container(
                         height: 95,
-                        decoration: const BoxDecoration(
-                            color: greenlight,
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15))),
+                        decoration: const BoxDecoration(color: greenlight, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
                       ),
                       Container(
                         height: 95,
-                        decoration: const BoxDecoration(
-                            color: white,
-                            borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(15),
-                                bottomRight: Radius.circular(15))),
+                        decoration: const BoxDecoration(color: white, borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15))),
                       ),
                     ],
                   ),
                   Container(
                       width: 150,
                       height: 150,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(120),
-                          border: Border.all(width: 1, color: orange)),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(120), border: Border.all(width: 1, color: orange)),
                       child: Center(
                         child: Image.asset(
                           profileUser,
@@ -162,9 +151,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     Container(
                         height: 56,
-                        decoration: BoxDecoration(
-                            color: lightWhite,
-                            borderRadius: BorderRadius.circular(15)),
+                        decoration: BoxDecoration(color: lightWhite, borderRadius: BorderRadius.circular(15)),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Row(
@@ -178,8 +165,7 @@ class _ProfileState extends State<Profile> {
                                   ),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: const [
                                       TextLabel(
                                         title: "Profile info",
@@ -199,9 +185,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     Container(
                         height: 56,
-                        decoration: BoxDecoration(
-                            color: lightWhite,
-                            borderRadius: BorderRadius.circular(15)),
+                        decoration: BoxDecoration(color: lightWhite, borderRadius: BorderRadius.circular(15)),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Row(
@@ -215,8 +199,7 @@ class _ProfileState extends State<Profile> {
                                   ),
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: const [
                                       TextLabel(
                                         title: "My Skills & Talent",
@@ -236,13 +219,11 @@ class _ProfileState extends State<Profile> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.to(() => PaymentScreen());
+                        // Get.to(() => PaymentScreen());
                       },
                       child: Container(
                           height: 56,
-                          decoration: BoxDecoration(
-                              color: lightWhite,
-                              borderRadius: BorderRadius.circular(15)),
+                          decoration: BoxDecoration(color: lightWhite, borderRadius: BorderRadius.circular(15)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: Row(
@@ -255,10 +236,8 @@ class _ProfileState extends State<Profile> {
                                       width: 20,
                                     ),
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: const [
                                         TextLabel(
                                           title: "Payment Info.",
@@ -281,9 +260,7 @@ class _ProfileState extends State<Profile> {
                       onTap: () => controller.logoutAPICall(),
                       child: Container(
                           height: 56,
-                          decoration: BoxDecoration(
-                              color: lightWhite,
-                              borderRadius: BorderRadius.circular(15)),
+                          decoration: BoxDecoration(color: lightWhite, borderRadius: BorderRadius.circular(15)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 20, right: 20),
                             child: Row(
@@ -296,10 +273,8 @@ class _ProfileState extends State<Profile> {
                                       width: 20,
                                     ),
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: const [
                                         TextLabel(
                                           title: "Logout",
@@ -350,19 +325,14 @@ class _ProfileState extends State<Profile> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset(controller.memberList[index]
-                                          ["image"]
-                                      .toString()),
+                                  Image.asset(controller.memberList[index]["image"].toString()),
                                   SizedBox(
                                     width: 100,
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         TextLabel(
-                                          title: controller.memberList[index]
-                                                  ["name"]
-                                              .toString(),
+                                          title: controller.memberList[index]["name"].toString(),
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
                                           color: missonColor,
@@ -376,8 +346,7 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
                                   TextLabel(
-                                    title: controller.memberList[index]["sex"]
-                                        .toString(),
+                                    title: controller.memberList[index]["sex"].toString(),
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
                                     color: grey,

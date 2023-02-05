@@ -1,18 +1,18 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_reply_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_reply_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_reply_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_reply_store.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_comment_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_like_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/post/post_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_reply_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_reply_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_reply_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_reply_store.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_comment_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_like_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/post/model/post_model.dart';
 
 class PostApi {
   final DioClient dioClient;

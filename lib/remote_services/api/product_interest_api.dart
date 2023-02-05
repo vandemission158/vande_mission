@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_interest_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_interest_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/product/product_interest_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_interest_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_interest_model.dart';
+import 'package:vande_mission/screen/afterlogin/product/model/product_interest_store_model.dart';
 
 class ProductInterestApi {
   final DioClient dioClient;

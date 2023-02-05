@@ -4,7 +4,7 @@ import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/api/business_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 import 'package:vande_mission/screen/afterlogin/business/model/business_model.dart';
-import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
+import 'package:vande_mission/screen/afterlogin/category/controller/type_of_category_controller.dart';
 
 class BusinessController extends GetxController {
   final TypeOfCategoryController typeOfCategoryController = Get.put(TypeOfCategoryController());

@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/remote_services/dio_exception.dart';
-import 'package:vande_mission/screen/afterlogin/modal/AddGroupModal.dart';
 import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
 import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
@@ -40,12 +39,9 @@ class RemoteService {
     }
   }
 
-  Future<StateModal?> getStateAPI(
-      Map formData, String nextpage, String q) async {
+  Future<StateModal?> getStateAPI(Map formData, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -60,13 +56,10 @@ class RemoteService {
     }
   }
 
-  Future<CountryModal?> getCountryAPI(
-      Map formData, String nextpage, String q) async {
+  Future<CountryModal?> getCountryAPI(Map formData, String nextpage, String q) async {
     try {
       print("remot file12324641312");
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
 
       var response = await dio.post(url, data: formData);
       print(response);
@@ -86,12 +79,9 @@ class RemoteService {
     }
   }
 
-  Future<DistrictModal?> getDistrictAPI(
-      Map formData, String nextpage, String q) async {
+  Future<DistrictModal?> getDistrictAPI(Map formData, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -106,12 +96,9 @@ class RemoteService {
     }
   }
 
-  Future<VillageModal?> getVillageAPI(
-      Map formData, String nextpage, String q) async {
+  Future<VillageModal?> getVillageAPI(Map formData, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -126,12 +113,9 @@ class RemoteService {
     }
   }
 
-  Future<SocietyModal?> getSocietyAPI(
-      Map formData, String nextpage, String q) async {
+  Future<SocietyModal?> getSocietyAPI(Map formData, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -148,8 +132,7 @@ class RemoteService {
 
   Future<AddSocietyModal?> addSociety(Map formData) async {
     try {
-      var response =
-          await dio.post(baseUrl + formData["action"], data: formData);
+      var response = await dio.post(baseUrl + formData["action"], data: formData);
       if (response.statusCode == 200) {
         var jsonString = response.data;
 
@@ -164,8 +147,7 @@ class RemoteService {
 
   Future<AddFamilyModal?> addFamilyApi(Map formData) async {
     try {
-      var response =
-          await dio.post(baseUrl + formData["action"], data: formData);
+      var response = await dio.post(baseUrl + formData["action"], data: formData);
       if (response.statusCode == 200) {
         var jsonString = response.data;
 
@@ -178,12 +160,9 @@ class RemoteService {
     }
   }
 
-  Future<CasteModal?> getCasteAPI(
-      Map formData, String nextpage, String q) async {
+  Future<CasteModal?> getCasteAPI(Map formData, String nextpage, String q) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString() + "&q=$q"
-          : baseUrl + formData["action"] + "?q=$q";
+      var url = nextpage.isNotEmpty ? nextpage.toString() + "&q=$q" : baseUrl + formData["action"] + "?q=$q";
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -198,19 +177,7 @@ class RemoteService {
     }
   }
 
-  Future<AddFamilyMemberModal?> addFamilyMemberAPI(
-      String firstName,
-      String lastName,
-      String fatherName,
-      String motherName,
-      String genderName,
-      String dob,
-      String aadhaarCardNumber,
-      String countryCode,
-      String phoneNumber,
-      String otpNumber,
-      String imagePathFront,
-      String imagePathBack) async {
+  Future<AddFamilyMemberModal?> addFamilyMemberAPI(String firstName, String lastName, String fatherName, String motherName, String genderName, String dob, String aadhaarCardNumber, String countryCode, String phoneNumber, String otpNumber, String imagePathFront, String imagePathBack) async {
     String fileNameFront = imagePathFront.split('/').last;
     String fileNameBack = imagePathBack.split('/').last;
 
@@ -242,8 +209,7 @@ class RemoteService {
     });
 
     try {
-      var response =
-          await dio.post(baseUrl + addFamilyMemberAPIKey, data: data);
+      var response = await dio.post(baseUrl + addFamilyMemberAPIKey, data: data);
       if (response.statusCode == 200) {
         var jsonString = response.data;
         return AddFamilyMemberModal.fromJson(jsonString);
@@ -260,9 +226,7 @@ class RemoteService {
     String nextpage,
   ) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString()
-          : baseUrl + formData["action"];
+      var url = nextpage.isNotEmpty ? nextpage.toString() : baseUrl + formData["action"];
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -282,9 +246,7 @@ class RemoteService {
     String nextpage,
   ) async {
     try {
-      var url = nextpage.isNotEmpty
-          ? nextpage.toString()
-          : baseUrl + formData["action"];
+      var url = nextpage.isNotEmpty ? nextpage.toString() : baseUrl + formData["action"];
       var response = await dio.post(url, data: formData);
 
       if (response.statusCode == 200) {
@@ -316,28 +278,9 @@ class RemoteService {
     }
   }
 
-  Future<AddGroupModal?> addGroupyApi(Map formData) async {
-    print("first time calll block");
-    try {
-      print("first time calll try ");
-      var response = await dio.post(baseUrl + addGroupKey, data: formData);
-      print("first time calll");
-      if (response.statusCode == 200) {
-        var jsonString = response.data;
-
-        return AddGroupModal.fromJson(jsonString);
-      } else {
-        return null;
-      }
-    } on DioError {
-      return null;
-    }
-  }
-
   Future<LogoutModal?> logoutApi(Map formData) async {
     try {
-      var response =
-          await dio.post(baseUrl + formData["action"], data: formData);
+      var response = await dio.post(baseUrl + formData["action"], data: formData);
       if (response.statusCode == 200) {
         var jsonString = response.data;
         print("dsad" + response.statusCode.toString());

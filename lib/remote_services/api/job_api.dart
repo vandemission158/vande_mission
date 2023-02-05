@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_interest_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/job/job_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_interest_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_interest_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_interest_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_model.dart';
+import 'package:vande_mission/screen/afterlogin/job/model/job_update_model.dart';
 
 class JobApi {
   final DioClient dioClient;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/controller/group/group_controller.dart';
+import 'package:vande_mission/screen/afterlogin/group/controller/group_controller.dart';
 import 'package:vande_mission/screen/beforelogin/controller/register_new_family_controller.dart';
 import 'package:vande_mission/widgets/custom_textfield.dart';
 

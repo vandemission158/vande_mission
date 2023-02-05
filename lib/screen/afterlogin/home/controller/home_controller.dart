@@ -9,10 +9,10 @@ import 'package:vande_mission/screen/afterlogin/broadcast/view/broadcast_create_
 import 'package:vande_mission/screen/afterlogin/business/view/business_create_screen.dart';
 import 'package:vande_mission/screen/afterlogin/event/view/event_create_first_screen.dart';
 import 'package:vande_mission/screen/afterlogin/group/view/group_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/job/job_create_first_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/offer/offer_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/product/product_create_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/property/property_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/job/view/job_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/offer/view/offer_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/product/view/product_create_screen.dart';
+import 'package:vande_mission/screen/afterlogin/property/view/property_create_screen.dart';
 import 'package:vande_mission/widgets/text_label.dart';
 
 import '../../../../helper/app_color.dart';

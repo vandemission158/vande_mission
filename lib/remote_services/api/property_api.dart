@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/property/property_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/property/property_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/property/property_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/property/property_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/property/model/property_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/property/model/property_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/property/model/property_model.dart';
+import 'package:vande_mission/screen/afterlogin/property/model/property_update_model.dart';
 
 class PropertyApi {
   final DioClient dioClient;

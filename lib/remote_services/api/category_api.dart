@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/category/type_of_category_model.dart';
+import 'package:vande_mission/screen/afterlogin/category/model/type_of_category_model.dart';
 
 class CategoryApi {
   final DioClient dioClient;

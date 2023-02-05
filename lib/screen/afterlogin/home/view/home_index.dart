@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:vande_mission/helper/app_color.dart';
-import 'package:vande_mission/screen/afterlogin/controller/home/home_controller.dart';
+import 'package:vande_mission/screen/afterlogin/home/controller/home_controller.dart';
 import 'package:vande_mission/screen/afterlogin/view/componet_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/search_screen.dart';
 import 'package:vande_mission/widgets/advertiesment_card.dart';
@@ -37,7 +37,6 @@ import '../../../../widgets/text_label.dart';
 import '../../../../widgets/user_time_row.dart';
 import '../../../setting/profile.dart';
 import '../../../setting/setting.dart';
-import '../../business_details.dart';
 
 class HomeIndex extends StatefulWidget {
   const HomeIndex({Key? key}) : super(key: key);

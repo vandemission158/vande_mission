@@ -4,7 +4,7 @@ import 'package:vande_mission/remote_services/dio_client.dart';
 import 'package:vande_mission/remote_services/dio_exception.dart';
 import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
 import 'package:vande_mission/screen/afterlogin/modal/setting_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/user/auto_login_model.dart';
+import 'package:vande_mission/screen/afterlogin/user/model/auto_login_model.dart';
 
 class AuthApi {
   final DioClient dioClient;

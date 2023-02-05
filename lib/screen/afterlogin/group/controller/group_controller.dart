@@ -10,7 +10,6 @@ import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/api/group_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/AddGroupModal.dart';
 import 'package:vande_mission/screen/afterlogin/view/homepage.dart';
 import 'package:vande_mission/widgets/bottom_sheet_list.dart';
 import 'package:vande_mission/widgets/text_label.dart';
@@ -26,8 +25,6 @@ class GroupController extends GetxController {
   var focusNode = FocusNode();
   var hideKeyboard = false.obs;
   var category = "Address".obs;
-
-  final addGroupModal = AddGroupModal().obs;
 
   late StreamSubscription<bool> subcription;
 

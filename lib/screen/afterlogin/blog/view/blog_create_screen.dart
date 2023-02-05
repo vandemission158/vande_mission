@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/controller/blog/blog_controller.dart';
+import 'package:vande_mission/screen/afterlogin/blog/controller/blog_controller.dart';
 import 'package:vande_mission/screen/afterlogin/controller/stepper_controller.dart';
 
 import '../../../../helper/app_color.dart';

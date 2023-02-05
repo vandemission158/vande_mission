@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_member_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_member_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_member_request_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_member_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/group/modal/group_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_member_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_member_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_member_request_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_member_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/group/model/group_update_model.dart';
 
 class GroupApi {
   final DioClient dioClient;

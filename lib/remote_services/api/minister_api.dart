@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/department/minister_model.dart';
+import 'package:vande_mission/screen/afterlogin/department/model/minister_model.dart';
 
 class MinisterApi {
   final DioClient dioClient;

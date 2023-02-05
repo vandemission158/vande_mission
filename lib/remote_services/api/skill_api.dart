@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/skill/skill_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/skill/skill_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/skill/model/skill_model.dart';
+import 'package:vande_mission/screen/afterlogin/skill/model/skill_store_model.dart';
 
 class SkillApi {
   final DioClient dioClient;

@@ -8,7 +8,7 @@ import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/helper/image_constant.dart';
 import 'package:vande_mission/screen/afterlogin/business/controller/business_controller.dart';
-import 'package:vande_mission/screen/afterlogin/controller/category/type_of_category_controller.dart';
+import 'package:vande_mission/screen/afterlogin/category/controller/type_of_category_controller.dart';
 import 'package:vande_mission/widgets/network_image_widget.dart';
 import 'package:vande_mission/widgets/shimmer_effect.dart';
 import 'package:vande_mission/widgets/text_label.dart';

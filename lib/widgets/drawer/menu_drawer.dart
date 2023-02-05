@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/controller/menu/menu_drawer_controller.dart';
+import 'package:vande_mission/screen/afterlogin/menu/controller/menu_drawer_controller.dart';
 
 import '../../helper/app_color.dart';
 import '../../helper/constant.dart';

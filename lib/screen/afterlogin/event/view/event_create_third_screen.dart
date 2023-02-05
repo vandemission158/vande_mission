@@ -5,6 +5,7 @@ import 'package:vande_mission/screen/afterlogin/controller/componet_screen_contr
 import 'package:vande_mission/screen/afterlogin/controller/stepper_controller.dart';
 import 'package:vande_mission/screen/afterlogin/event/controller/event_controller.dart';
 import 'package:vande_mission/screen/afterlogin/event/view/event_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/event/view/event_create_second_screen.dart';
 
 import '../../../../helper/app_color.dart';
 import '../../../../helper/image_constant.dart';
@@ -283,7 +284,7 @@ class EventCreateThirdScreen extends StatelessWidget {
                   color: blue,
                   onTap: () {
                     stepperController.stepperIndex = 1;
-                    Get.to(() => EventCreateFirstScreen());
+                    // Get.to(() => EventCreateSecondScreen());
                   },
                 ),
               ),

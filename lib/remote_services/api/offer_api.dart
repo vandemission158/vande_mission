@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/offer/offer_store_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/offer/offer_delete_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/offer/offer_model.dart';
-import 'package:vande_mission/screen/afterlogin/modal/offer/offer_update_model.dart';
+import 'package:vande_mission/screen/afterlogin/offer/model/offer_store_model.dart';
+import 'package:vande_mission/screen/afterlogin/offer/model/offer_delete_model.dart';
+import 'package:vande_mission/screen/afterlogin/offer/model/offer_model.dart';
+import 'package:vande_mission/screen/afterlogin/offer/model/offer_update_model.dart';
 
 class OfferApi {
   final DioClient dioClient;

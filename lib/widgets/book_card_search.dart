@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/view/book_preview_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/view_book_screen.dart';
-
+import 'package:vande_mission/screen/afterlogin/book_chapter/view/book_chapter_index_screen.dart';
 import '../helper/app_color.dart';
 import '../helper/constant.dart';
 import '../helper/image_constant.dart';
@@ -16,10 +14,7 @@ class BookCardSearch extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
       child: Container(
-        decoration: BoxDecoration(
-            color: black.withOpacity(0.02),
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: darkGrey.withOpacity(0.1))),
+        decoration: BoxDecoration(color: black.withOpacity(0.02), borderRadius: BorderRadius.circular(15), border: Border.all(color: darkGrey.withOpacity(0.1))),
         child: Column(
           children: [
             Padding(
@@ -38,15 +33,11 @@ class BookCardSearch extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                                begin: Alignment.centerLeft,
-                                end: Alignment.centerRight,
-                                colors: [linearPurple, linearpink]),
+                            gradient: const LinearGradient(begin: Alignment.centerLeft, end: Alignment.centerRight, colors: [linearPurple, linearpink]),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: const Padding(
-                            padding: EdgeInsets.only(
-                                right: 10, left: 10, top: 5, bottom: 5),
+                            padding: EdgeInsets.only(right: 10, left: 10, top: 5, bottom: 5),
                             child: TextLabel(
                               title: 'Book',
                               fontSize: 10,
@@ -118,8 +109,7 @@ class BookCardSearch extends StatelessWidget {
                     ),
                   ),
                   const TextLabel(
-                    title:
-                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and More',
+                    title: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text of the printing and More',
                     fontSize: 13,
                     color: black,
                     fontWeight: FontWeight.w400,
@@ -148,13 +138,13 @@ class BookCardSearch extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
-                        onTap: (){Get.to(()=>ViewBookScreen());},
+                        onTap: () {
+                          Get.to(() => BookChapterIndexScreen());
+                        },
                         child: Container(
                           height: 55,
                           width: Constants.width(context) / 2,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: vandeColor),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), color: vandeColor),
                           child: const Center(
                             child: TextLabel(
                               title: "Buy Now",
@@ -167,15 +157,12 @@ class BookCardSearch extends StatelessWidget {
                       ),
                     ],
                   ),
-                 
-                 
                 ],
               ),
             ),
             const SizedBox(
               height: 15,
             ),
-            
           ],
         ),
       ),

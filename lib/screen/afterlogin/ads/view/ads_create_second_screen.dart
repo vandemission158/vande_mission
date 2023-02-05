@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_ad_screen.dart';
-import 'package:vande_mission/screen/afterlogin/view/add_ads_third_screen.dart';
-
-import '../../../../../helper/app_color.dart';
-import '../../../../../widgets/custom_button.dart';
-import '../../../../../widgets/custom_stepper.dart';
-import '../../../../../widgets/custom_textfield.dart';
-import '../../../../../widgets/text_label.dart';
-import '../../../controller/componet_screen_controller.dart';
-import '../../../controller/stepper_controller.dart';
+import 'package:vande_mission/screen/afterlogin/ads/view/ads_create_first_screen.dart';
+import 'package:vande_mission/screen/afterlogin/ads/view/ads_create_third_screen.dart';
+import '../../../../helper/app_color.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/custom_stepper.dart';
+import '../../../../widgets/custom_textfield.dart';
+import '../../../../widgets/text_label.dart';
+import '../../controller/componet_screen_controller.dart';
+import '../../controller/stepper_controller.dart';
 
 class AdsCreateSecondScreen extends StatelessWidget {
   AdsCreateSecondScreen({Key? key}) : super(key: key);
@@ -209,7 +208,7 @@ class AdsCreateSecondScreen extends StatelessWidget {
                                 color: blue,
                                 onTap: () {
                                   stepperController.stepperIndex = 1;
-                                  Get.to(AddAdsScreen());
+                                  Get.to(AdsCreateFirstScreen());
                                 },
                               ),
                             ),
@@ -223,7 +222,7 @@ class AdsCreateSecondScreen extends StatelessWidget {
                                 color: blue,
                                 onTap: () {
                                   stepperController.stepperIndex = 3;
-                                  Get.to(AddAdThirdScreen());
+                                  Get.to(AdsCreateThirdScreen());
                                 },
                               ),
                             ),
