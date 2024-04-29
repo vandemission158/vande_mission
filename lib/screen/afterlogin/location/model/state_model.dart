@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 import 'package:vande_mission/screen/afterlogin/relation_model/location/country.dart';
 
 StateModel stateModelFromJson(String? str) => StateModel.fromJson(json.decode(str!));

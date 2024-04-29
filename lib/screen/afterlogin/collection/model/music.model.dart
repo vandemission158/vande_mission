@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 
 MusicModel musicModelFromJson(String? str) => MusicModel.fromJson(json.decode(str!));
 

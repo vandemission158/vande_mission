@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 import 'package:vande_mission/screen/afterlogin/relation_model/category/typeofcategory.dart';
 import 'package:vande_mission/screen/afterlogin/relation_model/user/createdby.dart';
 

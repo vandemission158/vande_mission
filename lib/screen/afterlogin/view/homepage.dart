@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:vande_mission/helper/app_color.dart';
 import 'package:vande_mission/screen/afterlogin/controller/homepage_controller.dart';
-import 'package:vande_mission/screen/afterlogin/view/componet_screen.dart';
+import 'package:vande_mission/screen/afterlogin/home/view/componet_screen.dart';
 import 'package:vande_mission/screen/afterlogin/view/search_screen.dart';
 import 'package:vande_mission/widgets/advertiesment_card.dart';
 import 'package:vande_mission/widgets/announcement_card.dart';

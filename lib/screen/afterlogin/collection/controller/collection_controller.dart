@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:vande_mission/helper/constant.dart';
-import 'package:vande_mission/remote_services/api/content_api.dart';
+import 'package:vande_mission/remote_services/api/collection_api.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
 
 class CollectionController extends GetxController {

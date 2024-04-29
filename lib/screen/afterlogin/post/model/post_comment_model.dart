@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 import 'package:vande_mission/screen/afterlogin/relation_model/user/member.dart';
 
 PostCommentModel postCommentModelFromJson(String? str) => PostCommentModel.fromJson(json.decode(str!));

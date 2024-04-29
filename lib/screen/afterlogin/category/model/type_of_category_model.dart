@@ -5,7 +5,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 import 'package:vande_mission/screen/afterlogin/relation_model/category/category.dart';
 
 TypeOfCategoryModel typeOfCategoryModelFromJson(String? str) => TypeOfCategoryModel.fromJson(json.decode(str!));

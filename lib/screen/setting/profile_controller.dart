@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
+import 'package:vande_mission/screen/afterlogin/model/logout_modal.dart';
 // import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
 import '../../helper/constant.dart';

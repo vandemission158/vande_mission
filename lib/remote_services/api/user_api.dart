@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/helper/constant.dart';
 import 'package:vande_mission/remote_services/dio_client.dart';
-import 'package:vande_mission/screen/afterlogin/modal/relation_model.dart';
+import 'package:vande_mission/screen/afterlogin/model/relation_model.dart';
 import 'package:vande_mission/screen/afterlogin/user/model/family_model.dart';
 import 'package:vande_mission/screen/afterlogin/user/model/family_relation_model.dart';
 import 'package:vande_mission/screen/afterlogin/user/model/family_relation_store_model.dart';

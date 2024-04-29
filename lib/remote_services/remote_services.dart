@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:vande_mission/remote_services/dio_exception.dart';
-import 'package:vande_mission/screen/afterlogin/modal/logout_modal.dart';
+import 'package:vande_mission/screen/afterlogin/model/logout_modal.dart';
 import 'package:vande_mission/screen/beforelogin/modal/login_modal.dart';
 
 import '../helper/constant.dart';

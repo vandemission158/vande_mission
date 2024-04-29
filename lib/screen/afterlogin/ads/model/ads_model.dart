@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:vande_mission/screen/afterlogin/modal/pagination/link.dart';
+import 'package:vande_mission/screen/afterlogin/model/pagination/link.dart';
 
 AdsModel adsModelFromJson(String? str) => AdsModel.fromJson(json.decode(str!));
 
